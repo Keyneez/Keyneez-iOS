@@ -19,6 +19,9 @@
 		B14D10C12959D2BC0004946F /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B14D10C02959D2BC0004946F /* Moya */; };
 		B14D10C42959D3070004946F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B14D10C32959D3070004946F /* Kingfisher */; };
 		B14D10C72959D3720004946F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B14D10C62959D3720004946F /* SnapKit */; };
+		B1B21D0E295C985C0083D9EE /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D0D295C985C0083D9EE /* Toast */; };
+		B1B21D11295C99280083D9EE /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D10295C99280083D9EE /* FloatingPanel */; };
+		B1B21D14295C9C4B0083D9EE /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D13295C9C4B0083D9EE /* Floaty */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 				B14D10C42959D3070004946F /* Kingfisher in Frameworks */,
 				B14D10C72959D3720004946F /* SnapKit in Frameworks */,
 				B14D10C12959D2BC0004946F /* Moya in Frameworks */,
+				B1B21D14295C9C4B0083D9EE /* Floaty in Frameworks */,
+				B1B21D11295C99280083D9EE /* FloatingPanel in Frameworks */,
+				B1B21D0E295C985C0083D9EE /* Toast in Frameworks */,
 				B14D10BE2959D26C0004946F /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +271,9 @@
 				B14D10C02959D2BC0004946F /* Moya */,
 				B14D10C32959D3070004946F /* Kingfisher */,
 				B14D10C62959D3720004946F /* SnapKit */,
+				B1B21D0D295C985C0083D9EE /* Toast */,
+				B1B21D10295C99280083D9EE /* FloatingPanel */,
+				B1B21D13295C9C4B0083D9EE /* Floaty */,
 			);
 			productName = Keyneez;
 			productReference = B14D107A2959C7980004946F /* Keyneez.app */;
@@ -343,6 +352,9 @@
 				B14D10BF2959D2BC0004946F /* XCRemoteSwiftPackageReference "Moya" */,
 				B14D10C22959D3070004946F /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				B14D10C52959D3710004946F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+				B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty" */,
 			);
 			productRefGroup = B14D107B2959C7980004946F /* Products */;
 			projectDirPath = "";
@@ -559,7 +571,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 693WY75AQY;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Keyneez/Info.plist;
+				INFOPLIST_FILE = Keyneez/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
@@ -591,7 +603,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 693WY75AQY;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Keyneez/Info.plist;
+				INFOPLIST_FILE = Keyneez/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
@@ -764,6 +776,30 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kciter/Floaty.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -786,6 +822,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B14D10C52959D3710004946F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		B1B21D0D295C985C0083D9EE /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		B1B21D10295C99280083D9EE /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
+		B1B21D13295C9C4B0083D9EE /* Floaty */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty" */;
+			productName = Floaty;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
