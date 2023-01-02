@@ -47,7 +47,7 @@ extension KeyneezTabbarController {
   private func makeViewController(viewController: UIViewController.Type, title: String, imageName: String) -> UINavigationController {
     let viewController = viewController.init()
     let nav = UINavigationController(rootViewController: viewController)
-    nav.tabBarItem = UITabBarItem(title: title, image: UIImage(named: imageName), selectedImage: nil)
+    nav.tabBarItem = (imageName == "id_card_tabbar") ? UITabBarItem(title: title, image: UIImage(named: imageName)?.withRenderingMode(.alwaysOriginal), selectedImage: nil) : UITabBarItem(title: title, image: UIImage(named: imageName), selectedImage: nil)
     return nav
   }
 }
