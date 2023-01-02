@@ -17,10 +17,12 @@ final class KeyneezTabbarController: UITabBarController {
   
   private func assignTabbar() {
     let tabBar = { () -> KeyneezTabar in
-             let tabBar = KeyneezTabar()
-             tabBar.delegate = self
-             return tabBar
-         }()
+      let tabBar = KeyneezTabar()
+      tabBar.delegate = self
+      tabBar.unselectedItemTintColor = .gray400
+      tabBar.tintColor = .gray900
+      return tabBar
+    }()
     self.setValue(tabBar, forKey: "tabBar")
   }
 }
