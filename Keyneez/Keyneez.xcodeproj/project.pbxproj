@@ -27,6 +27,7 @@
 		B14D10C12959D2BC0004946F /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B14D10C02959D2BC0004946F /* Moya */; };
 		B14D10C42959D3070004946F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B14D10C32959D3070004946F /* Kingfisher */; };
 		B14D10C72959D3720004946F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B14D10C62959D3720004946F /* SnapKit */; };
+		B184089429632CBD005E4802 /* KeyneezTextFieldFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B184089329632CBD005E4802 /* KeyneezTextFieldFactory.swift */; };
 		B1B21D0E295C985C0083D9EE /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D0D295C985C0083D9EE /* Toast */; };
 		B1B21D11295C99280083D9EE /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D10295C99280083D9EE /* FloatingPanel */; };
 		B1B21D14295C9C4B0083D9EE /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D13295C9C4B0083D9EE /* Floaty */; };
@@ -77,6 +78,7 @@
 		B14D109E2959C79A0004946F /* KeyneezUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezUITests.swift; sourceTree = "<group>"; };
 		B14D10A02959C79A0004946F /* KeyneezUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B14D10AE2959CA080004946F /* KeyneezTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbarController.swift; sourceTree = "<group>"; };
+		B184089329632CBD005E4802 /* KeyneezTextFieldFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTextFieldFactory.swift; sourceTree = "<group>"; };
 		B1B21D16295DE0660083D9EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbar.swift; sourceTree = "<group>"; };
 		B8C02F042962F5D4005612CE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 			children = (
 				0269E22B2961EE2300309E8A /* UIButton+Extension.swift */,
 				022F68B42962D10500F32CE1 /* UITextField+Extension.swift */,
+				B184089329632CBD005E4802 /* KeyneezTextFieldFactory.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */,
 				0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */,
 				022F68B52962D10500F32CE1 /* UITextField+Extension.swift in Sources */,
+				B184089429632CBD005E4802 /* KeyneezTextFieldFactory.swift in Sources */,
 				B14D107E2959C7980004946F /* AppDelegate.swift in Sources */,
 				B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */,
 				B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */,
