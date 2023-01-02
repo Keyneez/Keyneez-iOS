@@ -50,17 +50,16 @@ extension KeyneezTabbarController {
     let imageNames = [
       "ic_home_tabbar", "ic_like_tabbar", "id_card_tabbar", "ic_jelly_tabbar", "ic_more_tabbar"]
     var tabInfos: [TabInfoClass] = []
-    for i in 0...4 {
-      tabInfos.append(TabInfoClass(viewController: viewControllers[i],
-                                         title: titles[i], imageName: imageNames[i]))}
-    let navigations = tabInfos.map{
-      makeViewController(viewController: $0.viewController!, title: $0.title,
-                         imageName: $0.imageName) }
+    for i in 0...4 { tabInfos.append(
+      TabInfoClass(viewController: viewControllers[i], title: titles[i], imageName: imageNames[i])
+    ) }
+    let navigations = tabInfos.map{ makeViewController(
+      viewController: $0.viewController!, title: $0.title, imageName: $0.imageName) }
     self.viewControllers = navigations
   }
 
-  private func makeViewController(viewController: UIViewController.Type, title: String,
-                                  imageName: String) -> UINavigationController {
+  private func makeViewController(viewController: UIViewController.Type,
+                                  title: String, imageName: String) -> UINavigationController {
     let viewController = viewController.init()
     let nav = UINavigationController(rootViewController: viewController)
     nav.tabBarItem = (imageName == "id_card_tabbar") ?
