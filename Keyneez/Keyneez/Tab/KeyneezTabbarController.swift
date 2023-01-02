@@ -13,7 +13,6 @@ final class KeyneezTabbarController: UITabBarController {
     super.viewDidLoad()
     assignTabbar()
     createTabbarItems()
-//    setupMiddleButton()
   }
   
   private func assignTabbar() {
@@ -48,28 +47,5 @@ extension KeyneezTabbarController {
     let nav = UINavigationController(rootViewController: viewController)
     nav.tabBarItem = UITabBarItem(title: title, image: UIImage(named: imageName), selectedImage: nil)
     return nav
-  }
-}
-
-// MARK: - Middle Button
-extension KeyneezTabbarController {
-  
-  private func setupMiddleButton() {
-    //TODO: Asset이 나왔는지 모르겠는데, 이거 변경해야해
-    let middleButton = UIButton(frame: CGRect(x: (self.view.bounds.width / 2)-25, y: -20, width: 50, height: 50))
-    middleButton.backgroundColor = .black
-    self.tabBar.addSubview(middleButton)
-    middleButton.addAction(didTouchMiddleButton(), for: .touchUpInside)
-    self.view.layoutIfNeeded()
-  }
-  
-  private func didTouchMiddleButton() -> UIAction {
-    return UIAction { _ in
-      guard let viewControllers = self.viewControllers else {
-        self.selectedIndex = 2
-        return
-      }
-      self.selectedIndex = viewControllers.count / 2
-    }
   }
 }
