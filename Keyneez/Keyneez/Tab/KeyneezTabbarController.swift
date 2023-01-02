@@ -6,14 +6,7 @@
 //
 
 import UIKit
-
 //TODO: 이 부분은 내가 그냥 더미로 만들어뒀는데 지워야해
-class HomeViewController: UIViewController {
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    self.view.backgroundColor = .white
-  }
-}
 
 class CameraViewController: UIViewController {
   override func viewDidLoad() {
