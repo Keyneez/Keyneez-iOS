@@ -24,6 +24,8 @@
 		B1B21D14295C9C4B0083D9EE /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D13295C9C4B0083D9EE /* Floaty */; };
 		B1B21D17295DE0660083D9EE /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B1B21D16295DE0660083D9EE /* .swiftlint.yml */; };
 		B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */; };
+		B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F042962F5D4005612CE /* SettingViewController.swift */; };
+		B8C02F072962F5EB005612CE /* IDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F062962F5EB005612CE /* IDViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		B14D10AE2959CA080004946F /* KeyneezTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbarController.swift; sourceTree = "<group>"; };
 		B1B21D16295DE0660083D9EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbar.swift; sourceTree = "<group>"; };
+		B8C02F042962F5D4005612CE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		B8C02F062962F5EB005612CE /* IDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IDViewController.swift; path = Keyneez/Tab/Setting/IDViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 		B14D10B32959CBCE0004946F /* ID */ = {
 			isa = PBXGroup;
 			children = (
+				B8C02F062962F5EB005612CE /* IDViewController.swift */,
 			);
 			path = ID;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 		B8C02F032962F5A0005612CE /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				B8C02F042962F5D4005612CE /* SettingViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -436,10 +442,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */,
 				B14D107E2959C7980004946F /* AppDelegate.swift in Sources */,
 				B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */,
 				B14D10802959C7980004946F /* SceneDelegate.swift in Sources */,
 				B14D10AF2959CA080004946F /* KeyneezTabbarController.swift in Sources */,
+				B8C02F072962F5EB005612CE /* IDViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
