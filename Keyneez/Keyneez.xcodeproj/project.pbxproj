@@ -328,6 +328,9 @@
 				B18B60C3296552DA00AF14F5 /* TextField */,
 				B18B60C9296552DA00AF14F5 /* UIButton+Extension.swift */,
 				023B559329655CD200FB2462 /* CGFloat+Extension.swift */,
+				0269E22B2961EE2300309E8A /* UIButton+Extension.swift */,
+				022F68B42962D10500F32CE1 /* UITextField+Extension.swift */,
+				B184089329632CBD005E4802 /* KeyneezTextFieldFactory.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -574,6 +577,8 @@
 				0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */,
 				B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */,
 				023B559429655CD200FB2462 /* CGFloat+Extension.swift in Sources */,
+				022F68B52962D10500F32CE1 /* UITextField+Extension.swift in Sources */,
+				B184089429632CBD005E4802 /* KeyneezTextFieldFactory.swift in Sources */,
 				B14D107E2959C7980004946F /* AppDelegate.swift in Sources */,
 				B18B60D6296552DA00AF14F5 /* NavigationViewItem.swift in Sources */,
 				B18B60D0296552DA00AF14F5 /* UITextField+Extension.swift in Sources */,
