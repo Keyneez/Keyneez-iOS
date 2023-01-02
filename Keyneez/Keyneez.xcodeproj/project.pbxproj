@@ -163,6 +163,7 @@
 				B14D10B32959CBCE0004946F /* ID */,
 				B14D10B22959CBC20004946F /* MyPage */,
 				B14D10AD2959C9B80004946F /* Home */,
+				B8C02F032962F5A0005612CE /* Setting */,
 				B14D10B02959CB970004946F /* Like */,
 			);
 			path = Tab;
@@ -254,6 +255,13 @@
 			children = (
 			);
 			path = Color;
+			sourceTree = "<group>";
+		};
+		B8C02F032962F5A0005612CE /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
