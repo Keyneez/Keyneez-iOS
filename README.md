@@ -35,6 +35,7 @@
  Then | UI 선언 | 3.0.0 
  Moya | 서버 통신 | 15.0.3 
  Toast | 토스트 알림 View 간편화 | 5.0.1
+ Google MLKit | OCR 기능 구현 | 6.25.0
  
  </br>
  <br>
