@@ -26,6 +26,7 @@
 		B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */; };
 		B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F042962F5D4005612CE /* SettingViewController.swift */; };
 		B8C02F072962F5EB005612CE /* IDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F062962F5EB005612CE /* IDViewController.swift */; };
+		B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F082962F646005612CE /* MyPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbar.swift; sourceTree = "<group>"; };
 		B8C02F042962F5D4005612CE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B8C02F062962F5EB005612CE /* IDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IDViewController.swift; path = Keyneez/Tab/Setting/IDViewController.swift; sourceTree = SOURCE_ROOT; };
+		B8C02F082962F646005612CE /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageViewController.swift; path = Keyneez/Tab/Setting/MyPageViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 		B14D10B22959CBC20004946F /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				B8C02F082962F646005612CE /* MyPageViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 			files = (
 				B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */,
 				B14D107E2959C7980004946F /* AppDelegate.swift in Sources */,
+				B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */,
 				B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */,
 				B14D10802959C7980004946F /* SceneDelegate.swift in Sources */,
 				B14D10AF2959CA080004946F /* KeyneezTabbarController.swift in Sources */,
