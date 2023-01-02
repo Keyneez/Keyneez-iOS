@@ -19,7 +19,7 @@
 | :-----: | -------------- |
 | `박의서` | TabBar, 인포 기능 |
 | `최효원` | Design System, 로그인, 회원가입 기능 |
-| `` | BaseVC, ID, OCR |
+| `정도현` | BaseVC, ID, OCR |
 
 </br>
 <br>
