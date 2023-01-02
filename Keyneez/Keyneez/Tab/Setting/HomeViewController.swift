@@ -11,7 +11,7 @@ final class HomeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .white
+    view.backgroundColor = .gray500
     
     // Do any additional setup after loading the view.
   }
