@@ -8,13 +8,13 @@
 import UIKit
 
 final class KeyneezTabbarController: UITabBarController {
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     assignTabbar()
     createTabbarItems()
   }
-  
+
   private func assignTabbar() {
     let tabBar = { () -> KeyneezTabar in
       let tabBar = KeyneezTabar()
@@ -30,7 +30,7 @@ final class KeyneezTabbarController: UITabBarController {
 // MARK: - Setting ViewController in TabbarViewController
 extension KeyneezTabbarController {
   fileprivate func createTabbarItems() {
-    
+
 //TODO: 여기 아래 코드 줄일수 있는데 바꿔서 해봐 -> 힌트는 map
 //    let viewControllers = [HomeViewController.self, CameraViewController.self, ProfileViewController.self, ProfileViewController.self, ProfileViewController.self]
 //    let titles = ["홈", "좋아요", "", "캐릭터", "설정"]
@@ -43,7 +43,7 @@ extension KeyneezTabbarController {
     let nav5 = makeViewController(viewController: SettingViewController.self, title: "설정", imageName: "ic_more_tabbar")
     self.viewControllers = [nav1,nav2,nav3,nav4,nav5]
   }
-  
+
   private func makeViewController(viewController: UIViewController.Type, title: String, imageName: String) -> UINavigationController {
     let viewController = viewController.init()
     let nav = UINavigationController(rootViewController: viewController)
