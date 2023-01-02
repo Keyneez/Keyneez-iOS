@@ -6,21 +6,6 @@
 //
 
 import UIKit
-//TODO: 이 부분은 내가 그냥 더미로 만들어뒀는데 지워야해
-
-class CameraViewController: UIViewController {
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    self.view.backgroundColor = .yellow
-  }
-}
-
-class ProfileViewController: UIViewController {
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    self.view.backgroundColor = .white
-  }
-}
 
 final class KeyneezTabbarController: UITabBarController {
   
@@ -51,10 +36,10 @@ extension KeyneezTabbarController {
 //    let imageNames = ["hosse.circle", "house.circle", "person.circle", "person.circle"]
 //    let navigations = zip(viewControllers, titles, imageNames).map{ makeViewController(viewController: $0, title: $1, imageName: $2) }
     let nav1 = makeViewController(viewController: HomeViewController.self, title: "홈", imageName: "house.circle")
-    let nav2 = makeViewController(viewController: CameraViewController.self, title: "좋아요", imageName: "house.circle")
-    let nav3 = makeViewController(viewController: ProfileViewController.self, title: "", imageName: "person.circle")
-    let nav4 = makeViewController(viewController: ProfileViewController.self, title: "캐릭터", imageName: "person.circle")
-    let nav5 = makeViewController(viewController: ProfileViewController.self, title: "설정", imageName: "person.circle")
+    let nav2 = makeViewController(viewController: LikeViewController.self, title: "좋아요", imageName: "house.circle")
+    let nav3 = makeViewController(viewController: IDViewController.self, title: "", imageName: "person.circle")
+    let nav4 = makeViewController(viewController: MyPageViewController.self, title: "캐릭터", imageName: "person.circle")
+    let nav5 = makeViewController(viewController: SettingViewController.self, title: "설정", imageName: "person.circle")
     self.viewControllers = [nav1,nav2,nav3,nav4,nav5]
   }
   
