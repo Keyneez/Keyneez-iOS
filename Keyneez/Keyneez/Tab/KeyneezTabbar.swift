@@ -27,7 +27,9 @@ final class KeyneezTabar: UITabBar {
   
   private func addShape() {
     let shapeLayer = setShapeLayer()
-    let oldShapeLayer = (self.shapeLayer != nil) ? self.layer.replaceSublayer(self.shapeLayer!, with: shapeLayer) : self.layer.insertSublayer(shapeLayer, at: 0)
+    let oldShapeLayer = (self.shapeLayer != nil) ?
+    self.layer.replaceSublayer(self.shapeLayer!, with: shapeLayer) :
+    self.layer.insertSublayer(shapeLayer, at: 0)
     self.shapeLayer = shapeLayer
   }
 
@@ -36,15 +38,17 @@ final class KeyneezTabar: UITabBar {
   }
 
   private func createPath() -> CGPath {
-    let height: CGFloat = 37.0
+    let height: CGFloat = 20.0
     let centerWidth = self.frame.width / 2
     let path = UIBezierPath().then {
       $0.move(to: CGPoint(x: 0, y: 0)) // start top left
       $0.addLine(to: CGPoint(x: (centerWidth - height * 2), y: 0))
       $0.addCurve(to: CGPoint(x: centerWidth, y: height),
-                    controlPoint1: CGPoint(x: (centerWidth - 30), y: 0), controlPoint2: CGPoint(x: centerWidth - 35, y: height))
+                    controlPoint1: CGPoint(x: (centerWidth - 30), y: 0),
+                  controlPoint2: CGPoint(x: centerWidth - 35, y: height))
       $0.addCurve(to: CGPoint(x: (centerWidth + height * 2), y: 0),
-                    controlPoint1: CGPoint(x: centerWidth + 35, y: height), controlPoint2: CGPoint(x: (centerWidth + 30), y: 0))
+                    controlPoint1: CGPoint(x: centerWidth + 35, y: height),
+                  controlPoint2: CGPoint(x: (centerWidth + 30), y: 0))
       $0.addLine(to: CGPoint(x: self.frame.width, y: 0))
       $0.addLine(to: CGPoint(x: self.frame.width, y: self.frame.height))
       $0.addLine(to: CGPoint(x: 0, y: self.frame.height))
