@@ -13,7 +13,7 @@ final class KeyneezTabbarController: UITabBarController {
     super.viewDidLoad()
     assignTabbar()
     createTabbarItems()
-    setupMiddleButton()
+//    setupMiddleButton()
   }
   
   private func assignTabbar() {
@@ -30,23 +30,23 @@ final class KeyneezTabbarController: UITabBarController {
 extension KeyneezTabbarController {
   fileprivate func createTabbarItems() {
     
-    //TODO: 여기 아래 코드 줄일수 있는데 바꿔서 해봐 -> 힌트는 map
+//TODO: 여기 아래 코드 줄일수 있는데 바꿔서 해봐 -> 힌트는 map
 //    let viewControllers = [HomeViewController.self, CameraViewController.self, ProfileViewController.self, ProfileViewController.self, ProfileViewController.self]
 //    let titles = ["홈", "좋아요", "", "캐릭터", "설정"]
-//    let imageNames = ["hosse.circle", "house.circle", "person.circle", "person.circle"]
+//    let imageNames = ["ic_home_tabbar", "ic_like_tabbar", "id_card_tabbar", "ic_jelly_tabbar", "ic_more_tabbar"]
 //    let navigations = zip(viewControllers, titles, imageNames).map{ makeViewController(viewController: $0, title: $1, imageName: $2) }
-    let nav1 = makeViewController(viewController: HomeViewController.self, title: "홈", imageName: "house.circle")
-    let nav2 = makeViewController(viewController: LikeViewController.self, title: "좋아요", imageName: "house.circle")
-    let nav3 = makeViewController(viewController: IDViewController.self, title: "", imageName: "person.circle")
-    let nav4 = makeViewController(viewController: MyPageViewController.self, title: "캐릭터", imageName: "person.circle")
-    let nav5 = makeViewController(viewController: SettingViewController.self, title: "설정", imageName: "person.circle")
+    let nav1 = makeViewController(viewController: HomeViewController.self, title: "홈", imageName: "ic_home_tabbar")
+    let nav2 = makeViewController(viewController: LikeViewController.self, title: "좋아요", imageName: "ic_like_tabbar")
+    let nav3 = makeViewController(viewController: IDViewController.self, title: "", imageName: "id_card_tabbar")
+    let nav4 = makeViewController(viewController: MyPageViewController.self, title: "캐릭터", imageName: "ic_jelly_tabbar")
+    let nav5 = makeViewController(viewController: SettingViewController.self, title: "설정", imageName: "ic_more_tabbar")
     self.viewControllers = [nav1,nav2,nav3,nav4,nav5]
   }
   
   private func makeViewController(viewController: UIViewController.Type, title: String, imageName: String) -> UINavigationController {
     let viewController = viewController.init()
     let nav = UINavigationController(rootViewController: viewController)
-    nav.tabBarItem = UITabBarItem(title: title, image: UIImage(systemName: imageName), selectedImage: nil)
+    nav.tabBarItem = UITabBarItem(title: title, image: UIImage(named: imageName), selectedImage: nil)
     return nav
   }
 }
