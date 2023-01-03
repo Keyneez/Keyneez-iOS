@@ -32,6 +32,12 @@
 		B1B21D11295C99280083D9EE /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D10295C99280083D9EE /* FloatingPanel */; };
 		B1B21D14295C9C4B0083D9EE /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D13295C9C4B0083D9EE /* Floaty */; };
 		B1B21D17295DE0660083D9EE /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B1B21D16295DE0660083D9EE /* .swiftlint.yml */; };
+		B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */; };
+		B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F042962F5D4005612CE /* SettingViewController.swift */; };
+		B8C02F072962F5EB005612CE /* IDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F062962F5EB005612CE /* IDViewController.swift */; };
+		B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F082962F646005612CE /* MyPageViewController.swift */; };
+		B8C02F0B2962F65E005612CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F0A2962F65E005612CE /* HomeViewController.swift */; };
+		B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F0C2962F683005612CE /* LikeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +80,12 @@
 		B14D10AE2959CA080004946F /* KeyneezTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbarController.swift; sourceTree = "<group>"; };
 		B184089329632CBD005E4802 /* KeyneezTextFieldFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTextFieldFactory.swift; sourceTree = "<group>"; };
 		B1B21D16295DE0660083D9EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbar.swift; sourceTree = "<group>"; };
+		B8C02F042962F5D4005612CE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		B8C02F062962F5EB005612CE /* IDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDViewController.swift; sourceTree = "<group>"; };
+		B8C02F082962F646005612CE /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageViewController.swift; path = Keyneez/Tab/MyPage/MyPageViewController.swift; sourceTree = SOURCE_ROOT; };
+		B8C02F0A2962F65E005612CE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Keyneez/Tab/Home/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
+		B8C02F0C2962F683005612CE /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +190,7 @@
 		B14D10AD2959C9B80004946F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B8C02F0A2962F65E005612CE /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -185,6 +198,7 @@
 		B14D10B02959CB970004946F /* Like */ = {
 			isa = PBXGroup;
 			children = (
+				B8C02F0C2962F683005612CE /* LikeViewController.swift */,
 			);
 			path = Like;
 			sourceTree = "<group>";
@@ -193,9 +207,11 @@
 			isa = PBXGroup;
 			children = (
 				B14D10AE2959CA080004946F /* KeyneezTabbarController.swift */,
+				B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */,
 				B14D10B32959CBCE0004946F /* ID */,
 				B14D10B22959CBC20004946F /* MyPage */,
 				B14D10AD2959C9B80004946F /* Home */,
+				B8C02F032962F5A0005612CE /* Setting */,
 				B14D10B02959CB970004946F /* Like */,
 			);
 			path = Tab;
@@ -204,6 +220,7 @@
 		B14D10B22959CBC20004946F /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				B8C02F082962F646005612CE /* MyPageViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -211,6 +228,7 @@
 		B14D10B32959CBCE0004946F /* ID */ = {
 			isa = PBXGroup;
 			children = (
+				B8C02F062962F5EB005612CE /* IDViewController.swift */,
 			);
 			path = ID;
 			sourceTree = "<group>";
@@ -233,7 +251,8 @@
 				B14D10B72959CBF30004946F /* SignUp */,
 				B14D10B62959CBEE0004946F /* SignIn */,
 			);
-			path = Auth;
+			name = Auth;
+			path = Global/Auth;
 			sourceTree = "<group>";
 		};
 		B14D10B62959CBEE0004946F /* SignIn */ = {
@@ -294,6 +313,14 @@
 				02C066A32961C98600AED030 /* UIColor+Extension.swift */,
 			);
 			path = Color;
+			sourceTree = "<group>";
+		};
+		B8C02F032962F5A0005612CE /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B8C02F042962F5D4005612CE /* SettingViewController.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,12 +498,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */,
 				0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */,
 				022F68B52962D10500F32CE1 /* UITextField+Extension.swift in Sources */,
 				B184089429632CBD005E4802 /* KeyneezTextFieldFactory.swift in Sources */,
 				B14D107E2959C7980004946F /* AppDelegate.swift in Sources */,
+				B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */,
+				B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */,
+				B8C02F0B2962F65E005612CE /* HomeViewController.swift in Sources */,
+				B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */,
 				B14D10802959C7980004946F /* SceneDelegate.swift in Sources */,
 				B14D10AF2959CA080004946F /* KeyneezTabbarController.swift in Sources */,
+				B8C02F072962F5EB005612CE /* IDViewController.swift in Sources */,
 				02C066A42961C98600AED030 /* UIColor+Extension.swift in Sources */,
 				022F68B82962D3A200F32CE1 /* Buildable.swift in Sources */,
 				0269E22C2961EE2300309E8A /* UIButton+Extension.swift in Sources */,
