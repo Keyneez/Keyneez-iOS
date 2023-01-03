@@ -82,9 +82,9 @@
 		B1B21D16295DE0660083D9EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbar.swift; sourceTree = "<group>"; };
 		B8C02F042962F5D4005612CE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		B8C02F062962F5EB005612CE /* IDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IDViewController.swift; path = Keyneez/Tab/Setting/IDViewController.swift; sourceTree = SOURCE_ROOT; };
-		B8C02F082962F646005612CE /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageViewController.swift; path = Keyneez/Tab/Setting/MyPageViewController.swift; sourceTree = SOURCE_ROOT; };
-		B8C02F0A2962F65E005612CE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Keyneez/Tab/Setting/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
+		B8C02F062962F5EB005612CE /* IDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDViewController.swift; sourceTree = "<group>"; };
+		B8C02F082962F646005612CE /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageViewController.swift; path = Keyneez/Tab/MyPage/MyPageViewController.swift; sourceTree = SOURCE_ROOT; };
+		B8C02F0A2962F65E005612CE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Keyneez/Tab/Home/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		B8C02F0C2962F683005612CE /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
