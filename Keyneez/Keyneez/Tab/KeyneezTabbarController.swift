@@ -8,16 +8,10 @@
 import UIKit
 import Then
 
-private class TabInfoClass {
+private struct TabInfo {
   var viewController: UIViewController.Type?
   var title: String = ""
   var imageName: String = ""
-  
-  init(viewController: UIViewController.Type, title: String, imageName: String) {
-    self.viewController = viewController
-    self.title = title
-    self.imageName = imageName
-  }
 }
 
 final class KeyneezTabbarController: UITabBarController {
@@ -49,9 +43,9 @@ extension KeyneezTabbarController {
     let titles = ["홈", "좋아요", "", "캐릭터", "설정"]
     let imageNames = [
       "ic_home_tabbar", "ic_like_tabbar", "id_card_tabbar", "ic_jelly_tabbar", "ic_more_tabbar"]
-    var tabInfos: [TabInfoClass] = []
+    var tabInfos: [TabInfo] = []
     for i in 0...4 { tabInfos.append(
-      TabInfoClass(viewController: viewControllers[i], title: titles[i], imageName: imageNames[i])
+      TabInfo(viewController: viewControllers[i], title: titles[i], imageName: imageNames[i])
     ) }
     let navigations = tabInfos.map{ makeViewController(
       viewController: $0.viewController!, title: $0.title, imageName: $0.imageName) }
