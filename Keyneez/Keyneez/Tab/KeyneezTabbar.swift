@@ -45,7 +45,7 @@ final class KeyneezTabar: UITabBar {
     let width = self.frame.width
     let height = self.frame.height
     let centerWidth = self.frame.width / 2
-    let centerCurveHeight: CGFloat = 20.0
+    let centerCurveHeigh
     let startPoint = CGPoint(x: 0, y: 0)
     let topRightPoint = CGPoint(x: width, y: 0)
     let bottomRightPoint = CGPoint(x: width, y: height)
