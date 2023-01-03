@@ -251,7 +251,8 @@
 				B14D10B72959CBF30004946F /* SignUp */,
 				B14D10B62959CBEE0004946F /* SignIn */,
 			);
-			path = Auth;
+			name = Auth;
+			path = Global/Auth;
 			sourceTree = "<group>";
 		};
 		B14D10B62959CBEE0004946F /* SignIn */ = {
