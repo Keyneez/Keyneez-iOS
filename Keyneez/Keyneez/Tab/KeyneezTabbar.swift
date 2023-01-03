@@ -9,6 +9,10 @@ import UIKit
 import Then
 
 final class KeyneezTabar: UITabBar {
+  
+  private struct Constant {
+    
+  }
   private var shapeLayer: CALayer?
 
   private func setShapeLayer() -> CAShapeLayer {
@@ -38,20 +42,30 @@ final class KeyneezTabar: UITabBar {
   }
 
   private func createPath() -> CGPath {
-    let height: CGFloat = 20.0
+    let width = self.frame.width
+    let height = self.frame.height
     let centerWidth = self.frame.width / 2
+    let centerCurveHeight: CGFloat = 20.0
+    let startPoint = CGPoint(x: 0, y: 0)
+    let topRightPoint = CGPoint(x: width, y: 0)
+    let bottomRightPoint = CGPoint(x: width, y: height)
+    let endPoint = CGPoint(x: 0, y: height)
+    let leftLinePoint = CGPoint(x: centerWidth - centerCurveHeight * 2, y: 0)
+    let leftCurveToPoint = CGPoint(x: centerWidth, y: centerCurveHeight)
+    let leftCurveControlPoint1 = CGPoint(x: centerWidth - 30, y: 0)
+    let leftCurveControlPoint2 = CGPoint(x: centerWidth - 35, y: centerCurveHeight)
+    let rightCurveToPoint = CGPoint(x: centerWidth + centerCurveHeight * 2, y: 0)
+    let rightCurveControlPoint1 = CGPoint(x: centerWidth + 35, y: centerCurveHeight)
+    let rightCurveControlPoint2 = CGPoint(x: centerWidth + 30, y: 0)
+
     let path = UIBezierPath().then {
-      $0.move(to: CGPoint(x: 0, y: 0)) // start top left
-      $0.addLine(to: CGPoint(x: (centerWidth - height * 2), y: 0))
-      $0.addCurve(to: CGPoint(x: centerWidth, y: height),
-                    controlPoint1: CGPoint(x: (centerWidth - 30), y: 0),
-                  controlPoint2: CGPoint(x: centerWidth - 35, y: height))
-      $0.addCurve(to: CGPoint(x: (centerWidth + height * 2), y: 0),
-                    controlPoint1: CGPoint(x: centerWidth + 35, y: height),
-                  controlPoint2: CGPoint(x: (centerWidth + 30), y: 0))
-      $0.addLine(to: CGPoint(x: self.frame.width, y: 0))
-      $0.addLine(to: CGPoint(x: self.frame.width, y: self.frame.height))
-      $0.addLine(to: CGPoint(x: 0, y: self.frame.height))
+      $0.move(to: startPoint) // start top left
+      $0.addLine(to: leftLinePoint)
+      $0.addCurve(to: leftCurveToPoint, controlPoint1: leftCurveControlPoint1, controlPoint2: leftCurveControlPoint2)
+      $0.addCurve(to: rightCurveToPoint, controlPoint1: rightCurveControlPoint1, controlPoint2: rightCurveControlPoint2)
+      $0.addLine(to: topRightPoint)
+      $0.addLine(to: bottomRightPoint)
+      $0.addLine(to: endPoint)
       $0.close()
     }
     return path.cgPath

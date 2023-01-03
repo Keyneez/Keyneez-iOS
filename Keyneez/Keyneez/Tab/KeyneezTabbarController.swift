@@ -15,7 +15,6 @@ private struct TabInfo {
 }
 
 final class KeyneezTabbarController: UITabBarController {
-
   override func viewDidLoad() {
     super.viewDidLoad()
     assignTabbar()
