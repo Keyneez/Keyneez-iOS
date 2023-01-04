@@ -14,14 +14,14 @@ enum NavigationItemView {
   case iconButton(with: UIButton)
   case button(with: UIButton)
   case flexibleBox
-  case textfield(placeholder: String, completion: ((String?)-> Void)? = nil)
+  case textfield(configure: (placeholder: String, completion: ((String?) -> Void)?))
   case sizedBox(width: CGFloat)
   
   var image: UIImage? {
     switch self {
     case .logo:
       return UIImage(named: "logoA")
-    case .flexibleBox, .sizedBox(_), .title, .button, .iconButton:
+    case .flexibleBox, .sizedBox, .title, .button, .iconButton:
       return nil
     case .textfield:
       return nil

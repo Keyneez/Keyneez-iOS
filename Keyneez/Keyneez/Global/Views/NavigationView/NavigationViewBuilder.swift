@@ -10,6 +10,7 @@ import UIKit
 final class NavigationViewBuilder: Buildable {
   
   typealias ViewType = UIView
+  
   private var barViews: [NavigationItemView]
   
   init(barViews: [NavigationItemView]) {

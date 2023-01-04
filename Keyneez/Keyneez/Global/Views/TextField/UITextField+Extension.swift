@@ -31,6 +31,7 @@ extension UITextField {
   }
   
   func setPlaceholderColorAndFont(_ placeholderColor: UIColor, font: UIFont) {
-    attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : placeholderColor, .font: font].compactMapValues{$0})
+    attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: placeholderColor, .font: font]
+      .compactMapValues { $0 })
   }
 }

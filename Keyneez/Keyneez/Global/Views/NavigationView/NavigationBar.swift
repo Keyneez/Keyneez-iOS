@@ -55,9 +55,9 @@ final class NavigationBar: NiblessView {
         // 여기에 로고
         viewWidth.append(Constant.logoWidth)
         return makeLogoButton(with: view.image!)
-      case .textfield(let placeholer, let completion):
+      case .textfield(let configure):
         indexOfTextField.append(index)
-        return makeTextField(with: placeholer, completion: completion)
+        return makeTextField(with: configure.placeholder, completion: configure.completion)
       }
     }
     

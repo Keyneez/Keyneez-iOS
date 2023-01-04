@@ -17,7 +17,7 @@ class NiblessView: UIView {
               message: "We do not support Storyboard"
   )
   
-  public required init?(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
       fatalError("We do not support Storyboard")
   }
   
