@@ -13,6 +13,8 @@
 		0269E2282961DAD400309E8A /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0269E2272961DAD400309E8A /* Pretendard-SemiBold.otf */; };
 		0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269E2292961DC3700309E8A /* UIFont+Extension.swift */; };
 		02C066A42961C98600AED030 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C066A32961C98600AED030 /* UIColor+Extension.swift */; };
+		B10AACEC296594A900AB8475 /* IDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AACEB296594A900AB8475 /* IDViewController.swift */; };
+		B10AACEE2965AD5500AB8475 /* IDContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AACED2965AD5500AB8475 /* IDContentView.swift */; };
 		B14D107E2959C7980004946F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D107D2959C7980004946F /* AppDelegate.swift */; };
 		B14D10802959C7980004946F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D107F2959C7980004946F /* SceneDelegate.swift */; };
 		B14D10872959C79A0004946F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B14D10862959C79A0004946F /* Assets.xcassets */; };
@@ -40,7 +42,6 @@
 		B1B21D17295DE0660083D9EE /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B1B21D16295DE0660083D9EE /* .swiftlint.yml */; };
 		B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */; };
 		B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F042962F5D4005612CE /* SettingViewController.swift */; };
-		B8C02F072962F5EB005612CE /* IDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F062962F5EB005612CE /* IDViewController.swift */; };
 		B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F082962F646005612CE /* MyPageViewController.swift */; };
 		B8C02F0B2962F65E005612CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F0A2962F65E005612CE /* HomeViewController.swift */; };
 		B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F0C2962F683005612CE /* LikeViewController.swift */; };
@@ -71,6 +72,8 @@
 		0269E2272961DAD400309E8A /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		0269E2292961DC3700309E8A /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		02C066A32961C98600AED030 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B10AACEB296594A900AB8475 /* IDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDViewController.swift; sourceTree = "<group>"; };
+		B10AACED2965AD5500AB8475 /* IDContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDContentView.swift; sourceTree = "<group>"; };
 		B14D107A2959C7980004946F /* Keyneez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keyneez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14D107D2959C7980004946F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B14D107F2959C7980004946F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +99,6 @@
 		B1B21D16295DE0660083D9EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbar.swift; sourceTree = "<group>"; };
 		B8C02F042962F5D4005612CE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		B8C02F062962F5EB005612CE /* IDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDViewController.swift; sourceTree = "<group>"; };
 		B8C02F082962F646005612CE /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageViewController.swift; path = Keyneez/Tab/MyPage/MyPageViewController.swift; sourceTree = SOURCE_ROOT; };
 		B8C02F0A2962F65E005612CE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Keyneez/Tab/Home/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		B8C02F0C2962F683005612CE /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
@@ -243,7 +245,8 @@
 		B14D10B32959CBCE0004946F /* ID */ = {
 			isa = PBXGroup;
 			children = (
-				B8C02F062962F5EB005612CE /* IDViewController.swift */,
+				B10AACEB296594A900AB8475 /* IDViewController.swift */,
+				B10AACED2965AD5500AB8475 /* IDContentView.swift */,
 			);
 			path = ID;
 			sourceTree = "<group>";
@@ -563,13 +566,14 @@
 				B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */,
 				B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */,
 				B18B60D5296552DA00AF14F5 /* NavigationBar.swift in Sources */,
+				B10AACEE2965AD5500AB8475 /* IDContentView.swift in Sources */,
 				B8C02F0B2962F65E005612CE /* HomeViewController.swift in Sources */,
 				B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */,
 				B14D10802959C7980004946F /* SceneDelegate.swift in Sources */,
 				B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */,
 				B14D10AF2959CA080004946F /* KeyneezTabbarController.swift in Sources */,
-				B8C02F072962F5EB005612CE /* IDViewController.swift in Sources */,
 				B18B60D1296552DA00AF14F5 /* NiblessView.swift in Sources */,
+				B10AACEC296594A900AB8475 /* IDViewController.swift in Sources */,
 				B18B60D4296552DA00AF14F5 /* NavigationBarProtocol.swift in Sources */,
 				02C066A42961C98600AED030 /* UIColor+Extension.swift in Sources */,
 				022F68B82962D3A200F32CE1 /* Buildable.swift in Sources */,
