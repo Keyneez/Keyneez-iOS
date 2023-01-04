@@ -54,6 +54,7 @@ extension KeyneezTabbarController {
                                   title: String, imageName: String) -> UINavigationController {
     let viewController = viewController.init()
     let nav = UINavigationController(rootViewController: viewController)
+    nav.isNavigationBarHidden = true
     nav.tabBarItem = (imageName == "id_card_tabbar") ?
     UITabBarItem(title: title, image:
                   UIImage(named: imageName)?.withRenderingMode(.alwaysOriginal),
