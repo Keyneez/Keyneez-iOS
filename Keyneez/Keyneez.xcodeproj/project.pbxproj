@@ -44,6 +44,7 @@
 		B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F082962F646005612CE /* MyPageViewController.swift */; };
 		B8C02F0B2962F65E005612CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F0A2962F65E005612CE /* HomeViewController.swift */; };
 		B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F0C2962F683005612CE /* LikeViewController.swift */; };
+		B8C02F15296569AF005612CE /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F14296569AF005612CE /* HomeTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		B8C02F082962F646005612CE /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageViewController.swift; path = Keyneez/Tab/MyPage/MyPageViewController.swift; sourceTree = SOURCE_ROOT; };
 		B8C02F0A2962F65E005612CE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Keyneez/Tab/Home/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		B8C02F0C2962F683005612CE /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
+		B8C02F14296569AF005612CE /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				B8C02F0A2962F65E005612CE /* HomeViewController.swift */,
+				B8C02F14296569AF005612CE /* HomeTabView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */,
 				B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */,
 				B14D107E2959C7980004946F /* AppDelegate.swift in Sources */,
+				B8C02F15296569AF005612CE /* HomeTabView.swift in Sources */,
 				B18B60D6296552DA00AF14F5 /* NavigationViewItem.swift in Sources */,
 				B18B60D0296552DA00AF14F5 /* UITextField+Extension.swift in Sources */,
 				B18B60CF296552DA00AF14F5 /* KeyneezTextFieldFactory.swift in Sources */,
