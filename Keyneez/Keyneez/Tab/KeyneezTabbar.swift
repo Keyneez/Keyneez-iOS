@@ -13,6 +13,7 @@ final class KeyneezTabar: UITabBar {
   private struct Constant {
     
   }
+  
   private var shapeLayer: CALayer?
 
   private func setShapeLayer() -> CAShapeLayer {
@@ -21,7 +22,7 @@ final class KeyneezTabar: UITabBar {
       $0.fillColor = UIColor.gray050.cgColor
       $0.strokeColor = UIColor.gray100.cgColor
       $0.lineWidth = 1.0
-      $0.shadowOffset = CGSize(width:0, height:0)
+      $0.shadowOffset = CGSize(width: 0, height: 0)
       $0.shadowRadius = 10
       $0.shadowColor = UIColor.gray100.cgColor
       $0.shadowOpacity = 0.3
