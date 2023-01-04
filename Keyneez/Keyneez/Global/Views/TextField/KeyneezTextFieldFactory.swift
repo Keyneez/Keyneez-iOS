@@ -21,8 +21,8 @@ enum KeyneezTextFieldFactory: Buildable {
   typealias SearchCompletion = ((String?) -> Void)?
   
   enum TextfieldBorderStyle {
-    case underline
-    case underlineIcon
+    case underline(padding: CGFloat = 24)
+    case underlineIcon(padding: CGFloat = 24)
   }
   
   case formStyleTextfield(placeholder: String, borderStyle: TextfieldBorderStyle, completion: SearchCompletion = nil)
@@ -57,9 +57,10 @@ extension KeyneezTextFieldFactory {
                                     with borderStyle: TextfieldBorderStyle,
                                     completion: SearchCompletion) {
     switch borderStyle {
-    case .underline:
-      textfield.underlineStyle()
-    case .underlineIcon:
+    case .underline(let padding):
+      textfield.underlineStyle(padding: padding)
+    case .underlineIcon(let padding):
+      textfield.underlineStyle(padding: padding)
       addSearchButton(to: textfield, with: completion)
     }
   }
@@ -72,8 +73,7 @@ extension KeyneezTextFieldFactory {
     let rightview = makeRightView()
     rightview.addSubview(searchButton)
     searchButton.frame = CGRect(x: Constant.searchButtonOrigin * 2, y: Constant.searchButtonOrigin, width: Constant.searchButtonHeight, height: Constant.searchButtonHeight)
-    
-    textfield.underlineStyle()
+  
     textfield.rightViewMode = .always
     textfield.rightView = rightview
   }

@@ -45,7 +45,7 @@ extension UIButton {
     }
   }
 
-  func keyneezButtonStyle(style: KeyneezButtonStyle, title: String, action: UIAction? = nil){
+  func keyneezButtonStyle(style: KeyneezButtonStyle, title: String, action: UIAction? = nil) {
      self.setTitle(title, for: .normal)
      self.titleLabel?.font = UIFont.font(.pretendardBold, ofSize: 16)
      self.layer.cornerRadius = 4
@@ -55,7 +55,6 @@ extension UIButton {
     guard let action = action else {return}
     self.addAction(action, for: .touchUpInside)
   }
-  
   
   private func borderWidthAndBorderColor(with style: KeyneezButtonStyle) {
     switch style {
