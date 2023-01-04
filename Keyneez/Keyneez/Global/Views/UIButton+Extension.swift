@@ -56,17 +56,22 @@ extension UIButton {
      self.layer.cornerRadius = 4
      self.backgroundColor = style.backgroundColor
      self.setTitleColor(style.foregroundColor, for: .normal)
-     
-     if style == KeyneezButtonStyle.whiteAct {
-       self.layer.borderWidth = 1
-       self.layer.borderColor = UIColor.gray900?.cgColor
-     }
-
-     if style == KeyneezButtonStyle.whiteUnact {
-       self.layer.borderWidth = 1
-       self.layer.borderColor = UIColor.gray300?.cgColor
-     }
+    borderWidthAndBorderColor(with: style)
     guard let action = action else {return}
     self.addAction(action, for: .touchUpInside)
+  }
+  
+  
+  private func borderWidthAndBorderColor(with style: KeyneezButtonStyle) {
+    switch style {
+    case .whiteAct:
+      self.layer.borderWidth = 1
+      self.layer.borderColor = UIColor.gray900.cgColor
+    case .whiteUnact:
+      self.layer.borderWidth = 1
+      self.layer.borderColor = UIColor.gray300.cgColor
+    default:
+      return
+    }
   }
 }
