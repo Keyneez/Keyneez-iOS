@@ -40,14 +40,14 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
     
     // 선택 되어 있지 않을때 폰트 및 폰트컬러
     $0.setTitleTextAttributes([
-      NSAttributedString.Key.foregroundColor: UIColor.black,
-      NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .regular)
+      NSAttributedString.Key.foregroundColor: UIColor.gray400,
+      NSAttributedString.Key.font: UIFont.font(.pretendardMedium, ofSize: 24)
     ], for: .normal)
     
     // 선택 되었을때 폰트 및 폰트컬러
     $0.setTitleTextAttributes([
       NSAttributedString.Key.foregroundColor: UIColor.gray900,
-      NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold)
+      NSAttributedString.Key.font: UIFont.font(.pretendardBold, ofSize: 24)
     ], for: .selected)
     
 //    $0.addTarget(self, action: #selector(changeUnderLinePosition), for: .valueChanged)
