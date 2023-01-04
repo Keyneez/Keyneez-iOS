@@ -22,6 +22,7 @@ private struct Constant {
   static let gapBwtLabelAndView = 32
   static let topOffset = 155
   static let bottomOffset = 246
+  static let numberOfLines = 0
 }
 
 final class IDContentView: NiblessView {
@@ -39,7 +40,7 @@ final class IDContentView: NiblessView {
   private lazy var descriptionLabel: UILabel = .init().then {
     $0.text = Constant.description.content
     $0.textAlignment = .center
-    $0.numberOfLines = 0
+    $0.numberOfLines = Constant.numberOfLines
     $0.textColor = .gray400
     $0.font = .font(.pretendardMedium, ofSize: Constant.description.fontsize)
   }
