@@ -208,7 +208,9 @@
 			isa = PBXGroup;
 			children = (
 				B8C02F0A2962F65E005612CE /* HomeViewController.swift */,
-				B8C02F14296569AF005612CE /* HomeTabView.swift */,
+				B8C02F1829656E33005612CE /* Controllers */,
+				B8C02F1729656E2D005612CE /* Views */,
+				B8C02F1629656E27005612CE /* Models */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -378,6 +380,28 @@
 				B8C02F042962F5D4005612CE /* SettingViewController.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		B8C02F1629656E27005612CE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B8C02F1729656E2D005612CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B8C02F14296569AF005612CE /* HomeTabView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B8C02F1829656E33005612CE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

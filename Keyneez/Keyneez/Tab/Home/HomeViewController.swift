@@ -8,8 +8,4 @@
 import UIKit
 
 final class HomeViewController: NiblessViewController {
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
 }
