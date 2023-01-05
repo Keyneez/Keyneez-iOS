@@ -46,10 +46,13 @@ final class IDContentView: NiblessView {
   }
   
   private lazy var issueButton: UIButton = .init().then {
-    $0.keyneezButtonStyle(style: .whiteAct, title: Constant.buttonTitle)
+    $0.keyneezButtonStyle(style: .whiteAct, title: Constant.buttonTitle, action: didTouchIssueButton)
   }
   
-  override init(frame: CGRect) {
+  var didTouchIssueButton: UIAction
+  
+  init(frame: CGRect, action: UIAction) {
+    self.didTouchIssueButton = action
     super.init(frame: frame)
     [cardsImageView, titleLabel, descriptionLabel, issueButton].forEach {
       self.addSubview($0)
