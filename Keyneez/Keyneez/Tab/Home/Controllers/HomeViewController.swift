@@ -48,18 +48,40 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
     $0.backgroundColor = .gray900
     $0.translatesAutoresizingMaskIntoConstraints = false
   }
+  // MARK: - CollectionView
+  private let homeContentCollectionView: UICollectionView = {
+    let layout = UICollectionViewFlowLayout()
+    layout.scrollDirection = .vertical
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    collectionView.backgroundColor = .clear
+    collectionView.translatesAutoresizingMaskIntoConstraints = false
+    collectionView.isScrollEnabled = true
+    collectionView.showsVerticalScrollIndicator = false
+    return collectionView
+  }()
+  
+  var homeContentList: [HomeContentModel] = [
+    HomeContentModel(contentImage: "", start_at: "11.24", end_at: "12.31", contentTitle: "청소년 미술관 할인", categoty: ["문화"], liked: false),
+  HomeContentModel(contentImage: "", start_at: "12.31", end_at: "01.01", contentTitle: "예시입니당", categoty: ["문화", "예술"], liked: true)]
+  
+  final let homeContentInset: UIEdgeInsets = UIEdgeInsets(top: 32, left: 17, bottom: 10, right: 17)
+  final let homeContentLineSpacing: CGFloat = 16
+  final let homeContentInterItemSpacing: CGFloat = 16
+  final let homeContentCellHeight: CGFloat = 400
+  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    configure()
+    setLayout()
     addNavigationViewToSubview()
   }
 }
 
 // MARK: - extra functions
 extension HomeViewController {
-  private func configure() {
+  private func setLayout() {
     contentView.addSubviews(containerView)
-    containerView.addSubviews(segmentControl, underLineView)
+    containerView.addSubviews(segmentControl, underLineView, homeContentCollectionView)
     containerView.snp.makeConstraints {
       $0.top.leading.trailing.equalToSuperview()
       $0.height.equalTo(48)
@@ -75,6 +97,12 @@ extension HomeViewController {
       $0.height.equalTo(3)
       $0.width.equalTo(32)
     }
+    homeContentCollectionView.snp.makeConstraints {
+      $0.top.equalTo(underLineView.snp.bottom)
+      $0.leading.trailing.equalToSuperview()
+      $0.height.equalTo(calculateCellHeight())
+    }
+    homeContentCollectionView.backgroundColor = .gray500
   }
   @objc private func changeUnderLinePosition() {
     let segmentIndex = segmentControl.selectedSegmentIndex
@@ -88,5 +116,11 @@ extension HomeViewController {
     UIView.animate(withDuration: 0.2, animations: { [weak self] in
       self?.view.layoutIfNeeded()
     })
+  }
+  
+  private func calculateCellHeight() -> CGFloat {
+      let count = CGFloat(homeContentList.count)
+      let heightCount = count / 2 + count.truncatingRemainder(dividingBy: 2)
+      return heightCount * homeContentCellHeight + (heightCount - 1) * homeContentLineSpacing + homeContentInset.top + homeContentInset.bottom
   }
 }

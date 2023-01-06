@@ -45,8 +45,9 @@
 		B8C02F0B2962F65E005612CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F0A2962F65E005612CE /* HomeViewController.swift */; };
 		B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F0C2962F683005612CE /* LikeViewController.swift */; };
 		B8C02F1E296595F0005612CE /* AddSubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F1D296595F0005612CE /* AddSubViews.swift */; };
-		B8C02F22296811AC005612CE /* HomeInfoView in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F21296811AC005612CE /* HomeInfoView */; };
 		B8C02F2429681E62005612CE /* HomeContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2329681E62005612CE /* HomeContentModel.swift */; };
+		B8C02F2629682470005612CE /* homeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2529682470005612CE /* homeContentView.swift */; };
+		B8C02F2829682E41005612CE /* HomeContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2729682E41005612CE /* HomeContentCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,8 +105,9 @@
 		B8C02F0A2962F65E005612CE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Keyneez/Tab/Home/Controllers/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		B8C02F0C2962F683005612CE /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
 		B8C02F1D296595F0005612CE /* AddSubViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubViews.swift; sourceTree = "<group>"; };
-		B8C02F21296811AC005612CE /* HomeInfoView */ = {isa = PBXFileReference; lastKnownFileType = text; path = HomeInfoView; sourceTree = "<group>"; };
 		B8C02F2329681E62005612CE /* HomeContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentModel.swift; sourceTree = "<group>"; };
+		B8C02F2529682470005612CE /* homeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeContentView.swift; sourceTree = "<group>"; };
+		B8C02F2729682E41005612CE /* HomeContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,7 +399,7 @@
 		B8C02F1729656E2D005612CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B8C02F21296811AC005612CE /* HomeInfoView */,
+				B8C02F2529682470005612CE /* homeContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -406,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				B8C02F0A2962F65E005612CE /* HomeViewController.swift */,
+				B8C02F2729682E41005612CE /* HomeContentCollectionViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -591,7 +594,6 @@
 				B8C02F1E296595F0005612CE /* AddSubViews.swift in Sources */,
 				B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */,
 				B14D107E2959C7980004946F /* AppDelegate.swift in Sources */,
-				B8C02F22296811AC005612CE /* HomeInfoView in Sources */,
 				B18B60D6296552DA00AF14F5 /* NavigationViewItem.swift in Sources */,
 				B18B60D0296552DA00AF14F5 /* UITextField+Extension.swift in Sources */,
 				B18B60CF296552DA00AF14F5 /* KeyneezTextFieldFactory.swift in Sources */,
@@ -603,6 +605,8 @@
 				B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */,
 				B14D10802959C7980004946F /* SceneDelegate.swift in Sources */,
 				B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */,
+				B8C02F2629682470005612CE /* homeContentView.swift in Sources */,
+				B8C02F2829682E41005612CE /* HomeContentCollectionViewCell.swift in Sources */,
 				B14D10AF2959CA080004946F /* KeyneezTabbarController.swift in Sources */,
 				B8C02F072962F5EB005612CE /* IDViewController.swift in Sources */,
 				B18B60D1296552DA00AF14F5 /* NiblessView.swift in Sources */,
