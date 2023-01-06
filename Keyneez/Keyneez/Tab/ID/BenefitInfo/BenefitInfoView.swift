@@ -108,6 +108,7 @@ extension BenefitInfoView {
     collectionView.showsHorizontalScrollIndicator = false
     collectionView.showsVerticalScrollIndicator = false
     collectionView.register(BenefitCollectionViewCell.self)
+    collectionView.isScrollEnabled = false
     return collectionView
   }
   
