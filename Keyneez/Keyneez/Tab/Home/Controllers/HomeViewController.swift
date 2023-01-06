@@ -12,7 +12,10 @@ import Then
 final class HomeViewController: NiblessViewController, NavigationBarProtocol {
   
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.logo, .flexibleBox, .iconButton(with: searchButton)]).build()
-  
+  private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
+    $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
+  }
+  private var didSearch: UIAction = .init(handler: { _ in print("hi")})
   lazy var contentView: UIView = UIView()
   
   // SegmentedControl 담을 뷰
@@ -20,13 +23,6 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
     $0.backgroundColor = .clear
     $0.translatesAutoresizingMaskIntoConstraints = false
   }
-  
-  private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
-    $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
-  }
-  
-  private var didSearch: UIAction = .init(handler: { _ in print("hi")})
-  
   private lazy var segmentControl: UISegmentedControl = .init().then {
     $0.selectedSegmentTintColor = .clear
     // 배경 색 제거
@@ -49,8 +45,7 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
       NSAttributedString.Key.foregroundColor: UIColor.gray900,
       NSAttributedString.Key.font: UIFont.font(.pretendardBold, ofSize: 24)
     ], for: .selected)
-    
-//    $0.addTarget(self, action: #selector(changeUnderLinePosition), for: .valueChanged)
+    $0.addTarget(self, action: #selector(changeUnderLinePosition), for: .valueChanged)
     $0.translatesAutoresizingMaskIntoConstraints = false
   }
   
@@ -65,9 +60,9 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
     addNavigationViewToSubview()
   }
   
-  func configure() {
+  private func configure() {
     contentView.addSubviews(containerView)
-    containerView.addSubviews(segmentControl)
+    containerView.addSubviews(segmentControl, underLineView)
     
     containerView.snp.makeConstraints {
       $0.top.leading.trailing.equalToSuperview()
@@ -78,6 +73,25 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
       $0.centerX.equalToSuperview()
       $0.bottom.equalToSuperview().offset(2)
     }
+    underLineView.snp.makeConstraints {
+      $0.bottom.equalTo(segmentControl).offset(6)
+      $0.leading.equalTo(segmentControl).inset(15)
+      $0.height.equalTo(3)
+      $0.width.equalTo(32)
+    }
+  }
+  
+  @objc private func changeUnderLinePosition() {
+    let segmentIndex = segmentControl.selectedSegmentIndex
+    let segmentNumber = segmentControl.numberOfSegments
+    self.underLineView.snp.remakeConstraints {
+      $0.bottom.equalTo(segmentControl).offset(6)
+      $0.leading.equalTo(segmentControl).inset(Int(self.segmentControl.frame.width) / segmentNumber * segmentIndex + 15)
+      $0.height.equalTo(3)
+      $0.width.equalTo(32)
+    }
+    UIView.animate(withDuration: 0.2, animations: { [weak self] in
+      self?.view.layoutIfNeeded()
+    })
   }
 }
-
