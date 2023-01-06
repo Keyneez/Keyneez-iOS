@@ -81,7 +81,6 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
 // MARK: - extra functions
 extension HomeViewController {
   private func setLayout() {
-    homeContentCollectionView.backgroundColor = .systemBlue
     contentView.addSubviews(containerView, homeContentCollectionView)
     containerView.addSubviews(segmentControl, underLineView)
     containerView.snp.makeConstraints {
