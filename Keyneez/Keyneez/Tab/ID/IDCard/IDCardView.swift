@@ -8,11 +8,18 @@
 import UIKit
 
 private struct Constant {
-  static let imageviewName = "id_mark"
   static let personLabelFontSize: CGFloat = 12
   static let nameLabelFontSize: CGFloat = 28
   static let birthdayLabelFontSize: CGFloat = 14
   static let buttonIconImageName = "ic_dropdown_right"
+  static let characterSize: (width: CGFloat, height: CGFloat) = (180, 205)
+  static let characterBottomInset: CGFloat = 213
+  static let cardTopInset: CGFloat = 101
+  static let labelLeading: CGFloat = 23
+  static let labelTopOffset: CGFloat = 155
+  static let labelBottomOffset: CGFloat = -4
+  static let buttonWidth = 32
+  static let birthdayLabelBottomInset = 55
 }
 
 class IDCardView: NiblessView {
@@ -21,8 +28,9 @@ class IDCardView: NiblessView {
     $0.image = UIImage(named: "test_character")!
   }
   
-  private lazy var cardView: UIView = .init().then {
-    $0.backgroundColor = UIColor(patternImage: UIImage(named: "test_cardView")!)
+  private lazy var cardView: UIImageView = .init().then {
+    $0.image = UIImage(named: "card_bg_mint")
+    $0.contentMode = .scaleToFill
   }
   
   private lazy var personTypeLabel: UILabel = .init().then {
@@ -39,17 +47,9 @@ class IDCardView: NiblessView {
     $0.setBackgroundImage(UIImage(named: Constant.buttonIconImageName), for: .normal)
   }
   
-  private lazy var separateView: UIView = .init().then {
-    $0.backgroundColor = .gray050
-  }
-  
   private lazy var birthdayLabel: UILabel = .init().then {
     $0.font = .font(.pretendardMedium, ofSize: Constant.birthdayLabelFontSize)
     $0.textColor = .gray050
-  }
-  
-  private lazy var logoImageView: UIImageView = .init().then {
-    $0.image = UIImage(named: Constant.imageviewName)!
   }
   
   private var actions: IDCardContentActionables
@@ -69,8 +69,8 @@ class IDCardView: NiblessView {
 extension IDCardView {
   
   private func addSubview() {
-    [characterView, cardView].forEach { self.addSubview($0) }
-    [personTypeLabel, nameLabel, showDetailIDButton, separateView, birthdayLabel, logoImageView].forEach { self.cardView.addSubview($0) }
+    [cardView, characterView].forEach { self.addSubview($0) }
+    [personTypeLabel, nameLabel, showDetailIDButton, birthdayLabel].forEach { self.cardView.addSubview($0) }
   }
   
   private func setLabelText(with userCardInfo: UserCardInfo) {
@@ -84,18 +84,21 @@ extension IDCardView {
     
     characterView.snp.makeConstraints {
       $0.centerX.equalToSuperview()
+      $0.width.equalTo(Constant.characterSize.width)
       $0.top.equalToSuperview()
-      $0.bottom.equalTo(cardView.snp.top).offset(100)
+      $0.height.equalTo(Constant.characterSize.height)
+      $0.bottom.equalTo(cardView.snp.bottom).inset(Constant.characterBottomInset)
     }
     
     cardView.snp.makeConstraints {
       $0.leading.trailing.bottom.equalToSuperview()
+      $0.top.equalToSuperview().inset(Constant.cardTopInset)
     }
     
     personTypeLabel.snp.makeConstraints {
-      $0.leading.equalToSuperview().offset(23)
-      $0.top.equalToSuperview().offset(155)
-      $0.bottom.equalTo(nameLabel.snp.top).offset(-4)
+      $0.leading.equalToSuperview().offset(Constant.labelLeading)
+      $0.top.equalToSuperview().offset(Constant.labelTopOffset)
+      $0.bottom.equalTo(nameLabel.snp.top).offset(Constant.labelBottomOffset)
     }
     
     nameLabel.snp.makeConstraints {
@@ -104,23 +107,13 @@ extension IDCardView {
     }
     
     showDetailIDButton.snp.makeConstraints {
-      $0.height.width.equalTo(32)
-    }
-    
-    separateView.snp.makeConstraints {
-      $0.top.equalTo(showDetailIDButton.snp.bottom).offset(28.5)
-      $0.leading.trailing.equalToSuperview().inset(23)
-      $0.bottom.equalTo(birthdayLabel.snp.top).offset(-12)
+      $0.height.width.equalTo(Constant.buttonWidth)
+      $0.top.equalTo(nameLabel.snp.top)
     }
     
     birthdayLabel.snp.makeConstraints {
       $0.leading.equalTo(personTypeLabel.snp.leading)
-    }
-    
-    logoImageView.snp.makeConstraints {
-      $0.top.equalTo(birthdayLabel)
-      $0.trailing.equalTo(separateView.snp.trailing)
-      $0.height.width.equalTo(48)
+      $0.bottom.equalToSuperview().inset(Constant.birthdayLabelBottomInset)
     }
     
   }
