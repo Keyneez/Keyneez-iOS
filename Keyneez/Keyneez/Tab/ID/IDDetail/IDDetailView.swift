@@ -21,6 +21,9 @@ private struct Constant {
 
 final class IDdetailView: NiblessView {
   
+  // Actions
+  let actions: IDDetailActionables
+  
   private lazy var personTypeLabel: UILabel = .init().then {
     $0.font = .font(.pretendardMedium, ofSize: 12)
     $0.text = "호기심 가득 문화인"
@@ -40,38 +43,22 @@ final class IDdetailView: NiblessView {
     $0.backgroundColor = .gray300
   }
   
-  private lazy var highSchoolLabel: UILabel = makeDetailLabel()
+  private lazy var highSchoolLabel: UILabel = makeDetailLabel(text: "키니즈 고등학교")
   
-  private lazy var birthdayLabel: UILabel = makeDetailLabel()
+  private lazy var birthdayLabel: UILabel = makeDetailLabel(text: "2001.01.17")
   
   private lazy var authenticateButton: UIButton = .init().then {
     $0.keyneezButtonStyle(style: .blackAct,
                           title: Constant.buttonTitle,
-                          action: Action.didTouchAuthenticateButton.action)
+                          action: actions.touchAuthentication())
   }
   
-  override init(frame: CGRect) {
+  init(frame: CGRect, actions: IDDetailActionables) {
+    self.actions = actions
     super.init(frame: frame)
     addsubview()
     setConstraints()
-  }
-  
-}
-
-// MARK: - State & Action
-
-extension IDdetailView {
-  
-  enum Action {
-    case didTouchAuthenticateButton
-    
-    var action: UIAction {
-      switch self {
-      case .didTouchAuthenticateButton:
-        return UIAction(handler: { _ in print("실물인증 버튼 눌림") })
-      }
-    }
-    
+    self.backgroundColor = .white
   }
   
 }
@@ -80,8 +67,9 @@ extension IDdetailView {
 
 extension IDdetailView {
   
-  private func makeDetailLabel() -> UILabel {
+  private func makeDetailLabel(text: String) -> UILabel {
     return UILabel().then {
+      $0.text = text
       $0.font = .font(.pretendardMedium, ofSize: 16)
       $0.textColor = .gray900
     }
@@ -114,7 +102,7 @@ extension IDdetailView {
       $0.top.equalTo(nameLabel.snp.bottom).offset(22)
       $0.leading.equalTo(personTypeLabel.snp.leading)
       $0.trailing.equalTo(keyneezLogoImageView.snp.trailing)
-      $0.bottom.equalTo(highSchoolLabel.snp.top).offset(20)
+      $0.bottom.equalTo(highSchoolLabel.snp.top).offset(-20)
     }
     
     highSchoolLabel.snp.makeConstraints {
@@ -130,7 +118,7 @@ extension IDdetailView {
       $0.top.equalTo(birthdayLabel.snp.bottom).offset(79)
       $0.leading.trailing.equalToSuperview().inset(16)
       $0.height.equalTo(48)
-//      $0.bottom.equalToSuperview().offset(-44)
+      $0.bottom.equalToSuperview().offset(-44)
     }
     
   }
