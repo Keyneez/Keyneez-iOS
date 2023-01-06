@@ -14,12 +14,24 @@
 		0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269E2292961DC3700309E8A /* UIFont+Extension.swift */; };
 		02C066A42961C98600AED030 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C066A32961C98600AED030 /* UIColor+Extension.swift */; };
 		B10AACEC296594A900AB8475 /* IDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AACEB296594A900AB8475 /* IDViewController.swift */; };
-		B10AACEE2965AD5500AB8475 /* IDContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AACED2965AD5500AB8475 /* IDContentView.swift */; };
+		B10AACEE2965AD5500AB8475 /* IDNotAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AACED2965AD5500AB8475 /* IDNotAvailableView.swift */; };
 		B10AACF02965B08D00AB8475 /* IDDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AACEF2965B08D00AB8475 /* IDDetailView.swift */; };
 		B10AACF229666F9500AB8475 /* BenefitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AACF129666F9500AB8475 /* BenefitInfoView.swift */; };
 		B10AACF42966701A00AB8475 /* BenefitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AACF32966701A00AB8475 /* BenefitCollectionViewCell.swift */; };
 		B10AACF62966919D00AB8475 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AACF52966919D00AB8475 /* ReusableView.swift */; };
 		B10AACF82966A50E00AB8475 /* IDCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AACF72966A50E00AB8475 /* IDCardView.swift */; };
+		B10AACFB29673D4100AB8475 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = B10AACFA29673D4100AB8475 /* BottomSheet */; };
+		B10AACFD2967442200AB8475 /* CustomNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AACFC2967442200AB8475 /* CustomNavigationManager.swift */; };
+		B10AACFF2967443D00AB8475 /* CustomNavigationPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AACFE2967443D00AB8475 /* CustomNavigationPresentationController.swift */; };
+		B10AAD012967447000AB8475 /* CustomNavigationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD002967447000AB8475 /* CustomNavigationAnimator.swift */; };
+		B10AAD032967448500AB8475 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD022967448500AB8475 /* UIView+Extension.swift */; };
+		B10AAD0529674B1000AB8475 /* IDDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD0429674B1000AB8475 /* IDDetailViewController.swift */; };
+		B10AAD072967E8EC00AB8475 /* IDDetailActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD062967E8EC00AB8475 /* IDDetailActionables.swift */; };
+		B10AAD092968007600AB8475 /* IDCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD082968007600AB8475 /* IDCardContentView.swift */; };
+		B10AAD1E29680F1D00AB8475 /* IDIssueActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD1D29680F1D00AB8475 /* IDIssueActionables.swift */; };
+		B10AAD2029680F2D00AB8475 /* IDCardCotentActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD1F29680F2D00AB8475 /* IDCardCotentActionables.swift */; };
+		B10AAD222968103300AB8475 /* IDContentActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD212968103300AB8475 /* IDContentActions.swift */; };
+		B10AAD282968113200AB8475 /* SeparatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD272968113200AB8475 /* SeparatedButton.swift */; };
 		B14D107E2959C7980004946F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D107D2959C7980004946F /* AppDelegate.swift */; };
 		B14D10802959C7980004946F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D107F2959C7980004946F /* SceneDelegate.swift */; };
 		B14D10872959C79A0004946F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B14D10862959C79A0004946F /* Assets.xcassets */; };
@@ -78,12 +90,23 @@
 		0269E2292961DC3700309E8A /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		02C066A32961C98600AED030 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B10AACEB296594A900AB8475 /* IDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDViewController.swift; sourceTree = "<group>"; };
-		B10AACED2965AD5500AB8475 /* IDContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDContentView.swift; sourceTree = "<group>"; };
+		B10AACED2965AD5500AB8475 /* IDNotAvailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDNotAvailableView.swift; sourceTree = "<group>"; };
 		B10AACEF2965B08D00AB8475 /* IDDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDDetailView.swift; sourceTree = "<group>"; };
 		B10AACF129666F9500AB8475 /* BenefitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitInfoView.swift; sourceTree = "<group>"; };
 		B10AACF32966701A00AB8475 /* BenefitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCollectionViewCell.swift; sourceTree = "<group>"; };
 		B10AACF52966919D00AB8475 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		B10AACF72966A50E00AB8475 /* IDCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardView.swift; sourceTree = "<group>"; };
+		B10AACFC2967442200AB8475 /* CustomNavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationManager.swift; sourceTree = "<group>"; };
+		B10AACFE2967443D00AB8475 /* CustomNavigationPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationPresentationController.swift; sourceTree = "<group>"; };
+		B10AAD002967447000AB8475 /* CustomNavigationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationAnimator.swift; sourceTree = "<group>"; };
+		B10AAD022967448500AB8475 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		B10AAD0429674B1000AB8475 /* IDDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDDetailViewController.swift; sourceTree = "<group>"; };
+		B10AAD062967E8EC00AB8475 /* IDDetailActionables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDDetailActionables.swift; sourceTree = "<group>"; };
+		B10AAD082968007600AB8475 /* IDCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardContentView.swift; sourceTree = "<group>"; };
+		B10AAD1D29680F1D00AB8475 /* IDIssueActionables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDIssueActionables.swift; sourceTree = "<group>"; };
+		B10AAD1F29680F2D00AB8475 /* IDCardCotentActionables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardCotentActionables.swift; sourceTree = "<group>"; };
+		B10AAD212968103300AB8475 /* IDContentActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDContentActions.swift; sourceTree = "<group>"; };
+		B10AAD272968113200AB8475 /* SeparatedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatedButton.swift; sourceTree = "<group>"; };
 		B14D107A2959C7980004946F /* Keyneez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keyneez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14D107D2959C7980004946F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B14D107F2959C7980004946F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B14D10C42959D3070004946F /* Kingfisher in Frameworks */,
+				B10AACFB29673D4100AB8475 /* BottomSheet in Frameworks */,
 				B14D10C72959D3720004946F /* SnapKit in Frameworks */,
 				B14D10C12959D2BC0004946F /* Moya in Frameworks */,
 				B1B21D14295C9C4B0083D9EE /* Floaty in Frameworks */,
@@ -162,6 +186,44 @@
 				0269E2232961DAB800309E8A /* Pretendard-Bold.otf */,
 			);
 			path = File;
+			sourceTree = "<group>";
+		};
+		B10AAD232968108600AB8475 /* IDDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B10AACEF2965B08D00AB8475 /* IDDetailView.swift */,
+				B10AAD0429674B1000AB8475 /* IDDetailViewController.swift */,
+				B10AAD062967E8EC00AB8475 /* IDDetailActionables.swift */,
+			);
+			path = IDDetail;
+			sourceTree = "<group>";
+		};
+		B10AAD242968109700AB8475 /* BenefitInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B10AACF129666F9500AB8475 /* BenefitInfoView.swift */,
+				B10AACF32966701A00AB8475 /* BenefitCollectionViewCell.swift */,
+			);
+			path = BenefitInfo;
+			sourceTree = "<group>";
+		};
+		B10AAD25296810B800AB8475 /* IDNotAvailable */ = {
+			isa = PBXGroup;
+			children = (
+				B10AAD1D29680F1D00AB8475 /* IDIssueActionables.swift */,
+				B10AACED2965AD5500AB8475 /* IDNotAvailableView.swift */,
+			);
+			path = IDNotAvailable;
+			sourceTree = "<group>";
+		};
+		B10AAD26296810C700AB8475 /* IDCard */ = {
+			isa = PBXGroup;
+			children = (
+				B10AAD1F29680F2D00AB8475 /* IDCardCotentActionables.swift */,
+				B10AACF72966A50E00AB8475 /* IDCardView.swift */,
+				B10AAD082968007600AB8475 /* IDCardContentView.swift */,
+			);
+			path = IDCard;
 			sourceTree = "<group>";
 		};
 		B14D10712959C7980004946F = {
@@ -256,11 +318,11 @@
 			isa = PBXGroup;
 			children = (
 				B10AACEB296594A900AB8475 /* IDViewController.swift */,
-				B10AACED2965AD5500AB8475 /* IDContentView.swift */,
-				B10AACEF2965B08D00AB8475 /* IDDetailView.swift */,
-				B10AACF129666F9500AB8475 /* BenefitInfoView.swift */,
-				B10AACF32966701A00AB8475 /* BenefitCollectionViewCell.swift */,
-				B10AACF72966A50E00AB8475 /* IDCardView.swift */,
+				B10AAD212968103300AB8475 /* IDContentActions.swift */,
+				B10AAD25296810B800AB8475 /* IDNotAvailable */,
+				B10AAD232968108600AB8475 /* IDDetail */,
+				B10AAD242968109700AB8475 /* BenefitInfo */,
+				B10AAD26296810C700AB8475 /* IDCard */,
 			);
 			path = ID;
 			sourceTree = "<group>";
@@ -329,6 +391,8 @@
 				B18B60C3296552DA00AF14F5 /* TextField */,
 				B18B60C9296552DA00AF14F5 /* UIButton+Extension.swift */,
 				B10AACF52966919D00AB8475 /* ReusableView.swift */,
+				B10AAD022967448500AB8475 /* UIView+Extension.swift */,
+				B10AAD272968113200AB8475 /* SeparatedButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -383,6 +447,9 @@
 				B18B60CC296552DA00AF14F5 /* NavigationBar.swift */,
 				B18B60CD296552DA00AF14F5 /* NavigationViewItem.swift */,
 				B18B60CE296552DA00AF14F5 /* NavigationViewBuilder.swift */,
+				B10AACFC2967442200AB8475 /* CustomNavigationManager.swift */,
+				B10AACFE2967443D00AB8475 /* CustomNavigationPresentationController.swift */,
+				B10AAD002967447000AB8475 /* CustomNavigationAnimator.swift */,
 			);
 			path = NavigationView;
 			sourceTree = "<group>";
@@ -420,6 +487,7 @@
 				B1B21D0D295C985C0083D9EE /* Toast */,
 				B1B21D10295C99280083D9EE /* FloatingPanel */,
 				B1B21D13295C9C4B0083D9EE /* Floaty */,
+				B10AACFA29673D4100AB8475 /* BottomSheet */,
 			);
 			productName = Keyneez;
 			productReference = B14D107A2959C7980004946F /* Keyneez.app */;
@@ -501,6 +569,7 @@
 				B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 				B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty" */,
+				B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = B14D107B2959C7980004946F /* Products */;
 			projectDirPath = "";
@@ -574,29 +643,40 @@
 				B18B60D2296552DA00AF14F5 /* NiblessViewController.swift in Sources */,
 				0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */,
 				B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */,
+				B10AACFF2967443D00AB8475 /* CustomNavigationPresentationController.swift in Sources */,
 				B14D107E2959C7980004946F /* AppDelegate.swift in Sources */,
 				B18B60D6296552DA00AF14F5 /* NavigationViewItem.swift in Sources */,
 				B18B60D0296552DA00AF14F5 /* UITextField+Extension.swift in Sources */,
 				B10AACF62966919D00AB8475 /* ReusableView.swift in Sources */,
+				B10AAD2029680F2D00AB8475 /* IDCardCotentActionables.swift in Sources */,
+				B10AAD012967447000AB8475 /* CustomNavigationAnimator.swift in Sources */,
 				B18B60CF296552DA00AF14F5 /* KeyneezTextFieldFactory.swift in Sources */,
 				B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */,
+				B10AAD072967E8EC00AB8475 /* IDDetailActionables.swift in Sources */,
+				B10AAD222968103300AB8475 /* IDContentActions.swift in Sources */,
 				B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */,
 				B18B60D5296552DA00AF14F5 /* NavigationBar.swift in Sources */,
-				B10AACEE2965AD5500AB8475 /* IDContentView.swift in Sources */,
+				B10AACEE2965AD5500AB8475 /* IDNotAvailableView.swift in Sources */,
 				B10AACF229666F9500AB8475 /* BenefitInfoView.swift in Sources */,
+				B10AACFD2967442200AB8475 /* CustomNavigationManager.swift in Sources */,
 				B10AACF42966701A00AB8475 /* BenefitCollectionViewCell.swift in Sources */,
 				B8C02F0B2962F65E005612CE /* HomeViewController.swift in Sources */,
 				B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */,
 				B10AACF82966A50E00AB8475 /* IDCardView.swift in Sources */,
 				B14D10802959C7980004946F /* SceneDelegate.swift in Sources */,
+				B10AAD092968007600AB8475 /* IDCardContentView.swift in Sources */,
+				B10AAD0529674B1000AB8475 /* IDDetailViewController.swift in Sources */,
 				B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */,
 				B14D10AF2959CA080004946F /* KeyneezTabbarController.swift in Sources */,
 				B18B60D1296552DA00AF14F5 /* NiblessView.swift in Sources */,
 				B10AACEC296594A900AB8475 /* IDViewController.swift in Sources */,
+				B10AAD1E29680F1D00AB8475 /* IDIssueActionables.swift in Sources */,
+				B10AAD032967448500AB8475 /* UIView+Extension.swift in Sources */,
 				B18B60D4296552DA00AF14F5 /* NavigationBarProtocol.swift in Sources */,
 				B10AACF02965B08D00AB8475 /* IDDetailView.swift in Sources */,
 				02C066A42961C98600AED030 /* UIColor+Extension.swift in Sources */,
 				022F68B82962D3A200F32CE1 /* Buildable.swift in Sources */,
+				B10AAD282968113200AB8475 /* SeparatedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -940,6 +1020,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/joomcode/BottomSheet.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		B14D10BC2959D26C0004946F /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
@@ -999,6 +1087,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B10AACFA29673D4100AB8475 /* BottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			productName = BottomSheet;
+		};
 		B14D10BD2959D26C0004946F /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B14D10BC2959D26C0004946F /* XCRemoteSwiftPackageReference "Then" */;
