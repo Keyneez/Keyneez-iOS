@@ -26,7 +26,7 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
   }
   private let categoryView = UIView().then {
     $0.backgroundColor = .clear
-    $0.layer.cornerRadius = 20
+    $0.layer.cornerRadius = 16
     $0.layer.borderWidth = 1.5
     $0.layer.borderColor = UIColor.mint400.cgColor
   }
@@ -59,8 +59,7 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
 
 extension HomeContentCollectionViewCell {
   private func setLayout() {
-    backgroundColor = .clear
-    contentView.addSubviews(contentImageView, dateView, likeButton, categoryView, contentTitle, contentIntroduction)
+    contentView.addSubviews(contentImageView, dateView, likeButton, categoryView, contentTitle, contentIntroduction, cardImageView)
     dateView.addSubviews(dateLabel)
     categoryView.addSubviews(category)
     contentImageView.backgroundColor = .yellow
@@ -99,6 +98,13 @@ extension HomeContentCollectionViewCell {
       $0.top.equalTo(contentTitle.snp.bottom).offset(4)
       $0.leading.equalTo(contentTitle)
     }
+    cardImageView.snp.makeConstraints {
+      $0.top.equalToSuperview().inset(207)
+      $0.trailing.equalToSuperview().inset(28)
+      $0.width.equalTo(64)
+      $0.height.equalTo(72)
+    }
+    cardImageView.backgroundColor = .orange
   }
   
   func dataBind(model: HomeContentModel) {
