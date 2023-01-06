@@ -17,6 +17,11 @@ struct DetailID: Codable {
 private struct Constant {
   static let buttonTitle = "실물인증"
   static let imageviewName = "id_mark"
+  static let personTypeLabelOffset: (top: CGFloat, leading: CGFloat, bottom: CGFloat) = (6, 37, -5)
+  static let ImageLogoViewOffset: (top: CGFloat, trailing: CGFloat, height: CGFloat) = (34, -36, 64)
+  static let seperatedViewOffset: (top: CGFloat, bottom: CGFloat) = (22, -20)
+  static let highSchoolLabelBottomOffset: CGFloat = -5
+  static let authenticateButton: (top: CGFloat, leading: CGFloat, height: CGFloat, bottom: CGFloat) = (79, 16, 48, -44)
 }
 
 final class IDdetailView: NiblessView {
@@ -82,9 +87,9 @@ extension IDdetailView {
   private func setConstraints() {
     
     personTypeLabel.snp.makeConstraints {
-      $0.leading.equalToSuperview().offset(37)
-      $0.top.equalTo(keyneezLogoImageView.snp.top).offset(6)
-      $0.bottom.equalTo(nameLabel.snp.top).offset(-5)
+      $0.leading.equalToSuperview().offset(Constant.personTypeLabelOffset.leading)
+      $0.top.equalTo(keyneezLogoImageView.snp.top).offset(Constant.personTypeLabelOffset.top)
+      $0.bottom.equalTo(nameLabel.snp.top).offset(Constant.personTypeLabelOffset.bottom)
     }
     
     nameLabel.snp.makeConstraints {
@@ -92,22 +97,22 @@ extension IDdetailView {
     }
     
     keyneezLogoImageView.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(34)
-      $0.trailing.equalToSuperview().offset(-36)
-      $0.height.width.equalTo(64)
+      $0.top.equalToSuperview().offset(Constant.ImageLogoViewOffset.top)
+      $0.trailing.equalToSuperview().offset(Constant.ImageLogoViewOffset.trailing)
+      $0.height.width.equalTo(Constant.ImageLogoViewOffset.height)
     }
     
     seperatedView.snp.makeConstraints {
       $0.height.equalTo(1)
-      $0.top.equalTo(nameLabel.snp.bottom).offset(22)
+      $0.top.equalTo(nameLabel.snp.bottom).offset(Constant.seperatedViewOffset.top)
       $0.leading.equalTo(personTypeLabel.snp.leading)
       $0.trailing.equalTo(keyneezLogoImageView.snp.trailing)
-      $0.bottom.equalTo(highSchoolLabel.snp.top).offset(-20)
+      $0.bottom.equalTo(highSchoolLabel.snp.top).offset(Constant.seperatedViewOffset.bottom)
     }
     
     highSchoolLabel.snp.makeConstraints {
       $0.leading.equalTo(personTypeLabel.snp.leading)
-      $0.bottom.equalTo(birthdayLabel.snp.top).offset(-5)
+      $0.bottom.equalTo(birthdayLabel.snp.top).offset(Constant.highSchoolLabelBottomOffset)
     }
     
     birthdayLabel.snp.makeConstraints {
@@ -115,10 +120,10 @@ extension IDdetailView {
     }
     
     authenticateButton.snp.makeConstraints {
-      $0.top.equalTo(birthdayLabel.snp.bottom).offset(79)
-      $0.leading.trailing.equalToSuperview().inset(16)
-      $0.height.equalTo(48)
-      $0.bottom.equalToSuperview().offset(-44)
+      $0.top.equalTo(birthdayLabel.snp.bottom).offset(Constant.authenticateButton.top)
+      $0.leading.trailing.equalToSuperview().inset(Constant.authenticateButton.leading)
+      $0.height.equalTo(Constant.authenticateButton.height)
+      $0.bottom.equalToSuperview().offset(Constant.authenticateButton.bottom)
     }
     
   }
