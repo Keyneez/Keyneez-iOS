@@ -55,11 +55,11 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
   }
 }
 
+// MARK: - extra functions
 extension HomeViewController {
   private func configure() {
     contentView.addSubviews(containerView)
     containerView.addSubviews(segmentControl, underLineView)
-    
     containerView.snp.makeConstraints {
       $0.top.leading.trailing.equalToSuperview()
       $0.height.equalTo(48)
