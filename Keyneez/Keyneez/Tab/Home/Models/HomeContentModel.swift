@@ -12,6 +12,7 @@ struct HomeContentModel {
   let start_at: String
   let end_at: String
   let contentTitle: String
+  let introduction: String
   let categoty: [String]
   let liked: Bool
 }
