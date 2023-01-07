@@ -28,15 +28,15 @@
 		B10AAD63296967F300AB8475 /* BenefitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD48296967F000AB8475 /* BenefitInfoView.swift */; };
 		B10AAD64296967F300AB8475 /* BenefitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD49296967F000AB8475 /* BenefitCollectionViewCell.swift */; };
 		B10AAD68296967F300AB8475 /* IDCardCotentActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD4E296967F100AB8475 /* IDCardCotentActionables.swift */; };
-		B10AAD6A296967F300AB8475 /* IDDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD51296967F100AB8475 /* IDDetailViewController.swift */; };
-		B10AAD6B296967F300AB8475 /* IDDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD52296967F100AB8475 /* IDDetailView.swift */; };
 		B10AAD6D296967F300AB8475 /* IDDetailActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD54296967F100AB8475 /* IDDetailActionables.swift */; };
 		B10AAD6E296967F300AB8475 /* IDContentActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD55296967F100AB8475 /* IDContentActions.swift */; };
 		B10AAD70296967F300AB8475 /* IDCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD57296967F200AB8475 /* IDCardView.swift */; };
 		B10AAD71296967F300AB8475 /* IDIssueActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD58296967F200AB8475 /* IDIssueActionables.swift */; };
-		B10AAD77296967F300AB8475 /* IDNotAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD60296967F300AB8475 /* IDNotAvailableView.swift */; };
 		B10AAD7929696AEE00AB8475 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = B10AACFA29673D4100AB8475 /* BottomSheet */; };
 		B10AAD7B29696C7700AB8475 /* IDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD7A29696C7700AB8475 /* IDViewController.swift */; };
+		B10AAD8229696FCA00AB8475 /* IDDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD56296967F200AB8475 /* IDDetailViewController.swift */; };
+		B10AAD8329696FCD00AB8475 /* IDDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD4F296967F100AB8475 /* IDDetailView.swift */; };
+		B10AAD842969706700AB8475 /* IDNotAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD59296967F200AB8475 /* IDNotAvailableView.swift */; };
 		B14D107E2959C7980004946F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D107D2959C7980004946F /* AppDelegate.swift */; };
 		B14D10802959C7980004946F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D107F2959C7980004946F /* SceneDelegate.swift */; };
 		B14D10872959C79A0004946F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B14D10862959C79A0004946F /* Assets.xcassets */; };
@@ -108,25 +108,14 @@
 		B10AAD47296967F000AB8475 /* BenefitInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BenefitInfoViewController.swift; sourceTree = "<group>"; };
 		B10AAD48296967F000AB8475 /* BenefitInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BenefitInfoView.swift; sourceTree = "<group>"; };
 		B10AAD49296967F000AB8475 /* BenefitCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BenefitCollectionViewCell.swift; sourceTree = "<group>"; };
-		B10AAD4B296967F100AB8475 /* IDCardCotentActionables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCardCotentActionables.swift; sourceTree = "<group>"; };
-		B10AAD4C296967F100AB8475 /* IDCardContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCardContentView.swift; sourceTree = "<group>"; };
-		B10AAD4D296967F100AB8475 /* IDCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCardView.swift; sourceTree = "<group>"; };
 		B10AAD4E296967F100AB8475 /* IDCardCotentActionables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCardCotentActionables.swift; sourceTree = "<group>"; };
 		B10AAD4F296967F100AB8475 /* IDDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDDetailView.swift; sourceTree = "<group>"; };
-		B10AAD51296967F100AB8475 /* IDDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDDetailViewController.swift; sourceTree = "<group>"; };
-		B10AAD52296967F100AB8475 /* IDDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDDetailView.swift; sourceTree = "<group>"; };
-		B10AAD53296967F100AB8475 /* IDDetailActionables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDDetailActionables.swift; sourceTree = "<group>"; };
 		B10AAD54296967F100AB8475 /* IDDetailActionables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDDetailActionables.swift; sourceTree = "<group>"; };
 		B10AAD55296967F100AB8475 /* IDContentActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDContentActions.swift; sourceTree = "<group>"; };
 		B10AAD56296967F200AB8475 /* IDDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDDetailViewController.swift; sourceTree = "<group>"; };
 		B10AAD57296967F200AB8475 /* IDCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCardView.swift; sourceTree = "<group>"; };
 		B10AAD58296967F200AB8475 /* IDIssueActionables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDIssueActionables.swift; sourceTree = "<group>"; };
 		B10AAD59296967F200AB8475 /* IDNotAvailableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDNotAvailableView.swift; sourceTree = "<group>"; };
-		B10AAD5B296967F300AB8475 /* BenefitCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BenefitCollectionViewCell.swift; sourceTree = "<group>"; };
-		B10AAD5C296967F300AB8475 /* BenefitInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BenefitInfoView.swift; sourceTree = "<group>"; };
-		B10AAD5D296967F300AB8475 /* BenefitInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BenefitInfoViewController.swift; sourceTree = "<group>"; };
-		B10AAD5F296967F300AB8475 /* IDIssueActionables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDIssueActionables.swift; sourceTree = "<group>"; };
-		B10AAD60296967F300AB8475 /* IDNotAvailableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDNotAvailableView.swift; sourceTree = "<group>"; };
 		B10AAD7A29696C7700AB8475 /* IDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDViewController.swift; sourceTree = "<group>"; };
 		B14D107A2959C7980004946F /* Keyneez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keyneez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14D107D2959C7980004946F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -220,9 +209,9 @@
 		B10AAD4A296967F100AB8475 /* IDCard */ = {
 			isa = PBXGroup;
 			children = (
-				B10AAD4B296967F100AB8475 /* IDCardCotentActionables.swift */,
-				B10AAD4C296967F100AB8475 /* IDCardContentView.swift */,
-				B10AAD4D296967F100AB8475 /* IDCardView.swift */,
+				B10AAD46296967F000AB8475 /* IDCardContentView.swift */,
+				B10AAD4E296967F100AB8475 /* IDCardCotentActionables.swift */,
+				B10AAD57296967F200AB8475 /* IDCardView.swift */,
 			);
 			path = IDCard;
 			sourceTree = "<group>";
@@ -230,9 +219,9 @@
 		B10AAD50296967F100AB8475 /* IDDetail */ = {
 			isa = PBXGroup;
 			children = (
-				B10AAD51296967F100AB8475 /* IDDetailViewController.swift */,
-				B10AAD52296967F100AB8475 /* IDDetailView.swift */,
-				B10AAD53296967F100AB8475 /* IDDetailActionables.swift */,
+				B10AAD54296967F100AB8475 /* IDDetailActionables.swift */,
+				B10AAD4F296967F100AB8475 /* IDDetailView.swift */,
+				B10AAD56296967F200AB8475 /* IDDetailViewController.swift */,
 			);
 			path = IDDetail;
 			sourceTree = "<group>";
@@ -240,9 +229,9 @@
 		B10AAD5A296967F300AB8475 /* BenefitInfo */ = {
 			isa = PBXGroup;
 			children = (
-				B10AAD5B296967F300AB8475 /* BenefitCollectionViewCell.swift */,
-				B10AAD5C296967F300AB8475 /* BenefitInfoView.swift */,
-				B10AAD5D296967F300AB8475 /* BenefitInfoViewController.swift */,
+				B10AAD48296967F000AB8475 /* BenefitInfoView.swift */,
+				B10AAD47296967F000AB8475 /* BenefitInfoViewController.swift */,
+				B10AAD49296967F000AB8475 /* BenefitCollectionViewCell.swift */,
 			);
 			path = BenefitInfo;
 			sourceTree = "<group>";
@@ -250,8 +239,8 @@
 		B10AAD5E296967F300AB8475 /* IDNotAvailable */ = {
 			isa = PBXGroup;
 			children = (
-				B10AAD5F296967F300AB8475 /* IDIssueActionables.swift */,
-				B10AAD60296967F300AB8475 /* IDNotAvailableView.swift */,
+				B10AAD58296967F200AB8475 /* IDIssueActionables.swift */,
+				B10AAD59296967F200AB8475 /* IDNotAvailableView.swift */,
 			);
 			path = IDNotAvailable;
 			sourceTree = "<group>";
@@ -348,22 +337,11 @@
 			isa = PBXGroup;
 			children = (
 				B10AAD7A29696C7700AB8475 /* IDViewController.swift */,
-				B10AAD49296967F000AB8475 /* BenefitCollectionViewCell.swift */,
-				B10AAD5A296967F300AB8475 /* BenefitInfo */,
-				B10AAD48296967F000AB8475 /* BenefitInfoView.swift */,
-				B10AAD47296967F000AB8475 /* BenefitInfoViewController.swift */,
-				B10AAD4A296967F100AB8475 /* IDCard */,
-				B10AAD46296967F000AB8475 /* IDCardContentView.swift */,
-				B10AAD4E296967F100AB8475 /* IDCardCotentActionables.swift */,
-				B10AAD57296967F200AB8475 /* IDCardView.swift */,
 				B10AAD55296967F100AB8475 /* IDContentActions.swift */,
+				B10AAD5A296967F300AB8475 /* BenefitInfo */,
+				B10AAD4A296967F100AB8475 /* IDCard */,
 				B10AAD50296967F100AB8475 /* IDDetail */,
-				B10AAD54296967F100AB8475 /* IDDetailActionables.swift */,
-				B10AAD4F296967F100AB8475 /* IDDetailView.swift */,
-				B10AAD56296967F200AB8475 /* IDDetailViewController.swift */,
-				B10AAD58296967F200AB8475 /* IDIssueActionables.swift */,
 				B10AAD5E296967F300AB8475 /* IDNotAvailable */,
-				B10AAD59296967F200AB8475 /* IDNotAvailableView.swift */,
 			);
 			path = ID;
 			sourceTree = "<group>";
@@ -686,14 +664,13 @@
 			files = (
 				B10AAD7B29696C7700AB8475 /* IDViewController.swift in Sources */,
 				B10AAD3E296967C700AB8475 /* ReusableView.swift in Sources */,
-				B10AAD77296967F300AB8475 /* IDNotAvailableView.swift in Sources */,
 				B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */,
 				B18B60D2296552DA00AF14F5 /* NiblessViewController.swift in Sources */,
 				B10AAD64296967F300AB8475 /* BenefitCollectionViewCell.swift in Sources */,
 				0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */,
+				B10AAD8329696FCD00AB8475 /* IDDetailView.swift in Sources */,
+				B10AAD8229696FCA00AB8475 /* IDDetailViewController.swift in Sources */,
 				B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */,
-				B10AAD6B296967F300AB8475 /* IDDetailView.swift in Sources */,
-				B10AAD6A296967F300AB8475 /* IDDetailViewController.swift in Sources */,
 				023B559429655CD200FB2462 /* CGFloat+Extension.swift in Sources */,
 				B14D107E2959C7980004946F /* AppDelegate.swift in Sources */,
 				B18B60D6296552DA00AF14F5 /* NavigationViewItem.swift in Sources */,
@@ -721,6 +698,7 @@
 				B18B60D1296552DA00AF14F5 /* NiblessView.swift in Sources */,
 				B18B60D4296552DA00AF14F5 /* NavigationBarProtocol.swift in Sources */,
 				02C066A42961C98600AED030 /* UIColor+Extension.swift in Sources */,
+				B10AAD842969706700AB8475 /* IDNotAvailableView.swift in Sources */,
 				B10AAD63296967F300AB8475 /* BenefitInfoView.swift in Sources */,
 				B10AAD3C296967C700AB8475 /* SeparatedButton.swift in Sources */,
 				B10AAD6D296967F300AB8475 /* IDDetailActionables.swift in Sources */,
