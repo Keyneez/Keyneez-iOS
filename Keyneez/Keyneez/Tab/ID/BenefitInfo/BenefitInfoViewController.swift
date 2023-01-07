@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BenefitInfoViewController: NiblessViewController {
+class BenefitInfoViewController: BottomSheetViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -16,7 +16,7 @@ class BenefitInfoViewController: NiblessViewController {
   
   private func addSubview() {
     let benefitInfoView = BenefitInfoView()
-    view.addSubview(benefitInfoView)
+    contentView.addSubview(benefitInfoView)
     benefitInfoView.snp.makeConstraints {
       $0.top.left.right.bottom.equalToSuperview()
     }
