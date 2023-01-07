@@ -16,11 +16,16 @@ struct UserCardInfo {
 private struct Constant {
   static let titles: [String] = ["혜택안내", "실물인증"]
   static let usercardInfo = UserCardInfo(name: "김민지", personType: "호기심 가득 문화인", birthday: "2001.01.17")
+  static let IDcardViewLeading: CGFloat = 53
+  static let IDCardTop: CGFloat = 55
+  static let IDCardBottom: CGFloat = -20
+  static let idSeperatedButtonheight: CGFloat = 44
+  static let idSeparatedBottom: CGFloat = 158
 }
 
 class IDCardContentView: NiblessView {
   
-  private lazy var IDcardView: IDCardView = .init(frame: .zero, userCardInfo: Constant.usercardInfo, actions: actions)
+  private lazy var idCardView: IDCardView = .init(frame: .zero, userCardInfo: Constant.usercardInfo, actions: actions)
   
   private var actions: IDCardContentActionables
   
@@ -30,25 +35,26 @@ class IDCardContentView: NiblessView {
     self.actions = actions
     super.init(frame: frame)
     addSubview()
-    
+    setConstraint()
   }
   
   private func addSubview() {
-    [IDcardView, idSeperateButton].forEach { self.addSubview($0) }
+    [idCardView, idSeperateButton].forEach { self.addSubview($0) }
   }
   
   private func setConstraint() {
     
-    IDcardView.snp.makeConstraints {
-      $0.centerX.equalToSuperview()
-      $0.leading.trailing.equalToSuperview().inset(53)
-      $0.top.equalToSuperview().inset(55)
-      $0.bottom.equalTo(idSeperateButton.snp.top).offset(-20)
+    idCardView.snp.makeConstraints {
+      $0.leading.trailing.equalToSuperview().inset(Constant.IDcardViewLeading)
+      $0.top.equalToSuperview().inset(Constant.IDCardTop)
+      $0.bottom.equalTo(idSeperateButton.snp.top).offset(Constant.IDCardBottom)
     }
     
     idSeperateButton.snp.makeConstraints {
-      $0.leading.trailing.equalToSuperview().inset(53)
-      $0.bottom.equalToSuperview().inset(64)
+      $0.leading.equalTo(idCardView.snp.leading)
+      $0.trailing.equalTo(idCardView.snp.trailing)
+      $0.height.equalTo(Constant.idSeperatedButtonheight)
+      $0.bottom.equalToSuperview().inset(Constant.idSeparatedBottom)
     }
     
   }
