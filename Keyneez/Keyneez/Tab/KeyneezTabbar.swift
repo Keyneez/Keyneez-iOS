@@ -9,11 +9,6 @@ import UIKit
 import Then
 
 final class KeyneezTabar: UITabBar {
-  
-  private struct Constant {
-    
-  }
-  
   private var shapeLayer: CALayer?
 
   private func setShapeLayer() -> CAShapeLayer {

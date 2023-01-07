@@ -101,7 +101,7 @@ extension HomeViewController {
     homeContentCollectionView.snp.makeConstraints {
       $0.top.equalTo(underLineView.snp.bottom)
       $0.leading.trailing.equalToSuperview()
-      $0.height.equalTo(calculateCellHeight())
+      $0.bottom.equalToSuperview()
     }
   }
   @objc private func changeUnderLinePosition() {
@@ -118,11 +118,6 @@ extension HomeViewController {
     })
   }
   
-  private func calculateCellHeight() -> CGFloat {
-    let count = CGFloat(homeContentList.count)
-    return count * homeContentCellHeight + (count-1) * homeContentLineSpacing + homeContentInset.top + homeContentInset.bottom
-  }
-  
   private func register() {
     homeContentCollectionView.register(
       HomeContentCollectionViewCell.self,
@@ -136,7 +131,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let screenWidth = UIScreen.main.bounds.width
     let CellWidth = screenWidth - homeContentInset.left - homeContentInset.right
-    return CGSize(width: CellWidth, height: 400)
+    return CGSize(width: CellWidth, height: homeContentCellHeight)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
