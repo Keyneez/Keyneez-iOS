@@ -6,83 +6,83 @@
 //
 
 import UIKit
+import Then
+import SnapKit
 
-private let reuseIdentifier = "Cell"
+final class RecommendCollectionViewController: UIViewController {
+  
+  // MARK: - CollectionView
+  private lazy var homeContentCollectionView: UICollectionView = {
+    let layout = UICollectionViewFlowLayout()
+    layout.scrollDirection = .vertical
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    collectionView.backgroundColor = .clear
+    collectionView.translatesAutoresizingMaskIntoConstraints = false
+    collectionView.isScrollEnabled = true
+    collectionView.showsVerticalScrollIndicator = false
+    collectionView.delegate = self
+    collectionView.dataSource = self
+    return collectionView
+  }()
 
-class RecommendCollectionViewController: UICollectionViewController {
+  var homeContentList: [HomeContentModel] = [
+    HomeContentModel(contentImage: "", start_at: "11.24", end_at: "12.31", contentTitle: "청소년 미술관 할인", introduction: "어쩌구저쩌구", categoty: ["문화"], liked: false),
+    HomeContentModel(contentImage: "", start_at: "12.31", end_at: "01.01", contentTitle: "예시입니당", introduction: "어쩌구저쩌구", categoty: ["문화", "예술"], liked: true)]
+ 
+  final let homeContentInset: UIEdgeInsets = UIEdgeInsets(top: 32, left: 17, bottom: 32, right: 17)
+  final let homeContentLineSpacing: CGFloat = 16
+  final let homeContentCellHeight: CGFloat = 400
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    register()
+    setLayout()
+  }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+  private func register() {
+    homeContentCollectionView.register(
+      HomeContentCollectionViewCell.self,
+      forCellWithReuseIdentifier: HomeContentCollectionViewCell.identifier)
+  }
+  
+  private func setLayout() {
+    view.addSubviews(homeContentCollectionView)
+    homeContentCollectionView.snp.makeConstraints {
+      $0.top.leading.trailing.bottom.equalToSuperview()
     }
+  }
+}
 
-    /*
-    // MARK: - Navigation
+// MARK: - UICollectionViewDelegateFlowLayout
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
+extension RecommendCollectionViewController: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let screenWidth = UIScreen.main.bounds.width
+    let CellWidth = screenWidth - homeContentInset.left - homeContentInset.right
+    return CGSize(width: CellWidth, height: homeContentCellHeight)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return homeContentLineSpacing
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return homeContentInset
+  }
+}
 
-    // MARK: UICollectionViewDataSource
+// MARK: -UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
-        return cell
-    }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
+extension RecommendCollectionViewController: UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return homeContentList.count
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    guard let homeContentCell = collectionView.dequeueReusableCell(
+      withReuseIdentifier: HomeContentCollectionViewCell.identifier, for: indexPath)
+            as? HomeContentCollectionViewCell else { return UICollectionViewCell() }
+    homeContentCell.dataBind(model: homeContentList[indexPath.item])
+    return homeContentCell
+  }
 }
