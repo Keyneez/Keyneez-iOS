@@ -10,6 +10,7 @@
 		022CB212296957DB0084DEF5 /* DanalAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022CB211296957DB0084DEF5 /* DanalAuthViewController.swift */; };
 		022CB214296965480084DEF5 /* DanalAuthSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022CB213296965480084DEF5 /* DanalAuthSuccessViewController.swift */; };
 		022CB21629696C760084DEF5 /* MakeJellyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022CB21529696C760084DEF5 /* MakeJellyViewController.swift */; };
+		022CB21B296A11A40084DEF5 /* NavigationBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022CB21A296A11A40084DEF5 /* NavigationBarProtocol.swift */; };
 		022F68B82962D3A200F32CE1 /* Buildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F68B72962D3A200F32CE1 /* Buildable.swift */; };
 		023B559429655CD200FB2462 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023B559329655CD200FB2462 /* CGFloat+Extension.swift */; };
 		0253816729674D3D00D29A97 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0253816629674D3D00D29A97 /* LandingPageViewController.swift */; };
@@ -57,7 +58,6 @@
 		B18B60D1296552DA00AF14F5 /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60C7296552DA00AF14F5 /* NiblessView.swift */; };
 		B18B60D2296552DA00AF14F5 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60C8296552DA00AF14F5 /* NiblessViewController.swift */; };
 		B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60C9296552DA00AF14F5 /* UIButton+Extension.swift */; };
-		B18B60D4296552DA00AF14F5 /* NavigationBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60CA296552DA00AF14F5 /* NavigationBarProtocol.swift */; };
 		B18B60D5296552DA00AF14F5 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60CC296552DA00AF14F5 /* NavigationBar.swift */; };
 		B18B60D6296552DA00AF14F5 /* NavigationViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60CD296552DA00AF14F5 /* NavigationViewItem.swift */; };
 		B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60CE296552DA00AF14F5 /* NavigationViewBuilder.swift */; };
@@ -98,6 +98,7 @@
 		022CB211296957DB0084DEF5 /* DanalAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DanalAuthViewController.swift; sourceTree = "<group>"; };
 		022CB213296965480084DEF5 /* DanalAuthSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DanalAuthSuccessViewController.swift; sourceTree = "<group>"; };
 		022CB21529696C760084DEF5 /* MakeJellyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeJellyViewController.swift; sourceTree = "<group>"; };
+		022CB21A296A11A40084DEF5 /* NavigationBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarProtocol.swift; sourceTree = "<group>"; };
 		022F68B42962D10500F32CE1 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		022F68B72962D3A200F32CE1 /* Buildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buildable.swift; sourceTree = "<group>"; };
 		023B559329655CD200FB2462 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
@@ -146,7 +147,6 @@
 		B18B60C7296552DA00AF14F5 /* NiblessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
 		B18B60C8296552DA00AF14F5 /* NiblessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
 		B18B60C9296552DA00AF14F5 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
-		B18B60CA296552DA00AF14F5 /* NavigationBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarProtocol.swift; sourceTree = "<group>"; };
 		B18B60CC296552DA00AF14F5 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		B18B60CD296552DA00AF14F5 /* NavigationViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewItem.swift; sourceTree = "<group>"; };
 		B18B60CE296552DA00AF14F5 /* NavigationViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewBuilder.swift; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 		022F68B62962D33B00F32CE1 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				B18B60CA296552DA00AF14F5 /* NavigationBarProtocol.swift */,
+				022CB21A296A11A40084DEF5 /* NavigationBarProtocol.swift */,
 				022F68B72962D3A200F32CE1 /* Buildable.swift */,
 			);
 			path = Protocol;
@@ -432,7 +432,6 @@
 				B10AAD39296967C700AB8475 /* UIView+Extension.swift */,
 				02F262AD2965ABEE005A1CE4 /* LoadingView.swift */,
 				02F262B32965FE75005A1CE4 /* LandingPageView */,
-				B18B60CA296552DA00AF14F5 /* NavigationBarProtocol.swift */,
 				B18B60CB296552DA00AF14F5 /* NavigationView */,
 				B18B60C6296552DA00AF14F5 /* Nibless */,
 				B18B60C3296552DA00AF14F5 /* TextField */,
@@ -750,10 +749,9 @@
 				022CB214296965480084DEF5 /* DanalAuthSuccessViewController.swift in Sources */,
 				B14D10AF2959CA080004946F /* KeyneezTabbarController.swift in Sources */,
 				B10AAD62296967F300AB8475 /* BenefitInfoViewController.swift in Sources */,
+				022CB21B296A11A40084DEF5 /* NavigationBarProtocol.swift in Sources */,
 				022CB212296957DB0084DEF5 /* DanalAuthViewController.swift in Sources */,
-				B8C02F072962F5EB005612CE /* IDViewController.swift in Sources */,
 				B18B60D1296552DA00AF14F5 /* NiblessView.swift in Sources */,
-				B18B60D4296552DA00AF14F5 /* NavigationBarProtocol.swift in Sources */,
 				022CB21629696C760084DEF5 /* MakeJellyViewController.swift in Sources */,
 				02C066A42961C98600AED030 /* UIColor+Extension.swift in Sources */,
 				B10AAD842969706700AB8475 /* IDNotAvailableView.swift in Sources */,

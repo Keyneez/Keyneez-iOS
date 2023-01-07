@@ -142,7 +142,7 @@ extension HomeContentCollectionViewCell {
   
   func dataBind(model: HomeContentModel) {
     contentImageView.image = UIImage(named: model.contentImage)
-    dateLabel.text = model.start_at + " ~ " + model.end_at
+    dateLabel.text = model.startAt + " ~ " + model.endAt
     category.text = model.categoty[0]
     contentTitle.text = model.contentTitle
     contentIntroduction.text = model.introduction

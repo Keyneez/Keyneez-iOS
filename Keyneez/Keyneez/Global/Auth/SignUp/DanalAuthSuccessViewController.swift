@@ -9,11 +9,14 @@ import UIKit
 import SnapKit
 import Then
 
-// MARK: - 네비게이션 바 만들기 !!
+// TODO: 3초 있다가 자동 화면 넘기기 구현
 
 class DanalAuthSuccessViewController: UIViewController {
   
   // MARK: - UI Components
+  
+  private lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.flexibleBox, .flexibleBox, .flexibleBox]).build()
+  
   private let titleLabel = UILabel().then {
     $0.text = "만나서 반가워요!\n이제 민지님의 젤리를\n만들어 볼까요?"
     $0.font = UIFont.font(.pretendardBold, ofSize: 24)
@@ -26,6 +29,9 @@ class DanalAuthSuccessViewController: UIViewController {
     super.viewDidLoad()
     setConfig()
     setLayout()
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+3.0) {
+      
+    }
   }
 }
 
@@ -37,13 +43,19 @@ extension DanalAuthSuccessViewController {
   
   private func setConfig() {
     view.backgroundColor = .gray050
-    [titleLabel].forEach {
+    [navigationView, titleLabel].forEach {
       view.addSubview($0)
     }
   }
   private func setLayout() {
+    
+    navigationView.snp.makeConstraints {
+      $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+      $0.height.equalTo(56)
+    }
+    
     titleLabel.snp.makeConstraints {
-      $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(SignUpConstant.labelTop.adjusted)
+      $0.top.equalTo(navigationView.snp.bottom).offset(SignUpConstant.labelTop.adjusted)
       $0.leading.equalToSuperview().offset(SignUpConstant.labelLeading.adjusted)
     }
   }

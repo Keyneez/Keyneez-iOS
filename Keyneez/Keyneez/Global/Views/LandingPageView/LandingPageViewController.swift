@@ -131,38 +131,38 @@ extension LandingPageViewController {
   }
   
   private func setLayout() {
-    let safeArea = self.view.safeAreaLayoutGuide
+    let guide = self.view.safeAreaLayoutGuide
     
     logoImageView.snp.makeConstraints {
-      $0.centerX.equalTo(safeArea)
-      $0.top.equalTo(safeArea).offset(Constant.navigationBarHeight.adjusted)
-      $0.leading.trailing.equalTo(safeArea).inset(Constant.logoWidth.adjusted)
+      $0.centerX.equalTo(guide)
+      $0.top.equalTo(guide).offset(Constant.navigationBarHeight.adjusted)
+      $0.leading.trailing.equalTo(guide).inset(Constant.logoWidth.adjusted)
       $0.height.equalTo(Constant.logoHeight.adjusted)
     }
     
     scrollView.snp.makeConstraints {
       $0.top.equalTo(logoImageView.snp.bottom).offset(Constant.logoBottomMargin.adjusted)
-      $0.centerX.equalTo(safeArea)
-      $0.leading.trailing.equalTo(safeArea)
+      $0.centerX.equalTo(guide)
+      $0.leading.trailing.equalTo(guide)
       $0.height.equalTo(Constant.mainImageHeight)
     }
     
     pageControl.snp.makeConstraints {
       $0.top.equalTo(scrollView.snp.bottom).offset(Constant.bottomMargin.adjusted)
-      $0.centerX.equalToSuperview()
+      $0.centerX.equalTo(guide)
       $0.width.equalTo(Constant.pageControlWidth)
       $0.height.equalTo(Constant.pageControlHeight)
     }
     
     signUpButton.snp.makeConstraints {
       $0.top.equalTo(pageControl.snp.bottom).offset(Constant.landingBarBottomMargin.adjusted)
-      $0.leading.trailing.equalToSuperview().inset(Constant.buttonWidth)
+      $0.leading.trailing.equalTo(guide).inset(Constant.buttonWidth)
       $0.height.equalTo(Constant.buttonHeight)
     }
     
     signInButton.snp.makeConstraints {
       $0.top.equalTo(signUpButton.snp.bottom).offset(Constant.buttonBottomMargin.adjusted)
-      $0.leading.trailing.equalToSuperview().inset(Constant.buttonWidth)
+      $0.leading.trailing.equalTo(signUpButton)
       $0.height.equalTo(Constant.buttonHeight)
     }
   }

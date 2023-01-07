@@ -26,8 +26,8 @@ final class HomeNewestViewController: UIViewController {
   }()
 
   var homeContentList: [HomeContentModel] = [
-    HomeContentModel(contentImage: "", start_at: "11.24", end_at: "12.31", contentTitle: "최신뷰 이거 최신뷰", introduction: "이거 최신뷰", categoty: ["문화"], liked: false),
-    HomeContentModel(contentImage: "", start_at: "12.31", end_at: "01.01", contentTitle: "예시입니당", introduction: "어쩌구저쩌구", categoty: ["문화", "예술"], liked: true)]
+    HomeContentModel(contentImage: "", startAt: "11.24", endAt: "12.31", contentTitle: "최신뷰 이거 최신뷰", introduction: "이거 최신뷰", categoty: ["문화"], liked: false),
+    HomeContentModel(contentImage: "", startAt: "12.31", endAt: "01.01", contentTitle: "예시입니당", introduction: "어쩌구저쩌구", categoty: ["문화", "예술"], liked: true)]
  
   final let homeContentInset: UIEdgeInsets = UIEdgeInsets(top: 32, left: 17, bottom: 32, right: 17)
   final let homeContentLineSpacing: CGFloat = 16
@@ -59,8 +59,8 @@ final class HomeNewestViewController: UIViewController {
 extension HomeNewestViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let screenWidth = UIScreen.main.bounds.width
-    let CellWidth = screenWidth - homeContentInset.left - homeContentInset.right
-    return CGSize(width: CellWidth, height: homeContentCellHeight)
+    let cellWidth = screenWidth - homeContentInset.left - homeContentInset.right
+    return CGSize(width: cellWidth, height: homeContentCellHeight)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

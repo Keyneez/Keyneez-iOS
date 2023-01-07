@@ -15,6 +15,9 @@ import Then
 class MakeJellyViewController: UIViewController {
   
   // MARK: - UI Components
+  
+  private lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.flexibleBox]).build()
+  
   private let titleLabel = UILabel().then {
     $0.text = "나의 젤리 만들기"
     $0.font = UIFont.font(.pretendardBold, ofSize: 24)
@@ -49,14 +52,20 @@ extension MakeJellyViewController {
   
   private func setConfig() {
     view.backgroundColor = .white
-    [titleLabel, subTitleLabel, jellyImageView, startButton].forEach {
+    [navigationView, titleLabel, subTitleLabel, jellyImageView, startButton].forEach {
       view.addSubview($0)
     }
   }
   private func setLayout() {
+    let guide = self.view.safeAreaLayoutGuide
+    navigationView.snp.makeConstraints {
+      $0.top.leading.trailing.equalTo(guide)
+      $0.height.equalTo(56)
+    }
+    
     titleLabel.snp.makeConstraints {
-      $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(SignUpConstant.labelTop)
-      $0.leading.equalToSuperview().offset(SignUpConstant.labelLeading)
+      $0.top.equalTo(navigationView.snp.bottom).offset(SignUpConstant.labelTop)
+      $0.leading.equalTo(guide).offset(SignUpConstant.labelLeading)
     }
     subTitleLabel.snp.makeConstraints {
       $0.top.equalTo(titleLabel.snp.bottom).offset(SignUpConstant.labelTop)
@@ -64,12 +73,12 @@ extension MakeJellyViewController {
     }
     jellyImageView.snp.makeConstraints {
       $0.top.equalTo(subTitleLabel.snp.bottom).offset(SignUpConstant.imageTop)
-      $0.leading.trailing.equalToSuperview().inset(SignUpConstant.jellyImageWidth)
+      $0.leading.trailing.equalTo(guide).inset(SignUpConstant.jellyImageWidth)
       $0.height.equalTo(SignUpConstant.jellyImageHeight)
     }
     startButton.snp.makeConstraints {
-      $0.bottom.equalToSuperview().inset(SignUpConstant.buttonBottom.adjusted)
-      $0.leading.trailing.equalToSuperview().inset(SignUpConstant.labelTop)
+      $0.bottom.equalTo(guide).inset(SignUpConstant.buttonBottom.adjusted)
+      $0.leading.trailing.equalTo(guide).inset(SignUpConstant.labelTop)
       $0.height.equalTo(SignUpConstant.buttonHeight.adjusted)
     }
     

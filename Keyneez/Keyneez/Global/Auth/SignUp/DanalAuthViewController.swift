@@ -8,7 +8,7 @@
 import UIKit
 import Then
 
-// MARK: - 네비게이션 추가 !!
+// TODO: - 네비게이션 추가 !!
 
 // MARK: - Constant
 
@@ -28,6 +28,12 @@ struct SignUpConstant {
 class DanalAuthViewController: UIViewController {
   
   // MARK: - UI Components
+  
+ private lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
+  
+  private let backButton = UIButton().then {
+    $0.setBackgroundImage(UIImage(named: "ic_arrowback"), for: .normal)
+  }
   
   private let titleLabel = UILabel().then {
     $0.text = "휴대폰 인증을\n진행해주세요."
@@ -61,25 +67,30 @@ extension DanalAuthViewController {
   
   private func setConfig() {
     view.backgroundColor = .gray050
-    [titleLabel, phoneImageView, authButton].forEach {
+    [navigationView, titleLabel, phoneImageView, authButton].forEach {
       view.addSubview($0)
     }
   }
   private func setLayout() {
+     let guide = self.view.safeAreaLayoutGuide
+    navigationView.snp.makeConstraints {
+      $0.top.leading.trailing.equalTo(guide)
+      $0.height.equalTo(56)
+    }
     
     titleLabel.snp.makeConstraints {
-      $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(SignUpConstant.labelTop.adjusted)
-      $0.leading.equalToSuperview().offset(SignUpConstant.labelLeading.adjusted)
+      $0.top.equalTo(navigationView.snp.bottom).offset(SignUpConstant.labelTop.adjusted)
+      $0.leading.equalTo(guide).offset(SignUpConstant.labelLeading.adjusted)
     }
     phoneImageView.snp.makeConstraints {
-      $0.centerX.equalToSuperview()
-      $0.centerY.equalToSuperview()
-      $0.leading.trailing.equalToSuperview().inset(SignUpConstant.phoneImageWidth.adjusted)
+      $0.centerX.equalTo(guide)
+      $0.centerY.equalTo(guide)
+      $0.leading.trailing.equalTo(guide).inset(SignUpConstant.phoneImageWidth.adjusted)
       $0.height.equalTo(SignUpConstant.phoneImageHeight.adjusted)
     }
     authButton.snp.makeConstraints {
-      $0.bottom.equalToSuperview().inset(SignUpConstant.buttonBottom.adjusted)
-      $0.leading.trailing.equalToSuperview().inset(SignUpConstant.labelTop)
+      $0.bottom.equalTo(guide).inset(SignUpConstant.buttonBottom.adjusted)
+      $0.leading.trailing.equalTo(guide).inset(SignUpConstant.labelTop)
       $0.height.equalTo(SignUpConstant.buttonHeight.adjusted)
     }
   }
