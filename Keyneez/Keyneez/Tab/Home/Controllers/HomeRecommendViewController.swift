@@ -12,7 +12,7 @@ import SnapKit
 final class HomeRecommendViewController: UIViewController {
   
   // MARK: - CollectionView
-  private lazy var homeContentCollectionView: UICollectionView = {
+  private lazy var recommendContentCollectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .vertical
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -40,14 +40,14 @@ final class HomeRecommendViewController: UIViewController {
   }
 
   private func register() {
-    homeContentCollectionView.register(
+    recommendContentCollectionView.register(
       HomeContentCollectionViewCell.self,
       forCellWithReuseIdentifier: HomeContentCollectionViewCell.identifier)
   }
   
   private func setLayout() {
-    view.addSubviews(homeContentCollectionView)
-    homeContentCollectionView.snp.makeConstraints {
+    view.addSubviews(recommendContentCollectionView)
+    recommendContentCollectionView.snp.makeConstraints {
       $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
       $0.top.bottom.equalToSuperview()
     }
