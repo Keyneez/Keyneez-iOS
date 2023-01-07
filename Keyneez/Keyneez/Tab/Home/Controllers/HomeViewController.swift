@@ -66,7 +66,7 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
     HomeContentModel(contentImage: "", start_at: "11.24", end_at: "12.31", contentTitle: "청소년 미술관 할인", introduction: "어쩌구저쩌구", categoty: ["문화"], liked: false),
     HomeContentModel(contentImage: "", start_at: "12.31", end_at: "01.01", contentTitle: "예시입니당", introduction: "어쩌구저쩌구", categoty: ["문화", "예술"], liked: true)]
   
-  final let homeContentInset: UIEdgeInsets = UIEdgeInsets(top: 32, left: 17, bottom: 20, right: 17)
+  final let homeContentInset: UIEdgeInsets = UIEdgeInsets(top: 32, left: 17, bottom: 32, right: 17)
   final let homeContentLineSpacing: CGFloat = 16
   final let homeContentCellHeight: CGFloat = 400
   
@@ -103,7 +103,6 @@ extension HomeViewController {
       $0.leading.trailing.equalToSuperview()
       $0.height.equalTo(calculateCellHeight())
     }
-//    homeContentCollectionView.backgroundColor = .gray500
   }
   @objc private func changeUnderLinePosition() {
     let segmentIndex = segmentControl.selectedSegmentIndex

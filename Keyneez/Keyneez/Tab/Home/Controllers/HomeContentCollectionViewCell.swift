@@ -13,7 +13,23 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
   static let identifier = "HomeContentCollectionViewCell"
   
   // MARK: - UI Components
-  private let contentImageView = UIImageView()
+  private let shadowView = UIView().then {
+    $0.layer.masksToBounds = false
+    $0.layer.borderWidth = 1
+    $0.layer.borderColor = UIColor.gray100.cgColor
+    $0.layer.shadowColor = UIColor.black.cgColor
+    $0.layer.shadowOffset = CGSize(width: 0, height: 2)
+    $0.layer.shadowOpacity = 1
+    $0.layer.shadowRadius = 4
+  }
+  private let containerView = UIView().then {
+    $0.backgroundColor = UIColor.gray050
+    $0.layer.cornerRadius = 4
+  }
+  private let contentImageView = UIImageView().then {
+    $0.layer.cornerRadius = 4
+    $0.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner,.layerMaxXMinYCorner)
+  }
   private let dateView = UIView().then {
     $0.backgroundColor = UIColor.gray050.withAlphaComponent(0.8)
     $0.layer.cornerRadius = 16
@@ -59,10 +75,17 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
 
 extension HomeContentCollectionViewCell {
   private func setLayout() {
-    contentView.addSubviews(contentImageView, dateView, likeButton, categoryView, contentTitle, contentIntroduction, cardImageView)
+    contentView.addSubviews(shadowView, containerView)
+    containerView.addSubviews(contentImageView, dateView, likeButton, categoryView, contentTitle, contentIntroduction, cardImageView)
     dateView.addSubviews(dateLabel)
     categoryView.addSubviews(category)
-    contentImageView.backgroundColor = .yellow
+    contentImageView.backgroundColor = .gray400
+    shadowView.snp.makeConstraints {
+      $0.top.leading.trailing.bottom.equalToSuperview()
+    }
+    containerView.snp.makeConstraints {
+      $0.top.leading.trailing.bottom.equalToSuperview()
+    }
     contentImageView.snp.makeConstraints {
       $0.top.leading.trailing.equalToSuperview()
       $0.height.equalTo(240)
@@ -105,6 +128,7 @@ extension HomeContentCollectionViewCell {
       $0.height.equalTo(72)
     }
     cardImageView.backgroundColor = .orange
+    likeButton.backgroundColor = .mint200
   }
   
   func dataBind(model: HomeContentModel) {
