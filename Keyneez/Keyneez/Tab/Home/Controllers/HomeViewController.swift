@@ -12,7 +12,7 @@ import Then
 final class HomeViewController: NiblessViewController, NavigationBarProtocol {
   
   // MARK: - NavagationView with logo
-  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.logo, .flexibleBox, .iconButton(with: searchButton)]).build()
+  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.logo(color: .white), .flexibleBox, .iconButton(with: searchButton)]).build()
   private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
     $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
   }
