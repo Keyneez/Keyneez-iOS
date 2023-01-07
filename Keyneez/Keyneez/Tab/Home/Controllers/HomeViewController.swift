@@ -79,6 +79,10 @@ extension HomeViewController {
     }
   }
   @objc private func changeUnderLinePosition() {
+    animateUnderline()
+    changeViewControllers()
+  }
+  private func animateUnderline() {
     let segmentIndex = segmentControl.selectedSegmentIndex
     let segmentNumber = segmentControl.numberOfSegments
     self.underLineView.snp.remakeConstraints {
@@ -91,6 +95,16 @@ extension HomeViewController {
       self?.view.layoutIfNeeded()
     })
   }
+  private func changeViewControllers() {
+    let segmentIndex = segmentControl.selectedSegmentIndex
+    remove(asChildViewController: self.children[0])
+    switch (segmentIndex) {
+    case 0:
+      addContentViews(asChildViewController: HomeRecommendViewController())
+    default:
+      addContentViews(asChildViewController: HomePopularViewController())
+    }
+  }
   private func addContentViews(asChildViewController viewController: UIViewController) {
     addChild(viewController)
     let subView = viewController.view!
@@ -100,5 +114,10 @@ extension HomeViewController {
       $0.leading.trailing.bottom.equalToSuperview()
     }
     viewController.didMove(toParent: self)
+  }
+  private func remove(asChildViewController viewController: UIViewController) {
+      viewController.willMove(toParent: nil)
+      viewController.view.removeFromSuperview()
+      viewController.removeFromParent()
   }
 }
