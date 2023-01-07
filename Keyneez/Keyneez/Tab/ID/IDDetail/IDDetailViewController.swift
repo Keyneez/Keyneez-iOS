@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IDDetailViewController: NiblessViewController {
+class IDDetailViewController: BottomSheetViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -17,7 +17,7 @@ class IDDetailViewController: NiblessViewController {
   private func addSubview() {
     let actions = IDDetailActions()
     let idDetailView = IDdetailView(frame: .zero, actions: actions)
-    view.addSubview(idDetailView)
+    contentView.addSubview(idDetailView)
     idDetailView.snp.makeConstraints {
       $0.top.left.right.equalToSuperview()
     }
