@@ -71,13 +71,13 @@ class LandingPageViewController: UIViewController {
   private func setScrollContentView() {
     scrollView.delegate = self
     
-    for i in 0..<LandingPageViewController.landingImages.count {
+    for index in 0..<LandingPageViewController.landingImages.count {
       let imageView = UIImageView()
-      let positionX = (self.view.frame.width) * CGFloat(i) + (self.view.frame.width/2) - (Constant.mainImageWidth/2)
+      let positionX = (self.view.frame.width) * CGFloat(index) + (self.view.frame.width/2) - (Constant.mainImageWidth/2)
       imageView.frame = CGRect(x: positionX, y: 0, width: Constant.mainImageWidth, height: Constant.mainImageHeight)
-      imageView.image = UIImage(named: LandingPageViewController.landingImages[i])
+      imageView.image = UIImage(named: LandingPageViewController.landingImages[index])
       scrollView.addSubview(imageView)
-      scrollView.contentSize.width = self.view.frame.width * CGFloat(i+1)
+      scrollView.contentSize.width = self.view.frame.width * CGFloat(index+1)
     }
   }
   
