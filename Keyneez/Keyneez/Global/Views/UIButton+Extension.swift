@@ -17,6 +17,7 @@ extension UIButton {
     case whiteUnact
     case blackAct
     case blackUnact
+    case btnM
 
     var backgroundColor: UIColor? {
       switch self {
@@ -28,6 +29,8 @@ extension UIButton {
         return .gray900
       case .blackUnact:
         return .gray300
+      case .btnM:
+        return .gray050
       }
     }
 
@@ -41,6 +44,8 @@ extension UIButton {
         return .gray050
       case .blackUnact:
         return .gray050
+      case .btnM:
+        return .gray800
       }
     }
   }
