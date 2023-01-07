@@ -14,4 +14,8 @@ extension UIView {
     mask.path = path.cgPath
     layer.mask = mask
   }
+  
+  func addSubviews(_ views: UIView...) {
+    views.forEach { self.addSubview($0) }
+  }
 }
