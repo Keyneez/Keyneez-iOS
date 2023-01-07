@@ -2,27 +2,45 @@
 //  IDViewController.swift
 //  Keyneez
 //
-//  Created by 박의서 on 2023/01/02.
+//  Created by Jung peter on 1/4/23.
 //
 
 import UIKit
 
-final class IDViewController: UIViewController {
+final class IDViewController: NiblessViewController, NavigationBarProtocol {
+  
+  // 커스텀 네비게이션 뷰 생성
+  var navigationView: UIView = NavigationViewBuilder(barViews: [.logo(color: .white), .flexibleBox]).build()
+  var actions = IDContentActions()
+  
+  // 컨텐츠 뷰 생성
+  lazy var contentView: UIView = IDCardContentView(frame: .zero, actions: actions)
+  
+  private lazy var customNavigationDelegate = CustomNavigationManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .gray500
-    // Do any additional setup after loading the view.
+    addNavigationViewToSubview()
+    setBackgroundColorToBlack()
+  }
+    
+}
+
+extension IDViewController {
+  
+  private func setBackgroundColorToBlack() {
+    view.backgroundColor = .gray800
   }
   
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destination.
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
+  private func makeAction() -> UIAction {
+    return UIAction(handler: { [unowned self] _ in
+      let idDetailVC = IDDetailViewController()
+      self.customNavigationDelegate.direction = .bottom
+      self.customNavigationDelegate.height = 348
+      idDetailVC.transitioningDelegate = self.customNavigationDelegate
+      idDetailVC.modalPresentationStyle = .custom
+      self.present(idDetailVC, animated: true, completion: nil)
+    })
+  }
 }
+

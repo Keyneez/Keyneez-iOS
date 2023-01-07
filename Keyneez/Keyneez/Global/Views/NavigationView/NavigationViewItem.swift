@@ -9,7 +9,12 @@ import UIKit
 
 enum NavigationItemView {
   
-  case logo
+  enum LogoColor {
+    case black
+    case white
+  }
+  
+  case logo(color: LogoColor)
   case title(content: String)
   case iconButton(with: UIButton)
   case button(with: UIButton)
@@ -19,8 +24,8 @@ enum NavigationItemView {
   
   var image: UIImage? {
     switch self {
-    case .logo:
-      return UIImage(named: "logoA")
+    case .logo(let color):
+      return color == .black ? UIImage(named: "logoA") : UIImage(named: "logoB")
     case .flexibleBox, .sizedBox, .title, .button, .iconButton:
       return nil
     case .textfield:
@@ -28,3 +33,4 @@ enum NavigationItemView {
     }
   }
 }
+
