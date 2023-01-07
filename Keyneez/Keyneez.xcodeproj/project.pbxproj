@@ -44,7 +44,7 @@
 		B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F082962F646005612CE /* MyPageViewController.swift */; };
 		B8C02F0B2962F65E005612CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F0A2962F65E005612CE /* HomeViewController.swift */; };
 		B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F0C2962F683005612CE /* LikeViewController.swift */; };
-		B8C02F1E296595F0005612CE /* AddSubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F1D296595F0005612CE /* AddSubViews.swift */; };
+		B8C02F1E296595F0005612CE /* AddSubViews+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F1D296595F0005612CE /* AddSubViews+Extension.swift */; };
 		B8C02F2429681E62005612CE /* HomeContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2329681E62005612CE /* HomeContentModel.swift */; };
 		B8C02F2829682E41005612CE /* HomeContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2729682E41005612CE /* HomeContentCollectionViewCell.swift */; };
 		B8C02F2A29694C82005612CE /* RecommendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2929694C82005612CE /* RecommendCollectionViewController.swift */; };
@@ -104,7 +104,7 @@
 		B8C02F082962F646005612CE /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageViewController.swift; path = Keyneez/Tab/MyPage/MyPageViewController.swift; sourceTree = SOURCE_ROOT; };
 		B8C02F0A2962F65E005612CE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Keyneez/Tab/Home/Controllers/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		B8C02F0C2962F683005612CE /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
-		B8C02F1D296595F0005612CE /* AddSubViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubViews.swift; sourceTree = "<group>"; };
+		B8C02F1D296595F0005612CE /* AddSubViews+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddSubViews+Extension.swift"; sourceTree = "<group>"; };
 		B8C02F2329681E62005612CE /* HomeContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentModel.swift; sourceTree = "<group>"; };
 		B8C02F2729682E41005612CE /* HomeContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentCollectionViewCell.swift; sourceTree = "<group>"; };
 		B8C02F2929694C82005612CE /* RecommendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewController.swift; sourceTree = "<group>"; };
@@ -321,7 +321,7 @@
 				B18B60C6296552DA00AF14F5 /* Nibless */,
 				B18B60C3296552DA00AF14F5 /* TextField */,
 				B18B60C9296552DA00AF14F5 /* UIButton+Extension.swift */,
-				B8C02F1D296595F0005612CE /* AddSubViews.swift */,
+				B8C02F1D296595F0005612CE /* AddSubViews+Extension.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -591,7 +591,7 @@
 				B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */,
 				B18B60D2296552DA00AF14F5 /* NiblessViewController.swift in Sources */,
 				0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */,
-				B8C02F1E296595F0005612CE /* AddSubViews.swift in Sources */,
+				B8C02F1E296595F0005612CE /* AddSubViews+Extension.swift in Sources */,
 				B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */,
 				B14D107E2959C7980004946F /* AppDelegate.swift in Sources */,
 				B18B60D6296552DA00AF14F5 /* NavigationViewItem.swift in Sources */,
