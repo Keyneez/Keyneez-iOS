@@ -40,6 +40,8 @@
 		B10AAD8A2969B86500AB8475 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD892969B86500AB8475 /* PreviewView.swift */; };
 		B10AAD8C2969B95900AB8475 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD8B2969B95900AB8475 /* CameraViewController.swift */; };
 		B10AAD8E2969CA4700AB8475 /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD8D2969CA4700AB8475 /* PhotoCaptureDelegate.swift */; };
+		B10AAD902969F31C00AB8475 /* AVCaptureVideoOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD8F2969F31C00AB8475 /* AVCaptureVideoOrientation.swift */; };
+		B10AAD922969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD912969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift */; };
 		B14D107E2959C7980004946F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D107D2959C7980004946F /* AppDelegate.swift */; };
 		B14D10802959C7980004946F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D107F2959C7980004946F /* SceneDelegate.swift */; };
 		B14D10872959C79A0004946F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B14D10862959C79A0004946F /* Assets.xcassets */; };
@@ -128,6 +130,8 @@
 		B10AAD892969B86500AB8475 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		B10AAD8B2969B95900AB8475 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B10AAD8D2969CA4700AB8475 /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
+		B10AAD8F2969F31C00AB8475 /* AVCaptureVideoOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureVideoOrientation.swift; sourceTree = "<group>"; };
+		B10AAD912969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureDeviceDiscoverySession.swift; sourceTree = "<group>"; };
 		B14D107A2959C7980004946F /* Keyneez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keyneez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14D107D2959C7980004946F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B14D107F2959C7980004946F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -275,6 +279,8 @@
 				B10AAD892969B86500AB8475 /* PreviewView.swift */,
 				B10AAD8B2969B95900AB8475 /* CameraViewController.swift */,
 				B10AAD8D2969CA4700AB8475 /* PhotoCaptureDelegate.swift */,
+				B10AAD8F2969F31C00AB8475 /* AVCaptureVideoOrientation.swift */,
+				B10AAD912969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -734,6 +740,7 @@
 				B10AAD64296967F300AB8475 /* BenefitCollectionViewCell.swift in Sources */,
 				B10AAD8E2969CA4700AB8475 /* PhotoCaptureDelegate.swift in Sources */,
 				0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */,
+				B10AAD922969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift in Sources */,
 				B10AAD8329696FCD00AB8475 /* IDDetailView.swift in Sources */,
 				B10AAD8229696FCA00AB8475 /* IDDetailViewController.swift in Sources */,
 				B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */,
@@ -774,6 +781,7 @@
 				B10AAD3C296967C700AB8475 /* SeparatedButton.swift in Sources */,
 				B10AAD8A2969B86500AB8475 /* PreviewView.swift in Sources */,
 				B10AAD6D296967F300AB8475 /* IDDetailActionables.swift in Sources */,
+				B10AAD902969F31C00AB8475 /* AVCaptureVideoOrientation.swift in Sources */,
 				022F68B82962D3A200F32CE1 /* Buildable.swift in Sources */,
 				02F262AE2965ABEE005A1CE4 /* LoadingView.swift in Sources */,
 				B10AAD70296967F300AB8475 /* IDCardView.swift in Sources */,
