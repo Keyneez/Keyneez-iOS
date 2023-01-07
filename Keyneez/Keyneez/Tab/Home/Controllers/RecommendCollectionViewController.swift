@@ -48,7 +48,8 @@ final class RecommendCollectionViewController: UIViewController {
   private func setLayout() {
     view.addSubviews(homeContentCollectionView)
     homeContentCollectionView.snp.makeConstraints {
-      $0.top.leading.trailing.bottom.equalToSuperview()
+      $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+      $0.top.bottom.equalToSuperview()
     }
   }
 }

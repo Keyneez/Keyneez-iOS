@@ -48,12 +48,11 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
     $0.backgroundColor = .gray900
     $0.translatesAutoresizingMaskIntoConstraints = false
   }
-
-//  private var homeContentCollectionView = RecommendCollectionViewController().homeContentCollectionView
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setLayout()
+    addContentViews(asChildViewController: RecommendCollectionViewController())
     addNavigationViewToSubview()
   }
 }
@@ -78,11 +77,6 @@ extension HomeViewController {
       $0.height.equalTo(3)
       $0.width.equalTo(32)
     }
-//    homeContentCollectionView.snp.makeConstraints {
-//      $0.top.equalTo(underLineView.snp.bottom)
-//      $0.leading.trailing.equalToSuperview()
-//      $0.bottom.equalToSuperview()
-//    }
   }
   @objc private func changeUnderLinePosition() {
     let segmentIndex = segmentControl.selectedSegmentIndex
@@ -96,5 +90,15 @@ extension HomeViewController {
     UIView.animate(withDuration: 0.2, animations: { [weak self] in
       self?.view.layoutIfNeeded()
     })
+  }
+  private func addContentViews(asChildViewController viewController: UIViewController) {
+    addChild(viewController)
+    let subView = viewController.view!
+    contentView.addSubview(subView)
+    subView.snp.makeConstraints {
+      $0.top.equalTo(underLineView.snp.bottom)
+      $0.leading.trailing.bottom.equalToSuperview()
+    }
+    viewController.didMove(toParent: self)
   }
 }
