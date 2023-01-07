@@ -45,14 +45,14 @@ class LoadingView: NSObject {
       sharedInstance.popupView = popupView
     }
   }
-
+  
   class func hide() {
     sharedInstance.popupView.stopAnimating()
     sharedInstance.backgroundView.removeFromSuperview()
     sharedInstance.popupView.removeFromSuperview()
-      
-    }
+    
   }
+}
 
 private func animationImageArray() -> [UIImage] {
   var animationArray: [UIImage] = []
