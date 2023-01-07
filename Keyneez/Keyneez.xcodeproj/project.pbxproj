@@ -37,6 +37,9 @@
 		B10AAD8229696FCA00AB8475 /* IDDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD56296967F200AB8475 /* IDDetailViewController.swift */; };
 		B10AAD8329696FCD00AB8475 /* IDDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD4F296967F100AB8475 /* IDDetailView.swift */; };
 		B10AAD842969706700AB8475 /* IDNotAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD59296967F200AB8475 /* IDNotAvailableView.swift */; };
+		B10AAD8A2969B86500AB8475 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD892969B86500AB8475 /* PreviewView.swift */; };
+		B10AAD8C2969B95900AB8475 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD8B2969B95900AB8475 /* CameraViewController.swift */; };
+		B10AAD8E2969CA4700AB8475 /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD8D2969CA4700AB8475 /* PhotoCaptureDelegate.swift */; };
 		B14D107E2959C7980004946F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D107D2959C7980004946F /* AppDelegate.swift */; };
 		B14D10802959C7980004946F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D107F2959C7980004946F /* SceneDelegate.swift */; };
 		B14D10872959C79A0004946F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B14D10862959C79A0004946F /* Assets.xcassets */; };
@@ -122,6 +125,9 @@
 		B10AAD58296967F200AB8475 /* IDIssueActionables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDIssueActionables.swift; sourceTree = "<group>"; };
 		B10AAD59296967F200AB8475 /* IDNotAvailableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDNotAvailableView.swift; sourceTree = "<group>"; };
 		B10AAD7A29696C7700AB8475 /* IDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDViewController.swift; sourceTree = "<group>"; };
+		B10AAD892969B86500AB8475 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		B10AAD8B2969B95900AB8475 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		B10AAD8D2969CA4700AB8475 /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
 		B14D107A2959C7980004946F /* Keyneez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keyneez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14D107D2959C7980004946F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B14D107F2959C7980004946F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -255,6 +261,24 @@
 			path = IDNotAvailable;
 			sourceTree = "<group>";
 		};
+		B10AAD852969B5B800AB8475 /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				B10AAD862969B5C100AB8475 /* Camera */,
+			);
+			path = OCR;
+			sourceTree = "<group>";
+		};
+		B10AAD862969B5C100AB8475 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				B10AAD892969B86500AB8475 /* PreviewView.swift */,
+				B10AAD8B2969B95900AB8475 /* CameraViewController.swift */,
+				B10AAD8D2969CA4700AB8475 /* PhotoCaptureDelegate.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		B14D10712959C7980004946F = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +304,7 @@
 		B14D107C2959C7980004946F /* Keyneez */ = {
 			isa = PBXGroup;
 			children = (
+				B10AAD852969B5B800AB8475 /* OCR */,
 				B14D10B82959CC280004946F /* Global */,
 				B14D10B52959CBE70004946F /* Auth */,
 				B14D10B42959CBDE0004946F /* Application */,
@@ -707,6 +732,7 @@
 				B8C02F2C29696537005612CE /* HomePopularViewController.swift in Sources */,
 				B18B60D2296552DA00AF14F5 /* NiblessViewController.swift in Sources */,
 				B10AAD64296967F300AB8475 /* BenefitCollectionViewCell.swift in Sources */,
+				B10AAD8E2969CA4700AB8475 /* PhotoCaptureDelegate.swift in Sources */,
 				0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */,
 				B10AAD8329696FCD00AB8475 /* IDDetailView.swift in Sources */,
 				B10AAD8229696FCA00AB8475 /* IDDetailViewController.swift in Sources */,
@@ -742,9 +768,11 @@
 				B18B60D1296552DA00AF14F5 /* NiblessView.swift in Sources */,
 				B18B60D4296552DA00AF14F5 /* NavigationBarProtocol.swift in Sources */,
 				02C066A42961C98600AED030 /* UIColor+Extension.swift in Sources */,
+				B10AAD8C2969B95900AB8475 /* CameraViewController.swift in Sources */,
 				B10AAD842969706700AB8475 /* IDNotAvailableView.swift in Sources */,
 				B10AAD63296967F300AB8475 /* BenefitInfoView.swift in Sources */,
 				B10AAD3C296967C700AB8475 /* SeparatedButton.swift in Sources */,
+				B10AAD8A2969B86500AB8475 /* PreviewView.swift in Sources */,
 				B10AAD6D296967F300AB8475 /* IDDetailActionables.swift in Sources */,
 				022F68B82962D3A200F32CE1 /* Buildable.swift in Sources */,
 				02F262AE2965ABEE005A1CE4 /* LoadingView.swift in Sources */,
