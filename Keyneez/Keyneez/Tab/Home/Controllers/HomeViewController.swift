@@ -101,8 +101,12 @@ extension HomeViewController {
     switch (segmentIndex) {
     case 0:
       addContentViews(asChildViewController: HomeRecommendViewController())
-    default:
+    case 1:
       addContentViews(asChildViewController: HomePopularViewController())
+    case 2:
+      addContentViews(asChildViewController: HomeNewestViewController())
+    default:
+      print("default")
     }
   }
   private func addContentViews(asChildViewController viewController: UIViewController) {
