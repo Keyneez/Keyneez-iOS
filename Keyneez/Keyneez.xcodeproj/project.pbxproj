@@ -47,6 +47,7 @@
 		B8C02F1E296595F0005612CE /* AddSubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F1D296595F0005612CE /* AddSubViews.swift */; };
 		B8C02F2429681E62005612CE /* HomeContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2329681E62005612CE /* HomeContentModel.swift */; };
 		B8C02F2829682E41005612CE /* HomeContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2729682E41005612CE /* HomeContentCollectionViewCell.swift */; };
+		B8C02F2A29694C82005612CE /* RecommendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2929694C82005612CE /* RecommendCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		B8C02F1D296595F0005612CE /* AddSubViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubViews.swift; sourceTree = "<group>"; };
 		B8C02F2329681E62005612CE /* HomeContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentModel.swift; sourceTree = "<group>"; };
 		B8C02F2729682E41005612CE /* HomeContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentCollectionViewCell.swift; sourceTree = "<group>"; };
+		B8C02F2929694C82005612CE /* RecommendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -406,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				B8C02F0A2962F65E005612CE /* HomeViewController.swift */,
+				B8C02F2929694C82005612CE /* RecommendCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */,
 				B14D107E2959C7980004946F /* AppDelegate.swift in Sources */,
 				B18B60D6296552DA00AF14F5 /* NavigationViewItem.swift in Sources */,
+				B8C02F2A29694C82005612CE /* RecommendCollectionViewController.swift in Sources */,
 				B18B60D0296552DA00AF14F5 /* UITextField+Extension.swift in Sources */,
 				B18B60CF296552DA00AF14F5 /* KeyneezTextFieldFactory.swift in Sources */,
 				B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */,
