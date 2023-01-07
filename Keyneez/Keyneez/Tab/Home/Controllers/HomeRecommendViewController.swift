@@ -1,5 +1,5 @@
 //
-//  RecommendCollectionViewController.swift
+//  HomeRecommendViewController.swift
 //  Keyneez
 //
 //  Created by 박의서 on 2023/01/07.
@@ -9,7 +9,7 @@ import UIKit
 import Then
 import SnapKit
 
-final class RecommendCollectionViewController: UIViewController {
+final class HomeRecommendViewController: UIViewController {
   
   // MARK: - CollectionView
   private lazy var homeContentCollectionView: UICollectionView = {
@@ -56,7 +56,7 @@ final class RecommendCollectionViewController: UIViewController {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension RecommendCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension HomeRecommendViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let screenWidth = UIScreen.main.bounds.width
     let CellWidth = screenWidth - homeContentInset.left - homeContentInset.right
@@ -74,7 +74,7 @@ extension RecommendCollectionViewController: UICollectionViewDelegateFlowLayout 
 
 // MARK: -UICollectionViewDataSource
 
-extension RecommendCollectionViewController: UICollectionViewDataSource {
+extension HomeRecommendViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return homeContentList.count
   }

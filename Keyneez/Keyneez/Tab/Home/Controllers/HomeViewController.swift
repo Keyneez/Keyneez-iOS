@@ -52,7 +52,7 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
   override func viewDidLoad() {
     super.viewDidLoad()
     setLayout()
-    addContentViews(asChildViewController: RecommendCollectionViewController())
+    addContentViews(asChildViewController: HomeRecommendViewController())
     addNavigationViewToSubview()
   }
 }
