@@ -9,10 +9,11 @@ import UIKit
 import Then
 import SnapKit
 
-//MARK: - Constant
+// MARK: - Action Event 달기
+// MARK: - Constant
 
 private struct Constant {
-  static let navigationBarHeight:CGFloat = 56
+  static let navigationBarHeight: CGFloat = 56
   static let logoWidth: CGFloat = 130
   static let logoHeight: CGFloat = 48
   static let logoBottomMargin: CGFloat = 40
@@ -29,9 +30,9 @@ private struct Constant {
 
 class LandingPageViewController: UIViewController {
   
-  static var landingImages = ["Landing1","Landing2","Landing3","Landing4"]
+  static var landingImages = ["Landing1", "Landing2", "Landing3", "Landing4"]
 
-  //MARK: - UI Components
+  // MARK: - UI Components
   
   let logoImageView = UIImageView().then {
     $0.image = UIImage(named: "logoA")
@@ -66,18 +67,18 @@ class LandingPageViewController: UIViewController {
     $0.layer.isHidden = true
   }
   
-  //MARK: - Functions
+  // MARK: - Functions
   
   private func setScrollContentView() {
     scrollView.delegate = self
     
-    for i in 0..<LandingPageViewController.landingImages.count {
+    for index in 0..<LandingPageViewController.landingImages.count {
       let imageView = UIImageView()
-      let positionX = (self.view.frame.width) * CGFloat(i) + (self.view.frame.width/2) - (Constant.mainImageWidth/2)
+      let positionX = (self.view.frame.width) * CGFloat(index) + (self.view.frame.width / 2) - (Constant.mainImageWidth / 2)
       imageView.frame = CGRect(x: positionX, y: 0, width: Constant.mainImageWidth, height: Constant.mainImageHeight)
-      imageView.image = UIImage(named: LandingPageViewController.landingImages[i])
+      imageView.image = UIImage(named: LandingPageViewController.landingImages[index])
       scrollView.addSubview(imageView)
-      scrollView.contentSize.width = self.view.frame.width * CGFloat(i+1)
+      scrollView.contentSize.width = self.view.frame.width * CGFloat(index + 1)
     }
   }
   
@@ -96,7 +97,7 @@ class LandingPageViewController: UIViewController {
     
   }
   
-  //MARK: - Life Cycles
+  // MARK: - Life Cycles
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -106,11 +107,11 @@ class LandingPageViewController: UIViewController {
   }
 }
 
-//MARK: - Extensions
+// MARK: - Extensions
 
 extension LandingPageViewController: UIScrollViewDelegate {
   
-  //MARK: - Scroll Helper
+  // MARK: - Scroll Helper
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     let size = scrollView.contentOffset.x / scrollView.frame.size.width
@@ -121,7 +122,7 @@ extension LandingPageViewController: UIScrollViewDelegate {
 
 extension LandingPageViewController {
   
-  //MARK: - Layout Helper
+  // MARK: - Layout Helper
   private func setConfig() {
     view.backgroundColor = .gray050
     [logoImageView, scrollView, pageControl, signUpButton, signInButton].forEach {

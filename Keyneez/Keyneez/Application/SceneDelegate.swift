@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       let window = UIWindow(windowScene: windowScene)
       window.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
       
-      let tabbarVC = LandingPageViewController()
+      let tabbarVC = MakeJellyViewController()
       window.rootViewController = tabbarVC
       window.makeKeyAndVisible()
       self.window = window

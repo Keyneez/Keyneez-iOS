@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 import SnapKit
 
 private struct Constant {
