@@ -32,6 +32,8 @@
 		B10AAD2029680F2D00AB8475 /* IDCardCotentActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD1F29680F2D00AB8475 /* IDCardCotentActionables.swift */; };
 		B10AAD222968103300AB8475 /* IDContentActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD212968103300AB8475 /* IDContentActions.swift */; };
 		B10AAD282968113200AB8475 /* SeparatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD272968113200AB8475 /* SeparatedButton.swift */; };
+		B10AAD2B29689C6B00AB8475 /* BenefitInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD2A29689C6B00AB8475 /* BenefitInfoViewController.swift */; };
+		B10AAD2D2968AE6100AB8475 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD2C2968AE6100AB8475 /* BottomSheetViewController.swift */; };
 		B14D107E2959C7980004946F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D107D2959C7980004946F /* AppDelegate.swift */; };
 		B14D10802959C7980004946F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D107F2959C7980004946F /* SceneDelegate.swift */; };
 		B14D10872959C79A0004946F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B14D10862959C79A0004946F /* Assets.xcassets */; };
@@ -107,6 +109,8 @@
 		B10AAD1F29680F2D00AB8475 /* IDCardCotentActionables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardCotentActionables.swift; sourceTree = "<group>"; };
 		B10AAD212968103300AB8475 /* IDContentActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDContentActions.swift; sourceTree = "<group>"; };
 		B10AAD272968113200AB8475 /* SeparatedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatedButton.swift; sourceTree = "<group>"; };
+		B10AAD2A29689C6B00AB8475 /* BenefitInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitInfoViewController.swift; sourceTree = "<group>"; };
+		B10AAD2C2968AE6100AB8475 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		B14D107A2959C7980004946F /* Keyneez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keyneez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14D107D2959C7980004946F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B14D107F2959C7980004946F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 			children = (
 				B10AACF129666F9500AB8475 /* BenefitInfoView.swift */,
 				B10AACF32966701A00AB8475 /* BenefitCollectionViewCell.swift */,
+				B10AAD2A29689C6B00AB8475 /* BenefitInfoViewController.swift */,
 			);
 			path = BenefitInfo;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				B10AACF52966919D00AB8475 /* ReusableView.swift */,
 				B10AAD022967448500AB8475 /* UIView+Extension.swift */,
 				B10AAD272968113200AB8475 /* SeparatedButton.swift */,
+				B10AAD2C2968AE6100AB8475 /* BottomSheetViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -662,9 +668,11 @@
 				B10AACF42966701A00AB8475 /* BenefitCollectionViewCell.swift in Sources */,
 				B8C02F0B2962F65E005612CE /* HomeViewController.swift in Sources */,
 				B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */,
+				B10AAD2D2968AE6100AB8475 /* BottomSheetViewController.swift in Sources */,
 				B10AACF82966A50E00AB8475 /* IDCardView.swift in Sources */,
 				B14D10802959C7980004946F /* SceneDelegate.swift in Sources */,
 				B10AAD092968007600AB8475 /* IDCardContentView.swift in Sources */,
+				B10AAD2B29689C6B00AB8475 /* BenefitInfoViewController.swift in Sources */,
 				B10AAD0529674B1000AB8475 /* IDDetailViewController.swift in Sources */,
 				B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */,
 				B14D10AF2959CA080004946F /* KeyneezTabbarController.swift in Sources */,
