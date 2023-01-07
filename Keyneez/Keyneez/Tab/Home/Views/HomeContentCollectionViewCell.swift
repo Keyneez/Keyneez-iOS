@@ -11,8 +11,8 @@ import SnapKit
 
 final class HomeContentCollectionViewCell: UICollectionViewCell {
   static let identifier = "HomeContentCollectionViewCell"
-  
   // MARK: - UI Components
+
   private let shadowView = UIView().then {
     $0.layer.masksToBounds = false
     $0.layer.borderWidth = 1
@@ -62,12 +62,12 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
     $0.font = UIFont.font(.pretendardMedium, ofSize: 14)
     $0.textColor = UIColor.gray600
   }
-  
+  // MARK: - Life Cycle
+
   override init(frame: CGRect) {
     super.init(frame: frame)
     setLayout()
   }
-  
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
@@ -76,10 +76,18 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
 extension HomeContentCollectionViewCell {
   private func setLayout() {
     contentView.addSubviews(shadowView, containerView)
-    containerView.addSubviews(contentImageView, dateView, likeButton, categoryView, contentTitle, contentIntroduction, cardImageView)
+    containerView.addSubviews(
+      contentImageView,
+      dateView,
+      likeButton,
+      categoryView,
+      contentTitle,
+      contentIntroduction,
+      cardImageView
+    )
     dateView.addSubviews(dateLabel)
     categoryView.addSubviews(category)
-    contentImageView.backgroundColor = .gray400
+
     shadowView.snp.makeConstraints {
       $0.top.leading.trailing.bottom.equalToSuperview()
     }
@@ -127,6 +135,7 @@ extension HomeContentCollectionViewCell {
       $0.width.equalTo(64)
       $0.height.equalTo(72)
     }
+    contentImageView.backgroundColor = .gray400
     cardImageView.backgroundColor = .orange
     likeButton.backgroundColor = .mint200
   }
