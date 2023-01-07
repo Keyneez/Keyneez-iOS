@@ -21,7 +21,8 @@ private struct Constant {
   static let ImageLogoViewOffset: (top: CGFloat, trailing: CGFloat, height: CGFloat) = (34, -36, 64)
   static let seperatedViewOffset: (top: CGFloat, bottom: CGFloat) = (22, -20)
   static let highSchoolLabelBottomOffset: CGFloat = -5
-  static let authenticateButton: (top: CGFloat, leading: CGFloat, height: CGFloat, bottom: CGFloat) = (79, 16, 48, -44)
+  static let authenticateButton: (top: CGFloat, leading: CGFloat, bottom: CGFloat) = (79, 16, -44)
+  static let authenticateButtonHeight: CGFloat = 48
 }
 
 final class IDdetailView: NiblessView {
@@ -122,7 +123,7 @@ extension IDdetailView {
     authenticateButton.snp.makeConstraints {
       $0.top.equalTo(birthdayLabel.snp.bottom).offset(Constant.authenticateButton.top)
       $0.leading.trailing.equalToSuperview().inset(Constant.authenticateButton.leading)
-      $0.height.equalTo(Constant.authenticateButton.height)
+      $0.height.equalTo(Constant.authenticateButtonHeight)
       $0.bottom.equalToSuperview().offset(Constant.authenticateButton.bottom)
     }
     
