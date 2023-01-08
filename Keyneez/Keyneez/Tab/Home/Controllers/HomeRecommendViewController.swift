@@ -26,7 +26,7 @@ final class HomeRecommendViewController: UIViewController {
   }()
   private let floatyFilter = Floaty().then {
     $0.buttonColor = UIColor.gray050
-    $0.buttonImage = UIImage(named: "ic_filter_floating")
+    $0.buttonImage = UIImage(named: "ic_filter_floating") 
   }
  
   final let homeContentInset: UIEdgeInsets = UIEdgeInsets(top: 32, left: 17, bottom: 32, right: 17)
