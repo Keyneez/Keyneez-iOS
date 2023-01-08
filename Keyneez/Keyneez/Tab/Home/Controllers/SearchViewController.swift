@@ -7,20 +7,25 @@
 
 import UIKit
 
-final class SearchViewController: NiblessViewController, NavigationBarProtocol {
-//  var navigationView: UIView = NavigationViewBuilder(barViews: [.button(with: "ic_arrowback"), .textfield(configure: (placeholder: "검색", completion: { _ in print("hi") })]).build()
-  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.logo(color: .black), .flexibleBox, .iconButton(with: searchButton)]).build()
+class SearchViewController: NiblessViewController, NavigationBarProtocol {
+  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox, .iconButton(with: searchButton)]).build()
   private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
     $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
   }
-  private var didSearch: UIAction = .init(handler: { _ in print("hi") })
-  
-  // 컨텐츠 뷰 생성
-  var contentView: UIView = UIView().then {
+  private lazy var backButton: UIButton = .init(primaryAction: didSearch).then {
+    $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)
+  }
+  private lazy var didSearch: UIAction = .init(handler: { _ in print("hi") })
+//  // 커스텀 네비게이션 뷰 생성
+//  var navigationView: UIView
 //
-//  override func viewDidLoad() {
-//    super.viewDidLoad()
-//    addNavigationViewToSubview()
-//  }
+//  // 컨텐츠 뷰 생성
+  var contentView: UIView = UIView()
+  
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    addNavigationViewToSubview()
+  }
     
 }
