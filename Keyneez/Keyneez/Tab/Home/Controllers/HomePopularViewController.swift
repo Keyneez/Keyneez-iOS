@@ -25,7 +25,7 @@ final class HomePopularViewController: UIViewController {
     return collectionView
   }()
 
-  var homeContentList: [HomeContentModel] = [
+  var popularContentList: [HomeContentModel] = [
     HomeContentModel(contentImage: "", startAt: "11.24", endAt: "12.31", contentTitle: "인기뷰 이거 인기뷰", introduction: "이거 인기뷰", categoty: ["문화"], liked: false),
     HomeContentModel(contentImage: "", startAt: "12.31", endAt: "01.01", contentTitle: "예시입니당", introduction: "어쩌구저쩌구", categoty: ["문화", "예술"], liked: true)]
  
@@ -76,14 +76,14 @@ extension HomePopularViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomePopularViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return homeContentList.count
+    return popularContentList.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let homeContentCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeContentCollectionViewCell.identifier, for: indexPath)
             as? HomeContentCollectionViewCell else { return UICollectionViewCell() }
-    homeContentCell.dataBind(model: homeContentList[indexPath.item])
+    homeContentCell.dataBind(model: popularContentList[indexPath.item])
     return homeContentCell
   }
 }

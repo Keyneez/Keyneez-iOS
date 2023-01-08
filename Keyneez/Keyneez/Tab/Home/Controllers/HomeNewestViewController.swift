@@ -25,7 +25,7 @@ final class HomeNewestViewController: UIViewController {
     return collectionView
   }()
 
-  var homeContentList: [HomeContentModel] = [
+  var newestContentList: [HomeContentModel] = [
     HomeContentModel(contentImage: "", startAt: "11.24", endAt: "12.31", contentTitle: "최신뷰 이거 최신뷰", introduction: "이거 최신뷰", categoty: ["문화"], liked: false),
     HomeContentModel(contentImage: "", startAt: "12.31", endAt: "01.01", contentTitle: "예시입니당", introduction: "어쩌구저쩌구", categoty: ["문화", "예술"], liked: true)]
  
@@ -76,14 +76,14 @@ extension HomeNewestViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeNewestViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return homeContentList.count
+    return newestContentList.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let homeContentCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeContentCollectionViewCell.identifier, for: indexPath)
             as? HomeContentCollectionViewCell else { return UICollectionViewCell() }
-    homeContentCell.dataBind(model: homeContentList[indexPath.item])
+    homeContentCell.dataBind(model: newestContentList[indexPath.item])
     return homeContentCell
   }
 }

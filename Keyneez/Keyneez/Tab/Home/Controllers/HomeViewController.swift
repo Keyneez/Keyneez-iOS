@@ -16,7 +16,7 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
   private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
     $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
   }
-  private var didSearch: UIAction = .init(handler: { _ in print("hi")})
+  private var didSearch: UIAction = .init(handler: { _ in print("hi") })
   lazy var contentView: UIView = UIView()
   
   // MARK: - SegmentedControl Control
@@ -46,7 +46,6 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
   // MARK: - Underline View
   private lazy var underLineView: UIView = .init().then {
     $0.backgroundColor = .gray900
-    $0.translatesAutoresizingMaskIntoConstraints = false
   }
   
   override func viewDidLoad() {
