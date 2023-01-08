@@ -22,7 +22,6 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
   // MARK: - SegmentedControl Control
   private lazy var containerView: UIView = .init().then {
     $0.backgroundColor = .clear
-    $0.translatesAutoresizingMaskIntoConstraints = false
   }
   private lazy var segmentControl: UISegmentedControl = .init().then {
     $0.selectedSegmentTintColor = .clear
@@ -41,7 +40,6 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
       NSAttributedString.Key.font: UIFont.font(.pretendardBold, ofSize: 24)
     ], for: .selected)
     $0.addTarget(self, action: #selector(changeUnderLinePosition), for: .valueChanged)
-    $0.translatesAutoresizingMaskIntoConstraints = false
   }
   // MARK: - Underline View
   private lazy var underLineView: UIView = .init().then {

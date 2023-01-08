@@ -8,24 +8,26 @@
 import UIKit
 import Then
 import SnapKit
+import Floaty
 
 final class HomeRecommendViewController: UIViewController {
-  
-  
-  
+
   // MARK: - CollectionView
   private lazy var recommendContentCollectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .vertical
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
     collectionView.backgroundColor = .clear
-    collectionView.translatesAutoresizingMaskIntoConstraints = false
     collectionView.isScrollEnabled = true
     collectionView.showsVerticalScrollIndicator = false
     collectionView.delegate = self
     collectionView.dataSource = self
     return collectionView
   }()
+  private let floatyFilter = Floaty().then {
+    $0.buttonColor = UIColor.gray050
+    $0.buttonImage = UIImage(named: "ic_filter_floating")
+  }
  
   final let homeContentInset: UIEdgeInsets = UIEdgeInsets(top: 32, left: 17, bottom: 32, right: 17)
   final let homeContentLineSpacing: CGFloat = 16
@@ -44,10 +46,15 @@ final class HomeRecommendViewController: UIViewController {
   }
   
   private func setLayout() {
-    view.addSubviews(recommendContentCollectionView)
+    view.addSubviews(recommendContentCollectionView, floatyFilter)
     recommendContentCollectionView.snp.makeConstraints {
       $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
       $0.top.bottom.equalToSuperview()
+    }
+    floatyFilter.snp.makeConstraints {
+      $0.width.height.equalTo(64)
+      $0.bottom.equalTo(recommendContentCollectionView).inset(138) // tabbar height + 54
+      $0.trailing.equalToSuperview().inset(9)
     }
   }
 }
