@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import SnapKit
+import Then
 
-class SearchViewController: NiblessViewController, NavigationBarProtocol {
+final class SearchViewController: NiblessViewController, NavigationBarProtocol {
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox, .iconButton(with: searchButton)]).build()
   private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
     $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
@@ -16,16 +18,27 @@ class SearchViewController: NiblessViewController, NavigationBarProtocol {
     $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)
   }
   private lazy var didSearch: UIAction = .init(handler: { _ in print("hi") })
-//  // 커스텀 네비게이션 뷰 생성
-//  var navigationView: UIView
-//
-//  // 컨텐츠 뷰 생성
   var contentView: UIView = UIView()
-  
-  
+  private var searchResultCountingLabel: UILabel = .init().then {
+    let text = NSMutableAttributedString()
+    text.append(NSAttributedString(string: "검색결과 ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray900]))
+    text.append(NSAttributedString(string: "15개", attributes: [NSAttributedString.Key.foregroundColor: UIColor.mint500]))
+    $0.attributedText = text
+    $0.font = .font(.pretendardSemiBold, ofSize: 14)
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
+    setLayout()
     addNavigationViewToSubview()
   }
-    
+}
+
+extension SearchViewController {
+  private func setLayout() {
+    contentView.addSubviews(searchResultCountingLabel)
+    searchResultCountingLabel.snp.makeConstraints{
+      $0.top.equalToSuperview().inset(36)
+      $0.centerX.equalToSuperview()
+    }
+  }
 }
