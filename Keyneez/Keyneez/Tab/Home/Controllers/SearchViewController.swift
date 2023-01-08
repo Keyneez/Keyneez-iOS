@@ -14,10 +14,13 @@ final class SearchViewController: NiblessViewController, NavigationBarProtocol {
   private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
     $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
   }
-  private lazy var backButton: UIButton = .init(primaryAction: didSearch).then {
+  private lazy var backButton: UIButton = .init(primaryAction: touchUpBackButton).then {
     $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)
   }
   private lazy var didSearch: UIAction = .init(handler: { _ in print("hi") })
+  private lazy var touchUpBackButton: UIAction = .init(handler: { _ in
+    self.navigationController?.popViewController(animated: true)
+  })
   var contentView: UIView = UIView()
   private var searchResultCountingLabel: UILabel = .init().then {
     let text = NSMutableAttributedString()
