@@ -29,6 +29,18 @@ final class SearchViewController: NiblessViewController, NavigationBarProtocol {
     $0.attributedText = text
     $0.font = .font(.pretendardSemiBold, ofSize: 14)
   }
+  // MARK: - CollectionView
+  private lazy var searchCollectionView: UICollectionView = {
+    let layout = UICollectionViewFlowLayout()
+    layout.scrollDirection = .vertical
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    collectionView.backgroundColor = .clear
+    collectionView.isScrollEnabled = true
+    collectionView.showsVerticalScrollIndicator = false
+    collectionView.delegate = self
+    collectionView.dataSource = self
+    return collectionView
+  }()
   override func viewDidLoad() {
     super.viewDidLoad()
     setLayout()
