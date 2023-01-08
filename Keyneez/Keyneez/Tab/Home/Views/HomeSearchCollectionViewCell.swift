@@ -56,7 +56,7 @@ extension HomeSearchCollectionViewCell {
     }
   }
   func bindHomeSearchData(model: HomeSearchModel) {
-    dateLabel.text = setDateLabel(model: model) // 이 부분 date 형식 변경
+    dateLabel.text = setDateLabel(model: model)
     titleLabel.text = model.contentTitle
   }
   @objc
