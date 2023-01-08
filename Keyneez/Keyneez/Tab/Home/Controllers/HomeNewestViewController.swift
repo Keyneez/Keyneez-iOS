@@ -79,7 +79,7 @@ extension HomeNewestViewController: UICollectionViewDataSource {
     guard let homeContentCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeContentCollectionViewCell.identifier, for: indexPath)
             as? HomeContentCollectionViewCell else { return UICollectionViewCell() }
-    homeContentCell.dataBind(model: newestContentList[indexPath.item])
+    homeContentCell.bindHomeData(model: newestContentList[indexPath.item])
     return homeContentCell
   }
 }

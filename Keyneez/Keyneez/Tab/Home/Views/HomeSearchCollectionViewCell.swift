@@ -38,6 +38,7 @@ final class HomeSearchCollectionViewCell: UICollectionViewCell {
 
 extension HomeSearchCollectionViewCell {
   private func setLayout() {
+    contentView.backgroundColor = .gray900
     contentView.addSubviews(dateLabel, titleLabel, likeButton)
     dateLabel.snp.makeConstraints {
       $0.top.equalToSuperview().inset(19)
@@ -53,7 +54,7 @@ extension HomeSearchCollectionViewCell {
     }
   }
   func bindHomeSearchData(model: HomeSearchModel) {
-    dateLabel.text = model.startAt + model.endAt // 이 부분 date 형식 변경
+    dateLabel.text = model.startAt + " ~ " + model.endAt // 이 부분 date 형식 변경
     titleLabel.text = model.contentTitle
   }
 }

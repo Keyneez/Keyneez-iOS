@@ -30,15 +30,15 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
     $0.font = .font(.pretendardSemiBold, ofSize: 14)
   }
   // MARK: - CollectionView
-  private lazy var searchCollectionView: UICollectionView = {
+  private lazy var homeSearchCollectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .vertical
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
     collectionView.backgroundColor = .clear
     collectionView.isScrollEnabled = true
     collectionView.showsVerticalScrollIndicator = false
-//    collectionView.delegate = self
-//    collectionView.dataSource = self
+    collectionView.delegate = self
+    collectionView.dataSource = self
     return collectionView
   }()
   
@@ -50,18 +50,19 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
   override func viewDidLoad() {
     super.viewDidLoad()
     setLayout()
+    register()
     addNavigationViewToSubview()
   }
 }
 
 extension HomeSearchViewController {
   private func setLayout() {
-    contentView.addSubviews(searchResultCountingLabel, searchCollectionView)
+    contentView.addSubviews(searchResultCountingLabel, homeSearchCollectionView)
     searchResultCountingLabel.snp.makeConstraints{
       $0.top.equalToSuperview().inset(36)
       $0.centerX.equalToSuperview()
     }
-    searchCollectionView.snp.makeConstraints {
+    homeSearchCollectionView.snp.makeConstraints {
       $0.top.equalTo(searchResultCountingLabel.snp.bottom).offset(16)
       $0.leading.trailing.bottom.equalToSuperview()
     }
@@ -71,4 +72,41 @@ extension HomeSearchViewController {
     let heightCount = count / 2 + count.truncatingRemainder(dividingBy: 2)
     return heightCount * homeSearchCellHeight + (heightCount - 1) * homeSearchLineSpacing + homeSearchInset.top + homeSearchInset.bottom
   }
+  private func register() {
+    homeSearchCollectionView.register(
+      HomeSearchCollectionViewCell.self,
+      forCellWithReuseIdentifier: HomeSearchCollectionViewCell.identifier)
+  }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension HomeSearchViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenWidth = UIScreen.main.bounds.width
+        let doubleCellWidth = screenWidth - homeSearchInset.left - homeSearchInset.right - homeSearchInterItemSpacing
+        return CGSize(width: doubleCellWidth / 2, height: homeSearchCellHeight)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return homeSearchLineSpacing
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return homeSearchInterItemSpacing
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return homeSearchInset
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension HomeSearchViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return homeSearchList.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let homeSearchCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: HomeSearchCollectionViewCell.identifier, for: indexPath)
+                as? HomeSearchCollectionViewCell else { return UICollectionViewCell() }
+      homeSearchCell.bindHomeSearchData(model: homeSearchList[indexPath.item])
+        return homeSearchCell
+    }
 }

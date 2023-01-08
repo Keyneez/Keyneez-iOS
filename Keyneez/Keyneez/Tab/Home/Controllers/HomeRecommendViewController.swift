@@ -88,7 +88,7 @@ extension HomeRecommendViewController: UICollectionViewDataSource {
     guard let homeContentCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeContentCollectionViewCell.identifier, for: indexPath)
             as? HomeContentCollectionViewCell else { return UICollectionViewCell() }
-    homeContentCell.dataBind(model: recommendContentList[indexPath.item])
+    homeContentCell.bindHomeData(model: recommendContentList[indexPath.item])
     return homeContentCell
   }
 }
