@@ -16,7 +16,7 @@ final class SearchViewController: NiblessViewController, NavigationBarProtocol {
   private var didSearch: UIAction = .init(handler: { _ in print("hi") })
   
   // 컨텐츠 뷰 생성
-  var contentView: UIView = UIView()
+  var contentView: UIView = UIView().then {
 //
 //  override func viewDidLoad() {
 //    super.viewDidLoad()

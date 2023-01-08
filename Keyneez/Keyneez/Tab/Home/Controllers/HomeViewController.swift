@@ -16,7 +16,10 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
   private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
     $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
   }
-  private var didSearch: UIAction = .init(handler: { _ in print("hi") })
+  private lazy var didSearch: UIAction = .init(handler: { _ in
+    let searchViewController = SearchViewController()
+    self.navigationController?.pushViewController(searchViewController, animated: true)
+  })
   lazy var contentView: UIView = UIView()
   
   // MARK: - SegmentedControl Control
