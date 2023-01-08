@@ -24,10 +24,6 @@ final class HomeNewestViewController: UIViewController {
     collectionView.dataSource = self
     return collectionView
   }()
-
-  var newestContentList: [HomeContentModel] = [
-    HomeContentModel(contentImage: "", startAt: "11.24", endAt: "12.31", contentTitle: "최신뷰 이거 최신뷰", introduction: "이거 최신뷰", categoty: ["문화"], liked: false),
-    HomeContentModel(contentImage: "", startAt: "12.31", endAt: "01.01", contentTitle: "예시입니당", introduction: "어쩌구저쩌구", categoty: ["문화", "예술"], liked: true)]
  
   final let homeContentInset: UIEdgeInsets = UIEdgeInsets(top: 32, left: 17, bottom: 32, right: 17)
   final let homeContentLineSpacing: CGFloat = 16

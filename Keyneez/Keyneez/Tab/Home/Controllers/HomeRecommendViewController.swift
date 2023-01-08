@@ -11,6 +11,8 @@ import SnapKit
 
 final class HomeRecommendViewController: UIViewController {
   
+  
+  
   // MARK: - CollectionView
   private lazy var recommendContentCollectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
@@ -24,10 +26,6 @@ final class HomeRecommendViewController: UIViewController {
     collectionView.dataSource = self
     return collectionView
   }()
-
-  var recommendContentList: [HomeContentModel] = [
-    HomeContentModel(contentImage: "", startAt: "11.24", endAt: "12.31", contentTitle: "청소년 미술관 할인", introduction: "어쩌구저쩌구", categoty: ["문화"], liked: false),
-    HomeContentModel(contentImage: "", startAt: "12.31", endAt: "01.01", contentTitle: "예시입니당", introduction: "어쩌구저쩌구", categoty: ["문화", "예술"], liked: true)]
  
   final let homeContentInset: UIEdgeInsets = UIEdgeInsets(top: 32, left: 17, bottom: 32, right: 17)
   final let homeContentLineSpacing: CGFloat = 16
