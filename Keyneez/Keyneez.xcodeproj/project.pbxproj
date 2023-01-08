@@ -72,6 +72,7 @@
 		B8C02F2A29694C82005612CE /* HomeRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2929694C82005612CE /* HomeRecommendViewController.swift */; };
 		B8C02F2C29696537005612CE /* HomePopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2B29696537005612CE /* HomePopularViewController.swift */; };
 		B8C02F2E29696DFD005612CE /* HomeNewestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2D29696DFD005612CE /* HomeNewestViewController.swift */; };
+		B8C02F30296B185B005612CE /* UISegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2F296B185B005612CE /* UISegmentedControl+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,7 @@
 		B8C02F2929694C82005612CE /* HomeRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendViewController.swift; sourceTree = "<group>"; };
 		B8C02F2B29696537005612CE /* HomePopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularViewController.swift; sourceTree = "<group>"; };
 		B8C02F2D29696DFD005612CE /* HomeNewestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewestViewController.swift; sourceTree = "<group>"; };
+		B8C02F2F296B185B005612CE /* UISegmentedControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,6 +430,7 @@
 				B18B60C3296552DA00AF14F5 /* TextField */,
 				B18B60C9296552DA00AF14F5 /* UIButton+Extension.swift */,
 				023B559329655CD200FB2462 /* CGFloat+Extension.swift */,
+				B8C02F2F296B185B005612CE /* UISegmentedControl+Extension.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */,
 				B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */,
 				B8C02F2429681E62005612CE /* HomeContentModel.swift in Sources */,
+				B8C02F30296B185B005612CE /* UISegmentedControl+Extension.swift in Sources */,
 				B10AAD44296967D000AB8475 /* CustomNavigationManager.swift in Sources */,
 				B18B60D5296552DA00AF14F5 /* NavigationBar.swift in Sources */,
 				B10AAD45296967D000AB8475 /* CustomNavigationPresentationController.swift in Sources */,
