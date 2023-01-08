@@ -79,7 +79,7 @@ extension HomePopularViewController: UICollectionViewDataSource {
     guard let homeContentCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeContentCollectionViewCell.identifier, for: indexPath)
             as? HomeContentCollectionViewCell else { return UICollectionViewCell() }
-    homeContentCell.dataBind(model: popularContentList[indexPath.item])
+    homeContentCell.bindHomeData(model: popularContentList[indexPath.item])
     return homeContentCell
   }
 }
