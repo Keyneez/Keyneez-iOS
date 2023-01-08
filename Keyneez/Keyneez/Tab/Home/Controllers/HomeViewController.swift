@@ -17,8 +17,8 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
     $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
   }
   private lazy var didSearch: UIAction = .init(handler: { _ in
-    let searchViewController = SearchViewController()
-    self.navigationController?.pushViewController(searchViewController, animated: true)
+    let homeSearchViewController = HomeSearchViewController()
+    self.navigationController?.pushViewController(homeSearchViewController, animated: true)
   })
   lazy var contentView: UIView = UIView()
   

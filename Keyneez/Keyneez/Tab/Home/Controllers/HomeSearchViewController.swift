@@ -1,5 +1,5 @@
 //
-//  SearchViewController.swift
+//  HomeSearchViewController.swift
 //  Keyneez
 //
 //  Created by 박의서 on 2023/01/09.
@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class SearchViewController: NiblessViewController, NavigationBarProtocol {
+final class HomeSearchViewController: NiblessViewController, NavigationBarProtocol {
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox, .iconButton(with: searchButton)]).build()
   private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
     $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
@@ -48,7 +48,7 @@ final class SearchViewController: NiblessViewController, NavigationBarProtocol {
   }
 }
 
-extension SearchViewController {
+extension HomeSearchViewController {
   private func setLayout() {
     contentView.addSubviews(searchResultCountingLabel)
     searchResultCountingLabel.snp.makeConstraints{
