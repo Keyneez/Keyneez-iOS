@@ -21,9 +21,10 @@ final class HomeSearchCollectionViewCell: UICollectionViewCell {
     $0.font = .font(.pretendardSemiBold, ofSize: 24)
     $0.textColor = .gray050
   }
-  private let likeButton: UIButton = .init().then {
-    $0.setImage(UIImage(named: "Property 1=line"), for: .normal)
-    $0.setImage(UIImage(named: "Property 1=fill"), for: .selected)
+  private lazy var likeButton: UIButton = .init().then {
+    $0.setImage(UIImage(named: "ic_favorite_line__search"), for: .normal)
+    $0.setImage(UIImage(named: "ic_favorite_search"), for: .selected)
+    $0.addTarget(self, action: #selector(touchUpLikeButton), for: .touchUpInside)
   }
   
   override init(frame: CGRect) {
@@ -39,6 +40,7 @@ final class HomeSearchCollectionViewCell: UICollectionViewCell {
 extension HomeSearchCollectionViewCell {
   private func setLayout() {
     contentView.backgroundColor = .gray900
+    contentView.layer.cornerRadius = 4
     contentView.addSubviews(dateLabel, titleLabel, likeButton)
     dateLabel.snp.makeConstraints {
       $0.top.equalToSuperview().inset(19)
@@ -56,5 +58,9 @@ extension HomeSearchCollectionViewCell {
   func bindHomeSearchData(model: HomeSearchModel) {
     dateLabel.text = model.startAt + " ~ " + model.endAt // 이 부분 date 형식 변경
     titleLabel.text = model.contentTitle
+  }
+  @objc
+  private func touchUpLikeButton() {
+    print(likeButton.state)
   }
 }
