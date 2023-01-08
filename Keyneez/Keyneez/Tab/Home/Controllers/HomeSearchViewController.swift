@@ -37,10 +37,16 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
     collectionView.backgroundColor = .clear
     collectionView.isScrollEnabled = true
     collectionView.showsVerticalScrollIndicator = false
-    collectionView.delegate = self
-    collectionView.dataSource = self
+//    collectionView.delegate = self
+//    collectionView.dataSource = self
     return collectionView
   }()
+  
+  final let homeSearchInset: UIEdgeInsets = UIEdgeInsets(top: 16, left: 24, bottom: 16, right: 23)
+  final let homeSearchLineSpacing: CGFloat = 8
+  final let homeSearchInterItemSpacing: CGFloat = 8
+  final let homeSearchCellHeight: CGFloat = 240
+
   override func viewDidLoad() {
     super.viewDidLoad()
     setLayout()
@@ -50,10 +56,19 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
 
 extension HomeSearchViewController {
   private func setLayout() {
-    contentView.addSubviews(searchResultCountingLabel)
+    contentView.addSubviews(searchResultCountingLabel, searchCollectionView)
     searchResultCountingLabel.snp.makeConstraints{
       $0.top.equalToSuperview().inset(36)
       $0.centerX.equalToSuperview()
     }
+    searchCollectionView.snp.makeConstraints {
+      $0.top.equalTo(searchResultCountingLabel.snp.bottom).offset(16)
+      $0.leading.trailing.bottom.equalToSuperview()
+    }
+  }
+  private func calculateCellHeight() -> CGFloat {
+    let count = CGFloat(homeSearchList.count)
+    let heightCount = count / 2 + count.truncatingRemainder(dividingBy: 2)
+    return heightCount * homeSearchCellHeight + (heightCount - 1) * homeSearchLineSpacing + homeSearchInset.top + homeSearchInset.bottom
   }
 }
