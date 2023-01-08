@@ -9,8 +9,8 @@ import Foundation
 
 struct HomeContentModel {
   let contentImage: String
-  let start_at: String
-  let end_at: String
+  let startAt: String
+  let endAt: String
   let contentTitle: String
   let introduction: String
   let categoty: [String]
