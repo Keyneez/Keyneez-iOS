@@ -34,16 +34,17 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
   let scrollView: UIScrollView = .init().then {
     $0.backgroundColor = .gray500
   }
-  let testUIView1: UIView = .init().then {
-    $0.backgroundColor = .mint200
-  }
-  let testUIView2: UIView = .init().then {
-    $0.backgroundColor = .mint200
-  }
-  let testUIView3: UIView = .init().then {
-    $0.backgroundColor = .mint200
-  }
-  
+//  private let categoryView = UIView().then {
+//    $0.backgroundColor = .clear
+//    $0.layer.cornerRadius = 16
+//    $0.layer.borderWidth = 1.5
+//    $0.layer.borderColor = UIColor.mint400.cgColor
+//  }
+//  private let category = UILabel().then {
+//    $0.textColor = UIColor.mint400
+//    $0.font = UIFont.font(.pretendardBold, ofSize: 14)
+//  }
+  private let categoryView = CategoryView()
   override func viewDidLoad() {
     super.viewDidLoad()
     setLayout()
@@ -54,24 +55,17 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
 extension ContentDetailViewController {
   private func setLayout() {
     contentView.addSubviews(scrollView)
-    scrollView.addSubviews(testUIView1, testUIView2, testUIView3)
+    scrollView.addSubviews(categoryView)
     scrollView.snp.makeConstraints {
       $0.top.leading.trailing.bottom.equalToSuperview()
     }
-    testUIView1.snp.makeConstraints {
-      $0.top.leading.equalToSuperview().inset(30)
-      $0.width.height.equalTo(300)
-    }
-    testUIView2.snp.makeConstraints {
-      $0.top.equalTo(testUIView1.snp.bottom).offset(30)
-      $0.leading.equalToSuperview().inset(30)
-      $0.width.height.equalTo(300)
-    }
-    testUIView3.snp.makeConstraints {
-      $0.top.equalTo(testUIView2.snp.bottom).offset(30)
-      $0.leading.equalToSuperview().inset(30)
-      $0.width.height.equalTo(300)
-      $0.bottom.equalToSuperview().inset(30)
+    categoryView.snp.makeConstraints {
+      $0.leading.equalToSuperview().inset(23)
+      $0.top.equalToSuperview().inset(8)
     }
   }
+//  func bindContentDetailData(model: HomeSearchModel) {
+//    dateLabel.text = setDateLabel(model: model)
+//    titleLabel.text = model.contentTitle
+//  }
 }
