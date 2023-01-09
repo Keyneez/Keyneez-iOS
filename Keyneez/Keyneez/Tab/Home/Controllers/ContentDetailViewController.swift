@@ -12,15 +12,9 @@ import SnapKit
 final class ContentDetailViewController: NiblessViewController, NavigationBarProtocol {
   
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox, .iconButton(with: shareButton), .sizedBox(width: 16), .iconButton(with: likeButton)]).build()
-  private lazy var backButton: UIButton = .init(primaryAction: touchUpBackButton).then {
-    $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)
-  }
-  private lazy var shareButton: UIButton = .init(primaryAction: touchUpShareButton).then {
-    $0.setBackgroundImage(UIImage(named: "ic_share3"), for: .normal)
-  }
-  private lazy var likeButton: UIButton = .init(primaryAction: touchUpLikeButton).then {
-    $0.setBackgroundImage(UIImage(named: "Property 1=line"), for: .normal)
-  }
+  private lazy var backButton = makeIconButton(imageName: "ic_arrowback_search", action: touchUpBackButton)
+  private lazy var shareButton = makeIconButton(imageName: "ic_share3", action: touchUpShareButton)
+  private lazy var likeButton = makeIconButton(imageName: "roperty 1=line", action: touchUpLikeButton)
   private lazy var touchUpBackButton: UIAction = .init(handler: { _ in
     self.navigationController?.popViewController(animated: true)
   })
@@ -47,21 +41,13 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
     $0.font = .font(.pretendardBold, ofSize: 14)
     $0.textColor = .gray900
   }
-  private let locationLabel: UILabel = .init().then {
-    $0.text = "서울 킨텍스"
-    $0.font = .font(.pretendardMedium, ofSize: 14)
-    $0.textColor = .gray900
-  }
+  private lazy var locationLabel = makeLabel(text: "서울 킨텍스")
   private let durationBasicLabel: UILabel = .init().then {
     $0.text = "기간"
     $0.font = .font(.pretendardBold, ofSize: 14)
     $0.textColor = .gray900
   }
-  private let durationLabel: UILabel = .init().then {
-    $0.text = "22.11.24-22.12.31"
-    $0.font = .font(.pretendardMedium, ofSize: 14)
-    $0.textColor = .gray900
-  }
+  private lazy var durationLabel: UILabel = makeLabel(text: "22.11.24-22.12.31")
   private let contentImageView: UIImageView = .init().then {
     $0.backgroundColor = .gray500
   }
@@ -76,33 +62,14 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
     $0.textColor = .gray050
   }
   private let urlButtonImage: UIImageView = .init(image: UIImage(named: "ic_dropdown_right"))
-  private let contentInfoLabel: UILabel = .init().then {
-    $0.text = "어찌구저찌구 활동 설명입니다."
-    $0.font = .font(.pretendardMedium, ofSize: 14)
-    $0.textColor = .gray900
-  }
-  private let benefitBasicLabel: UILabel = .init().then {
-    $0.text = "청소년 혜택"
-    $0.font = .font(.pretendardBold, ofSize: 18)
-    $0.textColor = .gray900
-  }
+  private lazy var contentInfoLabel = makeLabel(text: "어찌구저찌구 활동 설명입니다.")
+  private lazy var benefitBasicLabel = makeBasicLabel(text: "청소년 혜택")
   private lazy var firstSepareteLine = makeLine()
-  private let benefitLabel: UILabel = .init().then {
-    $0.text = "티켓 가격 15% 할인"
-    $0.font = .font(.pretendardMedium, ofSize: 14)
-    $0.textColor = .gray900
-  }
-  private let usageBasicLabel: UILabel = .init().then {
-    $0.text = "이용방법"
-    $0.font = .font(.pretendardBold, ofSize: 18)
-    $0.textColor = .gray900
-  }
+  private lazy var benefitLabel = makeLabel(text: "티켓 가격 15% 할인")
+  private lazy var usageBasicLabel = makeBasicLabel(text: "이용방법")
   private lazy var secondSeparateLine = makeLine()
-  private let usageLabel: UILabel = .init().then {
-    $0.text = "학생증/청소년증 제시"
-    $0.font = .font(.pretendardMedium, ofSize: 14)
-    $0.textColor = .gray900
-  }
+  private lazy var usageLabel = makeLabel(text: "학생증/청소년증 제시")
+
   private let categoryView = CategoryView()
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -168,7 +135,6 @@ extension ContentDetailViewController {
     contentImageView.snp.makeConstraints {
       $0.top.equalTo(durationBasicLabel.snp.bottom).offset(32)
       $0.centerX.equalToSuperview()
-//      $0.leading.trailing.equalTo(contentView)
       $0.width.equalTo(375)
       $0.height.equalTo(240)
     }
@@ -233,7 +199,6 @@ extension ContentDetailViewController {
     }
   }
   func bindContentDetailData(model: HomeContentModel) {
-//    dateLabel.text = setDateLabel(model: model)
     contentTitle.text = model.contentTitle
   }
   @objc
@@ -248,5 +213,27 @@ extension ContentDetailViewController {
       $0.backgroundColor = .gray500
     }
     return line
+  }
+  private func makeBasicLabel(text: String) -> UILabel {
+    let label: UILabel = .init().then {
+      $0.text = text
+      $0.font = .font(.pretendardBold, ofSize: 18)
+      $0.textColor = .gray900
+    }
+    return label
+  }
+  private func makeLabel(text: String) -> UILabel {
+    let label: UILabel = .init().then {
+      $0.text = text
+      $0.font = .font(.pretendardMedium, ofSize: 14)
+      $0.textColor = .gray900
+    }
+    return label
+  }
+  private func makeIconButton(imageName: String, action: UIAction) -> UIButton {
+    let button: UIButton = .init(primaryAction: action).then {
+      $0.setBackgroundImage(UIImage(named: imageName), for: .normal)
+    }
+    return button
   }
 }
