@@ -38,7 +38,7 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
     $0.textColor = UIColor.gray900
   }
   private let categoryCardImageView: UIImageView = .init().then {
-    $0.image = UIImage(named: "")
+    $0.image = UIImage(named: "card_black_contentDetail")
   }
   
   private let categoryView = CategoryView()
@@ -52,8 +52,7 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
 extension ContentDetailViewController {
   private func setLayout() {
     contentView.addSubviews(scrollView)
-    scrollView.addSubviews(categoryView, contentContainerView)
-    contentContainerView.addSubviews(contentTitle, categoryCardImageView)
+    scrollView.addSubviews(categoryView, contentTitle, categoryCardImageView)
     scrollView.snp.makeConstraints {
       $0.top.leading.trailing.bottom.equalToSuperview()
     }
@@ -63,18 +62,15 @@ extension ContentDetailViewController {
       $0.width.equalTo(49)
       $0.height.equalTo(33)
     }
-    contentContainerView.snp.makeConstraints {
+    contentTitle.snp.makeConstraints {
       $0.top.equalTo(categoryView.snp.bottom).offset(8)
       $0.leading.equalTo(categoryView)
-      $0.width.equalTo(181)
-      $0.height.equalTo(32)
-    }
-    print(categoryView.frame.height)
-    contentTitle.snp.makeConstraints {
-      $0.leading.centerY.equalToSuperview()
     }
     categoryCardImageView.snp.makeConstraints {
-      $0.trailing.centerY.equalToSuperview()
+      $0.centerY.equalTo(contentTitle)
+      $0.leading.equalTo(contentTitle.snp.trailing).offset(9)
+      $0.width.equalTo(18)
+      $0.height.equalTo(25)
     }
   }
   func bindContentDetailData(model: HomeContentModel) {

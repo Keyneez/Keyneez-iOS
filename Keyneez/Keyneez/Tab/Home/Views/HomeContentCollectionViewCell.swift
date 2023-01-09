@@ -44,7 +44,9 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
   private let likeButton = UIButton().then {
     $0.setImage(UIImage(named: "white_like_empty"), for: .normal)
   }
-  private let cardImageView = UIImageView()
+  private let cardImageView: UIImageView = .init().then {
+    $0.image = UIImage(named: "card_blue_home")
+  }
   private let contentTitle = UILabel().then {
     $0.font = UIFont.font(.pretendardBold, ofSize: 28)
     $0.textColor = UIColor.gray900
@@ -123,7 +125,6 @@ extension HomeContentCollectionViewCell {
       $0.height.equalTo(72)
     }
     contentImageView.backgroundColor = .gray400
-    cardImageView.backgroundColor = .orange
     likeButton.backgroundColor = .mint200
   }
   
