@@ -17,6 +17,7 @@ import UIKit
 // }
 
 class LoadingView: NSObject {
+  
   private static let sharedInstance = LoadingView()
   private var popupView = UIImageView()
   private var backgroundView = UIView()
