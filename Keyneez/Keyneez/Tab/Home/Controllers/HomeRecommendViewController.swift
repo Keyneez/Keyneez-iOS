@@ -57,6 +57,11 @@ final class HomeRecommendViewController: UIViewController {
       $0.trailing.equalToSuperview().inset(9)
     }
   }
+  
+//  private func touchUpCell() {
+//    let contentDetailViewController = ContentDetailViewController()
+//    self.navigationController?.pushViewController(contentDetailViewController, animated: true)
+//  }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
@@ -75,6 +80,7 @@ extension HomeRecommendViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     return homeContentInset
   }
+
 }
 
 // MARK: - UICollectionViewDataSource

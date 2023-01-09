@@ -77,6 +77,7 @@
 		B8C02F36296B3AEC005612CE /* HomeSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F35296B3AEC005612CE /* HomeSearchModel.swift */; };
 		B8C02F38296B3F6E005612CE /* HomeSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F37296B3F6E005612CE /* HomeSearchCollectionViewCell.swift */; };
 		B8C02F40296C32B5005612CE /* ContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F3F296C32B5005612CE /* ContentDetailViewController.swift */; };
+		B8C02F42296C3983005612CE /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F41296C3983005612CE /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,7 @@
 		B8C02F35296B3AEC005612CE /* HomeSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchModel.swift; sourceTree = "<group>"; };
 		B8C02F37296B3F6E005612CE /* HomeSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		B8C02F3F296C32B5005612CE /* ContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewController.swift; sourceTree = "<group>"; };
+		B8C02F41296C3983005612CE /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +441,7 @@
 				B18B60C9296552DA00AF14F5 /* UIButton+Extension.swift */,
 				023B559329655CD200FB2462 /* CGFloat+Extension.swift */,
 				B8C02F2F296B185B005612CE /* UISegmentedControl+Extension.swift */,
+				B8C02F41296C3983005612CE /* UIViewController+Extension.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -716,6 +719,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C02F42296C3983005612CE /* UIViewController+Extension.swift in Sources */,
 				B10AAD7B29696C7700AB8475 /* IDViewController.swift in Sources */,
 				B10AAD3E296967C700AB8475 /* ReusableView.swift in Sources */,
 				B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */,
