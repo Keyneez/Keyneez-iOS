@@ -11,7 +11,7 @@ import Then
 
 final class HomeSearchViewController: NiblessViewController, NavigationBarProtocol {
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .textfield(configure: (placeholder: "제목, 키워드", completion: { str in
-//    self.performQuery(with: str)
+    //    self.performQuery(with: str)
   }))]).build()
   private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
     $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
@@ -46,7 +46,7 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
   
   // MARK: - Modern Collection View
   enum Section: CaseIterable {
-      case main
+    case main
   }
   typealias DataSource = UICollectionViewDiffableDataSource<Section, HomeSearchModel>
   
@@ -89,34 +89,38 @@ extension HomeSearchViewController {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension HomeSearchViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenWidth = UIScreen.main.bounds.width
-        let doubleCellWidth = screenWidth - homeSearchInset.left - homeSearchInset.right - homeSearchInterItemSpacing
-        return CGSize(width: doubleCellWidth / 2, height: homeSearchCellHeight)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return homeSearchLineSpacing
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return homeSearchInterItemSpacing
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return homeSearchInset
-    }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let screenWidth = UIScreen.main.bounds.width
+    let doubleCellWidth = screenWidth - homeSearchInset.left - homeSearchInset.right - homeSearchInterItemSpacing
+    return CGSize(width: doubleCellWidth / 2, height: homeSearchCellHeight)
+  }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return homeSearchLineSpacing
+  }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    return homeSearchInterItemSpacing
+  }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return homeSearchInset
+  }
+  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+    pushToContentDetailView()
+    return true
+  }
 }
 
 // MARK: - UICollectionViewDataSource
 extension HomeSearchViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return homeSearchList.count
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let homeSearchCell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: HomeSearchCollectionViewCell.identifier, for: indexPath)
-                as? HomeSearchCollectionViewCell else { return UICollectionViewCell() }
-      homeSearchCell.bindHomeSearchData(model: homeSearchList[indexPath.item])
-        return homeSearchCell
-    }
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return homeSearchList.count
+  }
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    guard let homeSearchCell = collectionView.dequeueReusableCell(
+      withReuseIdentifier: HomeSearchCollectionViewCell.identifier, for: indexPath)
+            as? HomeSearchCollectionViewCell else { return UICollectionViewCell() }
+    homeSearchCell.bindHomeSearchData(model: homeSearchList[indexPath.item])
+    return homeSearchCell
+  }
 }
 
 // MARK: - Modern Collection View
@@ -131,8 +135,8 @@ extension HomeSearchViewController {
           for: indexPath) as? HomeSearchCollectionViewCell
         cell?.searchContent = model
         return cell
-    })
+      })
     return dataSource
   }
-
+  
 }
