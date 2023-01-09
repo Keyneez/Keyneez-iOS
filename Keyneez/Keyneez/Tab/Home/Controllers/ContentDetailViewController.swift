@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Then
+import SnapKit
 
 final class ContentDetailViewController: NiblessViewController, NavigationBarProtocol {
   
@@ -29,10 +31,47 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
     print("touch up LikeButton")
   })
   var contentView: UIView = .init()
+  let scrollView: UIScrollView = .init().then {
+    $0.backgroundColor = .gray500
+  }
+  let testUIView1: UIView = .init().then {
+    $0.backgroundColor = .mint200
+  }
+  let testUIView2: UIView = .init().then {
+    $0.backgroundColor = .mint200
+  }
+  let testUIView3: UIView = .init().then {
+    $0.backgroundColor = .mint200
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setLayout()
     addNavigationViewToSubview()
   }
-    
+}
+
+extension ContentDetailViewController {
+  private func setLayout() {
+    contentView.addSubviews(scrollView)
+    scrollView.addSubviews(testUIView1, testUIView2, testUIView3)
+    scrollView.snp.makeConstraints {
+      $0.top.leading.trailing.bottom.equalToSuperview()
+    }
+    testUIView1.snp.makeConstraints {
+      $0.top.leading.equalToSuperview().inset(30)
+      $0.width.height.equalTo(300)
+    }
+    testUIView2.snp.makeConstraints {
+      $0.top.equalTo(testUIView1.snp.bottom).offset(30)
+      $0.leading.equalToSuperview().inset(30)
+      $0.width.height.equalTo(300)
+    }
+    testUIView3.snp.makeConstraints {
+      $0.top.equalTo(testUIView2.snp.bottom).offset(30)
+      $0.leading.equalToSuperview().inset(30)
+      $0.width.height.equalTo(300)
+      $0.bottom.equalToSuperview().inset(30)
+    }
+  }
 }
