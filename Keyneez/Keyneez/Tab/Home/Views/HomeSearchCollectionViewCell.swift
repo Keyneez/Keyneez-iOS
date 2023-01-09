@@ -78,7 +78,7 @@ extension HomeSearchCollectionViewCell {
     return month + "." + day
   }
   private func setDateLabel(model: HomeSearchModel) -> String {
-    if model.startAt.isEmpty || model.endAt.isEmpty { return "" }
+    if model.startAt.isEmpty || model.endAt.isEmpty { return "2023 ~ " }
     return getDate(fullDate: model.startAt) + " ~ " + getDate(fullDate: model.endAt)
   }
 }
