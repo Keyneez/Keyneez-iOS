@@ -12,7 +12,7 @@ final class CustomNavigationPresentationController: UIPresentationController {
   
   private var direction: PresentationDirection
   private var height: CGFloat
-  private var heightlimit: CGFloat
+  private var heightIncludeKeyboard: CGFloat
   private var tempHeight: CGFloat
   private var dimmingView: UIView!
   private var dragIndicator: UIView!
@@ -24,11 +24,11 @@ final class CustomNavigationPresentationController: UIPresentationController {
     }
   }
   
-  init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?, direction: PresentationDirection, height: CGFloat, dimmed: Bool, heightlimit: CGFloat) {
+  init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?, direction: PresentationDirection, height: CGFloat, dimmed: Bool, heightIncludeKeyboard: CGFloat) {
     self.direction = direction
     self.height = height
     self.dimmed = dimmed
-    self.heightlimit = heightlimit
+    self.heightIncludeKeyboard = heightIncludeKeyboard
     self.tempHeight = height
     super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
     setupDimmingView()
@@ -120,7 +120,10 @@ extension CustomNavigationPresentationController {
       let keyboardRectangle = keyboardFrame.cgRectValue
       let keyboardHeight = keyboardRectangle.height
       tempHeight = height
-      height = heightlimit
+      if heightIncludeKeyboard == UIScreen.main.bounds.size.width {
+        height += keyboardHeight
+      }
+      height = heightIncludeKeyboard
       self.keyboardHeight = keyboardHeight
     }
     
