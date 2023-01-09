@@ -86,7 +86,7 @@ final class CameraViewController: NiblessViewController {
     return UIAction(handler: { [unowned self] _ in
       customNavigationDelegate.direction = .bottom
       customNavigationDelegate.height = Constant.bottomsheetHeight
-      customNavigationDelegate.heightlimit = Constant.bottomsheetHeightWithKeyboard
+      customNavigationDelegate.heightIncludeKeyboard = Constant.bottomsheetHeightWithKeyboard
       customNavigationDelegate.dimmed = false
       let idInfoEditVC = IDInfoEditableViewController()
       idInfoEditVC.transitioningDelegate = customNavigationDelegate
