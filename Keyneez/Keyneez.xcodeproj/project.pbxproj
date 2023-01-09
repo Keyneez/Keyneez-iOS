@@ -74,7 +74,6 @@
 		B8C02F2E29696DFD005612CE /* HomeNewestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2D29696DFD005612CE /* HomeNewestViewController.swift */; };
 		B8C02F30296B185B005612CE /* UISegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2F296B185B005612CE /* UISegmentedControl+Extension.swift */; };
 		B8C02F34296B1AA3005612CE /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F33296B1AA3005612CE /* HomeSearchViewController.swift */; };
-		B8C02F36296B3AEC005612CE /* HomeSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F35296B3AEC005612CE /* HomeSearchModel.swift */; };
 		B8C02F38296B3F6E005612CE /* HomeSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F37296B3F6E005612CE /* HomeSearchCollectionViewCell.swift */; };
 		B8C02F40296C32B5005612CE /* ContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F3F296C32B5005612CE /* ContentDetailViewController.swift */; };
 		B8C02F42296C3983005612CE /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F41296C3983005612CE /* UIViewController+Extension.swift */; };
@@ -164,7 +163,6 @@
 		B8C02F2D29696DFD005612CE /* HomeNewestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewestViewController.swift; sourceTree = "<group>"; };
 		B8C02F2F296B185B005612CE /* UISegmentedControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extension.swift"; sourceTree = "<group>"; };
 		B8C02F33296B1AA3005612CE /* HomeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
-		B8C02F35296B3AEC005612CE /* HomeSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchModel.swift; sourceTree = "<group>"; };
 		B8C02F37296B3F6E005612CE /* HomeSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		B8C02F3F296C32B5005612CE /* ContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewController.swift; sourceTree = "<group>"; };
 		B8C02F41296C3983005612CE /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -518,7 +516,6 @@
 			isa = PBXGroup;
 			children = (
 				B8C02F2329681E62005612CE /* HomeContentModel.swift */,
-				B8C02F35296B3AEC005612CE /* HomeSearchModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -760,7 +757,6 @@
 				B10AAD43296967D000AB8475 /* CustomNavigationAnimator.swift in Sources */,
 				B8C02F38296B3F6E005612CE /* HomeSearchCollectionViewCell.swift in Sources */,
 				B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */,
-				B8C02F36296B3AEC005612CE /* HomeSearchModel.swift in Sources */,
 				B8C02F2829682E41005612CE /* HomeContentCollectionViewCell.swift in Sources */,
 				B8C02F40296C32B5005612CE /* ContentDetailViewController.swift in Sources */,
 				B14D10AF2959CA080004946F /* KeyneezTabbarController.swift in Sources */,

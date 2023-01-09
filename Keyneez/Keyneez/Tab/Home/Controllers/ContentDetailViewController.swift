@@ -31,19 +31,16 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
     print("touch up LikeButton")
   })
   var contentView: UIView = .init()
-  let scrollView: UIScrollView = .init().then {
-    $0.backgroundColor = .gray500
+  private let scrollView: UIScrollView = .init()
+  private let contentContainerView: UIView = .init()
+  private let contentTitle: UILabel = .init().then {
+    $0.font = UIFont.font(.pretendardBold, ofSize: 24)
+    $0.textColor = UIColor.gray900
   }
-//  private let categoryView = UIView().then {
-//    $0.backgroundColor = .clear
-//    $0.layer.cornerRadius = 16
-//    $0.layer.borderWidth = 1.5
-//    $0.layer.borderColor = UIColor.mint400.cgColor
-//  }
-//  private let category = UILabel().then {
-//    $0.textColor = UIColor.mint400
-//    $0.font = UIFont.font(.pretendardBold, ofSize: 14)
-//  }
+  private let categoryCardImageView: UIImageView = .init().then {
+    $0.image = UIImage(named: "")
+  }
+  
   private let categoryView = CategoryView()
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -55,7 +52,8 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
 extension ContentDetailViewController {
   private func setLayout() {
     contentView.addSubviews(scrollView)
-    scrollView.addSubviews(categoryView)
+    scrollView.addSubviews(categoryView, contentContainerView)
+    contentContainerView.addSubviews(contentTitle, categoryCardImageView)
     scrollView.snp.makeConstraints {
       $0.top.leading.trailing.bottom.equalToSuperview()
     }
@@ -63,9 +61,21 @@ extension ContentDetailViewController {
       $0.leading.equalToSuperview().inset(23)
       $0.top.equalToSuperview().inset(8)
     }
+    contentContainerView.snp.makeConstraints {
+      $0.top.equalTo(categoryView.snp.bottom).offset(8)
+      $0.leading.equalTo(categoryView)
+      $0.width.equalTo(181)
+      $0.height.equalTo(32)
+    }
+    contentTitle.snp.makeConstraints {
+      $0.leading.centerY.equalToSuperview()
+    }
+    categoryCardImageView.snp.makeConstraints {
+      $0.trailing.centerY.equalToSuperview()
+    }
   }
-//  func bindContentDetailData(model: HomeSearchModel) {
+  func bindContentDetailData() {
 //    dateLabel.text = setDateLabel(model: model)
-//    titleLabel.text = model.contentTitle
-//  }
+//    contentTitle.text = model.contentTitle
+  }
 }

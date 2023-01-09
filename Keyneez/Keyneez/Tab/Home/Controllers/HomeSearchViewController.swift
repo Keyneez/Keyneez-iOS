@@ -44,12 +44,6 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
     return collectionView
   }()
   
-  // MARK: - Modern Collection View
-  enum Section: CaseIterable {
-    case main
-  }
-  typealias DataSource = UICollectionViewDiffableDataSource<Section, HomeSearchModel>
-  
   final let homeSearchInset: UIEdgeInsets = UIEdgeInsets(top: 16, left: 24, bottom: 16, right: 23)
   final let homeSearchLineSpacing: CGFloat = 8
   final let homeSearchInterItemSpacing: CGFloat = 8
@@ -121,22 +115,4 @@ extension HomeSearchViewController: UICollectionViewDataSource {
     homeSearchCell.bindHomeSearchData(model: homeSearchList[indexPath.item])
     return homeSearchCell
   }
-}
-
-// MARK: - Modern Collection View
-extension HomeSearchViewController {
-  func makeDataSource() -> DataSource {
-    let dataSource = DataSource(
-      collectionView: homeSearchCollectionView,
-      cellProvider: { (collectionView, indexPath, model) ->
-        UICollectionViewCell? in
-        let cell = collectionView.dequeueReusableCell(
-          withReuseIdentifier: HomeSearchCollectionViewCell.identifier,
-          for: indexPath) as? HomeSearchCollectionViewCell
-        cell?.searchContent = model
-        return cell
-      })
-    return dataSource
-  }
-  
 }
