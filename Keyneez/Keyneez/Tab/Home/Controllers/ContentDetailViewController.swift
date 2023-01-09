@@ -74,8 +74,8 @@ extension ContentDetailViewController {
       $0.trailing.centerY.equalToSuperview()
     }
   }
-  func bindContentDetailData() {
+  func bindContentDetailData(model: HomeContentModel) {
 //    dateLabel.text = setDateLabel(model: model)
-//    contentTitle.text = model.contentTitle
+    contentTitle.text = model.contentTitle
   }
 }
