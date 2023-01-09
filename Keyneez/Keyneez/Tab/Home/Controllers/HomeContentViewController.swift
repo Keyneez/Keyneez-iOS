@@ -1,5 +1,5 @@
 //
-//  HomeRecommendViewController.swift
+//  HomeContentViewController.swift
 //  Keyneez
 //
 //  Created by 박의서 on 2023/01/07.
@@ -10,7 +10,7 @@ import Then
 import SnapKit
 import Floaty
 
-final class HomeRecommendViewController: UIViewController {
+final class HomeContentViewController: UIViewController {
   
   var segmentedNumber: Int = -1
 
@@ -63,7 +63,7 @@ final class HomeRecommendViewController: UIViewController {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension HomeRecommendViewController: UICollectionViewDelegateFlowLayout {
+extension HomeContentViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let screenWidth = UIScreen.main.bounds.width
     let cellWidth = screenWidth - homeContentInset.left - homeContentInset.right
@@ -85,7 +85,7 @@ extension HomeRecommendViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - UICollectionViewDataSource
 
-extension HomeRecommendViewController: UICollectionViewDataSource {
+extension HomeContentViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     switch(segmentedNumber) {
     case 0:

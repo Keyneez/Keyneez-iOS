@@ -44,7 +44,7 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
   override func viewDidLoad() {
     super.viewDidLoad()
     setLayout()
-    addContentViews(asChildViewController: HomeRecommendViewController())
+    addContentViews(asChildViewController: HomeContentViewController())
     addNavigationViewToSubview()
   }
 }
@@ -89,7 +89,7 @@ extension HomeViewController {
   }
   private func changeViewControllers() {
     let segmentIndex = segmentControl.selectedSegmentIndex
-    let VCs = [HomeRecommendViewController(), HomeRecommendViewController(), HomeRecommendViewController()]
+    let VCs = [HomeContentViewController(), HomeContentViewController(), HomeContentViewController()]
     var count = 0
     for VC in VCs {
       VC.segmentedNumber = count

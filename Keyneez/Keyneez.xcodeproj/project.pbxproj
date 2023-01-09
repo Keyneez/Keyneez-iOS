@@ -69,7 +69,7 @@
 		B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F0C2962F683005612CE /* LikeViewController.swift */; };
 		B8C02F2429681E62005612CE /* HomeContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2329681E62005612CE /* HomeContentModel.swift */; };
 		B8C02F2829682E41005612CE /* HomeContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2729682E41005612CE /* HomeContentCollectionViewCell.swift */; };
-		B8C02F2A29694C82005612CE /* HomeRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2929694C82005612CE /* HomeRecommendViewController.swift */; };
+		B8C02F2A29694C82005612CE /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2929694C82005612CE /* HomeContentViewController.swift */; };
 		B8C02F2C29696537005612CE /* HomePopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2B29696537005612CE /* HomePopularViewController.swift */; };
 		B8C02F2E29696DFD005612CE /* HomeNewestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2D29696DFD005612CE /* HomeNewestViewController.swift */; };
 		B8C02F30296B185B005612CE /* UISegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F2F296B185B005612CE /* UISegmentedControl+Extension.swift */; };
@@ -158,7 +158,7 @@
 		B8C02F0C2962F683005612CE /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
 		B8C02F2329681E62005612CE /* HomeContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentModel.swift; sourceTree = "<group>"; };
 		B8C02F2729682E41005612CE /* HomeContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentCollectionViewCell.swift; sourceTree = "<group>"; };
-		B8C02F2929694C82005612CE /* HomeRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendViewController.swift; sourceTree = "<group>"; };
+		B8C02F2929694C82005612CE /* HomeContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
 		B8C02F2B29696537005612CE /* HomePopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularViewController.swift; sourceTree = "<group>"; };
 		B8C02F2D29696DFD005612CE /* HomeNewestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewestViewController.swift; sourceTree = "<group>"; };
 		B8C02F2F296B185B005612CE /* UISegmentedControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extension.swift"; sourceTree = "<group>"; };
@@ -533,7 +533,7 @@
 			isa = PBXGroup;
 			children = (
 				B8C02F0A2962F65E005612CE /* HomeViewController.swift */,
-				B8C02F2929694C82005612CE /* HomeRecommendViewController.swift */,
+				B8C02F2929694C82005612CE /* HomeContentViewController.swift */,
 				B8C02F2B29696537005612CE /* HomePopularViewController.swift */,
 				B8C02F2D29696DFD005612CE /* HomeNewestViewController.swift */,
 				B8C02F33296B1AA3005612CE /* HomeSearchViewController.swift */,
@@ -733,7 +733,7 @@
 				023B559429655CD200FB2462 /* CGFloat+Extension.swift in Sources */,
 				B14D107E2959C7980004946F /* AppDelegate.swift in Sources */,
 				B18B60D6296552DA00AF14F5 /* NavigationViewItem.swift in Sources */,
-				B8C02F2A29694C82005612CE /* HomeRecommendViewController.swift in Sources */,
+				B8C02F2A29694C82005612CE /* HomeContentViewController.swift in Sources */,
 				B18B60D0296552DA00AF14F5 /* UITextField+Extension.swift in Sources */,
 				B18B60CF296552DA00AF14F5 /* KeyneezTextFieldFactory.swift in Sources */,
 				B10AAD71296967F300AB8475 /* IDIssueActionables.swift in Sources */,
