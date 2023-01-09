@@ -11,7 +11,7 @@ import SnapKit
 
 final class CategoryView: UIView {
   private let categoryView = UIView().then {
-    $0.backgroundColor = .clear
+    $0.backgroundColor = .gray050
     $0.layer.cornerRadius = 16
     $0.layer.borderWidth = 1.5
     $0.layer.borderColor = UIColor.mint500.cgColor
@@ -42,5 +42,8 @@ extension CategoryView {
     category.snp.makeConstraints {
       $0.centerX.centerY.equalToSuperview()
     }
+  }
+  func bindCategoryData() {
+    // 네트워크 통신
   }
 }
