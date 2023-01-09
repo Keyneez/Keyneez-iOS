@@ -10,7 +10,9 @@ import SnapKit
 import Then
 
 final class HomeSearchViewController: NiblessViewController, NavigationBarProtocol {
-  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox, .iconButton(with: searchButton)]).build()
+  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .textfield(configure: (placeholder: "제목, 키워드", completion: { str in
+//    self.performQuery(with: str)
+  }))]).build()
   private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
     $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
   }
@@ -41,6 +43,13 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
     collectionView.dataSource = self
     return collectionView
   }()
+  
+  // MARK: - Modern Collection View
+  enum Section: CaseIterable {
+      case main
+  }
+  
+  private var dataSource: UICollectionViewDiffableDataSource<Section, HomeSearchModel>!
   
   final let homeSearchInset: UIEdgeInsets = UIEdgeInsets(top: 16, left: 24, bottom: 16, right: 23)
   final let homeSearchLineSpacing: CGFloat = 8
@@ -109,4 +118,8 @@ extension HomeSearchViewController: UICollectionViewDataSource {
       homeSearchCell.bindHomeSearchData(model: homeSearchList[indexPath.item])
         return homeSearchCell
     }
+}
+
+// MARK: - Modern Collection View
+extension HomeSearchViewController {
 }

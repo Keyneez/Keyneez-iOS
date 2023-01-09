@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HomeSearchModel {
+struct HomeSearchModel: Hashable {
   let contentTitle: String
   let startAt: String
   let endAt: String
