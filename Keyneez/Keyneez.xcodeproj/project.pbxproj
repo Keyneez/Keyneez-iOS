@@ -19,8 +19,11 @@
 		022F68B82962D3A200F32CE1 /* Buildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F68B72962D3A200F32CE1 /* Buildable.swift */; };
 		0230EA6F296AD8C90006940C /* PropensityTagCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0230EA6E296AD8C90006940C /* PropensityTagCollectionViewController.swift */; };
 		0230EA71296B5A0D0006940C /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0230EA70296B5A0D0006940C /* HashTagCollectionViewCell.swift */; };
-		0233C6F6296C002D00A177E9 /* JellyProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233C6F5296C002D00A177E9 /* JellyProduct.swift */; };
+		0233C6F6296C002D00A177E9 /* JellyProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233C6F5296C002D00A177E9 /* JellyProductView.swift */; };
 		0233C6F8296C07A300A177E9 /* JellyProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233C6F7296C07A300A177E9 /* JellyProductCollectionViewCell.swift */; };
+		0233C6FA296C8D0D00A177E9 /* simplePwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233C6F9296C8D0D00A177E9 /* simplePwdViewController.swift */; };
+		0233C6FC296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233C6FB296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift */; };
+		0233C6FE296C8F4A00A177E9 /* JellyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233C6FD296C8F4A00A177E9 /* JellyDetailView.swift */; };
 		023B559429655CD200FB2462 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023B559329655CD200FB2462 /* CGFloat+Extension.swift */; };
 		0253816729674D3D00D29A97 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0253816629674D3D00D29A97 /* LandingPageViewController.swift */; };
 		0269E2242961DAB800309E8A /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0269E2232961DAB800309E8A /* Pretendard-Bold.otf */; };
@@ -117,8 +120,11 @@
 		022F68B72962D3A200F32CE1 /* Buildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buildable.swift; sourceTree = "<group>"; };
 		0230EA6E296AD8C90006940C /* PropensityTagCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropensityTagCollectionViewController.swift; sourceTree = "<group>"; };
 		0230EA70296B5A0D0006940C /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
-		0233C6F5296C002D00A177E9 /* JellyProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyProduct.swift; sourceTree = "<group>"; };
+		0233C6F5296C002D00A177E9 /* JellyProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyProductView.swift; sourceTree = "<group>"; };
 		0233C6F7296C07A300A177E9 /* JellyProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		0233C6F9296C8D0D00A177E9 /* simplePwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simplePwdViewController.swift; sourceTree = "<group>"; };
+		0233C6FB296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyDetailBottomSheetViewController.swift; sourceTree = "<group>"; };
+		0233C6FD296C8F4A00A177E9 /* JellyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyDetailView.swift; sourceTree = "<group>"; };
 		023B559329655CD200FB2462 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		0253816629674D3D00D29A97 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		0269E2232961DAB800309E8A /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
@@ -226,7 +232,6 @@
 		022CB21F296A2AAE0084DEF5 /* Jelly */ = {
 			isa = PBXGroup;
 			children = (
-				022CB222296A2AF50084DEF5 /* Models */,
 				022CB221296A2AEC0084DEF5 /* Views */,
 				022CB220296A2ADD0084DEF5 /* Controllers */,
 			);
@@ -236,10 +241,9 @@
 		022CB220296A2ADD0084DEF5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0230EA6E296AD8C90006940C /* PropensityTagCollectionViewController.swift */,
+				0233C6FB296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift */,
 				022CB21529696C760084DEF5 /* JellyMakeView.swift */,
-				022CB227296A32130084DEF5 /* HashTagCollectionViewController.swift */,
-				0233C6F5296C002D00A177E9 /* JellyProduct.swift */,
+				0233C6F5296C002D00A177E9 /* JellyProductView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -247,19 +251,18 @@
 		022CB221296A2AEC0084DEF5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				022CB225296A30280084DEF5 /* PropensityTagCollectionViewCell.swift */,
-				0230EA70296B5A0D0006940C /* HashTagCollectionViewCell.swift */,
 				0233C6F7296C07A300A177E9 /* JellyProductCollectionViewCell.swift */,
+				0233C6FD296C8F4A00A177E9 /* JellyDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		022CB222296A2AF50084DEF5 /* Models */ = {
+		022CB222296A2AF50084DEF5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				022CB223296A2B370084DEF5 /* SignUpContentModel.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		022F68B62962D33B00F32CE1 /* Protocol */ = {
@@ -269,6 +272,32 @@
 				022F68B72962D3A200F32CE1 /* Buildable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		0233C6FF296CA0BD00A177E9 /* PropensityTag */ = {
+			isa = PBXGroup;
+			children = (
+				022CB225296A30280084DEF5 /* PropensityTagCollectionViewCell.swift */,
+				0230EA6E296AD8C90006940C /* PropensityTagCollectionViewController.swift */,
+			);
+			path = PropensityTag;
+			sourceTree = "<group>";
+		};
+		0233C700296CA0E600A177E9 /* HashTag */ = {
+			isa = PBXGroup;
+			children = (
+				0230EA70296B5A0D0006940C /* HashTagCollectionViewCell.swift */,
+				022CB227296A32130084DEF5 /* HashTagCollectionViewController.swift */,
+			);
+			path = HashTag;
+			sourceTree = "<group>";
+		};
+		0233C701296CA12800A177E9 /* SimplePwd */ = {
+			isa = PBXGroup;
+			children = (
+				0233C6F9296C8D0D00A177E9 /* simplePwdViewController.swift */,
+			);
+			path = SimplePwd;
 			sourceTree = "<group>";
 		};
 		0269E2222961D79200309E8A /* File */ = {
@@ -463,6 +492,10 @@
 		B14D10B72959CBF30004946F /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				0233C701296CA12800A177E9 /* SimplePwd */,
+				0233C700296CA0E600A177E9 /* HashTag */,
+				022CB222296A2AF50084DEF5 /* Model */,
+				0233C6FF296CA0BD00A177E9 /* PropensityTag */,
 				022CB21F296A2AAE0084DEF5 /* Jelly */,
 				022CB21E296A2AA30084DEF5 /* Danal */,
 				022CB229296A336E0084DEF5 /* SignUpViewController.swift */,
@@ -814,14 +847,17 @@
 				B14D10802959C7980004946F /* SceneDelegate.swift in Sources */,
 				B8C02F2E29696DFD005612CE /* HomeNewestViewController.swift in Sources */,
 				B10AAD6E296967F300AB8475 /* IDContentActions.swift in Sources */,
+				0233C6FC296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift in Sources */,
 				B10AAD68296967F300AB8475 /* IDCardCotentActionables.swift in Sources */,
+				0233C6FA296C8D0D00A177E9 /* simplePwdViewController.swift in Sources */,
 				0253816729674D3D00D29A97 /* LandingPageViewController.swift in Sources */,
 				B10AAD43296967D000AB8475 /* CustomNavigationAnimator.swift in Sources */,
 				B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */,
 				B8C02F2829682E41005612CE /* HomeContentCollectionViewCell.swift in Sources */,
 				022CB214296965480084DEF5 /* DanalAuthSuccessViewController.swift in Sources */,
 				B14D10AF2959CA080004946F /* KeyneezTabbarController.swift in Sources */,
-				0233C6F6296C002D00A177E9 /* JellyProduct.swift in Sources */,
+				0233C6FE296C8F4A00A177E9 /* JellyDetailView.swift in Sources */,
+				0233C6F6296C002D00A177E9 /* JellyProductView.swift in Sources */,
 				B10AAD62296967F300AB8475 /* BenefitInfoViewController.swift in Sources */,
 				022CB21B296A11A40084DEF5 /* NavigationBarProtocol.swift in Sources */,
 				022CB212296957DB0084DEF5 /* DanalAuthViewController.swift in Sources */,
@@ -1005,7 +1041,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 693WY75AQY;
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Keyneez/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1037,7 +1073,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 693WY75AQY;
+				DEVELOPMENT_TEAM = 2QWMDJG53V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Keyneez/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

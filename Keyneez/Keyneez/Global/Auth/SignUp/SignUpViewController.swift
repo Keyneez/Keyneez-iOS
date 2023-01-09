@@ -8,17 +8,17 @@
 import UIKit
 import Then
 
-class SignUpViewController: NiblessViewController, NavigationBarProtocol {
+final class SignUpViewController: NiblessViewController, NavigationBarProtocol {
   
-  var navigationView: UIView = NavigationViewBuilder(barViews: [ .flexibleBox]).build()
+  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
   
-  private lazy var backButton = UIButton().then {
+  private var backButton : UIButton = .init(primaryAction: nil).then {
     $0.setBackgroundImage(UIImage(named: "ic_arrowback"), for: .normal)
   }
   
   var actions = SignUpActions()
   // 컨텐츠 뷰 생성
-  lazy var contentView: UIView = HashTagCollectionViewController(frame: .zero, actions: actions)
+  lazy var contentView: UIView = SimplePwdViewController(frame: .zero, actions: actions)
   
     override func viewDidLoad() {
         super.viewDidLoad()
