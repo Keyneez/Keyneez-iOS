@@ -14,7 +14,7 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox, .iconButton(with: shareButton), .sizedBox(width: 16), .iconButton(with: likeButton)]).build()
   private lazy var backButton = makeIconButton(imageName: "ic_arrowback_search", action: touchUpBackButton)
   private lazy var shareButton = makeIconButton(imageName: "ic_share3", action: touchUpShareButton)
-  private lazy var likeButton = makeIconButton(imageName: "roperty 1=line", action: touchUpLikeButton)
+  private lazy var likeButton = makeIconButton(imageName: "Property 1=line", action: touchUpLikeButton)
   private lazy var touchUpBackButton: UIAction = .init(handler: { _ in
     self.navigationController?.popViewController(animated: true)
   })
