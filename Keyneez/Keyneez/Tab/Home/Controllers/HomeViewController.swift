@@ -26,7 +26,7 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
   private lazy var containerView: UIView = .init().then {
     $0.backgroundColor = UIColor.gray050
   }
-  private lazy var segmentControl: UISegmentedControl = .init().then {
+  lazy var segmentControl: UISegmentedControl = .init().then {
     $0.insertSegment(withTitle: "추천", at: 0, animated: true)
     $0.insertSegment(withTitle: "인기", at: 1, animated: true)
     $0.insertSegment(withTitle: "최신", at: 2, animated: true)
@@ -89,7 +89,12 @@ extension HomeViewController {
   }
   private func changeViewControllers() {
     let segmentIndex = segmentControl.selectedSegmentIndex
-    let VCs = [HomeRecommendViewController(), HomePopularViewController(), HomeNewestViewController()]
+    let VCs = [HomeRecommendViewController(), HomeRecommendViewController(), HomeRecommendViewController()]
+    var count = 0
+    for VC in VCs {
+      VC.segmentedNumber = count
+      count += 1
+    }
     remove(asChildViewController: self.children[0])
     addContentViews(asChildViewController: VCs[segmentIndex])
   }
