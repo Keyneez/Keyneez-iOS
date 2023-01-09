@@ -37,7 +37,6 @@ final class HomeSearchCollectionViewCell: UICollectionViewCell {
   override init(frame: CGRect) {
     super.init(frame: frame)
     setLayout()
-    setTitleLabel()
   }
 
   required init?(coder: NSCoder) {
@@ -81,5 +80,5 @@ extension HomeSearchCollectionViewCell {
   private func setDateLabel(model: HomeContentModel) -> String {
     if model.startAt.isEmpty || model.endAt.isEmpty { return "2023 ~ " }
     return getDate(fullDate: model.startAt) + " ~ " + getDate(fullDate: model.endAt)
-  
+  }
 }
