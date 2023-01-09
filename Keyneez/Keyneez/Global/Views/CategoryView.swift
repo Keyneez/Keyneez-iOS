@@ -10,11 +10,11 @@ import Then
 import SnapKit
 
 final class CategoryView: UIView {
-  private let categoryView = UIView().then {
-    $0.backgroundColor = .gray050
-    $0.layer.cornerRadius = 16
-    $0.layer.borderWidth = 1.5
-    $0.layer.borderColor = UIColor.mint500.cgColor
+  private func setCategoryView() {
+    self.backgroundColor = .gray050
+    self.layer.cornerRadius = 16
+    self.layer.borderWidth = 1.5
+    self.layer.borderColor = UIColor.mint500.cgColor
   }
   private let category = UILabel().then {
     $0.text = "문화"
@@ -24,6 +24,7 @@ final class CategoryView: UIView {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
+    setCategoryView()
     setLayout()
   }
   required init?(coder: NSCoder) {
@@ -33,17 +34,9 @@ final class CategoryView: UIView {
 
 extension CategoryView {
   private func setLayout() {
-    self.addSubviews(categoryView)
-    categoryView.addSubviews(category)
-    categoryView.snp.makeConstraints {
-      $0.width.equalTo(49)
-      $0.height.equalTo(33)
-    }
+    self.addSubviews(category)
     category.snp.makeConstraints {
       $0.centerX.centerY.equalToSuperview()
     }
-  }
-  func bindCategoryData() {
-    // 네트워크 통신
   }
 }

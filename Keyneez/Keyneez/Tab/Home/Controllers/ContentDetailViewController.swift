@@ -60,6 +60,8 @@ extension ContentDetailViewController {
     categoryView.snp.makeConstraints {
       $0.leading.equalToSuperview().inset(23)
       $0.top.equalToSuperview().inset(8)
+      $0.width.equalTo(49)
+      $0.height.equalTo(33)
     }
     contentContainerView.snp.makeConstraints {
       $0.top.equalTo(categoryView.snp.bottom).offset(8)
@@ -67,6 +69,7 @@ extension ContentDetailViewController {
       $0.width.equalTo(181)
       $0.height.equalTo(32)
     }
+    print(categoryView.frame.height)
     contentTitle.snp.makeConstraints {
       $0.leading.centerY.equalToSuperview()
     }
