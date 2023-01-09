@@ -27,6 +27,13 @@ final class HomeSearchCollectionViewCell: UICollectionViewCell {
     $0.addTarget(self, action: #selector(touchUpLikeButton), for: .touchUpInside)
   }
   
+  // MARK: - Modern Collection View
+  var searchContent: HomeSearchModel? {
+    didSet {
+      self.bindHomeSearchData(model: searchContent!)
+    }
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setLayout()
