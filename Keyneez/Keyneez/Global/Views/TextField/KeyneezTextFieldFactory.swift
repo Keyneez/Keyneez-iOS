@@ -22,7 +22,7 @@ enum KeyneezTextFieldFactory: Buildable {
   
   enum TextfieldBorderStyle {
     case underline(padding: CGFloat = 24)
-    case underlineIcon(padding: CGFloat = 24)
+    case underlineIcon(padding: CGFloat = 24, icon: String? = nil)
   }
   
   case formStyleTextfield(placeholder: String, borderStyle: TextfieldBorderStyle, completion: SearchCompletion = nil)
@@ -59,15 +59,15 @@ extension KeyneezTextFieldFactory {
     switch borderStyle {
     case .underline(let padding):
       textfield.underlineStyle(padding: padding)
-    case .underlineIcon(let padding):
+    case .underlineIcon(let padding, let icon):
       textfield.underlineStyle(padding: padding)
-      addSearchButton(to: textfield, with: completion)
+      addSearchButton(to: textfield, iconName: icon ?? Constant.searchButtonImageName, with: completion)
     }
   }
   
-  private func addSearchButton(to textfield: UITextField, with completion: SearchCompletion) {
+  private func addSearchButton(to textfield: UITextField, iconName: String, with completion: SearchCompletion) {
     
-    let searchButton = makeSearchButton()
+    let searchButton = makeIconButton(with: iconName)
     searchButton.addAction(UIAction(handler: { _ in completion?(textfield.text) }), for: .touchUpInside)
     
     let rightview = makeRightView()
@@ -82,9 +82,9 @@ extension KeyneezTextFieldFactory {
     return UIView(frame: CGRect(x: 0, y: 0, width: Constant.searchTextfieldHeight, height: Constant.searchTextfieldHeight))
   }
   
-  private func makeSearchButton() -> UIButton {
+  private func makeIconButton(with imageName: String) -> UIButton {
     return UIButton(frame: .zero).then {
-      $0.setBackgroundImage(UIImage(named: Constant.searchButtonImageName), for: .normal)
+      $0.setBackgroundImage(UIImage(named: imageName), for: .normal)
     }
   }
   
