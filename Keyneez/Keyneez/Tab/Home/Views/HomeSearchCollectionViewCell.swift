@@ -58,7 +58,7 @@ extension HomeSearchCollectionViewCell {
       $0.centerX.equalToSuperview()
     }
     likeButton.snp.makeConstraints {
-      $0.top.equalTo(titleLabel.snp.bottom).offset(49)
+      $0.bottom.equalToSuperview().inset(24)
       $0.centerX.equalToSuperview()
     }
   }
