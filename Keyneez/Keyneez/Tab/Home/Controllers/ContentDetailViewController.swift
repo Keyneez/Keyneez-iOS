@@ -69,7 +69,6 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
   private lazy var usageBasicLabel = makeBasicLabel(text: "이용방법")
   private lazy var secondSeparateLine = makeLine()
   private lazy var usageLabel = makeLabel(text: "학생증/청소년증 제시")
-
   private let categoryView = CategoryView()
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -198,12 +197,12 @@ extension ContentDetailViewController {
       $0.leading.trailing.equalToSuperview().inset(24)
     }
   }
-  func bindContentDetailData(model: HomeContentModel) {
-    contentTitle.text = model.contentTitle
-  }
   @objc
   private func touchUpUrlRoundButton() {
     print("touch up Url Button")
+  }
+  func bindContentDetailData(model: HomeContentModel) {
+    contentTitle.text = model.contentTitle
   }
 }
 
