@@ -76,7 +76,7 @@
 		B8C02F34296B1AA3005612CE /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F33296B1AA3005612CE /* HomeSearchViewController.swift */; };
 		B8C02F36296B3AEC005612CE /* HomeSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F35296B3AEC005612CE /* HomeSearchModel.swift */; };
 		B8C02F38296B3F6E005612CE /* HomeSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F37296B3F6E005612CE /* HomeSearchCollectionViewCell.swift */; };
-		B8C02F3E296C3285005612CE /* ContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F3D296C3285005612CE /* ContentDetailViewController.swift */; };
+		B8C02F40296C32B5005612CE /* ContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F3F296C32B5005612CE /* ContentDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,7 +164,7 @@
 		B8C02F33296B1AA3005612CE /* HomeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
 		B8C02F35296B3AEC005612CE /* HomeSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchModel.swift; sourceTree = "<group>"; };
 		B8C02F37296B3F6E005612CE /* HomeSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchCollectionViewCell.swift; sourceTree = "<group>"; };
-		B8C02F3D296C3285005612CE /* ContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewController.swift; sourceTree = "<group>"; };
+		B8C02F3F296C32B5005612CE /* ContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -534,7 +534,7 @@
 				B8C02F2B29696537005612CE /* HomePopularViewController.swift */,
 				B8C02F2D29696DFD005612CE /* HomeNewestViewController.swift */,
 				B8C02F33296B1AA3005612CE /* HomeSearchViewController.swift */,
-				B8C02F3D296C3285005612CE /* ContentDetailViewController.swift */,
+				B8C02F3F296C32B5005612CE /* ContentDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -755,7 +755,7 @@
 				B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */,
 				B8C02F36296B3AEC005612CE /* HomeSearchModel.swift in Sources */,
 				B8C02F2829682E41005612CE /* HomeContentCollectionViewCell.swift in Sources */,
-				B8C02F3E296C3285005612CE /* ContentDetailViewController.swift in Sources */,
+				B8C02F40296C32B5005612CE /* ContentDetailViewController.swift in Sources */,
 				B14D10AF2959CA080004946F /* KeyneezTabbarController.swift in Sources */,
 				B10AAD62296967F300AB8475 /* BenefitInfoViewController.swift in Sources */,
 				B18B60D1296552DA00AF14F5 /* NiblessView.swift in Sources */,
