@@ -21,9 +21,11 @@ class CustomNavigationManager: NSObject, UIViewControllerTransitioningDelegate {
   
   var direction: PresentationDirection = .left
   var height: CGFloat = 300
+  var heightlimit: CGFloat = UIScreen.main.bounds.size.height
+  var dimmed: Bool = true
   
   func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-    let presentationController = CustomNavigationPresentationController(presentedViewController: presented, presenting: presenting, direction: direction, height: height)
+    let presentationController = CustomNavigationPresentationController(presentedViewController: presented, presenting: presenting, direction: direction, height: height, dimmed: dimmed, heightlimit: heightlimit)
     return presentationController
   }
   
