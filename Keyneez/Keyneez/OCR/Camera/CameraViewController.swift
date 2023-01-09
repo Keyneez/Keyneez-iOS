@@ -9,33 +9,50 @@ import UIKit
 import AVFoundation
 import SnapKit
 
-private enum SessionSetupResult {
-  case success
-  case notAuthorized
-  case configurationFailed
-}
-
-private enum LivePhotoMode {
-  case on
-  case off
-}
-
-private enum DepthDataDeliveryMode {
-  case on
-  case off
-}
-
-private enum PortraitEffectsMatteDeliveryMode {
-  case on
-  case off
-}
-
 final class CameraViewController: NiblessViewController {
   
   // 커스텀 네비게이션 뷰 생성
-  lazy var navigationView: UIView = NavigationViewBuilder(barViews: []).build()
+  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: xbutton), .flexibleBox, .iconButton(with: switchButton)]).build()
   
+  private lazy var xbutton: UIButton = .init().then {
+    $0.setBackgroundImage(UIImage(named: "ic_close")!.imageWithColor(color: .white), for: .normal)
+  }
+  
+  private lazy var switchButton: UIButton = .init(primaryAction: UIAction { [weak self] _ in
+    guard let self else { return }
+    self.didTouchswitchButton()
+  }).then {
+    $0.setBackgroundImage(UIImage(named: "ic_switch")!, for: .normal)
+  }
+  
+  private lazy var idCardNotWorkingButton: UIButton = makeAttrStringButton(with: "신분증 인식이 안되나요?").then {
+    $0.addAction(UIAction(handler: { [unowned self] _ in
+      didTouchidNotWorkingButton()
+    }), for: .touchUpInside)
+  }
+  
+  private lazy var cameraButton: UIButton = .init(primaryAction: UIAction { [weak self] _ in
+    guard let self else { return }
+    self.capturePhoto()
+  }).then {
+    $0.setBackgroundImage(UIImage(named: "btn_cam"), for: .normal)
+  }
+  
+  private lazy var changeAutoModeButton: UIButton = makeAttrStringButton(with: "자동 인식").then {
+    $0.addAction(UIAction(handler: { [unowned self] _ in
+      self.didTouchAutoChangeButton()
+    }), for: .touchUpInside)
+  }
+  
+  let action = IDCardGuideActions()
+  private var customNavigationDelegate = CustomNavigationManager()
   private var previewView: PreviewView = .init()
+  private var previewViewMode: PreviewMode = .horizontal
+  private var captureMode: CaptureMode = .auto {
+    didSet {
+      toggleCaptureModeUI()
+    }
+  }
   
   private var videoDeviceInput: AVCaptureDeviceInput!
   
@@ -53,7 +70,6 @@ final class CameraViewController: NiblessViewController {
   private var inProgressPhotoCaptureDelegates = [Int64: PhotoCaptureProcessor]()
   private var inProgressLivePhotoCapturesCount = 0
   
-  private var cameraButton: UIButton = .init()
   private let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInDualCamera, .builtInTrueDepthCamera, .builtInDualWideCamera],
                                                                              mediaType: .video, position: .unspecified)
   
@@ -63,12 +79,42 @@ final class CameraViewController: NiblessViewController {
   // 이건뭐임?
   private var photoQualityPrioritizationMode: AVCapturePhotoOutput.QualityPrioritization = .balanced
   
+  private func didTouchswitchButton() {
+    if self.previewViewMode == .vertical { self.previewView.changeToHorizontal() }
+    else { self.previewView.changeToVertical() }
+    self.previewViewMode.toggle()
+    self.previewView.toggleCaptureModeUI(with: self.captureMode, previeMode: self.previewViewMode)
+  }
+  
+  private func didTouchidNotWorkingButton() {
+    self.toggleCaptureMode()
+    self.previewView.toggleCaptureModeUI(with: self.captureMode, previeMode: self.previewViewMode)
+  }
+  
+  private func didTouchAutoChangeButton() {
+    self.toggleCaptureMode()
+    self.previewView.toggleCaptureModeUI(with: self.captureMode, previeMode: self.previewViewMode)
+  }
+  
+  private func setCustomNavigationDelegate() -> UIAction {
+    return UIAction(handler: { [unowned self] _ in
+      customNavigationDelegate.direction = .bottom
+      customNavigationDelegate.height = 520
+      customNavigationDelegate.heightlimit = 660
+      customNavigationDelegate.dimmed = false
+      let idInfoEditVC = IDInfoEditableViewController()
+      idInfoEditVC.transitioningDelegate = customNavigationDelegate
+      idInfoEditVC.modalPresentationStyle = .custom
+      self.present(idInfoEditVC, animated: true)
+    })
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.addSubviews(previewView)
-    previewView.snp.makeConstraints {
-      $0.top.bottom.left.right.equalToSuperview()
-    }
+    addsubview()
+    setConstraint()
+    toggleCaptureModeUI()
+    
     previewView.session = session
     checkCameraAuthroizationStatus()
     sessionQueue.async {
@@ -76,8 +122,39 @@ final class CameraViewController: NiblessViewController {
     }
   }
   
+
+  private func makeAttrStringButton(with text: String) -> UIButton {
+    let button: UIButton = .init()
+    let attributes: [NSAttributedString.Key: Any] = [
+      .font: UIFont.font(.pretendardMedium, ofSize: 18),
+      .foregroundColor: UIColor.gray050,
+      .underlineStyle: NSUnderlineStyle.single.rawValue
+    ]
+    let titleStr = NSAttributedString(string: text, attributes: attributes)
+    button.setAttributedTitle(titleStr, for: .normal)
+    return button
+  }
+  
+  private func toggleCaptureMode() {
+    captureMode.toggle()
+  }
+  
+  private func toggleCaptureModeUI() {
+    switch captureMode {
+    case .auto:
+      cameraButton.isHidden = true
+      changeAutoModeButton.isHidden = true
+      idCardNotWorkingButton.isHidden = false
+    case .manual:
+      cameraButton.isHidden = false
+      changeAutoModeButton.isHidden = false
+      idCardNotWorkingButton.isHidden = true
+    }
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
     sessionQueue.async {
         switch self.setupResult {
         case .success:
@@ -86,38 +163,9 @@ final class CameraViewController: NiblessViewController {
             self.isSessionRunning = self.session.isRunning
             
         case .notAuthorized:
-            DispatchQueue.main.async {
-                let changePrivacySetting = "키니즈 ID서비스를 사용하려면 '카메라' 접근권한을 허용해야 해요."
-              let message = NSLocalizedString(changePrivacySetting, comment: "키니즈 ID서비스를 사용하려면 '카메라' 접근권한을 허용해야 해요.")
-                let alertController = UIAlertController(title: "키니즈", message: message, preferredStyle: .alert)
-                
-                alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"),
-                                                        style: .cancel,
-                                                        handler: nil))
-                
-                alertController.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: "Alert button to open Settings"),
-                                                        style: .`default`,
-                                                        handler: { _ in
-                                                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!,
-                                                                                      options: [:],
-                                                                                      completionHandler: nil)
-                }))
-                
-                self.present(alertController, animated: true, completion: nil)
-            }
-            
+            DispatchQueue.main.async { self.ifNotAuthorized() }
         case .configurationFailed:
-            DispatchQueue.main.async {
-                let alertMsg = "Alert message when something goes wrong during capture session configuration"
-                let message = NSLocalizedString("Unable to capture media", comment: alertMsg)
-                let alertController = UIAlertController(title: "AVCam", message: message, preferredStyle: .alert)
-                
-                alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"),
-                                                        style: .cancel,
-                                                        handler: nil))
-                
-                self.present(alertController, animated: true, completion: nil)
-            }
+            DispatchQueue.main.async { self.ifConfigureFailed() }
         }
     }
   }
@@ -343,6 +391,38 @@ extension CameraViewController {
 
 extension CameraViewController {
   
+  private func ifConfigureFailed() {
+    let alertMsg = "Alert message when something goes wrong during capture session configuration"
+    let message = NSLocalizedString("Unable to capture media", comment: alertMsg)
+    let alertController = UIAlertController(title: "키니즈", message: message, preferredStyle: .alert)
+    
+    alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"),
+                                            style: .cancel,
+                                            handler: nil))
+    
+    self.present(alertController, animated: true, completion: nil)
+  }
+  
+  private func ifNotAuthorized() {
+    let changePrivacySetting = "키니즈 ID서비스를 사용하려면 '카메라' 접근권한을 허용해야 해요."
+    let message = NSLocalizedString(changePrivacySetting, comment: "키니즈 ID서비스를 사용하려면 '카메라' 접근권한을 허용해야 해요.")
+    let alertController = UIAlertController(title: "키니즈", message: message, preferredStyle: .alert)
+    
+    alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"),
+                                            style: .cancel,
+                                            handler: nil))
+    
+    alertController.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: "Alert button to open Settings"),
+                                            style: .`default`,
+                                            handler: { _ in
+                                                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!,
+                                                                          options: [:],
+                                                                          completionHandler: nil)
+    }))
+    
+    self.present(alertController, animated: true, completion: nil)
+  }
+  
   private func checkCameraAuthroizationStatus() {
     switch AVCaptureDevice.authorizationStatus(for: .video) {
     case .authorized:
@@ -361,42 +441,44 @@ extension CameraViewController {
       })
     default:
       setupResult = .notAuthorized
-      
     }
   }
 }
 
-extension AVCaptureVideoOrientation {
-    init?(deviceOrientation: UIDeviceOrientation) {
-        switch deviceOrientation {
-        case .portrait: self = .portrait
-        case .portraitUpsideDown: self = .portraitUpsideDown
-        case .landscapeLeft: self = .landscapeRight
-        case .landscapeRight: self = .landscapeLeft
-        default: return nil
-        }
+// MARK: - UI
+extension CameraViewController {
+  private func setConstraint() {
+    let guide = view.safeAreaLayoutGuide
+    previewView.snp.makeConstraints {
+      $0.top.bottom.left.right.equalToSuperview()
     }
     
-    init?(interfaceOrientation: UIInterfaceOrientation) {
-        switch interfaceOrientation {
-        case .portrait: self = .portrait
-        case .portraitUpsideDown: self = .portraitUpsideDown
-        case .landscapeLeft: self = .landscapeLeft
-        case .landscapeRight: self = .landscapeRight
-        default: return nil
-        }
+    navigationView.snp.makeConstraints {
+      $0.top.left.right.equalTo(guide)
     }
-}
-
-extension AVCaptureDevice.DiscoverySession {
-    var uniqueDevicePositionsCount: Int {
-        
-        var uniqueDevicePositions = [AVCaptureDevice.Position]()
-        
-        for device in devices where !uniqueDevicePositions.contains(device.position) {
-            uniqueDevicePositions.append(device.position)
-        }
-        
-        return uniqueDevicePositions.count
+    
+    idCardNotWorkingButton.snp.makeConstraints {
+      $0.width.equalTo(174)
+      $0.height.equalTo(21)
+      $0.centerX.equalToSuperview()
+      $0.bottom.equalToSuperview().inset(81)
     }
+    
+    cameraButton.snp.makeConstraints {
+      $0.height.width.equalTo(72)
+      $0.centerX.equalToSuperview()
+      $0.bottom.equalToSuperview().inset(89)
+    }
+    
+    changeAutoModeButton.snp.makeConstraints {
+      $0.centerX.equalToSuperview()
+      $0.bottom.equalToSuperview().inset(44)
+    }
+  }
+  
+  private func addsubview() {
+    view.addSubviews(previewView)
+    
+    [navigationView, idCardNotWorkingButton, cameraButton, changeAutoModeButton].forEach { self.previewView.addSubview($0)}
+  }
 }
