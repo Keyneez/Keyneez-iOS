@@ -22,7 +22,7 @@ class HashTagCollectionViewCell: UICollectionViewCell {
     $0.layer.cornerRadius = 10
     $0.isHidden = true
   }
-   let indexTextLabel = UILabel().then {
+  let indexTextLabel = UILabel().then {
     $0.font = .font(.pretendardBold, ofSize: 10)
     $0.textColor = .gray900
   }
@@ -33,7 +33,8 @@ class HashTagCollectionViewCell: UICollectionViewCell {
     setLayout()
   }
   
-  required init?(coder: NSCoder) {
+  required
+  init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
   

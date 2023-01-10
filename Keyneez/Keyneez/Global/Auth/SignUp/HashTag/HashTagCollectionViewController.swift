@@ -176,7 +176,5 @@ extension HashTagCollectionViewController: UICollectionViewDataSource {
       allCountLabel.textColor = .gray050
       clickCountLabel.textColor = .gray050
     }
-    
-    print(selectedIndex)
   }
 }
