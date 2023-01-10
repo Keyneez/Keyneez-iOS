@@ -37,6 +37,11 @@
 		B10AAD8229696FCA00AB8475 /* IDDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD56296967F200AB8475 /* IDDetailViewController.swift */; };
 		B10AAD8329696FCD00AB8475 /* IDDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD4F296967F100AB8475 /* IDDetailView.swift */; };
 		B10AAD842969706700AB8475 /* IDNotAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD59296967F200AB8475 /* IDNotAvailableView.swift */; };
+		B10AAD8A2969B86500AB8475 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD892969B86500AB8475 /* PreviewView.swift */; };
+		B10AAD8C2969B95900AB8475 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD8B2969B95900AB8475 /* CameraViewController.swift */; };
+		B10AAD8E2969CA4700AB8475 /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD8D2969CA4700AB8475 /* PhotoCaptureDelegate.swift */; };
+		B10AAD902969F31C00AB8475 /* AVCaptureVideoOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD8F2969F31C00AB8475 /* AVCaptureVideoOrientation.swift */; };
+		B10AAD922969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD912969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift */; };
 		B14D107E2959C7980004946F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D107D2959C7980004946F /* AppDelegate.swift */; };
 		B14D10802959C7980004946F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D107F2959C7980004946F /* SceneDelegate.swift */; };
 		B14D10872959C79A0004946F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B14D10862959C79A0004946F /* Assets.xcassets */; };
@@ -49,6 +54,17 @@
 		B14D10C12959D2BC0004946F /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B14D10C02959D2BC0004946F /* Moya */; };
 		B14D10C42959D3070004946F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B14D10C32959D3070004946F /* Kingfisher */; };
 		B14D10C72959D3720004946F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B14D10C62959D3720004946F /* SnapKit */; };
+		B1812357296B001B0029FEB6 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1812356296B001B0029FEB6 /* UIImage+Extension.swift */; };
+		B181235A296B2EF20029FEB6 /* IDCardGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1812359296B2EF20029FEB6 /* IDCardGuideViewController.swift */; };
+		B181235C296B30CB0029FEB6 /* IDCardGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181235B296B30CB0029FEB6 /* IDCardGuideView.swift */; };
+		B187CA67296BF896006B0AE1 /* IDInfoEditableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187CA66296BF896006B0AE1 /* IDInfoEditableViewController.swift */; };
+		B187CA6B296BF9AB006B0AE1 /* IDInfoEditableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187CA6A296BF9AB006B0AE1 /* IDInfoEditableView.swift */; };
+		B187CA6D296C0787006B0AE1 /* IDCardGuideActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187CA6C296C0787006B0AE1 /* IDCardGuideActionables.swift */; };
+		B187CA6F296C07CF006B0AE1 /* IDCardGuideActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187CA6E296C07CF006B0AE1 /* IDCardGuideActions.swift */; };
+		B187CA71296C096F006B0AE1 /* CameraMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187CA70296C096F006B0AE1 /* CameraMode.swift */; };
+		B187CA7C296C5B21006B0AE1 /* IDIssuedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187CA7B296C5B21006B0AE1 /* IDIssuedViewController.swift */; };
+		B187CA7E296C5B2C006B0AE1 /* IDIssuedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187CA7D296C5B2C006B0AE1 /* IDIssuedView.swift */; };
+		B187CA81296C8378006B0AE1 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187CA80296C8378006B0AE1 /* Camera.swift */; };
 		B18B60CF296552DA00AF14F5 /* KeyneezTextFieldFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60C4296552DA00AF14F5 /* KeyneezTextFieldFactory.swift */; };
 		B18B60D0296552DA00AF14F5 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60C5296552DA00AF14F5 /* UITextField+Extension.swift */; };
 		B18B60D1296552DA00AF14F5 /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60C7296552DA00AF14F5 /* NiblessView.swift */; };
@@ -127,6 +143,11 @@
 		B10AAD58296967F200AB8475 /* IDIssueActionables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDIssueActionables.swift; sourceTree = "<group>"; };
 		B10AAD59296967F200AB8475 /* IDNotAvailableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDNotAvailableView.swift; sourceTree = "<group>"; };
 		B10AAD7A29696C7700AB8475 /* IDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDViewController.swift; sourceTree = "<group>"; };
+		B10AAD892969B86500AB8475 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		B10AAD8B2969B95900AB8475 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		B10AAD8D2969CA4700AB8475 /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
+		B10AAD8F2969F31C00AB8475 /* AVCaptureVideoOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureVideoOrientation.swift; sourceTree = "<group>"; };
+		B10AAD912969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureDeviceDiscoverySession.swift; sourceTree = "<group>"; };
 		B14D107A2959C7980004946F /* Keyneez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keyneez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14D107D2959C7980004946F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B14D107F2959C7980004946F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,7 +160,18 @@
 		B14D109E2959C79A0004946F /* KeyneezUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezUITests.swift; sourceTree = "<group>"; };
 		B14D10A02959C79A0004946F /* KeyneezUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B14D10AE2959CA080004946F /* KeyneezTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbarController.swift; sourceTree = "<group>"; };
+		B1812356296B001B0029FEB6 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		B1812359296B2EF20029FEB6 /* IDCardGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardGuideViewController.swift; sourceTree = "<group>"; };
+		B181235B296B30CB0029FEB6 /* IDCardGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardGuideView.swift; sourceTree = "<group>"; };
 		B184089329632CBD005E4802 /* KeyneezTextFieldFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTextFieldFactory.swift; sourceTree = "<group>"; };
+		B187CA66296BF896006B0AE1 /* IDInfoEditableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDInfoEditableViewController.swift; sourceTree = "<group>"; };
+		B187CA6A296BF9AB006B0AE1 /* IDInfoEditableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDInfoEditableView.swift; sourceTree = "<group>"; };
+		B187CA6C296C0787006B0AE1 /* IDCardGuideActionables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardGuideActionables.swift; sourceTree = "<group>"; };
+		B187CA6E296C07CF006B0AE1 /* IDCardGuideActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardGuideActions.swift; sourceTree = "<group>"; };
+		B187CA70296C096F006B0AE1 /* CameraMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraMode.swift; sourceTree = "<group>"; };
+		B187CA7B296C5B21006B0AE1 /* IDIssuedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDIssuedViewController.swift; sourceTree = "<group>"; };
+		B187CA7D296C5B2C006B0AE1 /* IDIssuedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDIssuedView.swift; sourceTree = "<group>"; };
+		B187CA80296C8378006B0AE1 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		B18B60C4296552DA00AF14F5 /* KeyneezTextFieldFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyneezTextFieldFactory.swift; sourceTree = "<group>"; };
 		B18B60C5296552DA00AF14F5 /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B18B60C7296552DA00AF14F5 /* NiblessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
@@ -265,6 +297,31 @@
 			path = IDNotAvailable;
 			sourceTree = "<group>";
 		};
+		B10AAD852969B5B800AB8475 /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				B187CA69296BF8F7006B0AE1 /* IDInfoEdit */,
+				B187CA68296BF8E6006B0AE1 /* IDCardGuide */,
+				B10AAD862969B5C100AB8475 /* Camera */,
+				B187CA7F296C5B3E006B0AE1 /* IDIssued */,
+			);
+			path = OCR;
+			sourceTree = "<group>";
+		};
+		B10AAD862969B5C100AB8475 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				B10AAD892969B86500AB8475 /* PreviewView.swift */,
+				B10AAD8B2969B95900AB8475 /* CameraViewController.swift */,
+				B10AAD8D2969CA4700AB8475 /* PhotoCaptureDelegate.swift */,
+				B10AAD8F2969F31C00AB8475 /* AVCaptureVideoOrientation.swift */,
+				B10AAD912969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift */,
+				B187CA70296C096F006B0AE1 /* CameraMode.swift */,
+				B187CA80296C8378006B0AE1 /* Camera.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		B14D10712959C7980004946F = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +347,7 @@
 		B14D107C2959C7980004946F /* Keyneez */ = {
 			isa = PBXGroup;
 			children = (
+				B10AAD852969B5B800AB8475 /* OCR */,
 				B14D10B82959CC280004946F /* Global */,
 				B14D10B52959CBE70004946F /* Auth */,
 				B14D10B42959CBDE0004946F /* Application */,
@@ -412,6 +470,7 @@
 				B14D10C82959D3A30004946F /* Font */,
 				B14D10BA2959CC950004946F /* Views */,
 				B14D10B92959CC340004946F /* NetworkLayer */,
+				B1812358296B00260029FEB6 /* UIImage */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -460,6 +519,43 @@
 				02C066A32961C98600AED030 /* UIColor+Extension.swift */,
 			);
 			path = Color;
+			sourceTree = "<group>";
+		};
+		B1812358296B00260029FEB6 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				B1812356296B001B0029FEB6 /* UIImage+Extension.swift */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		B187CA68296BF8E6006B0AE1 /* IDCardGuide */ = {
+			isa = PBXGroup;
+			children = (
+				B1812359296B2EF20029FEB6 /* IDCardGuideViewController.swift */,
+				B181235B296B30CB0029FEB6 /* IDCardGuideView.swift */,
+				B187CA6C296C0787006B0AE1 /* IDCardGuideActionables.swift */,
+				B187CA6E296C07CF006B0AE1 /* IDCardGuideActions.swift */,
+			);
+			path = IDCardGuide;
+			sourceTree = "<group>";
+		};
+		B187CA69296BF8F7006B0AE1 /* IDInfoEdit */ = {
+			isa = PBXGroup;
+			children = (
+				B187CA66296BF896006B0AE1 /* IDInfoEditableViewController.swift */,
+				B187CA6A296BF9AB006B0AE1 /* IDInfoEditableView.swift */,
+			);
+			path = IDInfoEdit;
+			sourceTree = "<group>";
+		};
+		B187CA7F296C5B3E006B0AE1 /* IDIssued */ = {
+			isa = PBXGroup;
+			children = (
+				B187CA7B296C5B21006B0AE1 /* IDIssuedViewController.swift */,
+				B187CA7D296C5B2C006B0AE1 /* IDIssuedView.swift */,
+			);
+			path = IDIssued;
 			sourceTree = "<group>";
 		};
 		B18B60A72965522600AF14F5 /* Recovered References */ = {
@@ -722,7 +818,11 @@
 				B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */,
 				B18B60D2296552DA00AF14F5 /* NiblessViewController.swift in Sources */,
 				B10AAD64296967F300AB8475 /* BenefitCollectionViewCell.swift in Sources */,
+				B10AAD8E2969CA4700AB8475 /* PhotoCaptureDelegate.swift in Sources */,
 				0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */,
+				B181235C296B30CB0029FEB6 /* IDCardGuideView.swift in Sources */,
+				B187CA6B296BF9AB006B0AE1 /* IDInfoEditableView.swift in Sources */,
+				B10AAD922969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift in Sources */,
 				B10AAD8329696FCD00AB8475 /* IDDetailView.swift in Sources */,
 				B10AAD8229696FCA00AB8475 /* IDDetailViewController.swift in Sources */,
 				B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */,
@@ -734,7 +834,10 @@
 				B18B60CF296552DA00AF14F5 /* KeyneezTextFieldFactory.swift in Sources */,
 				B10AAD71296967F300AB8475 /* IDIssueActionables.swift in Sources */,
 				B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */,
+				B187CA7C296C5B21006B0AE1 /* IDIssuedViewController.swift in Sources */,
 				B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */,
+				B1812357296B001B0029FEB6 /* UIImage+Extension.swift in Sources */,
+				B187CA7E296C5B2C006B0AE1 /* IDIssuedView.swift in Sources */,
 				B8C02F2429681E62005612CE /* HomeContentModel.swift in Sources */,
 				B8C02F30296B185B005612CE /* UISegmentedControl+Extension.swift in Sources */,
 				B10AAD44296967D000AB8475 /* CustomNavigationManager.swift in Sources */,
@@ -742,30 +845,40 @@
 				B10AAD45296967D000AB8475 /* CustomNavigationPresentationController.swift in Sources */,
 				B10AAD61296967F300AB8475 /* IDCardContentView.swift in Sources */,
 				B8C02F0B2962F65E005612CE /* HomeViewController.swift in Sources */,
+				B187CA71296C096F006B0AE1 /* CameraMode.swift in Sources */,
 				B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */,
+				B187CA6D296C0787006B0AE1 /* IDCardGuideActionables.swift in Sources */,
+				B187CA67296BF896006B0AE1 /* IDInfoEditableViewController.swift in Sources */,
 				B10AAD3F296967C700AB8475 /* BottomSheetViewController.swift in Sources */,
 				B10AAD3D296967C700AB8475 /* UIView+Extension.swift in Sources */,
 				B8C02F46296D5ED2005612CE /* HomeSearchModel.swift in Sources */,
 				B14D10802959C7980004946F /* SceneDelegate.swift in Sources */,
+				B8C02F2E29696DFD005612CE /* HomeNewestViewController.swift in Sources */,
+				B187CA6F296C07CF006B0AE1 /* IDCardGuideActions.swift in Sources */,
 				B10AAD6E296967F300AB8475 /* IDContentActions.swift in Sources */,
 				B10AAD68296967F300AB8475 /* IDCardCotentActionables.swift in Sources */,
 				0253816729674D3D00D29A97 /* LandingPageViewController.swift in Sources */,
 				B10AAD43296967D000AB8475 /* CustomNavigationAnimator.swift in Sources */,
 				B8C02F38296B3F6E005612CE /* HomeSearchCollectionViewCell.swift in Sources */,
 				B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */,
+				B181235A296B2EF20029FEB6 /* IDCardGuideViewController.swift in Sources */,
 				B8C02F2829682E41005612CE /* HomeContentCollectionViewCell.swift in Sources */,
 				B8C02F40296C32B5005612CE /* ContentDetailViewController.swift in Sources */,
+				B187CA81296C8378006B0AE1 /* Camera.swift in Sources */,
 				B14D10AF2959CA080004946F /* KeyneezTabbarController.swift in Sources */,
 				B10AAD62296967F300AB8475 /* BenefitInfoViewController.swift in Sources */,
 				B18B60D1296552DA00AF14F5 /* NiblessView.swift in Sources */,
 				B8C02F34296B1AA3005612CE /* HomeSearchViewController.swift in Sources */,
 				B18B60D4296552DA00AF14F5 /* NavigationBarProtocol.swift in Sources */,
 				02C066A42961C98600AED030 /* UIColor+Extension.swift in Sources */,
+				B10AAD8C2969B95900AB8475 /* CameraViewController.swift in Sources */,
 				B10AAD842969706700AB8475 /* IDNotAvailableView.swift in Sources */,
 				B10AAD63296967F300AB8475 /* BenefitInfoView.swift in Sources */,
 				B8C02F44296C3DC2005612CE /* CategoryView.swift in Sources */,
 				B10AAD3C296967C700AB8475 /* SeparatedButton.swift in Sources */,
+				B10AAD8A2969B86500AB8475 /* PreviewView.swift in Sources */,
 				B10AAD6D296967F300AB8475 /* IDDetailActionables.swift in Sources */,
+				B10AAD902969F31C00AB8475 /* AVCaptureVideoOrientation.swift in Sources */,
 				022F68B82962D3A200F32CE1 /* Buildable.swift in Sources */,
 				02F262AE2965ABEE005A1CE4 /* LoadingView.swift in Sources */,
 				B10AAD70296967F300AB8475 /* IDCardView.swift in Sources */,
