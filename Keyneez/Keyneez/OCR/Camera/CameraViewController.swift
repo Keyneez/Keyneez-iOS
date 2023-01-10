@@ -23,6 +23,7 @@ final class CameraViewController: NiblessViewController {
   
   private lazy var xbutton: UIButton = .init().then {
     $0.setBackgroundImage(UIImage(named: Constant.xbuttonName)!.imageWithColor(color: .white), for: .normal)
+    $0.addAction(didTouchBackButton(), for: .touchUpInside)
   }
   
   private lazy var switchButton: UIButton = .init(primaryAction: UIAction { [weak self] _ in
@@ -38,10 +39,7 @@ final class CameraViewController: NiblessViewController {
     }), for: .touchUpInside)
   }
   
-  private lazy var cameraButton: UIButton = .init(primaryAction: UIAction { [weak self] _ in
-    guard let self else { return }
-    self.camera.capturePhoto(videoPreviewLayerOrientation: self.previewView.videoPreviewLayer.connection?.videoOrientation)
-  }).then {
+  private lazy var cameraButton: UIButton = .init(primaryAction: OCRConfirmed()).then {
     $0.setBackgroundImage(UIImage(named: "btn_cam"), for: .normal)
   }
   
@@ -63,6 +61,19 @@ final class CameraViewController: NiblessViewController {
   
   var windowOrientation: UIInterfaceOrientation {
     return view.window?.windowScene?.interfaceOrientation ?? .unknown
+  }
+  
+  private func didTouchCaptureButton() -> UIAction {
+    return UIAction { [weak self] _ in
+      guard let self else { return }
+      self.camera.capturePhoto(videoPreviewLayerOrientation: self.previewView.videoPreviewLayer.connection?.videoOrientation)
+    }
+  }
+  
+  private func didTouchBackButton() -> UIAction {
+    return UIAction(handler: { _ in
+      self.dismiss(animated: true)
+    })
   }
   
   private func didTouchswitchButton() {
