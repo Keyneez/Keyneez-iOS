@@ -8,28 +8,59 @@
 import UIKit
 
 class NiblessViewController: UIViewController {
+  
+  public var keyboardHeight:CGFloat = 0
+  
+  // MARK: - Methods
+  init() {
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  @available(*, unavailable,
+              message: "We do not support Storyboard"
+  )
+  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+  }
+  
+  @available(*, unavailable,
+              message: "We do not support Storyboard"
+  )
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("We do not support Storyboard")
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .white
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    self.view.endEditing(true)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+  }
+}
+
+extension NiblessViewController {
+  
+  @objc func keyboardWillShow(_ notification: NSNotification) {
     
-    // MARK: - Methods
-    init() {
-        super.init(nibName: nil, bundle: nil)
+    if keyboardHeight > 0 { return }
+    if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+      let keyboardRectangle = keyboardFrame.cgRectValue
+      let keyboardHeight = keyboardRectangle.height
     }
     
-    @available(*, unavailable,
-                message: "We do not support Storyboard"
-    )
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    @available(*, unavailable,
-                message: "We do not support Storyboard"
-    )
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("We do not support Storyboard")
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-    }
+  }
+  
+  @objc func keyboardWillHide(_ notification: NSNotification) {
+    self.keyboardHeight = 0
+  }
+  
+  
 }

@@ -84,7 +84,7 @@ extension IDCardView {
     
     characterView.snp.makeConstraints {
       $0.centerX.equalToSuperview()
-      $0.width.equalTo(Constant.characterSize.width)
+      $0.leading.trailing.equalTo(cardView).inset(22.5)
       $0.top.equalToSuperview()
       $0.height.equalTo(Constant.characterSize.height)
       $0.bottom.equalTo(cardView.snp.bottom).inset(Constant.characterBottomInset)
