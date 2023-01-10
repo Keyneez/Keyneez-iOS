@@ -81,6 +81,7 @@
 		B1A80363296DA9A40007DDD9 /* IDIssuedViewActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80362296DA9A40007DDD9 /* IDIssuedViewActionables.swift */; };
 		B1A80365296DD6430007DDD9 /* CameraViewActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80364296DD6430007DDD9 /* CameraViewActions.swift */; };
 		B1A80367296DE93A0007DDD9 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80366296DE93A0007DDD9 /* UserSession.swift */; };
+		B1A80369296DEF760007DDD9 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80368296DEF760007DDD9 /* KeyChainService.swift */; };
 		B1B21D0E295C985C0083D9EE /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D0D295C985C0083D9EE /* Toast */; };
 		B1B21D11295C99280083D9EE /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D10295C99280083D9EE /* FloatingPanel */; };
 		B1B21D14295C9C4B0083D9EE /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D13295C9C4B0083D9EE /* Floaty */; };
@@ -195,6 +196,7 @@
 		B1A80362296DA9A40007DDD9 /* IDIssuedViewActionables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDIssuedViewActionables.swift; sourceTree = "<group>"; };
 		B1A80364296DD6430007DDD9 /* CameraViewActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewActions.swift; sourceTree = "<group>"; };
 		B1A80366296DE93A0007DDD9 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		B1A80368296DEF760007DDD9 /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		B1B21D16295DE0660083D9EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbar.swift; sourceTree = "<group>"; };
 		B8C02F042962F5D4005612CE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				B14D10B72959CBF30004946F /* SignUp */,
 				B14D10B62959CBEE0004946F /* SignIn */,
 				B1A80366296DE93A0007DDD9 /* UserSession.swift */,
+				B1A80368296DEF760007DDD9 /* KeyChainService.swift */,
 			);
 			name = Auth;
 			path = Global/Auth;
@@ -846,7 +849,6 @@
 				B10AAD3E296967C700AB8475 /* ReusableView.swift in Sources */,
 				B1A80361296DA4550007DDD9 /* IDInfoEditableActions.swift in Sources */,
 				B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */,
-				B8C02F2C29696537005612CE /* HomePopularViewController.swift in Sources */,
 				B1A80363296DA9A40007DDD9 /* IDIssuedViewActionables.swift in Sources */,
 				B18B60D2296552DA00AF14F5 /* NiblessViewController.swift in Sources */,
 				B10AAD64296967F300AB8475 /* BenefitCollectionViewCell.swift in Sources */,
@@ -893,6 +895,7 @@
 				0253816729674D3D00D29A97 /* LandingPageViewController.swift in Sources */,
 				B10AAD43296967D000AB8475 /* CustomNavigationAnimator.swift in Sources */,
 				B8C02F38296B3F6E005612CE /* HomeSearchCollectionViewCell.swift in Sources */,
+				B1A80369296DEF760007DDD9 /* KeyChainService.swift in Sources */,
 				B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */,
 				B181235A296B2EF20029FEB6 /* IDCardGuideViewController.swift in Sources */,
 				B8C02F2829682E41005612CE /* HomeContentCollectionViewCell.swift in Sources */,
