@@ -26,10 +26,24 @@ final class LikeViewController: NiblessViewController, NavigationBarProtocol {
     print("touchUpEditButton")
   }
   var contentView: UIView = UIView()
+  private let lineView: UIView = .init().then {
+    $0.backgroundColor = .gray900
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .white
+    setLayout()
     addNavigationViewToSubview()
+  }
+}
+
+extension LikeViewController {
+  private func setLayout() {
+    navigationView.addSubviews(lineView)
+    lineView.snp.makeConstraints {
+      $0.centerX.bottom.equalTo(myLikeButton)
+      $0.width.equalTo(32)
+      $0.height.equalTo(3)
+    }
   }
 }
