@@ -24,10 +24,12 @@
 		0233C6FC296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233C6FB296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift */; };
 		0233C6FE296C8F4A00A177E9 /* JellyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233C6FD296C8F4A00A177E9 /* JellyDetailView.swift */; };
 		023B559429655CD200FB2462 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023B559329655CD200FB2462 /* CGFloat+Extension.swift */; };
-		0250056E296DB58600DE08BE /* FaceIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250056D296DB58600DE08BE /* FaceIDViewController.swift */; };
+		0250056E296DB58600DE08BE /* PhoneLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250056D296DB58600DE08BE /* PhoneLoginViewController.swift */; };
 		02500570296DDBCE00DE08BE /* PropensityTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250056F296DDBCE00DE08BE /* PropensityTagViewController.swift */; };
 		02500573296DDF8F00DE08BE /* SignUpConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02500572296DDF8F00DE08BE /* SignUpConstant.swift */; };
 		02500575296DEF7F00DE08BE /* SimplePwdCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02500574296DEF7F00DE08BE /* SimplePwdCollectionViewCell.swift */; };
+		02500577296E21A600DE08BE /* SimpleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02500576296E21A600DE08BE /* SimpleLoginViewController.swift */; };
+		02500579296E224B00DE08BE /* SimplePwdCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02500578296E224B00DE08BE /* SimplePwdCheckViewController.swift */; };
 		0253816729674D3D00D29A97 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0253816629674D3D00D29A97 /* LandingPageViewController.swift */; };
 		0269E2242961DAB800309E8A /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0269E2232961DAB800309E8A /* Pretendard-Bold.otf */; };
 		0269E2262961DAC900309E8A /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0269E2252961DAC900309E8A /* Pretendard-Medium.otf */; };
@@ -149,10 +151,12 @@
 		0233C6FB296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyDetailBottomSheetViewController.swift; sourceTree = "<group>"; };
 		0233C6FD296C8F4A00A177E9 /* JellyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyDetailView.swift; sourceTree = "<group>"; };
 		023B559329655CD200FB2462 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
-		0250056D296DB58600DE08BE /* FaceIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDViewController.swift; sourceTree = "<group>"; };
+		0250056D296DB58600DE08BE /* PhoneLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneLoginViewController.swift; sourceTree = "<group>"; };
 		0250056F296DDBCE00DE08BE /* PropensityTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropensityTagViewController.swift; sourceTree = "<group>"; };
 		02500572296DDF8F00DE08BE /* SignUpConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpConstant.swift; sourceTree = "<group>"; };
 		02500574296DEF7F00DE08BE /* SimplePwdCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePwdCollectionViewCell.swift; sourceTree = "<group>"; };
+		02500576296E21A600DE08BE /* SimpleLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLoginViewController.swift; sourceTree = "<group>"; };
+		02500578296E224B00DE08BE /* SimplePwdCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePwdCheckViewController.swift; sourceTree = "<group>"; };
 		0253816629674D3D00D29A97 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		0269E2232961DAB800309E8A /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		0269E2252961DAC900309E8A /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -346,6 +350,7 @@
 			children = (
 				0233C6F9296C8D0D00A177E9 /* SimplePwdViewController.swift */,
 				02500574296DEF7F00DE08BE /* SimplePwdCollectionViewCell.swift */,
+				02500578296E224B00DE08BE /* SimplePwdCheckViewController.swift */,
 			);
 			path = SimplePwd;
 			sourceTree = "<group>";
@@ -561,7 +566,8 @@
 		B14D10B62959CBEE0004946F /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				0250056D296DB58600DE08BE /* FaceIDViewController.swift */,
+				0250056D296DB58600DE08BE /* PhoneLoginViewController.swift */,
+				02500576296E21A600DE08BE /* SimpleLoginViewController.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -951,6 +957,7 @@
 				B10AAD8229696FCA00AB8475 /* IDDetailViewController.swift in Sources */,
 				B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */,
 				023B559429655CD200FB2462 /* CGFloat+Extension.swift in Sources */,
+				02500579296E224B00DE08BE /* SimplePwdCheckViewController.swift in Sources */,
 				B14D107E2959C7980004946F /* AppDelegate.swift in Sources */,
 				022CB22C296A35D50084DEF5 /* SignUpActions.swift in Sources */,
 				B18B60D6296552DA00AF14F5 /* NavigationViewItem.swift in Sources */,
@@ -966,6 +973,7 @@
 				B8C02F2429681E62005612CE /* HomeContentModel.swift in Sources */,
 				B8C02F30296B185B005612CE /* UISegmentedControl+Extension.swift in Sources */,
 				B10AAD44296967D000AB8475 /* CustomNavigationManager.swift in Sources */,
+				02500577296E21A600DE08BE /* SimpleLoginViewController.swift in Sources */,
 				B18B60D5296552DA00AF14F5 /* NavigationBar.swift in Sources */,
 				B10AAD45296967D000AB8475 /* CustomNavigationPresentationController.swift in Sources */,
 				B10AAD61296967F300AB8475 /* IDCardContentView.swift in Sources */,
@@ -980,7 +988,7 @@
 				B14D10802959C7980004946F /* SceneDelegate.swift in Sources */,
 				B187CA6F296C07CF006B0AE1 /* IDCardGuideActions.swift in Sources */,
 				B10AAD6E296967F300AB8475 /* IDContentActions.swift in Sources */,
-				0250056E296DB58600DE08BE /* FaceIDViewController.swift in Sources */,
+				0250056E296DB58600DE08BE /* PhoneLoginViewController.swift in Sources */,
 				0233C6FC296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift in Sources */,
 				B10AAD68296967F300AB8475 /* IDCardCotentActionables.swift in Sources */,
 				0233C6FA296C8D0D00A177E9 /* SimplePwdViewController.swift in Sources */,
