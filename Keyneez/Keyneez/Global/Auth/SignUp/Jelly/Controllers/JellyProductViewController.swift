@@ -10,7 +10,7 @@ import SnapKit
 import Then
 
 //TODO: - 2개만 선택되게 !!!!!
-class JellyProductView: NiblessView {
+class JellyProductViewController: NiblessViewController {
   
   // MARK: - UI Components
   
@@ -64,15 +64,12 @@ class JellyProductView: NiblessView {
     return collectionView
   }()
   
-  private lazy var startButton: UIButton = .init(primaryAction: actions.touchNextButton()).then {
+  private lazy var startButton: UIButton = .init(primaryAction: nil).then {
     $0.keyneezButtonStyle(style: .blackAct, title: "키니즈 시작하기")
   }
-
-  private var actions: SignUpActions
   
-  init(frame: CGRect, actions: SignUpActions) {
-    self.actions = actions
-    super.init(frame: frame)
+  override func viewDidLoad() {
+    super.viewDidLoad()
     setConfig()
     register()
     setLayout()
@@ -81,14 +78,14 @@ class JellyProductView: NiblessView {
 
 // MARK: - Extensions
 
-extension JellyProductView {
+extension JellyProductViewController {
   
   // MARK: - Layout Helpers
   
   private func setConfig() {
-    self.backgroundColor = .gray050
+    view.backgroundColor = .gray050
     [titleLabel, detailStackView, jellyImageView, itemLabel, itemCountLabel, collectionView, startButton].forEach {
-      self.addSubview($0)
+      view.addSubview($0)
     }
     [subTitleLabel, detailButton].forEach {
       detailStackView.addArrangedSubview($0)
@@ -101,8 +98,8 @@ extension JellyProductView {
   private func setLayout() {
     
     titleLabel.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(SignUpConstant.labelTop)
-      $0.leading.equalTo(self.safeAreaLayoutGuide).offset(SignUpConstant.labelLeading)
+      $0.top.equalToSuperview().offset(SignUpConstant.labelTopExpand)
+      $0.leading.equalTo(self.view.safeAreaLayoutGuide).offset(SignUpConstant.labelLeading)
     }
     detailStackView.snp.makeConstraints {
       $0.top.equalTo(titleLabel.snp.bottom).offset(8)
@@ -130,12 +127,12 @@ extension JellyProductView {
     }
     startButton.snp.makeConstraints {
       $0.bottom.equalToSuperview().inset(SignUpConstant.buttonBottom.adjusted)
-      $0.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(SignUpConstant.labelTop)
+      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(SignUpConstant.labelTop)
       $0.height.equalTo(SignUpConstant.buttonHeight.adjusted)
     }
   }
 }
-extension JellyProductView: UICollectionViewDelegateFlowLayout {
+extension JellyProductViewController: UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return CGSize(width: 88, height: 88)
@@ -146,7 +143,7 @@ extension JellyProductView: UICollectionViewDelegateFlowLayout {
   }
   
 }
-extension JellyProductView: UICollectionViewDataSource {
+extension JellyProductViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
       return jellyIconData.count

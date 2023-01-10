@@ -16,7 +16,7 @@ private struct Constant {
   static let collectionHeight: CGFloat = 72
 }
 
-class HashTagCollectionViewController: NiblessView {
+class HashTagView: NiblessView {
   
   // MARK: - UI Components
   lazy var selectedIndex = [Int]()
@@ -69,7 +69,7 @@ class HashTagCollectionViewController: NiblessView {
 
 // MARK: - Extensions
 
-extension HashTagCollectionViewController {
+extension HashTagView {
   
   // MARK: - Layout Helpers
   
@@ -117,7 +117,7 @@ extension HashTagCollectionViewController {
   }
 }
 
-extension HashTagCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension HashTagView: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let screenWidth = UIScreen.main.bounds.width
     let doubleCellWidth = screenWidth - Constant.collectionInset.left - Constant.collectionInset.right - Constant.collectionItemSpacing
@@ -132,7 +132,7 @@ extension HashTagCollectionViewController: UICollectionViewDelegateFlowLayout {
   }
 }
 
-extension HashTagCollectionViewController: UICollectionViewDataSource {
+extension HashTagView: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return hashTagData.count
   }

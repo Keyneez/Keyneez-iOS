@@ -1,14 +1,13 @@
 //
-//  SignUpViewController.swift
+//  PropensityTagViewController.swift
 //  Keyneez
 //
-//  Created by 최효원 on 2023/01/08.
+//  Created by 최효원 on 2023/01/11.
 //
 
 import UIKit
-import Then
 
-final class SignUpViewController: NiblessViewController, NavigationBarProtocol {
+class PropensityTagViewController: NiblessViewController, NavigationBarProtocol {
   
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
   
@@ -17,14 +16,13 @@ final class SignUpViewController: NiblessViewController, NavigationBarProtocol {
   }
   
   var actions = SignUpActions()
-  // 컨텐츠 뷰 생성
-  lazy var contentView: UIView = SimplePwdViewController(frame: .zero, actions: actions)
+
+  lazy var contentView: UIView = PropensityTagView(frame: .zero, actions: actions)
   
     override func viewDidLoad() {
         super.viewDidLoad()
-      addNavigationViewToSubview()
       view.backgroundColor = .gray050
-      print(propensityTagClickData[0].text)
-
+      addNavigationViewToSubview()
+      
     }
 }

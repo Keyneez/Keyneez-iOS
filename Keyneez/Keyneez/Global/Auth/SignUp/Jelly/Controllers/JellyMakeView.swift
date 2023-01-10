@@ -11,7 +11,7 @@ import Then
 
 // MARK: - 네비게이션 추가
 
-class JellyMakeView: NiblessView {
+class JellyMakeViewController: NiblessViewController {
   
   // MARK: - UI Components
   
@@ -28,15 +28,12 @@ class JellyMakeView: NiblessView {
   private lazy var jellyImageView: UIImageView = .init().then {
     $0.image = UIImage(named: "jelly")
   }
-  private lazy var startButton: UIButton = .init(primaryAction: actions.touchNextButton()).then {
+  private lazy var startButton: UIButton = .init(primaryAction: nil).then {
     $0.keyneezButtonStyle(style: .blackAct, title: "시작하기")
   }
 
-  private var actions : SignUpActions
-  
-  init(frame: CGRect, actions: SignUpActions) {
-    self.actions = actions
-    super.init(frame: frame)
+  override func viewDidLoad() {
+    super.viewDidLoad()
     setConfig()
     setLayout()
   }
@@ -44,20 +41,20 @@ class JellyMakeView: NiblessView {
 
 // MARK: - Extensions
 
-extension JellyMakeView {
+extension JellyMakeViewController {
   
   // MARK: - Layout Helpers
   
   private func setConfig() {
-    self.backgroundColor = .white
+    self.view.backgroundColor = .gray050
     [titleLabel, subTitleLabel, jellyImageView, startButton].forEach {
-      self.addSubview($0)
+      view.addSubview($0)
     }
   }
   private func setLayout() {
     
     titleLabel.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(SignUpConstant.labelTop)
+      $0.top.equalToSuperview().offset(SignUpConstant.labelTopExpand)
       $0.leading.equalTo(SignUpConstant.guide).offset(SignUpConstant.labelLeading)
     }
     subTitleLabel.snp.makeConstraints {

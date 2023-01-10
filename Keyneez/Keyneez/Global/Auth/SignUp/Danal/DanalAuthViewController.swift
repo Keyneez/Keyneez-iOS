@@ -10,26 +10,6 @@ import Then
 
 // TODO: - 네비게이션 추가 !!
 
-// MARK: - Constant
-
-struct SignUpConstant {
-  static let guide = UIView().safeAreaLayoutGuide
-  static let labelTop: CGFloat = 16
-  static let labelLeading: CGFloat = 24
-  static let imageTop: CGFloat = 117
-  static let phoneImageWidth: CGFloat = 64
-  static let phoneImageHeight: CGFloat = 276
-  static let buttonBottom: CGFloat = 40
-  static let buttonHeight: CGFloat = 48
-  static let jellyImageTop: CGFloat = 117
-  static let jellyImageWidth: CGFloat = 92
-  static let jellyImageHeight: CGFloat = 220
-  static let propensityWidth: CGFloat = 232
-  static let propensityHeight: CGFloat = 61
-  static let propensityBottomMargin: CGFloat = 32
-
-}
-
 final class DanalAuthViewController: UIViewController {
   
   // MARK: - UI Components

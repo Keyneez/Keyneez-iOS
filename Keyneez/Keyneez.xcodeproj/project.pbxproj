@@ -12,19 +12,21 @@
 		022CB21629696C760084DEF5 /* JellyMakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022CB21529696C760084DEF5 /* JellyMakeView.swift */; };
 		022CB21B296A11A40084DEF5 /* NavigationBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022CB21A296A11A40084DEF5 /* NavigationBarProtocol.swift */; };
 		022CB224296A2B370084DEF5 /* SignUpContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022CB223296A2B370084DEF5 /* SignUpContentModel.swift */; };
-		022CB228296A32130084DEF5 /* HashTagCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022CB227296A32130084DEF5 /* HashTagCollectionViewController.swift */; };
-		022CB22A296A336E0084DEF5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022CB229296A336E0084DEF5 /* SignUpViewController.swift */; };
+		022CB228296A32130084DEF5 /* HashTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022CB227296A32130084DEF5 /* HashTagView.swift */; };
+		022CB22A296A336E0084DEF5 /* HashTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022CB229296A336E0084DEF5 /* HashTagViewController.swift */; };
 		022CB22C296A35D50084DEF5 /* SignUpActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022CB22B296A35D50084DEF5 /* SignUpActions.swift */; };
 		022F68B82962D3A200F32CE1 /* Buildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022F68B72962D3A200F32CE1 /* Buildable.swift */; };
-		0230EA6F296AD8C90006940C /* PropensityTagCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0230EA6E296AD8C90006940C /* PropensityTagCollectionViewController.swift */; };
+		0230EA6F296AD8C90006940C /* PropensityTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0230EA6E296AD8C90006940C /* PropensityTagView.swift */; };
 		0230EA71296B5A0D0006940C /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0230EA70296B5A0D0006940C /* HashTagCollectionViewCell.swift */; };
-		0233C6F6296C002D00A177E9 /* JellyProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233C6F5296C002D00A177E9 /* JellyProductView.swift */; };
+		0233C6F6296C002D00A177E9 /* JellyProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233C6F5296C002D00A177E9 /* JellyProductViewController.swift */; };
 		0233C6F8296C07A300A177E9 /* JellyProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233C6F7296C07A300A177E9 /* JellyProductCollectionViewCell.swift */; };
 		0233C6FA296C8D0D00A177E9 /* SimplePwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233C6F9296C8D0D00A177E9 /* SimplePwdViewController.swift */; };
 		0233C6FC296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233C6FB296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift */; };
 		0233C6FE296C8F4A00A177E9 /* JellyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233C6FD296C8F4A00A177E9 /* JellyDetailView.swift */; };
 		023B559429655CD200FB2462 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023B559329655CD200FB2462 /* CGFloat+Extension.swift */; };
 		0250056E296DB58600DE08BE /* FaceIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250056D296DB58600DE08BE /* FaceIDViewController.swift */; };
+		02500570296DDBCE00DE08BE /* PropensityTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250056F296DDBCE00DE08BE /* PropensityTagViewController.swift */; };
+		02500573296DDF8F00DE08BE /* SignUpConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02500572296DDF8F00DE08BE /* SignUpConstant.swift */; };
 		0253816729674D3D00D29A97 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0253816629674D3D00D29A97 /* LandingPageViewController.swift */; };
 		0269E2242961DAB800309E8A /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0269E2232961DAB800309E8A /* Pretendard-Bold.otf */; };
 		0269E2262961DAC900309E8A /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0269E2252961DAC900309E8A /* Pretendard-Medium.otf */; };
@@ -133,20 +135,22 @@
 		022CB21529696C760084DEF5 /* JellyMakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyMakeView.swift; sourceTree = "<group>"; };
 		022CB21A296A11A40084DEF5 /* NavigationBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarProtocol.swift; sourceTree = "<group>"; };
 		022CB223296A2B370084DEF5 /* SignUpContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContentModel.swift; sourceTree = "<group>"; };
-		022CB227296A32130084DEF5 /* HashTagCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewController.swift; sourceTree = "<group>"; };
-		022CB229296A336E0084DEF5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		022CB227296A32130084DEF5 /* HashTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagView.swift; sourceTree = "<group>"; };
+		022CB229296A336E0084DEF5 /* HashTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagViewController.swift; sourceTree = "<group>"; };
 		022CB22B296A35D50084DEF5 /* SignUpActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpActions.swift; sourceTree = "<group>"; };
 		022F68B42962D10500F32CE1 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		022F68B72962D3A200F32CE1 /* Buildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buildable.swift; sourceTree = "<group>"; };
-		0230EA6E296AD8C90006940C /* PropensityTagCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropensityTagCollectionViewController.swift; sourceTree = "<group>"; };
+		0230EA6E296AD8C90006940C /* PropensityTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropensityTagView.swift; sourceTree = "<group>"; };
 		0230EA70296B5A0D0006940C /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
-		0233C6F5296C002D00A177E9 /* JellyProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyProductView.swift; sourceTree = "<group>"; };
+		0233C6F5296C002D00A177E9 /* JellyProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyProductViewController.swift; sourceTree = "<group>"; };
 		0233C6F7296C07A300A177E9 /* JellyProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		0233C6F9296C8D0D00A177E9 /* SimplePwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePwdViewController.swift; sourceTree = "<group>"; };
 		0233C6FB296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyDetailBottomSheetViewController.swift; sourceTree = "<group>"; };
 		0233C6FD296C8F4A00A177E9 /* JellyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyDetailView.swift; sourceTree = "<group>"; };
 		023B559329655CD200FB2462 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		0250056D296DB58600DE08BE /* FaceIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDViewController.swift; sourceTree = "<group>"; };
+		0250056F296DDBCE00DE08BE /* PropensityTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropensityTagViewController.swift; sourceTree = "<group>"; };
+		02500572296DDF8F00DE08BE /* SignUpConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpConstant.swift; sourceTree = "<group>"; };
 		0253816629674D3D00D29A97 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		0269E2232961DAB800309E8A /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		0269E2252961DAC900309E8A /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -285,7 +289,7 @@
 			children = (
 				0233C6FB296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift */,
 				022CB21529696C760084DEF5 /* JellyMakeView.swift */,
-				0233C6F5296C002D00A177E9 /* JellyProductView.swift */,
+				0233C6F5296C002D00A177E9 /* JellyProductViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -319,7 +323,8 @@
 		0233C6FF296CA0BD00A177E9 /* PropensityTag */ = {
 			isa = PBXGroup;
 			children = (
-				0230EA6E296AD8C90006940C /* PropensityTagCollectionViewController.swift */,
+				0230EA6E296AD8C90006940C /* PropensityTagView.swift */,
+				0250056F296DDBCE00DE08BE /* PropensityTagViewController.swift */,
 			);
 			path = PropensityTag;
 			sourceTree = "<group>";
@@ -328,7 +333,8 @@
 			isa = PBXGroup;
 			children = (
 				0230EA70296B5A0D0006940C /* HashTagCollectionViewCell.swift */,
-				022CB227296A32130084DEF5 /* HashTagCollectionViewController.swift */,
+				022CB227296A32130084DEF5 /* HashTagView.swift */,
+				022CB229296A336E0084DEF5 /* HashTagViewController.swift */,
 			);
 			path = HashTag;
 			sourceTree = "<group>";
@@ -566,8 +572,8 @@
 				0233C6FF296CA0BD00A177E9 /* PropensityTag */,
 				022CB21F296A2AAE0084DEF5 /* Jelly */,
 				022CB21E296A2AA30084DEF5 /* Danal */,
-				022CB229296A336E0084DEF5 /* SignUpViewController.swift */,
 				022CB22B296A35D50084DEF5 /* SignUpActions.swift */,
+				02500572296DDF8F00DE08BE /* SignUpConstant.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -924,7 +930,7 @@
 				B8C02F42296C3983005612CE /* UIViewController+Extension.swift in Sources */,
 				B10AAD7B29696C7700AB8475 /* IDViewController.swift in Sources */,
 				0230EA71296B5A0D0006940C /* HashTagCollectionViewCell.swift in Sources */,
-				022CB228296A32130084DEF5 /* HashTagCollectionViewController.swift in Sources */,
+				022CB228296A32130084DEF5 /* HashTagView.swift in Sources */,
 				B10AAD3E296967C700AB8475 /* ReusableView.swift in Sources */,
 				022CB224296A2B370084DEF5 /* SignUpContentModel.swift in Sources */,
 				B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */,
@@ -934,11 +940,12 @@
 				B10AAD64296967F300AB8475 /* BenefitCollectionViewCell.swift in Sources */,
 				B10AAD8E2969CA4700AB8475 /* PhotoCaptureDelegate.swift in Sources */,
 				0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */,
+				02500570296DDBCE00DE08BE /* PropensityTagViewController.swift in Sources */,
 				B181235C296B30CB0029FEB6 /* IDCardGuideView.swift in Sources */,
 				B187CA6B296BF9AB006B0AE1 /* IDInfoEditableView.swift in Sources */,
 				B10AAD922969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift in Sources */,
 				B10AAD8329696FCD00AB8475 /* IDDetailView.swift in Sources */,
-				0230EA6F296AD8C90006940C /* PropensityTagCollectionViewController.swift in Sources */,
+				0230EA6F296AD8C90006940C /* PropensityTagView.swift in Sources */,
 				B10AAD8229696FCA00AB8475 /* IDDetailViewController.swift in Sources */,
 				B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */,
 				023B559429655CD200FB2462 /* CGFloat+Extension.swift in Sources */,
@@ -986,8 +993,9 @@
 				B187CA81296C8378006B0AE1 /* Camera.swift in Sources */,
 				022CB214296965480084DEF5 /* DanalAuthSuccessViewController.swift in Sources */,
 				B14D10AF2959CA080004946F /* KeyneezTabbarController.swift in Sources */,
+				02500573296DDF8F00DE08BE /* SignUpConstant.swift in Sources */,
 				0233C6FE296C8F4A00A177E9 /* JellyDetailView.swift in Sources */,
-				0233C6F6296C002D00A177E9 /* JellyProductView.swift in Sources */,
+				0233C6F6296C002D00A177E9 /* JellyProductViewController.swift in Sources */,
 				B10AAD62296967F300AB8475 /* BenefitInfoViewController.swift in Sources */,
 				022CB21B296A11A40084DEF5 /* NavigationBarProtocol.swift in Sources */,
 				022CB212296957DB0084DEF5 /* DanalAuthViewController.swift in Sources */,
@@ -999,6 +1007,7 @@
 				B10AAD8C2969B95900AB8475 /* CameraViewController.swift in Sources */,
 				B10AAD842969706700AB8475 /* IDNotAvailableView.swift in Sources */,
 				B10AAD63296967F300AB8475 /* BenefitInfoView.swift in Sources */,
+				022CB22A296A336E0084DEF5 /* HashTagViewController.swift in Sources */,
 				B8C02F44296C3DC2005612CE /* CategoryView.swift in Sources */,
 				022CB22A296A336E0084DEF5 /* SignUpViewController.swift in Sources */,
 				B10AAD3C296967C700AB8475 /* SeparatedButton.swift in Sources */,

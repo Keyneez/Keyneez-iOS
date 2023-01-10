@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import Toast
 import Then
+
 private struct Constant {
   static let titleTop: CGFloat = 12
   static let imageTop: CGFloat = 31

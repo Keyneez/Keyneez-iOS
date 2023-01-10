@@ -17,7 +17,7 @@ private struct Constant {
   static let btnMargin: CGFloat = 16
 }
 
-class PropensityTagCollectionViewController: NiblessView {
+class PropensityTagView: NiblessView {
   
   // MARK: - UI Components
   
@@ -88,7 +88,7 @@ class PropensityTagCollectionViewController: NiblessView {
   }
 }
 
-extension PropensityTagCollectionViewController {
+extension PropensityTagView {
   private func setConfig() {
     [activeButton, curiousButton, comportableButton].forEach {
       btnArray.append($0)

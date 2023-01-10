@@ -59,6 +59,7 @@ class LandingPageViewController: UIViewController {
     let button = UIButton()
     button.keyneezButtonStyle(style: .whiteAct, title: "회원가입")
     button.layer.isHidden = true
+//    button.addTarget(self, action: #selector, for: .touchUpInside)
     return button
   }()
   
