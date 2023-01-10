@@ -6,6 +6,7 @@ import UIKit
 
 private struct Constant {
   static let navigationBarHeight: CGFloat = 56
+  static let titleHeight: CGFloat = 24
   static let itemHeight: CGFloat = 32
   static let logoHeight: CGFloat = 30
   static let logoWidth: CGFloat = 80
@@ -137,7 +138,8 @@ extension NavigationBar {
   private func setLabelContent(content: String, viewWidth: inout [CGFloat]) -> UILabel {
     let label = UILabel().then {
       $0.text = content
-      $0.font = .preferredFont(forTextStyle: .title1)
+      $0.font = .font(.pretendardBold, ofSize: 20)
+      $0.textColor = .gray900
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
     setLabelContraint(label: label)
