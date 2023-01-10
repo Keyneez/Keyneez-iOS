@@ -11,6 +11,7 @@ import Then
 
 final class HomeSearchCollectionViewCell: UICollectionViewCell {
   static let identifier = "HomeSearchCollectionViewCell"
+//  var searchContent: HomeSearchModel?
   
   private let backgroundImageView: UIImageView = .init()
   private let dateLabel: UILabel = .init().then {
