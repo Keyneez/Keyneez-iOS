@@ -16,12 +16,14 @@ class JellyProductCollectionViewCell: UICollectionViewCell {
    let imageContainerView = UIView().then {
     $0.backgroundColor = .gray100
     $0.layer.cornerRadius = 8
-  }
+     
+   }
   
    let imageView = UIImageView().then {
     $0.image = UIImage(named: "mintJelly")
     $0.contentMode = .scaleAspectFit
-  }
+     
+   }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -31,6 +33,7 @@ class JellyProductCollectionViewCell: UICollectionViewCell {
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+    
   }
   
 }

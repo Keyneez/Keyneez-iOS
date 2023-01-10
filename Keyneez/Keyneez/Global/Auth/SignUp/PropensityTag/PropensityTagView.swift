@@ -48,7 +48,7 @@ class PropensityTagView: NiblessView {
     $0.addTarget(self, action: #selector(selectOptionBtnAction), for: .touchUpInside)
   }
   
-  private lazy var nextButton: UIButton = .init().then {
+   lazy var pushToHashVCButton: UIButton = .init().then {
     $0.keyneezButtonStyle(style: .blackUnact, title: "다음으로")
   }
   
@@ -71,7 +71,7 @@ class PropensityTagView: NiblessView {
         button.isSelected = true
         button.propensityTagButtonStyle(style: .propensityTagAct, title: propensityTagClickData[button.tag].text)
         button.titleLabel?.font = .font(.pretendardMedium, ofSize: 22)
-        nextButton.keyneezButtonStyle(style: .blackAct, title: "다음으로")
+        pushToHashVCButton.keyneezButtonStyle(style: .blackAct, title: "다음으로")
       } else {
         button.isSelected = false
         button.propensityTagButtonStyle(style: .propensityTagUnact, title: propensityTagUnclickData[button.tag].text)
@@ -93,7 +93,7 @@ extension PropensityTagView {
     [activeButton, curiousButton, comportableButton].forEach {
       btnArray.append($0)
     }
-    [titleLabel, activeButton, curiousButton, comportableButton, nextButton].forEach {
+    [titleLabel, activeButton, curiousButton, comportableButton, pushToHashVCButton].forEach {
       self.addSubview($0)
     }
     
@@ -121,7 +121,7 @@ extension PropensityTagView {
       $0.width.equalTo(setUnclickButtonWidth(button: comportableButton))
       $0.height.equalTo(Constant.btnHeight)
     }
-    nextButton.snp.makeConstraints {
+    pushToHashVCButton.snp.makeConstraints {
       $0.bottom.equalTo(self.safeAreaLayoutGuide).inset(SignUpConstant.buttonBottom)
       $0.height.equalTo(Constant.btnHeight)
       $0.leading.trailing.equalTo(self.safeAreaLayoutGuide).inset(SignUpConstant.labelTop)

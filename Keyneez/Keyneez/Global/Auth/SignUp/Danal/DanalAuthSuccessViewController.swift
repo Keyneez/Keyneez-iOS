@@ -23,14 +23,20 @@ class DanalAuthSuccessViewController: UIViewController {
     $0.numberOfLines = 0
   }
   
+  private func pushToJellyVC() {
+    let nextVC = JellyMakeViewController()
+    self.navigationController?.pushViewController(nextVC, animated: true)
+  }
+  
   // MARK: - Life Cycles
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setConfig()
     setLayout()
-    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+3.0) {
-      
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
+      let nextVC = JellyMakeViewController()
+      self.pushToJellyVC()
     }
   }
 }

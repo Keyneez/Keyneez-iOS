@@ -61,3 +61,22 @@ var jellyIconData: [JellyContentModel] = [
   JellyContentModel(image: "coin", index: 8),
   JellyContentModel(image: "tie", index: 9)
 ]
+
+struct SimplePwdContentModel {
+  let text: String
+}
+var pwdNumberData: [SimplePwdContentModel] = [
+  SimplePwdContentModel(text: "8"),
+  SimplePwdContentModel(text: "9"),
+  SimplePwdContentModel(text: "7"),
+  SimplePwdContentModel(text: "0"),
+  SimplePwdContentModel(text: "3"),
+  SimplePwdContentModel(text: "6"),
+  SimplePwdContentModel(text: "5"),
+  SimplePwdContentModel(text: "2"),
+  SimplePwdContentModel(text: "4"),
+  SimplePwdContentModel(text: "재배열"),
+  SimplePwdContentModel(text: "1"),
+  SimplePwdContentModel(text: "⬅︎"),
+
+]

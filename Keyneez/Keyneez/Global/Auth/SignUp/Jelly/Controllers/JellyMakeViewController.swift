@@ -30,6 +30,17 @@ class JellyMakeViewController: NiblessViewController {
   }
   private lazy var startButton: UIButton = .init(primaryAction: nil).then {
     $0.keyneezButtonStyle(style: .blackAct, title: "시작하기")
+    $0.addTarget(self, action: #selector(touchUpNextVC), for: .touchUpInside)
+  }
+  
+  private func pushToPropensityVC() {
+    let nextVC = PropensityTagViewController()
+    self.navigationController?.pushViewController(nextVC, animated: true)
+  }
+  
+  @objc
+  private func touchUpNextVC() {
+    pushToPropensityVC()
   }
 
   override func viewDidLoad() {

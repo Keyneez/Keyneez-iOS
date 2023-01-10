@@ -32,6 +32,17 @@ final class DanalAuthViewController: UIViewController {
   
   private let authButton = UIButton().then {
     $0.keyneezButtonStyle(style: .blackAct, title: "휴대폰 인증하기")
+    $0.addTarget(self, action: #selector(touchUpNextVC), for: .touchUpInside)
+  }
+  
+  func pushToDanalSuccessVC() {
+    let nextVC = DanalAuthSuccessViewController()
+    self.navigationController?.pushViewController(nextVC, animated: true)
+  }
+  
+  @objc
+  private func touchUpNextVC() {
+    pushToDanalSuccessVC()
   }
   
   // MARK: - Life Cycles

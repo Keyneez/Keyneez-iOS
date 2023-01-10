@@ -18,8 +18,25 @@ private struct Constant {
   static let stackViewTop: CGFloat = 43
   static let stackViewWidth: CGFloat = 146
   static let stackViewHeight: CGFloat = 24
+  static let cellHeight: CGFloat = 90
+  static let cellInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+  static let imageArray: [String] = ["pwd0","pwd1","pwd2","pwd3","pwd4","pwd5","pwd6"]
+  static var index: Int = 0
+
 }
-class SimplePwdViewController: NiblessView {
+class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
+
+  
+
+  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
+  
+  private var backButton : UIButton = .init(primaryAction: nil).then {
+    $0.setBackgroundImage(UIImage(named: "ic_arrowback"), for: .normal)
+  }
+  
+  var contentView = UIView()
+  
+  var actions = SignUpActions()
   
   private let titleLabel: UILabel = .init().then {
     $0.text = "간편 비밀번호를\n설정해주세요"
@@ -28,7 +45,7 @@ class SimplePwdViewController: NiblessView {
     $0.textAlignment = .center
   }
   private let progressImageView: UIImageView = .init().then {
-    $0.image = pwdProgressImageArray().first
+    $0.image = UIImage(named: Constant.imageArray[0])
     $0.contentMode = .scaleAspectFit
   }
   private let faceIDStackVIew: UIStackView = .init().then {
@@ -38,35 +55,65 @@ class SimplePwdViewController: NiblessView {
     $0.spacing = 8
   }
   
+  @objc func touchUpStackView() {
+      let tap = UITapGestureRecognizer(target: self, action: #selector(stackViewTapped))
+      faceIDStackVIew.addGestureRecognizer(tap)
+  }
+  
+  @objc private func stackViewTapped() {
+    if checkImageView.image == UIImage(named: "unselect") {
+      checkImageView.image = UIImage(named: "select")
+    } else {
+      checkImageView.image = UIImage(named: "unselect")
+    }
+  }
+  
   private let checkImageView: UIImageView = .init().then {
-    $0.image = pwdCheckImageArray().first
-    $0.frame = CGRect(x:0, y: 0, width: 24, height: 24)
+    $0.image = UIImage(named: "unselect")
+    $0.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
   }
   private let checkLabel: UILabel = .init().then {
     $0.text = "Face ID 사용하기"
     $0.font = .font(.pretendardMedium, ofSize: 16)
     $0.textColor = .gray900
   }
-
-  private var actions: SignUpActions
-
-  init(frame: CGRect, actions: SignUpActions) {
-    self.actions = actions
-    super.init(frame: frame)
+  private lazy var collectionView: UICollectionView = {
+    let layout = UICollectionViewFlowLayout()
+    layout.scrollDirection = .vertical
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    collectionView.backgroundColor = .clear
+    collectionView.translatesAutoresizingMaskIntoConstraints = false
+    collectionView.isScrollEnabled = false
+    collectionView.showsVerticalScrollIndicator = false
+    collectionView.delegate = self
+    collectionView.dataSource = self
+    return collectionView
+  }()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    addNavigationViewToSubview()
     setToast()
+    setKeyboard()
     setConfig()
+    register()
     setLayout()
+    touchUpStackView()
   }
 }
 
 extension SimplePwdViewController {
+
   private func setToast() {
-    self.makeToast("마지막 단계!", duration: 0.5, position: .center)
+    view.makeToast("마지막 단계!", duration: 0.7, position: .center)
+  }
+  private func setKeyboard() {
+    progressImageView.becomeFirstResponder()
   }
   private func setConfig() {
-    self.backgroundColor = .gray050
-    [titleLabel, progressImageView, faceIDStackVIew].forEach {
-      self.addSubview($0)
+    view.backgroundColor = .gray050
+    [titleLabel, progressImageView, faceIDStackVIew, collectionView].forEach {
+      contentView.addSubview($0)
     }
     [checkImageView, checkLabel].forEach {
       faceIDStackVIew.addArrangedSubview($0)
@@ -88,23 +135,107 @@ extension SimplePwdViewController {
       $0.width.equalTo(Constant.stackViewWidth)
       $0.height.equalTo(Constant.stackViewHeight)
     }
+    collectionView.snp.makeConstraints {
+      $0.top.equalTo(faceIDStackVIew.snp.bottom).offset(100)
+      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(16)
+      $0.height.equalTo(calculateCellHeight())
+      $0.bottom.equalToSuperview().inset(48)
+    }
+  }
+  private func calculateCellHeight() -> CGFloat {
+    let count = CGFloat(pwdNumberData.count)
+    let heightCount = count / 3 + count.truncatingRemainder(dividingBy: 2)
+    return heightCount * Constant.cellHeight
+  }
+  private func register() {
+    collectionView.register(SimplePwdCollectionViewCell.self, forCellWithReuseIdentifier: SimplePwdCollectionViewCell.identifier)
   }
 }
 
-private func pwdProgressImageArray() -> [UIImage] {
-  var array: [UIImage] = []
-  array.append(UIImage(named: "pwd0")!)
-  array.append(UIImage(named: "pwd1")!)
-  array.append(UIImage(named: "pwd2")!)
-  array.append(UIImage(named: "pwd3")!)
-  array.append(UIImage(named: "pwd4")!)
-  array.append(UIImage(named: "pwd5")!)
-  array.append(UIImage(named: "pwd6")!)
-  return array
+extension SimplePwdViewController: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return 0
+  }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    return 0
+  }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let screenWidth = UIScreen.main.bounds.width
+    let cellWidth = screenWidth - 32
+    return CGSize(width: cellWidth/3, height: Constant.cellHeight)
+  }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return Constant.cellInset
+  }
 }
-private func pwdCheckImageArray() -> [UIImage] {
-  var array: [UIImage] = []
-  array.append(UIImage(named: "unselect")!)
-  array.append(UIImage(named: "select")!)
-  return array
+
+extension SimplePwdViewController: UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return pwdNumberData.count
+  }
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SimplePwdCollectionViewCell.identifier, for: indexPath)
+             as? SimplePwdCollectionViewCell else {return UICollectionViewCell() }
+      cell.dataBind(model: pwdNumberData[indexPath.item])
+    if indexPath.item == 9 {
+      cell.number.font = .font(.pretendardBold, ofSize: 16)
+    }
+     return cell
+ }
+  
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    //간편 비밀번호 로직
+    
+    if indexPath.item != 11 {
+      Constant.index += 1
+      switch Constant.index {
+      case 1:
+        progressImageView.image = UIImage(named: Constant.imageArray[1])
+      case 2:
+        progressImageView.image = UIImage(named: Constant.imageArray[2])
+      case 3:
+        progressImageView.image = UIImage(named: Constant.imageArray[3])
+      case 4:
+        progressImageView.image = UIImage(named: Constant.imageArray[4])
+      case 5:
+        progressImageView.image = UIImage(named: Constant.imageArray[5])
+      case 6:
+        progressImageView.image = UIImage(named: Constant.imageArray[6])
+        Constant.index = 6
+        collectionView.deselectItem(at: indexPath, animated: true)
+        if checkImageView.image == UIImage(named: "select") {
+          setAuthAlert()
+        }else {
+          //TODO: 화면전환 구현 해야함
+          return
+        }
+      default:
+        return
+
+      }
+    } else {
+      if Constant.index > 0 && Constant.index < 7 {
+        Constant.index -= 1
+        progressImageView.image = UIImage(named: Constant.imageArray[Constant.index])
+      } else if Constant.index < 0 {Constant.index = 0}
+      else if Constant.index > 6 {Constant.index = 6}
+    }
+    
+    print(Constant.index)
+  }
+}
+
+private func setAuthAlert() {
+  print("실행")
+  
+    let message = "'Keyneez'앱이 Face ID 접근 허용되어 있지않습니다."
+    let alert = UIAlertController(title: "'Keyneez'앱이 Face ID를\n 사용하도록 허용하겠습니까?", message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "허용 안 함", style: .cancel, handler: nil))
+    alert.addAction(UIAlertAction(title: "승인", style: .default, handler: nil))
+    
+    let viewController = UIApplication.shared.windows.first!.rootViewController!
+    viewController.present(alert, animated: true, completion: nil)
+  
 }

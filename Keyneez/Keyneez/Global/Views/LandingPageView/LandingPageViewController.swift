@@ -59,9 +59,20 @@ class LandingPageViewController: UIViewController {
     let button = UIButton()
     button.keyneezButtonStyle(style: .whiteAct, title: "회원가입")
     button.layer.isHidden = true
-//    button.addTarget(self, action: #selector, for: .touchUpInside)
+    button.addTarget(self, action: #selector(touchUpNextVC), for: .touchUpInside)
     return button
   }()
+  
+  func pushToDanalVC() {
+//    let nextVC = DanalAuthViewController()
+//    self.navigationController?.pushViewController(nextVC, animated: true)
+    print("터치")
+  }
+  
+  @objc
+  private func touchUpNextVC() {
+    pushToDanalVC()
+  }
   
   private lazy var signInButton = UIButton().then {
     $0.keyneezButtonStyle(style: .blackAct, title: "로그인")

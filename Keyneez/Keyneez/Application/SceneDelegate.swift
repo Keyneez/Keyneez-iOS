@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       let window = UIWindow(windowScene: windowScene)
       window.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
       
-      let tabbarVC = HashTagViewController()
+      let tabbarVC = SimplePwdViewController()
       window.rootViewController = tabbarVC
       window.makeKeyAndVisible()
       self.window = window
