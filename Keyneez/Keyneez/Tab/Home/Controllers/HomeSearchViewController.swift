@@ -11,7 +11,7 @@ import Then
 
 final class HomeSearchViewController: NiblessViewController, NavigationBarProtocol {
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .textfield(configure: (placeholder: "제목, 키워드", completion: { str in
-    self.updateSearchResults(searchText: str!) // str이 nil 일 때 처리
+    self.updateSearchResults(searchText: str!)
   }))]).build()
   private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
     $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
@@ -56,7 +56,7 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
 extension HomeSearchViewController {
   private func setLayout() {
     contentView.addSubviews(searchResultCountingLabel, homeSearchCollectionView)
-    searchResultCountingLabel.snp.makeConstraints{
+    searchResultCountingLabel.snp.makeConstraints {
       $0.top.equalToSuperview().inset(36)
       $0.centerX.equalToSuperview()
     }
@@ -124,38 +124,10 @@ extension HomeSearchViewController: UICollectionViewDataSource {
     return homeSearchResults.count
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//    let searchContent = homeSearchList[indexPath.row]
     guard let homeSearchCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeSearchCollectionViewCell.identifier, for: indexPath)
             as? HomeSearchCollectionViewCell else { return UICollectionViewCell() }
     homeSearchCell.bindHomeSearchData(model: homeSearchResults[indexPath.item])
-//    homeSearchCell.searchContent = searchContent
     return homeSearchCell
   }
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//    let searchContent = homeSearchInset[indexPath.row]
-    print("select event")
-  }
 }
-
-// MARK: - Update View
-//extension HomeSearchViewController {
-//  func updateSearchResults(for searchController: UISearchController) {
-//    videoList = filteredVideos(for: searchController.searchBar.text)
-//    collectionView.reloadData()
-//  }
-//
-//  func filteredSearchContent(for queryOrNil: String?) -> [HomeSearchModel] {
-//    let searchContents = Video.allVideos
-//    guard
-//      let query = queryOrNil,
-//      !query.isEmpty
-//      else {
-//        return videos
-//    }
-//    return videos.filter {
-//      return $0.title.lowercased().contains(query.lowercased())
-//    }
-//  }
-//}
-// performupdatematch - Diffable 처럼
