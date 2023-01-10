@@ -25,17 +25,50 @@ private struct Constant {
 
 class IDCardContentView: NiblessView {
   
-  private lazy var idCardView: IDCardView = .init(frame: .zero, userCardInfo: Constant.usercardInfo, actions: actions)
+  private lazy var idCardView: IDCardView = .init(frame: .zero, userCardInfo: Constant.usercardInfo, action: actions.touchDetailInfo(to: makeDetailViewController()))
   
   private var actions: IDCardContentActionables
   
-  private lazy var idSeperateButton: SeperatedButton = .init(frame: .zero, title: Constant.titles, actions: [actions.touchBenefitInfo(), actions.touchRealIDCardAuth()])
+  //TODO: 이거 나중에 변경
+  private var customNavigationDelegateBenefitView: CustomNavigationManager = CustomNavigationManager()
+  private var customNavigationDelegateDetailView: CustomNavigationManager = CustomNavigationManager()
+  
+  private lazy var idSeperateButton: SeperatedButton = .init(frame: .zero, title: Constant.titles, actions: [
+    actions.touchBenefitInfo(to: makeBenefitBottomSheet()),
+    actions.touchRealIDCardAuth(to: makePhysicalViewController())
+  ])
   
   init(frame: CGRect, actions: IDCardContentActionables) {
     self.actions = actions
     super.init(frame: frame)
     addSubview()
     setConstraint()
+  }
+  
+  private func makeBenefitBottomSheet() -> BenefitInfoViewController {
+    let benefitViewController = BenefitInfoViewController()
+    customNavigationDelegateBenefitView.direction = .bottom
+    customNavigationDelegateBenefitView.height = 692
+    benefitViewController.transitioningDelegate = customNavigationDelegateBenefitView
+    benefitViewController.modalPresentationStyle = .custom
+    return benefitViewController
+  }
+  
+  private func makeOCRViewController() -> CameraViewController {
+    return CameraViewController()
+  }
+  
+  private func makeDetailViewController() -> IDDetailViewController {
+    let idDetailViewController = IDDetailViewController()
+    customNavigationDelegateDetailView.direction = .bottom
+    customNavigationDelegateDetailView.height = 348
+    idDetailViewController.transitioningDelegate = customNavigationDelegateDetailView
+    idDetailViewController.modalPresentationStyle = .custom
+    return idDetailViewController
+  }
+  
+  private func makePhysicalViewController() -> PhysicalIDViewController {
+    return PhysicalIDViewController()
   }
   
   private func addSubview() {
