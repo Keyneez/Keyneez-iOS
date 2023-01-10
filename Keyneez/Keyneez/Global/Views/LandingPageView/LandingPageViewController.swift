@@ -9,7 +9,8 @@ import UIKit
 import Then
 import SnapKit
 
-// MARK: - Action Event 달기
+// TODO: - Action Event 달기
+
 // MARK: - Constant
 
 private struct Constant {
@@ -63,9 +64,10 @@ class LandingPageViewController: UIViewController {
     return button
   }()
   
+  //화면 전환
   func pushToDanalVC() {
-//    let nextVC = DanalAuthViewController()
-//    self.navigationController?.pushViewController(nextVC, animated: true)
+    let nextVC = DanalAuthViewController()
+    self.navigationController?.pushViewController(nextVC, animated: true)
     print("터치")
   }
   
@@ -135,6 +137,7 @@ extension LandingPageViewController: UIScrollViewDelegate {
 extension LandingPageViewController {
   
   // MARK: - Layout Helper
+  
   private func setConfig() {
     view.backgroundColor = .gray050
     [logoImageView, scrollView, pageControl, signUpButton, signInButton].forEach {

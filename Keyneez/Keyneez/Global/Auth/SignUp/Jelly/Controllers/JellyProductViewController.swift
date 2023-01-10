@@ -98,7 +98,7 @@ extension JellyProductViewController {
   private func setLayout() {
     
     titleLabel.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(SignUpConstant.labelTopExpand)
+      $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(SignUpConstant.labelTopExpand)
       $0.leading.equalTo(self.view.safeAreaLayoutGuide).offset(SignUpConstant.labelLeading)
     }
     detailStackView.snp.makeConstraints {

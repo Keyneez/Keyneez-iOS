@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       let window = UIWindow(windowScene: windowScene)
       window.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
       
-      let tabbarVC = SimplePwdViewController()
+      let tabbarVC = PhoneLoginViewController()
       window.rootViewController = tabbarVC
       window.makeKeyAndVisible()
       self.window = window

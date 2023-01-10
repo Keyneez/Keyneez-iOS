@@ -77,6 +77,6 @@ var pwdNumberData: [SimplePwdContentModel] = [
   SimplePwdContentModel(text: "4"),
   SimplePwdContentModel(text: "재배열"),
   SimplePwdContentModel(text: "1"),
-  SimplePwdContentModel(text: "⬅︎"),
+  SimplePwdContentModel(text: "  "),
 
 ]

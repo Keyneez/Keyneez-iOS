@@ -65,8 +65,8 @@ extension JellyMakeViewController {
   private func setLayout() {
     
     titleLabel.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(SignUpConstant.labelTopExpand)
-      $0.leading.equalTo(SignUpConstant.guide).offset(SignUpConstant.labelLeading)
+      $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(SignUpConstant.labelTopExpand)
+      $0.leading.equalTo(self.view.safeAreaLayoutGuide).offset(SignUpConstant.labelLeading)
     }
     subTitleLabel.snp.makeConstraints {
       $0.top.equalTo(titleLabel.snp.bottom).offset(SignUpConstant.labelTop)
@@ -74,12 +74,12 @@ extension JellyMakeViewController {
     }
     jellyImageView.snp.makeConstraints {
       $0.top.equalTo(subTitleLabel.snp.bottom).offset(SignUpConstant.imageTop)
-      $0.leading.trailing.equalTo(SignUpConstant.guide).inset(SignUpConstant.jellyImageWidth)
+      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(SignUpConstant.jellyImageWidth)
       $0.height.equalTo(SignUpConstant.jellyImageHeight)
     }
     startButton.snp.makeConstraints {
-      $0.bottom.equalTo(SignUpConstant.guide).inset(SignUpConstant.buttonBottom.adjusted)
-      $0.leading.trailing.equalTo(SignUpConstant.guide).inset(SignUpConstant.labelTop)
+      $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(SignUpConstant.buttonBottom.adjusted)
+      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(SignUpConstant.labelTop)
       $0.height.equalTo(SignUpConstant.buttonHeight.adjusted)
     }
     

@@ -24,7 +24,7 @@ private struct Constant {
   static var index: Int = 0
 
 }
-class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
+class SimplePwdCheckViewController: NiblessViewController, NavigationBarProtocol {
 
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
   
@@ -37,7 +37,7 @@ class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
   var actions = SignUpActions()
   
   private let titleLabel: UILabel = .init().then {
-    $0.text = "간편 비밀번호를\n설정해주세요"
+    $0.text = "설정한 비밀번호를\n한번 더 입력해주세요"
     $0.font = .font(.pretendardBold, ofSize: 24)
     $0.numberOfLines = 0
     $0.textAlignment = .center
@@ -93,7 +93,6 @@ class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
   override func viewDidLoad() {
     super.viewDidLoad()
     addNavigationViewToSubview()
-    setToast()
     setConfig()
     register()
     setLayout()
@@ -101,12 +100,9 @@ class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
   }
 }
 
-extension SimplePwdViewController {
+extension SimplePwdCheckViewController {
 
-  private func setToast() {
-    view.makeToast("마지막 단계!", duration: 0.7, position: .center)
-  }
-  
+
   private func setConfig() {
     view.backgroundColor = .gray050
     [titleLabel, progressImageView, faceIDStackVIew, collectionView].forEach {
@@ -149,7 +145,7 @@ extension SimplePwdViewController {
   }
 }
 
-extension SimplePwdViewController: UICollectionViewDelegateFlowLayout {
+extension SimplePwdCheckViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
     return 0
   }
@@ -166,7 +162,7 @@ extension SimplePwdViewController: UICollectionViewDelegateFlowLayout {
   }
 }
 
-extension SimplePwdViewController: UICollectionViewDataSource {
+extension SimplePwdCheckViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return pwdNumberData.count
   }
@@ -206,7 +202,12 @@ extension SimplePwdViewController: UICollectionViewDataSource {
         progressImageView.image = UIImage(named: Constant.imageArray[6])
         Constant.index = 6
         collectionView.deselectItem(at: indexPath, animated: true)
-        //TODO: 화면전환 구현 해야함
+        if checkImageView.image == UIImage(named: "select") {
+          setAuthAlert()
+        }else {
+          //TODO: 화면전환 구현 해야함
+          return
+        }
       default:
         return
 
@@ -218,9 +219,17 @@ extension SimplePwdViewController: UICollectionViewDataSource {
       } else if Constant.index < 0 {Constant.index = 0}
       else if Constant.index > 6 {Constant.index = 6}
     }
-    
-    print(Constant.index)
   }
 }
 
+private func setAuthAlert() {
+    let message = "'Keyneez'앱이 Face ID 접근 허용되어 있지않습니다."
+    let alert = UIAlertController(title: "'Keyneez'앱이 Face ID를\n 사용하도록 허용하겠습니까?", message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "허용 안 함", style: .cancel, handler: nil))
+    alert.addAction(UIAlertAction(title: "승인", style: .default, handler: nil))
+    
+    let viewController = UIApplication.shared.windows.first!.rootViewController!
+    viewController.present(alert, animated: true, completion: nil)
+  
+}
 

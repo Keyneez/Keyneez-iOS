@@ -8,13 +8,12 @@
 import UIKit
 import Then
 
-// TODO: - 네비게이션 추가 !!
+final class DanalAuthViewController: NiblessViewController, NavigationBarProtocol {
 
-final class DanalAuthViewController: UIViewController {
-  
   // MARK: - UI Components
   
  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
+  var contentView = UIView()
   
   private let backButton = UIButton().then {
     $0.setBackgroundImage(UIImage(named: "ic_arrowback"), for: .normal)
@@ -35,6 +34,8 @@ final class DanalAuthViewController: UIViewController {
     $0.addTarget(self, action: #selector(touchUpNextVC), for: .touchUpInside)
   }
   
+  // 화면 전환
+  
   func pushToDanalSuccessVC() {
     let nextVC = DanalAuthSuccessViewController()
     self.navigationController?.pushViewController(nextVC, animated: true)
@@ -49,6 +50,7 @@ final class DanalAuthViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    addNavigationViewToSubview()
     setConfig()
     setLayout()
   }
@@ -64,28 +66,24 @@ extension DanalAuthViewController {
   private func setConfig() {
     view.backgroundColor = .gray050
     [navigationView, titleLabel, phoneImageView, authButton].forEach {
-      view.addSubview($0)
+      contentView.addSubview($0)
     }
   }
   private func setLayout() {
-    navigationView.snp.makeConstraints {
-      $0.top.leading.trailing.equalTo(SignUpConstant.guide)
-      $0.height.equalTo(56)
-    }
     
     titleLabel.snp.makeConstraints {
-      $0.top.equalTo(navigationView.snp.bottom).offset(SignUpConstant.labelTop.adjusted)
-      $0.leading.equalTo(SignUpConstant.guide).offset(SignUpConstant.labelLeading.adjusted)
+      $0.top.equalToSuperview().offset(SignUpConstant.labelTop.adjusted)
+      $0.leading.equalTo(self.view.safeAreaLayoutGuide).offset(SignUpConstant.labelLeading.adjusted)
     }
     phoneImageView.snp.makeConstraints {
-      $0.centerX.equalTo(SignUpConstant.guide)
-      $0.centerY.equalTo(SignUpConstant.guide)
-      $0.leading.trailing.equalTo(SignUpConstant.guide).inset(SignUpConstant.phoneImageWidth.adjusted)
+      $0.centerX.equalTo(self.view.safeAreaLayoutGuide)
+      $0.centerY.equalTo(self.view.safeAreaLayoutGuide)
+      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(SignUpConstant.phoneImageWidth.adjusted)
       $0.height.equalTo(SignUpConstant.phoneImageHeight.adjusted)
     }
     authButton.snp.makeConstraints {
-      $0.bottom.equalTo(SignUpConstant.guide).inset(SignUpConstant.buttonBottom.adjusted)
-      $0.leading.trailing.equalTo(SignUpConstant.guide).inset(SignUpConstant.labelTop)
+      $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(SignUpConstant.buttonBottom.adjusted)
+      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(SignUpConstant.labelTop)
       $0.height.equalTo(SignUpConstant.buttonHeight.adjusted)
     }
   }
