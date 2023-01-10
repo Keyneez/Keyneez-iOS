@@ -23,7 +23,7 @@ final class CameraViewController: NiblessViewController {
   
   private lazy var xbutton: UIButton = .init().then {
     $0.setBackgroundImage(UIImage(named: Constant.xbuttonName)!.imageWithColor(color: .white), for: .normal)
-    $0.addAction(didTouchBackButton(), for: .touchUpInside)
+    $0.addAction(actions.didTouchBackButton(), for: .touchUpInside)
   }
   
   private lazy var switchButton: UIButton = .init(primaryAction: UIAction { [weak self] _ in
@@ -39,9 +39,11 @@ final class CameraViewController: NiblessViewController {
     }), for: .touchUpInside)
   }
   
-  private lazy var cameraButton: UIButton = .init(primaryAction: OCRConfirmed()).then {
+  private lazy var cameraButton: UIButton =
+    .init(primaryAction: didTouchCaptureButton())
+    .then {
     $0.setBackgroundImage(UIImage(named: "btn_cam"), for: .normal)
-  }
+    }
   
   private lazy var changeAutoModeButton: UIButton = makeAttrStringButton(with: "자동 인식").then {
     $0.addAction(UIAction(handler: { [unowned self] _ in
@@ -49,7 +51,6 @@ final class CameraViewController: NiblessViewController {
     }), for: .touchUpInside)
   }
   
-  let action = IDCardGuideActions()
   private var customNavigationDelegate = CustomNavigationManager()
   private var previewView: PreviewView = .init()
   private var previewViewMode: PreviewMode = .horizontal
@@ -70,12 +71,6 @@ final class CameraViewController: NiblessViewController {
     }
   }
   
-  private func didTouchBackButton() -> UIAction {
-    return UIAction(handler: { _ in
-      self.dismiss(animated: true)
-    })
-  }
-  
   private func didTouchswitchButton() {
     if self.previewViewMode == .vertical { self.previewView.changeToHorizontal() }
     else { self.previewView.changeToVertical() }
@@ -93,20 +88,8 @@ final class CameraViewController: NiblessViewController {
     self.previewView.toggleCaptureModeUI(with: self.captureMode, previeMode: self.previewViewMode)
   }
   
-  private func OCRConfirmed() -> UIAction {
-    return UIAction(handler: { [unowned self] _ in
-      customNavigationDelegate.direction = .bottom
-      customNavigationDelegate.height = Constant.bottomsheetHeight
-      customNavigationDelegate.heightIncludeKeyboard = Constant.bottomsheetHeightWithKeyboard
-      customNavigationDelegate.dimmed = false
-      let idInfoEditVC = IDInfoEditableViewController()
-      idInfoEditVC.transitioningDelegate = customNavigationDelegate
-      idInfoEditVC.modalPresentationStyle = .custom
-      self.present(idInfoEditVC, animated: true)
-    })
-  }
-  
   private var camera: Camera = .init()
+  private lazy var actions: CameraViewActionables = CameraViewActions(viewcontroller: self)
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -123,6 +106,10 @@ final class CameraViewController: NiblessViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     camera.checkSetupResult()
+  }
+  
+  deinit {
+    print(self, #function)
   }
 }
 
@@ -141,7 +128,6 @@ extension CameraViewController {
     self.previewView.videoPreviewLayer.connection?.videoOrientation = initialVideoOrientation
   }
   
-
   private func makeAttrStringButton(with text: String) -> UIButton {
     let button: UIButton = .init()
     let attributes: [NSAttributedString.Key: Any] = [

@@ -79,6 +79,7 @@
 		B1A8035D296D99180007DDD9 /* PhysicalIDActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8035C296D99180007DDD9 /* PhysicalIDActions.swift */; };
 		B1A80361296DA4550007DDD9 /* IDInfoEditableActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80360296DA4550007DDD9 /* IDInfoEditableActions.swift */; };
 		B1A80363296DA9A40007DDD9 /* IDIssuedViewActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80362296DA9A40007DDD9 /* IDIssuedViewActionables.swift */; };
+		B1A80365296DD6430007DDD9 /* CameraViewActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80364296DD6430007DDD9 /* CameraViewActions.swift */; };
 		B1B21D0E295C985C0083D9EE /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D0D295C985C0083D9EE /* Toast */; };
 		B1B21D11295C99280083D9EE /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D10295C99280083D9EE /* FloatingPanel */; };
 		B1B21D14295C9C4B0083D9EE /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D13295C9C4B0083D9EE /* Floaty */; };
@@ -186,6 +187,7 @@
 		B1A8035C296D99180007DDD9 /* PhysicalIDActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalIDActions.swift; sourceTree = "<group>"; };
 		B1A80360296DA4550007DDD9 /* IDInfoEditableActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDInfoEditableActions.swift; sourceTree = "<group>"; };
 		B1A80362296DA9A40007DDD9 /* IDIssuedViewActionables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDIssuedViewActionables.swift; sourceTree = "<group>"; };
+		B1A80364296DD6430007DDD9 /* CameraViewActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewActions.swift; sourceTree = "<group>"; };
 		B1B21D16295DE0660083D9EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbar.swift; sourceTree = "<group>"; };
 		B8C02F042962F5D4005612CE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				B10AAD912969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift */,
 				B187CA70296C096F006B0AE1 /* CameraMode.swift */,
 				B187CA80296C8378006B0AE1 /* Camera.swift */,
+				B1A80364296DD6430007DDD9 /* CameraViewActions.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -889,6 +892,7 @@
 				022F68B82962D3A200F32CE1 /* Buildable.swift in Sources */,
 				02F262AE2965ABEE005A1CE4 /* LoadingView.swift in Sources */,
 				B10AAD70296967F300AB8475 /* IDCardView.swift in Sources */,
+				B1A80365296DD6430007DDD9 /* CameraViewActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
