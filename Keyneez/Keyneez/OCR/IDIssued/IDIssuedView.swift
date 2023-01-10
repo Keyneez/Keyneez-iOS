@@ -12,7 +12,7 @@ class IDIssuedView: NiblessView {
   let userInfo: UserCardInfo = .init(name: "김민지", personType: "호기심 가득 문화인", birthday: "2001.01.17")
 
   private lazy var titleLabel: UILabel = .init().then {
-    $0.text = "\(userInfo.name)님의\nID가 발급했어요!"
+    $0.text = "\(userInfo.name)님의\nID를 발급했어요!"
     $0.numberOfLines = 0
     $0.textAlignment = .left
     $0.font = .font(.pretendardBold, ofSize: 24)
