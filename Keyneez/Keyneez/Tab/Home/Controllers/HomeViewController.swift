@@ -18,6 +18,7 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
   }
   private lazy var didSearch: UIAction = .init(handler: { _ in
     let homeSearchViewController = HomeSearchViewController()
+    homeSearchResults = []
     self.navigationController?.pushViewController(homeSearchViewController, animated: true)
   })
   lazy var contentView: UIView = UIView()
