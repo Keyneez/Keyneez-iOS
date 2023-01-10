@@ -8,9 +8,9 @@
 import UIKit
 
 protocol IDCardContentActionables {
-  func touchBenefitInfo() -> UIAction
-  func touchRealIDCardAuth() -> UIAction
-  func touchDetailInfo() -> UIAction
+  func touchBenefitInfo(to target: BottomSheetViewController) -> UIAction
+  func touchRealIDCardAuth(to target: NiblessViewController) -> UIAction
+  func touchDetailInfo(to target: BottomSheetViewController) -> UIAction
 }
 
 

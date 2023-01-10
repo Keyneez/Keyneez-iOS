@@ -30,6 +30,7 @@ class IDCardView: NiblessView {
   
   private lazy var cardView: UIImageView = .init().then {
     $0.image = UIImage(named: "card_bg_mint")
+    $0.isUserInteractionEnabled = true
     $0.contentMode = .scaleToFill
   }
   
@@ -43,7 +44,7 @@ class IDCardView: NiblessView {
     $0.textColor = .gray050
   }
   
-  private lazy var showDetailIDButton: UIButton = .init(primaryAction: actions.touchDetailInfo()).then {
+  private lazy var showDetailIDButton: UIButton = .init().then {
     $0.setBackgroundImage(UIImage(named: Constant.buttonIconImageName), for: .normal)
   }
   
@@ -52,14 +53,12 @@ class IDCardView: NiblessView {
     $0.textColor = .gray050
   }
   
-  private var actions: IDCardContentActionables
-  
-  init(frame: CGRect, userCardInfo: UserCardInfo, actions: IDCardContentActionables) {
-    self.actions = actions
+  init(frame: CGRect, userCardInfo: UserCardInfo, action: UIAction) {
     super.init(frame: frame)
     addSubview()
     setConstraint()
     setLabelText(with: userCardInfo)
+    self.showDetailIDButton.addAction(action, for: .touchUpInside)
   }
   
 }
