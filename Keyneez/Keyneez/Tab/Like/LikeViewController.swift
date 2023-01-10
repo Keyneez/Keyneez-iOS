@@ -41,7 +41,8 @@ extension LikeViewController {
   private func setLayout() {
     navigationView.addSubviews(lineView)
     lineView.snp.makeConstraints {
-      $0.centerX.bottom.equalTo(myLikeButton)
+      $0.centerX.equalTo(myLikeButton)
+      $0.bottom.equalTo(myLikeButton).offset(6)
       $0.width.equalTo(32)
       $0.height.equalTo(3)
     }
