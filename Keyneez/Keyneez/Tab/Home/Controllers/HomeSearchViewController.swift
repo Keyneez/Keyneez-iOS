@@ -24,11 +24,7 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
     self.navigationController?.popViewController(animated: true)
   })
   var contentView: UIView = UIView()
-  private var searchResultCountingLabel: UILabel = .init().then {
-    let text = NSMutableAttributedString()
-    text.append(NSAttributedString(string: "검색결과 ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray900]))
-    text.append(NSAttributedString(string: "15개", attributes: [NSAttributedString.Key.foregroundColor: UIColor.mint500]))
-    $0.attributedText = text
+  private lazy var searchResultCountingLabel: UILabel = .init().then {
     $0.font = .font(.pretendardSemiBold, ofSize: 14)
   }
   // MARK: - CollectionView
@@ -85,11 +81,18 @@ extension HomeSearchViewController {
           homeSearchResults = []
         }
       let equalToSearchTextList: [HomeSearchModel] = homeSearchList.filter{ $0.contentTitle.contains(searchText) }
+      setSearchResultCountingLabel(count: equalToSearchTextList.count)
       for count in 0..<equalToSearchTextList.count {
         homeSearchResults.insert(equalToSearchTextList[count], at: 0)
         homeSearchCollectionView.insertItems(at: [IndexPath(item: count, section: 0)])
       }
     })
+  }
+  private func setSearchResultCountingLabel(count: Int) {
+    let text = NSMutableAttributedString()
+    text.append(NSAttributedString(string: "검색결과 ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray900]))
+    text.append(NSAttributedString(string: "\(count)개", attributes: [NSAttributedString.Key.foregroundColor: UIColor.mint500]))
+    searchResultCountingLabel.attributedText = text
   }
 }
 
