@@ -10,7 +10,6 @@ import UIKit
 extension UIViewController {
   func pushToContentDetailView() {
     let contentDetailViewController = ContentDetailViewController()
-//    contentDetailViewController.bindContentDetailData(model: model)
     self.navigationController?.pushViewController(contentDetailViewController, animated: true)
   }
 }
