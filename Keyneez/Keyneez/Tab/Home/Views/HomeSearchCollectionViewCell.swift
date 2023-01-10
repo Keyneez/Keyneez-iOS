@@ -11,7 +11,6 @@ import Then
 
 final class HomeSearchCollectionViewCell: UICollectionViewCell {
   static let identifier = "HomeSearchCollectionViewCell"
-//  var searchContent: HomeSearchModel?
   
   private let backgroundImageView: UIImageView = .init()
   private let dateLabel: UILabel = .init().then {
@@ -74,5 +73,8 @@ extension HomeSearchCollectionViewCell {
   private func setDateLabel(model: HomeSearchModel) -> String {
     if model.startAt.isEmpty || model.endAt.isEmpty { return "2023 ~ " }
     return getDate(fullDate: model.startAt) + " ~ " + getDate(fullDate: model.endAt)
+  }
+  func hiddenLikeButton() {
+    likeButton.isHidden = true
   }
 }
