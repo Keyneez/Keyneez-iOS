@@ -40,20 +40,13 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
     $0.font = UIFont.font(.pretendardSemiBold, ofSize: 12)
     $0.textColor = UIColor.gray900
   }
-  private let categoryView = UIView().then {
-    $0.backgroundColor = .clear
-    $0.layer.cornerRadius = 16
-    $0.layer.borderWidth = 1.5
-    $0.layer.borderColor = UIColor.mint400.cgColor
-  }
-  private let category = UILabel().then {
-    $0.textColor = UIColor.mint400
-    $0.font = UIFont.font(.pretendardBold, ofSize: 14)
-  }
+  private let categoryView = CategoryView()
   private let likeButton = UIButton().then {
     $0.setImage(UIImage(named: "white_like_empty"), for: .normal)
   }
-  private let cardImageView = UIImageView()
+  private let cardImageView: UIImageView = .init().then {
+    $0.image = UIImage(named: "card_blue_home")
+  }
   private let contentTitle = UILabel().then {
     $0.font = UIFont.font(.pretendardBold, ofSize: 28)
     $0.textColor = UIColor.gray900
@@ -86,7 +79,6 @@ extension HomeContentCollectionViewCell {
       cardImageView
     )
     dateView.addSubviews(dateLabel)
-    categoryView.addSubviews(category)
 
     shadowView.snp.makeConstraints {
       $0.top.leading.trailing.bottom.equalToSuperview()
@@ -118,11 +110,8 @@ extension HomeContentCollectionViewCell {
       $0.width.equalTo(49)
       $0.height.equalTo(33)
     }
-    category.snp.makeConstraints {
-      $0.centerX.centerY.equalToSuperview()
-    }
     contentTitle.snp.makeConstraints {
-      $0.top.equalTo(category.snp.bottom).offset(12)
+      $0.top.equalTo(categoryView.snp.bottom).offset(12)
       $0.leading.equalTo(categoryView)
     }
     contentIntroduction.snp.makeConstraints {
@@ -136,14 +125,13 @@ extension HomeContentCollectionViewCell {
       $0.height.equalTo(72)
     }
     contentImageView.backgroundColor = .gray400
-    cardImageView.backgroundColor = .orange
     likeButton.backgroundColor = .mint200
   }
   
-  func dataBind(model: HomeContentModel) {
+  func bindHomeData(model: HomeContentModel) {
     contentImageView.image = UIImage(named: model.contentImage)
     dateLabel.text = model.startAt + " ~ " + model.endAt
-    category.text = model.categoty[0]
+//    category.text = model.categoty[0]
     contentTitle.text = model.contentTitle
     contentIntroduction.text = model.introduction
   }
