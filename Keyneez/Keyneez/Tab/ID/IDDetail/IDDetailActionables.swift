@@ -8,15 +8,22 @@
 import UIKit
 
 protocol IDDetailActionables {
-  func touchAuthentication() -> UIAction
+  func touchAuthentication(to target: NiblessViewController) -> UIAction
 }
 
 final class IDDetailActions: IDDetailActionables {
   
-  func touchAuthentication() -> UIAction {
-    return UIAction(handler: {_ in })
+  private weak var viewController: NiblessViewController?
+  
+  func touchAuthentication(to target: NiblessViewController) -> UIAction {
+    return UIAction(handler: { [weak self] _ in
+      target.modalPresentationStyle = .fullScreen
+      self?.viewController?.present(target, animated: true)
+    })
   }
 
-  init() { }
+  init(viewController: NiblessViewController) {
+    self.viewController = viewController
+  }
   
 }

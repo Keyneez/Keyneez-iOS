@@ -56,7 +56,7 @@ final class IDdetailView: NiblessView {
   private lazy var authenticateButton: UIButton = .init().then {
     $0.keyneezButtonStyle(style: .blackAct,
                           title: Constant.buttonTitle,
-                          action: actions.touchAuthentication())
+                          action: actions.touchAuthentication(to: makePhysicalIDViewController()))
   }
   
   init(frame: CGRect, actions: IDDetailActionables) {
@@ -72,6 +72,10 @@ final class IDdetailView: NiblessView {
 // MARK: - UI
 
 extension IDdetailView {
+  
+  private func makePhysicalIDViewController() -> PhysicalIDViewController {
+    return PhysicalIDViewController()
+  }
   
   private func makeDetailLabel(text: String) -> UILabel {
     return UILabel().then {
