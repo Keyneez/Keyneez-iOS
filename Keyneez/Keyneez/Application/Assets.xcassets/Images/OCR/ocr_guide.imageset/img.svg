@@ -1,0 +1,13 @@
+<svg width="327" height="192" viewBox="0 0 327 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="327" height="192" rx="12" fill="#AEEDFC"/>
+<rect x="31.9863" y="36" width="120" height="120" rx="16" fill="white"/>
+<circle cx="67" cy="86" r="9" fill="#FFDCD2"/>
+<rect x="81" y="75" width="5" height="8" rx="2.5" fill="black"/>
+<rect x="98" y="75" width="5" height="8" rx="2.5" fill="black"/>
+<path d="M100 87C100 88.0506 99.7931 89.0909 99.391 90.0615C98.989 91.0321 98.3997 91.914 97.6569 92.6569C96.914 93.3997 96.0321 93.989 95.0615 94.391C94.0909 94.7931 93.0506 95 92 95C90.9494 95 89.9091 94.7931 88.9385 94.391C87.9679 93.989 87.086 93.3997 86.3431 92.6569C85.6003 91.914 85.011 91.0321 84.609 90.0615C84.2069 89.0909 84 88.0506 84 87L92 87H100Z" fill="black"/>
+<circle cx="117" cy="86" r="9" fill="#FFDCD2"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M92.6198 107H101.25C101.802 107 102.25 107.448 102.25 108L102.25 116.773C102.25 117.636 101.231 118.094 100.586 117.521L92 109.889L83.4144 117.521C82.7695 118.094 81.75 117.636 81.75 116.773V108C81.75 107.448 82.1977 107 82.75 107H91.3802H92.6198Z" fill="black"/>
+<rect opacity="0.8" x="179.922" y="51" width="64" height="21" rx="10.5" fill="white"/>
+<rect opacity="0.8" x="179.922" y="92" width="114" height="21" rx="10.5" fill="white"/>
+<rect opacity="0.8" x="179.922" y="121" width="114" height="21" rx="10.5" fill="white"/>
+</svg>

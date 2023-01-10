@@ -12,16 +12,29 @@ final class CustomNavigationPresentationController: UIPresentationController {
   
   private var direction: PresentationDirection
   private var height: CGFloat
+  private var heightIncludeKeyboard: CGFloat
+  private var tempHeight: CGFloat
   private var dimmingView: UIView!
   private var dragIndicator: UIView!
   private var dragIndicatorView: UIView!
+  private var dimmed: Bool
+  private var keyboardHeight: CGFloat = 0 {
+    didSet {
+      self.containerViewWillLayoutSubviews()
+    }
+  }
   
-  init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?, direction: PresentationDirection, height: CGFloat) {
+  init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?, direction: PresentationDirection, height: CGFloat, dimmed: Bool, heightIncludeKeyboard: CGFloat) {
     self.direction = direction
     self.height = height
+    self.dimmed = dimmed
+    self.heightIncludeKeyboard = heightIncludeKeyboard
+    self.tempHeight = height
     super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
     setupDimmingView()
     setupDragIndicatorView()
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
   }
   
   // container layout 정하기
@@ -35,9 +48,6 @@ final class CustomNavigationPresentationController: UIPresentationController {
       presentedView?.frame = frameOfPresentedViewInContainerView
     case .bottom:
       presentedView?.frame = frameOfPresentedViewInContainerView
-//      presentedView?.clipsToBounds = true
-//      presentedView?.layer.cornerRadius = 22
-//      presentedView?.layer.maskedCorners = CACornerMask(arrayLiteral: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
     }
   }
   
@@ -68,12 +78,12 @@ final class CustomNavigationPresentationController: UIPresentationController {
     }
     
     guard let coordinator = presentedViewController.transitionCoordinator else {
-      dimmingView.alpha = 1.0
+      dimmingView.alpha = dimmed == true ? 1.0 : 0.5
       return
     }
     
     coordinator.animate(alongsideTransition: { _ in
-      self.dimmingView.alpha = 1.0
+      self.dimmingView.alpha = self.dimmed == true ? 1.0 : 0.5
     })
   }
   
@@ -92,7 +102,7 @@ final class CustomNavigationPresentationController: UIPresentationController {
 extension CustomNavigationPresentationController {
   func setupDimmingView() {
     dimmingView = UIView()
-    dimmingView.backgroundColor = .gray400
+    dimmingView.backgroundColor = dimmed == true ? .gray400 : .black
     dimmingView.alpha = 0.0
     
     let recognizer = UITapGestureRecognizer(target: self,
@@ -102,6 +112,26 @@ extension CustomNavigationPresentationController {
   
   @objc func handleTap(recognizer: UITapGestureRecognizer) {
     presentingViewController.dismiss(animated: true)
+  }
+  
+  @objc func keyboardWillShow(_ notification: NSNotification) {
+    if keyboardHeight > 0 { return }
+    if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+      let keyboardRectangle = keyboardFrame.cgRectValue
+      let keyboardHeight = keyboardRectangle.height
+      tempHeight = height
+      if heightIncludeKeyboard == UIScreen.main.bounds.size.width {
+        height += keyboardHeight
+      }
+      height = heightIncludeKeyboard
+      self.keyboardHeight = keyboardHeight
+    }
+    
+  }
+  
+  @objc func keyboardWillHide(_ notification: NSNotification) {
+    self.height = tempHeight
+    self.keyboardHeight = 0
   }
   
   func setupDragIndicatorView() {
