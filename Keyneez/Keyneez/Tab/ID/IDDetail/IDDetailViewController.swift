@@ -14,8 +14,9 @@ class IDDetailViewController: BottomSheetViewController {
     addSubview()
   }
   
+  private lazy var actions: IDDetailActionables = IDDetailActions(viewController: self)
+    
   private func addSubview() {
-    let actions = IDDetailActions()
     let idDetailView = IDdetailView(frame: .zero, actions: actions)
     contentView.addSubview(idDetailView)
     idDetailView.snp.makeConstraints {
