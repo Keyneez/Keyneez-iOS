@@ -98,7 +98,7 @@ extension HomeSearchViewController: UICollectionViewDelegateFlowLayout {
     return homeSearchInset
   }
   func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-    pushToContentDetailView(model: homeSearchList[indexPath.item])
+    pushToContentDetailView()
     return true
   }
 }

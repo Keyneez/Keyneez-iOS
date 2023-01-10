@@ -26,13 +26,6 @@ final class HomeSearchCollectionViewCell: UICollectionViewCell {
     $0.setImage(UIImage(named: "ic_favorite_search"), for: .selected)
     $0.addTarget(self, action: #selector(touchUpLikeButton), for: .touchUpInside)
   }
-  
-  // MARK: - Modern Collection View
-  var searchContent: HomeContentModel? {
-    didSet {
-      self.bindHomeSearchData(model: searchContent!)
-    }
-  }
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -62,7 +55,7 @@ extension HomeSearchCollectionViewCell {
       $0.centerX.equalToSuperview()
     }
   }
-  func bindHomeSearchData(model: HomeContentModel) {
+  func bindHomeSearchData(model: HomeSearchModel) {
     dateLabel.text = setDateLabel(model: model)
     titleLabel.text = model.contentTitle
   }
@@ -77,7 +70,7 @@ extension HomeSearchCollectionViewCell {
     let day = (fullDate[dayIndex...])
     return month + "." + day
   }
-  private func setDateLabel(model: HomeContentModel) -> String {
+  private func setDateLabel(model: HomeSearchModel) -> String {
     if model.startAt.isEmpty || model.endAt.isEmpty { return "2023 ~ " }
     return getDate(fullDate: model.startAt) + " ~ " + getDate(fullDate: model.endAt)
   }

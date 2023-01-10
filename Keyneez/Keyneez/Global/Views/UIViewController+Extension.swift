@@ -8,9 +8,9 @@
 import UIKit
 
 extension UIViewController {
-  func pushToContentDetailView(model: HomeContentModel) {
+  func pushToContentDetailView() {
     let contentDetailViewController = ContentDetailViewController()
-    contentDetailViewController.bindContentDetailData(model: model)
+//    contentDetailViewController.bindContentDetailData(model: model)
     self.navigationController?.pushViewController(contentDetailViewController, animated: true)
   }
 }

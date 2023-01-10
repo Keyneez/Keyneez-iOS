@@ -30,6 +30,7 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
   }
   private let contentContainerView: UIView = .init()
   private let contentTitle: UILabel = .init().then {
+    $0.text = "예시 타이틀"
     $0.font = .font(.pretendardBold, ofSize: 24)
     $0.textColor = .gray900
   }

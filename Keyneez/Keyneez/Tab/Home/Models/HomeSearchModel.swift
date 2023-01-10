@@ -30,4 +30,3 @@ var homeSearchList: [HomeSearchModel] = [
   HomeSearchModel(contentTitle: "청소년 영화관 할인", startAt: "", endAt: "", isLiked: false),
   HomeSearchModel(contentTitle: "농촌 봉사활동", startAt: "20221124", endAt: "20221231", isLiked: true)
 ]
-
