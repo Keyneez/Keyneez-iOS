@@ -60,6 +60,7 @@ disabled_rules:
   - number_separator
   - empty_count
   - line_length
+  - force_try
 #---------------------------
   - object_literal
   - file_name
@@ -70,7 +71,8 @@ disabled_rules:
   - vertical_whitespace_closing_braces
 
 # Customized Configurable Rules
-force_cast: error
+force_cast: warning
+force_try: warning
 nesting:
   type_level:
     warning: 3

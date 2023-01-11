@@ -51,7 +51,7 @@ final class Camera {
           sessionNotRunningcompletion?()
         }
       } else {
-        //TODO: 여기에 resumeButton 추가
+        // TODO: 여기에 resumeButton 추가
         DispatchQueue.main.async {
           sessionRunningCompletion?()
           //          self.resumeButton.isHidden = true
@@ -59,7 +59,6 @@ final class Camera {
       }
     }
   }
-  
   
 }
 
@@ -260,10 +259,10 @@ extension Camera {
         self.sessionQueue.async {
           self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = nil
         }
-      }, photoProcessingHandler: { animate in
+      }, photoProcessingHandler: { _ in
         // Animates a spinner while photo is processing
         DispatchQueue.main.async {
-          //TODO: 여기에 이미지 처리할때 어떻게 처리할지 정의
+          // TODO: 여기에 이미지 처리할때 어떻게 처리할지 정의
         }
       })
       

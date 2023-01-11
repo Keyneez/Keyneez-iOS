@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-import Foundation
 import UIKit
 
 // tableview, collectionview에 identifier 쓸때 파일이름과 동일하게

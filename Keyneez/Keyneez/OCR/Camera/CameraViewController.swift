@@ -72,8 +72,9 @@ final class CameraViewController: NiblessViewController {
   }
   
   private func didTouchswitchButton() {
-    if self.previewViewMode == .vertical { self.previewView.changeToHorizontal() }
-    else { self.previewView.changeToVertical() }
+    if self.previewViewMode == .vertical {
+      self.previewView.changeToHorizontal()
+    } else { self.previewView.changeToVertical() }
     self.previewViewMode.toggle()
     self.previewView.toggleCaptureModeUI(with: self.captureMode, previeMode: self.previewViewMode)
   }
@@ -194,6 +195,6 @@ extension CameraViewController {
   private func addsubview() {
     view.addSubviews(previewView)
     [navigationView, idCardNotWorkingButton, cameraButton, changeAutoModeButton]
-      .forEach { self.previewView.addSubview($0)}
+      .forEach { self.previewView.addSubview($0) }
   }
 }

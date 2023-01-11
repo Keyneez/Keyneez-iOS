@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Then
 
 class BottomSheetViewController: NiblessViewController {
   
@@ -44,7 +45,8 @@ extension BottomSheetViewController {
     view.addGestureRecognizer(viewPan)
   }
   
-  @objc private func viewPanned(_ panGestureRecognizer: UIPanGestureRecognizer) {
+  @objc
+  private func viewPanned(_ panGestureRecognizer: UIPanGestureRecognizer) {
     let velocity = panGestureRecognizer.velocity(in: view)
     if panGestureRecognizer.state == .ended && velocity.y > 1500 {
       self.dismiss(animated: true)
