@@ -149,6 +149,7 @@
 		B8C844D2296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844D1296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift */; };
 		B8FC663A296F22EA00AEE9C3 /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC6639296F22EA00AEE9C3 /* ContentAPI.swift */; };
 		B8FC663C296F2C5700AEE9C3 /* ContentAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC663B296F2C5700AEE9C3 /* ContentAPIProvider.swift */; };
+		B8FC663E296F2DDA00AEE9C3 /* ContentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC663D296F2DDA00AEE9C3 /* ContentRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +310,7 @@
 		B8C844D1296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCheckYouthIDRequestDto.swift; sourceTree = "<group>"; };
 		B8FC6639296F22EA00AEE9C3 /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
 		B8FC663B296F2C5700AEE9C3 /* ContentAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPIProvider.swift; sourceTree = "<group>"; };
+		B8FC663D296F2DDA00AEE9C3 /* ContentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -587,6 +589,7 @@
 		B14D10AD2959C9B80004946F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B8FC663D296F2DDA00AEE9C3 /* ContentRepository.swift */,
 				B8C02F1829656E33005612CE /* Controllers */,
 				B8C02F1729656E2D005612CE /* Views */,
 				B8C02F1629656E27005612CE /* Models */,
@@ -1229,6 +1232,7 @@
 				0230ADDE296EBDAD0079D799 /* ProductJellyRequestDto.swift in Sources */,
 				022CB21B296A11A40084DEF5 /* NavigationBarProtocol.swift in Sources */,
 				022CB212296957DB0084DEF5 /* DanalAuthViewController.swift in Sources */,
+				B8FC663E296F2DDA00AEE9C3 /* ContentRepository.swift in Sources */,
 				B1A80382296EA66F0007DDD9 /* GenericResponse.swift in Sources */,
 				B18B60D1296552DA00AF14F5 /* NiblessView.swift in Sources */,
 				B8C02F34296B1AA3005612CE /* HomeSearchViewController.swift in Sources */,
