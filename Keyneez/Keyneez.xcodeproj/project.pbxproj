@@ -102,6 +102,7 @@
 		B8C02F4C296E9221005612CE /* URLConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F4B296E9221005612CE /* URLConstant.swift */; };
 		B8C844BC296EADA500E88B86 /* HomeContentResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */; };
 		B8C844BE296EB0A100E88B86 /* ContentDetailResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */; };
+		B8C844C0296EB28D00E88B86 /* SearchContentResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844BF296EB28D00E88B86 /* SearchContentResponseDto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +216,7 @@
 		B8C02F4B296E9221005612CE /* URLConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstant.swift; sourceTree = "<group>"; };
 		B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentResponseDto.swift; sourceTree = "<group>"; };
 		B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailResponseDto.swift; sourceTree = "<group>"; };
+		B8C844BF296EB28D00E88B86 /* SearchContentResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentResponseDto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,6 +503,7 @@
 				B8C02F4B296E9221005612CE /* URLConstant.swift */,
 				B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */,
 				B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */,
+				B8C844BF296EB28D00E88B86 /* SearchContentResponseDto.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -913,6 +916,7 @@
 				02C066A42961C98600AED030 /* UIColor+Extension.swift in Sources */,
 				B10AAD8C2969B95900AB8475 /* CameraViewController.swift in Sources */,
 				B10AAD842969706700AB8475 /* IDNotAvailableView.swift in Sources */,
+				B8C844C0296EB28D00E88B86 /* SearchContentResponseDto.swift in Sources */,
 				B10AAD63296967F300AB8475 /* BenefitInfoView.swift in Sources */,
 				B8C02F44296C3DC2005612CE /* CategoryView.swift in Sources */,
 				B10AAD3C296967C700AB8475 /* SeparatedButton.swift in Sources */,
