@@ -28,7 +28,7 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
   }
   private let contentImageView = UIImageView().then {
     $0.layer.cornerRadius = 4
-    $0.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner,.layerMaxXMinYCorner)
+    $0.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
   }
   private let dateView = UIView().then {
     $0.backgroundColor = UIColor.gray050.withAlphaComponent(0.8)

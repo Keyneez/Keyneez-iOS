@@ -18,8 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       let window = UIWindow(windowScene: windowScene)
       window.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
       
-      let tabbarVC = KeyneezTabbarController()
-      window.rootViewController = tabbarVC
+      let rootVC = LandingPageViewController()
+      let navigationController = UINavigationController(rootViewController: rootVC)
+      navigationController.navigationBar.isHidden = true
+
+      window.rootViewController = navigationController
+      window.makeKeyAndVisible()
+      
+//      let tabbarVC = LandingPageViewController()
+//      window.rootViewController = tabbarVC
       window.makeKeyAndVisible()
       self.window = window
     }
