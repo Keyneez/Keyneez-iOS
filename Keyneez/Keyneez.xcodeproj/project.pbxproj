@@ -101,6 +101,7 @@
 		B8C02F46296D5ED2005612CE /* HomeSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F45296D5ED2005612CE /* HomeSearchModel.swift */; };
 		B8C02F4C296E9221005612CE /* URLConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F4B296E9221005612CE /* URLConstant.swift */; };
 		B8C844BC296EADA500E88B86 /* HomeContentResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */; };
+		B8C844BE296EB0A100E88B86 /* ContentDetailResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +214,7 @@
 		B8C02F45296D5ED2005612CE /* HomeSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchModel.swift; sourceTree = "<group>"; };
 		B8C02F4B296E9221005612CE /* URLConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstant.swift; sourceTree = "<group>"; };
 		B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentResponseDto.swift; sourceTree = "<group>"; };
+		B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailResponseDto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -498,6 +500,7 @@
 			children = (
 				B8C02F4B296E9221005612CE /* URLConstant.swift */,
 				B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */,
+				B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -885,6 +888,7 @@
 				B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */,
 				B187CA6D296C0787006B0AE1 /* IDCardGuideActionables.swift in Sources */,
 				B187CA67296BF896006B0AE1 /* IDInfoEditableViewController.swift in Sources */,
+				B8C844BE296EB0A100E88B86 /* ContentDetailResponseDto.swift in Sources */,
 				B10AAD3F296967C700AB8475 /* BottomSheetViewController.swift in Sources */,
 				B10AAD3D296967C700AB8475 /* UIView+Extension.swift in Sources */,
 				B8C02F46296D5ED2005612CE /* HomeSearchModel.swift in Sources */,
