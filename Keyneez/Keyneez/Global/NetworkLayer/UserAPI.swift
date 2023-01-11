@@ -15,7 +15,7 @@ enum UserAPIError: LocalizedError {
 }
 
 enum UserAPI {
-  case postUserInfo(param: UserInfoDTO)
+  case postUserInfo(param: UserCheckResponseDto)
 }
 
 extension UserAPI: TargetType {
