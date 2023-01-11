@@ -106,6 +106,7 @@
 		B8C844C2296EB35200E88B86 /* LikeContentResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844C1296EB35200E88B86 /* LikeContentResponseDto.swift */; };
 		B8C844C4296EB39700E88B86 /* LikeContentRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844C3296EB39700E88B86 /* LikeContentRequestDto.swift */; };
 		B8C844C6296EB41100E88B86 /* MyLikedContentResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844C5296EB41100E88B86 /* MyLikedContentResponseDto.swift */; };
+		B8C844C8296EB5B600E88B86 /* UserInquiryResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844C7296EB5B600E88B86 /* UserInquiryResponseDto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +224,7 @@
 		B8C844C1296EB35200E88B86 /* LikeContentResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeContentResponseDto.swift; sourceTree = "<group>"; };
 		B8C844C3296EB39700E88B86 /* LikeContentRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeContentRequestDto.swift; sourceTree = "<group>"; };
 		B8C844C5296EB41100E88B86 /* MyLikedContentResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLikedContentResponseDto.swift; sourceTree = "<group>"; };
+		B8C844C7296EB5B600E88B86 /* UserInquiryResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInquiryResponseDto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -513,6 +515,7 @@
 				B8C844C1296EB35200E88B86 /* LikeContentResponseDto.swift */,
 				B8C844C3296EB39700E88B86 /* LikeContentRequestDto.swift */,
 				B8C844C5296EB41100E88B86 /* MyLikedContentResponseDto.swift */,
+				B8C844C7296EB5B600E88B86 /* UserInquiryResponseDto.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -899,6 +902,7 @@
 				B10AAD61296967F300AB8475 /* IDCardContentView.swift in Sources */,
 				B8C02F0B2962F65E005612CE /* HomeViewController.swift in Sources */,
 				B187CA71296C096F006B0AE1 /* CameraMode.swift in Sources */,
+				B8C844C8296EB5B600E88B86 /* UserInquiryResponseDto.swift in Sources */,
 				B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */,
 				B187CA6D296C0787006B0AE1 /* IDCardGuideActionables.swift in Sources */,
 				B187CA67296BF896006B0AE1 /* IDInfoEditableViewController.swift in Sources */,
