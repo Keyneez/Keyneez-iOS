@@ -46,13 +46,13 @@ final class IDNotAvailableView: NiblessView {
   }
   
   private lazy var issueButton: UIButton = .init().then {
-    $0.keyneezButtonStyle(style: .whiteAct, title: Constant.buttonTitle, action: didTouchIssueButton)
+    $0.keyneezButtonStyle(style: .whiteAct, title: Constant.buttonTitle, action: action.touchIssueIDcard(to: makeCameraViewController()))
   }
   
-  var didTouchIssueButton: UIAction
+  private var action: IDNotAvailableActionables
   
-  init(frame: CGRect, action: UIAction) {
-    self.didTouchIssueButton = action
+  init(frame: CGRect, action: IDNotAvailableActionables) {
+    self.action = action
     super.init(frame: frame)
     [cardsImageView, titleLabel, descriptionLabel, issueButton].forEach {
       self.addSubview($0)
@@ -61,6 +61,13 @@ final class IDNotAvailableView: NiblessView {
     backgroundColor = .clear
   }
 
+}
+
+// MARK: - VC Factory
+extension IDNotAvailableView {
+  private func makeCameraViewController() -> CameraViewController {
+      return CameraViewController()
+  }
 }
 
 // MARK: - Private Method

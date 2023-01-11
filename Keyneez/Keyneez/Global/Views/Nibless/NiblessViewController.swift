@@ -33,10 +33,15 @@ class NiblessViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
+    navigationBackSwipeMotion()
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     self.view.endEditing(true)
+  }
+  
+  func navigationBackSwipeMotion() {
+      self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
   }
   
   override func viewWillAppear(_ animated: Bool) {

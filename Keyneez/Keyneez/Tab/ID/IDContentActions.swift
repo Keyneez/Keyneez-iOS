@@ -7,22 +7,41 @@
 
 import UIKit
 
-struct IDContentActions: IDCardContentActionables, IDIssueActionables {
+final class IDContentActions: IDCardContentActionables, IDNotAvailableActionables {
   
-  func touchDetailInfo() -> UIAction {
-    return UIAction(handler: { _ in print(self)})
+  private weak var viewController: NiblessViewController?
+  
+  func touchIssueIDcard(to target: NiblessViewController) -> UIAction {
+    return UIAction(handler: { [weak self] _ in
+      target.modalPresentationStyle = .fullScreen
+      self?.viewController?.present(target, animated: true)
+    })
   }
   
-  func touchIssueIDcard() -> UIAction {
-    return UIAction(handler: { _ in print(self)})
+  init(viewcontroller: NiblessViewController) {
+    self.viewController = viewcontroller
   }
   
-  func touchBenefitInfo() -> UIAction {
-    return UIAction(handler: { _ in print(self)})
+  func touchDetailInfo(to target: BottomSheetViewController) -> UIAction {
+    return UIAction(handler: { _ in
+      guard let vc = self.viewController else {return}
+      vc.present(target, animated: true)
+    })
   }
   
-  func touchRealIDCardAuth() -> UIAction {
-    return UIAction(handler: { _ in print(self)})
+  func touchBenefitInfo(to target: BottomSheetViewController) -> UIAction {
+    return UIAction(handler: { _ in
+      guard let vc = self.viewController else {return}
+      vc.present(target, animated: true)
+    })
+  }
+  
+  func touchRealIDCardAuth(to target: NiblessViewController) -> UIAction {
+    return UIAction(handler: { _ in
+      guard let vc = self.viewController else {return}
+      target.modalPresentationStyle = .fullScreen
+      vc.present(target, animated: true)
+    })
   }
   
 }
