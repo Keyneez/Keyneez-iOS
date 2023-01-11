@@ -99,9 +99,6 @@ final class PropensityTagViewController: NiblessViewController, NavigationBarPro
     return width
   }
   
-  override func viewDidLayoutSubviews() {
-    <#code#>
-  }
 }
 
 extension PropensityTagViewController {

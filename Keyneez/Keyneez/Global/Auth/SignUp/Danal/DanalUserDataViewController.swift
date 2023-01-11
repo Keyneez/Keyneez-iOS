@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 private struct Constant {
   static let firstTextFieldTop: CGFloat = 91
@@ -47,9 +48,38 @@ class DanalUserDataViewController: NiblessViewController, NavigationBarProtocol,
   var phoneTextCount: Int = 0
   var birthTextCount: Int = 0
   
+  private func signUp(with dto: ProductDanalRequestDto, completion: @escaping((ProductDanalResponseDto) -> Void)) {
+    UserAPIProvider.shared.postUserInfo(param: dto) { [weak self] result in
+      guard let self else { return }
+      switch result {
+      case .success(let data):
+        guard let userdata = data else {
+          // UI change
+          DispatchQueue.main.async {
+            // toast
+          }
+          return
+        }
+        // new one
+        DispatchQueue.main.async {
+          completion(userdata)
+        }
+        
+      case .failure(let error):
+        print(error)
+      }
+    }
+  }
+  
+  
   @objc
-  private func touchUpNextVC() {
-    pushToNextVC(VC: JellyMakeViewController())
+  private func touchUpNextVC(name: String, phone: String, birthday: String, gender: String) {
+    var danalRequestDTO = ProductDanalRequestDto(userName: name, userBirth: birthday,
+                                                 userGender: gender, userPhone: phone)
+    signUp(with: danalRequestDTO) { [weak self] userdata in
+      guard let self else { return }
+      self.pushToNextVC(VC: JellyMakeViewController())
+    }
   }
   
   private func setKeyboard() {

@@ -25,9 +25,9 @@ final class UserAPIProvider {
   
   private init() { }
   
-  func postUserInfo(param: UserCheckResponseDto, completion: @escaping (Result<UserInfo?, Error>) -> Void) {
+  func postUserInfo(param: ProductDanalRequestDto, completion: @escaping (Result<ProductDanalResponseDto?, Error>) -> Void) {
     let target = UserAPI.postUserInfo(param: param)
-    responseFrom(target, modelType: UserInfo.self, completion: completion)
+    responseFrom(target, modelType: ProductDanalResponseDto.self, completion: completion)
   }
   
 }

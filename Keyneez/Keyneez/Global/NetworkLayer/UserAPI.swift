@@ -9,13 +9,12 @@ import Foundation
 import Moya
 
 
-
 enum UserAPIError: LocalizedError {
   case encodingError
 }
 
 enum UserAPI {
-  case postUserInfo(param: UserCheckResponseDto)
+  case postUserInfo(param: ProductDanalRequestDto)
 }
 
 extension UserAPI: TargetType {
