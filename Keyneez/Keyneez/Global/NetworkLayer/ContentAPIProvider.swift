@@ -11,8 +11,9 @@ import Moya
 final class ContentAPIProvider {
   static let shared: ContentAPIProvider = .init()
   let contentProvider = MoyaProvider<ContentAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
-  func getAllContent() {
+  func getAllContent(completion: @escaping (Result<HomeContentResponseDto?, Error>) -> Void) {
     let target = ContentAPI.getAllContents
+    requestFrom(target, modelType: HomeContentResponseDto.self, completion: completion)
   }
 }
 
