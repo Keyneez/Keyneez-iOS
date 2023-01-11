@@ -80,6 +80,11 @@
 		B1A80361296DA4550007DDD9 /* IDInfoEditableActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80360296DA4550007DDD9 /* IDInfoEditableActions.swift */; };
 		B1A80363296DA9A40007DDD9 /* IDIssuedViewActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80362296DA9A40007DDD9 /* IDIssuedViewActionables.swift */; };
 		B1A80365296DD6430007DDD9 /* CameraViewActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80364296DD6430007DDD9 /* CameraViewActions.swift */; };
+		B1A8037A296E9D680007DDD9 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80379296E9D680007DDD9 /* Encodable.swift */; };
+		B1A8037C296E9DB60007DDD9 /* NetworkLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8037B296E9DB60007DDD9 /* NetworkLoggerPlugin.swift */; };
+		B1A8037E296E9DF20007DDD9 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8037D296E9DF20007DDD9 /* UserAPI.swift */; };
+		B1A80380296EA54E0007DDD9 /* UserAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8037F296EA54E0007DDD9 /* UserAPIProvider.swift */; };
+		B1A80382296EA66F0007DDD9 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80381296EA66F0007DDD9 /* GenericResponse.swift */; };
 		B1A80377296E98B70007DDD9 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80375296E98B70007DDD9 /* UserSession.swift */; };
 		B1A80378296E98B70007DDD9 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80376296E98B70007DDD9 /* KeyChainService.swift */; };
 		B1B21D0E295C985C0083D9EE /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D0D295C985C0083D9EE /* Toast */; };
@@ -208,6 +213,11 @@
 		B1A80360296DA4550007DDD9 /* IDInfoEditableActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDInfoEditableActions.swift; sourceTree = "<group>"; };
 		B1A80362296DA9A40007DDD9 /* IDIssuedViewActionables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDIssuedViewActionables.swift; sourceTree = "<group>"; };
 		B1A80364296DD6430007DDD9 /* CameraViewActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewActions.swift; sourceTree = "<group>"; };
+		B1A80379296E9D680007DDD9 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		B1A8037B296E9DB60007DDD9 /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
+		B1A8037D296E9DF20007DDD9 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		B1A8037F296EA54E0007DDD9 /* UserAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIProvider.swift; sourceTree = "<group>"; };
+		B1A80381296EA66F0007DDD9 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		B1A80375296E98B70007DDD9 /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		B1A80376296E98B70007DDD9 /* KeyChainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		B1B21D16295DE0660083D9EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -524,6 +534,11 @@
 		B14D10B92959CC340004946F /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				B1A80379296E9D680007DDD9 /* Encodable.swift */,
+				B1A8037B296E9DB60007DDD9 /* NetworkLoggerPlugin.swift */,
+				B1A8037D296E9DF20007DDD9 /* UserAPI.swift */,
+				B1A8037F296EA54E0007DDD9 /* UserAPIProvider.swift */,
+				B1A80381296EA66F0007DDD9 /* GenericResponse.swift */,
 				B8C844D4296EBD8100E88B86 /* DTO */,
 				B8C844D3296EBD7600E88B86 /* Base */,
 			);
@@ -964,6 +979,7 @@
 				B8C844C2296EB35200E88B86 /* LikeContentResponseDto.swift in Sources */,
 				B10AAD922969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift in Sources */,
 				B10AAD8329696FCD00AB8475 /* IDDetailView.swift in Sources */,
+				B1A8037A296E9D680007DDD9 /* Encodable.swift in Sources */,
 				B10AAD8229696FCA00AB8475 /* IDDetailViewController.swift in Sources */,
 				B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */,
 				023B559429655CD200FB2462 /* CGFloat+Extension.swift in Sources */,
@@ -994,6 +1010,7 @@
 				B8C844D2296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift in Sources */,
 				B187CA6D296C0787006B0AE1 /* IDCardGuideActionables.swift in Sources */,
 				B187CA67296BF896006B0AE1 /* IDInfoEditableViewController.swift in Sources */,
+				B1A8037C296E9DB60007DDD9 /* NetworkLoggerPlugin.swift in Sources */,
 				B8C844BE296EB0A100E88B86 /* ContentDetailResponseDto.swift in Sources */,
 				B8C844C6296EB41100E88B86 /* MyLikedContentResponseDto.swift in Sources */,
 				B10AAD3F296967C700AB8475 /* BottomSheetViewController.swift in Sources */,
@@ -1009,6 +1026,7 @@
 				B10AAD43296967D000AB8475 /* CustomNavigationAnimator.swift in Sources */,
 				B8C02F38296B3F6E005612CE /* HomeSearchCollectionViewCell.swift in Sources */,
 				B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */,
+				B1A8037E296E9DF20007DDD9 /* UserAPI.swift in Sources */,
 				B1A80378296E98B70007DDD9 /* KeyChainService.swift in Sources */,
 				B181235A296B2EF20029FEB6 /* IDCardGuideViewController.swift in Sources */,
 				B8C02F2829682E41005612CE /* HomeContentCollectionViewCell.swift in Sources */,
@@ -1016,10 +1034,12 @@
 				B187CA81296C8378006B0AE1 /* Camera.swift in Sources */,
 				B14D10AF2959CA080004946F /* KeyneezTabbarController.swift in Sources */,
 				B10AAD62296967F300AB8475 /* BenefitInfoViewController.swift in Sources */,
+				B1A80382296EA66F0007DDD9 /* GenericResponse.swift in Sources */,
 				B18B60D1296552DA00AF14F5 /* NiblessView.swift in Sources */,
 				B8C02F34296B1AA3005612CE /* HomeSearchViewController.swift in Sources */,
 				B18B60D4296552DA00AF14F5 /* NavigationBarProtocol.swift in Sources */,
 				02C066A42961C98600AED030 /* UIColor+Extension.swift in Sources */,
+				B1A80380296EA54E0007DDD9 /* UserAPIProvider.swift in Sources */,
 				B10AAD8C2969B95900AB8475 /* CameraViewController.swift in Sources */,
 				B10AAD842969706700AB8475 /* IDNotAvailableView.swift in Sources */,
 				B8C844C0296EB28D00E88B86 /* SearchContentResponseDto.swift in Sources */,
