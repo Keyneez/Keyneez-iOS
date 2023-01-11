@@ -700,12 +700,46 @@
 		B8C844D4296EBD8100E88B86 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */,
-				B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */,
-				B8C844BF296EB28D00E88B86 /* SearchContentResponseDto.swift */,
+				B8FC6638296EC65900AEE9C3 /* SignIn */,
+				B8FC6637296EC65400AEE9C3 /* SignUp */,
+				B8FC6636296EC64B00AEE9C3 /* ID */,
+				B8FC6635296EC63E00AEE9C3 /* MyPage */,
+				B8FC6634296EC63800AEE9C3 /* Home */,
+				B8FC6633296EC63200AEE9C3 /* Like */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		B8FC6633296EC63200AEE9C3 /* Like */ = {
+			isa = PBXGroup;
+			children = (
 				B8C844C1296EB35200E88B86 /* LikeContentResponseDto.swift */,
 				B8C844C3296EB39700E88B86 /* LikeContentRequestDto.swift */,
 				B8C844C5296EB41100E88B86 /* MyLikedContentResponseDto.swift */,
+			);
+			path = Like;
+			sourceTree = "<group>";
+		};
+		B8FC6634296EC63800AEE9C3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */,
+				B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */,
+				B8C844BF296EB28D00E88B86 /* SearchContentResponseDto.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B8FC6635296EC63E00AEE9C3 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		B8FC6636296EC64B00AEE9C3 /* ID */ = {
+			isa = PBXGroup;
+			children = (
 				B8C844C7296EB5B600E88B86 /* UserInquiryResponseDto.swift */,
 				B8C844C9296EB7F900E88B86 /* EditUserResponseDto.swift */,
 				B8C844CB296EBA0B00E88B86 /* EditUserRequestDto.swift */,
@@ -713,7 +747,21 @@
 				B8C844CF296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift */,
 				B8C844D1296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift */,
 			);
-			path = DTO;
+			path = ID;
+			sourceTree = "<group>";
+		};
+		B8FC6637296EC65400AEE9C3 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		B8FC6638296EC65900AEE9C3 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
