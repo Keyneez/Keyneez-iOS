@@ -105,6 +105,7 @@
 		B8C844C0296EB28D00E88B86 /* SearchContentResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844BF296EB28D00E88B86 /* SearchContentResponseDto.swift */; };
 		B8C844C2296EB35200E88B86 /* LikeContentResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844C1296EB35200E88B86 /* LikeContentResponseDto.swift */; };
 		B8C844C4296EB39700E88B86 /* LikeContentRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844C3296EB39700E88B86 /* LikeContentRequestDto.swift */; };
+		B8C844C6296EB41100E88B86 /* MyLikedContentResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844C5296EB41100E88B86 /* MyLikedContentResponseDto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +222,7 @@
 		B8C844BF296EB28D00E88B86 /* SearchContentResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentResponseDto.swift; sourceTree = "<group>"; };
 		B8C844C1296EB35200E88B86 /* LikeContentResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeContentResponseDto.swift; sourceTree = "<group>"; };
 		B8C844C3296EB39700E88B86 /* LikeContentRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeContentRequestDto.swift; sourceTree = "<group>"; };
+		B8C844C5296EB41100E88B86 /* MyLikedContentResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLikedContentResponseDto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -510,6 +512,7 @@
 				B8C844BF296EB28D00E88B86 /* SearchContentResponseDto.swift */,
 				B8C844C1296EB35200E88B86 /* LikeContentResponseDto.swift */,
 				B8C844C3296EB39700E88B86 /* LikeContentRequestDto.swift */,
+				B8C844C5296EB41100E88B86 /* MyLikedContentResponseDto.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 				B187CA6D296C0787006B0AE1 /* IDCardGuideActionables.swift in Sources */,
 				B187CA67296BF896006B0AE1 /* IDInfoEditableViewController.swift in Sources */,
 				B8C844BE296EB0A100E88B86 /* ContentDetailResponseDto.swift in Sources */,
+				B8C844C6296EB41100E88B86 /* MyLikedContentResponseDto.swift in Sources */,
 				B10AAD3F296967C700AB8475 /* BottomSheetViewController.swift in Sources */,
 				B10AAD3D296967C700AB8475 /* UIView+Extension.swift in Sources */,
 				B8C02F46296D5ED2005612CE /* HomeSearchModel.swift in Sources */,
