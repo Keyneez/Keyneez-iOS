@@ -100,7 +100,7 @@
 		B8C02F44296C3DC2005612CE /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F43296C3DC2005612CE /* CategoryView.swift */; };
 		B8C02F46296D5ED2005612CE /* HomeSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F45296D5ED2005612CE /* HomeSearchModel.swift */; };
 		B8C02F4C296E9221005612CE /* URLConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F4B296E9221005612CE /* URLConstant.swift */; };
-		B8C844BC296EADA500E88B86 /* HomeContentDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844BB296EADA500E88B86 /* HomeContentDto.swift */; };
+		B8C844BC296EADA500E88B86 /* HomeContentResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,7 +212,7 @@
 		B8C02F43296C3DC2005612CE /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		B8C02F45296D5ED2005612CE /* HomeSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchModel.swift; sourceTree = "<group>"; };
 		B8C02F4B296E9221005612CE /* URLConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstant.swift; sourceTree = "<group>"; };
-		B8C844BB296EADA500E88B86 /* HomeContentDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentDto.swift; sourceTree = "<group>"; };
+		B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentResponseDto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -497,7 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				B8C02F4B296E9221005612CE /* URLConstant.swift */,
-				B8C844BB296EADA500E88B86 /* HomeContentDto.swift */,
+				B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -872,7 +872,7 @@
 				B187CA7C296C5B21006B0AE1 /* IDIssuedViewController.swift in Sources */,
 				B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */,
 				B1812357296B001B0029FEB6 /* UIImage+Extension.swift in Sources */,
-				B8C844BC296EADA500E88B86 /* HomeContentDto.swift in Sources */,
+				B8C844BC296EADA500E88B86 /* HomeContentResponseDto.swift in Sources */,
 				B187CA7E296C5B2C006B0AE1 /* IDIssuedView.swift in Sources */,
 				B8C02F2429681E62005612CE /* HomeContentModel.swift in Sources */,
 				B8C02F30296B185B005612CE /* UISegmentedControl+Extension.swift in Sources */,
