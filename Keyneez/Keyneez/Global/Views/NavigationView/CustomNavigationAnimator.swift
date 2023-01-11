@@ -60,11 +60,11 @@ extension CustomNavigationAnimator: UIViewControllerAnimatedTransitioning {
         withDuration: animationDuration,
         animations: {
           controller.view.frame = finalFrame
-      }, completion: { finished in
+      }, completion: { ended in
         if !self.isPresentation {
           controller.view.removeFromSuperview()
         }
-        transitionContext.completeTransition(finished)
+        transitionContext.completeTransition(ended)
       })
 
   }

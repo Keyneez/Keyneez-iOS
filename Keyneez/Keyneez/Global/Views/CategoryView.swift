@@ -9,13 +9,15 @@ import UIKit
 import Then
 import SnapKit
 
-final class CategoryView: UIView {
+final class CategoryView: NiblessView {
+  
   private func setCategoryView() {
     self.backgroundColor = .gray050
     self.layer.cornerRadius = 16
     self.layer.borderWidth = 1.5
     self.layer.borderColor = UIColor.mint500.cgColor
   }
+  
   private let category = UILabel().then {
     $0.text = "문화"
     $0.textColor = UIColor.mint500
@@ -27,9 +29,7 @@ final class CategoryView: UIView {
     setCategoryView()
     setLayout()
   }
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
+
 }
 
 extension CategoryView {
