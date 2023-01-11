@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-//TODO: - 2개만 선택되게 !!!!!
+// TODO: - 2개만 선택되게 !!!!!
 class JellyProductViewController: NiblessViewController {
   
   // MARK: - UI Components

@@ -66,6 +66,4 @@ extension NiblessViewController {
   @objc func keyboardWillHide(_ notification: NSNotification) {
     self.keyboardHeight = 0
   }
-  
-  
 }

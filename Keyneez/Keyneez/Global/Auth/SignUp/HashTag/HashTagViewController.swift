@@ -18,7 +18,6 @@ private struct Constant {
 
 final class HashTagViewController: NiblessViewController, NavigationBarProtocol {
   
-  
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
 
   var contentView = UIView()

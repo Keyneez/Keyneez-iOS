@@ -36,9 +36,7 @@ class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
   })
   
   var contentView = UIView()
-  
-  var actions = SignUpActions()
-  
+    
   private let titleLabel: UILabel = .init().then {
     $0.text = "간편 비밀번호를\n설정해주세요"
     $0.font = .font(.pretendardBold, ofSize: 24)
@@ -174,9 +172,9 @@ extension SimplePwdViewController: UICollectionViewDataSource {
     return pwdNumberData.count
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SimplePwdCollectionViewCell.identifier, for: indexPath)
-             as? SimplePwdCollectionViewCell else {return UICollectionViewCell() }
-      cell.dataBind(model: pwdNumberData[indexPath.item])
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SimplePwdCollectionViewCell.identifier, for: indexPath)
+            as? SimplePwdCollectionViewCell else {return UICollectionViewCell() }
+    cell.dataBind(model: pwdNumberData[indexPath.item])
     if indexPath.item == 9 {
       cell.number.font = .font(.pretendardBold, ofSize: 16)
       cell.number.textColor = .gray500
@@ -184,15 +182,14 @@ extension SimplePwdViewController: UICollectionViewDataSource {
     if indexPath.item == 11 {
       cell.backImageView.isHidden = false
     }
-     return cell
- }
-  
-  
+    return cell
+  }
+    
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-    //간편 비밀번호 로직
+    // 간편 비밀번호 로직
     
-    if indexPath.item != 11 {
+    if indexPath.item != 11 && indexPath.item != 9 {
       Constant.index += 1
       switch Constant.index {
       case 1:
@@ -211,16 +208,14 @@ extension SimplePwdViewController: UICollectionViewDataSource {
         collectionView.deselectItem(at: indexPath, animated: true)
       default:
         return
-
+        
       }
     } else {
       if Constant.index > 0 && Constant.index < 7 {
         Constant.index -= 1
         progressImageView.image = UIImage(named: Constant.imageArray[Constant.index])
-      } else if Constant.index < 0 {Constant.index = 0}
+      } else if Constant.index < 0 {Constant.index = 0 }
       else if Constant.index > 6 {Constant.index = 6}
     }
   }
 }
-
-

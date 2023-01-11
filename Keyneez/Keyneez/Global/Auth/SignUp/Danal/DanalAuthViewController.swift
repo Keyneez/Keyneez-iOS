@@ -39,7 +39,7 @@ final class DanalAuthViewController: NiblessViewController, NavigationBarProtoco
   
   @objc
   private func touchUpNextVC() {
-    pushToNextVC(VC:DanalAuthSuccessViewController())
+    pushToNextVC(VC: DanalUserDataViewController())
   }
   
   // MARK: - Life Cycles

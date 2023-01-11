@@ -90,8 +90,8 @@ extension UIButton {
     self.titleLabel?.font = UIFont.font(.pretendardMedium, ofSize: 24)
     self.backgroundColor = style.backgroundColor
     self.setTitleColor(style.foregroundColor, for: .normal)
-    self.setRound([.bottomLeft, .bottomRight, .topRight], radius: 24)
-    self.layer.cornerRadius = 4
-    self.layer.maskedCorners = CACornerMask.layerMaxXMinYCorner
+//    self.setRound([.bottomLeft, .bottomRight, .topRight], radius: 24)
+//    self.layer.cornerRadius = 4
+//    self.layer.maskedCorners = CACornerMask.layerMaxXMinYCorner
   }
 }

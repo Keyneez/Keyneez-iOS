@@ -37,8 +37,6 @@ class SimpleLoginViewController: NiblessViewController, NavigationBarProtocol {
   
   var contentView = UIView()
   
-  var actions = SignUpActions()
-  
   private let titleLabel: UILabel = .init().then {
     $0.text = "간편 비밀번호를\n입력해주세요"
     $0.font = .font(.pretendardBold, ofSize: 24)
@@ -182,10 +180,9 @@ extension SimpleLoginViewController: UICollectionViewDataSource {
      return cell
  }
   
-  
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-    //간편 비밀번호 로직
+    // 간편 비밀번호 로직
     
     if indexPath.item != 11 {
       Constant.index += 1
@@ -219,5 +216,3 @@ extension SimpleLoginViewController: UICollectionViewDataSource {
     print(Constant.index)
   }
 }
-
-

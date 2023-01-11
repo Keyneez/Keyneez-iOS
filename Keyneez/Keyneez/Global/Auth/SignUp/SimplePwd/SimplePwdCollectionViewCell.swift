@@ -15,7 +15,8 @@ class SimplePwdCollectionViewCell: UICollectionViewCell {
     $0.textAlignment = .center
     $0.font = UIFont.font(.pretendardBold, ofSize: 24)
     $0.textColor = .gray900
-  }
+     
+   }
   
   let backImageView = UIImageView().then {
     $0.image = UIImage(named: "ic_backspace")

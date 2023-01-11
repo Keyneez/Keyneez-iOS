@@ -35,20 +35,20 @@ final class PropensityTagViewController: NiblessViewController, NavigationBarPro
     $0.numberOfLines = 0
   }
   
-  private lazy var activeButton = UIButton().then {
+  private let activeButton = UIButton().then {
     $0.tag = 0
     $0.propensityTagButtonStyle(style: .propensityTagUnact, title: propensityTagUnclickData[$0.tag].text)
     $0.isUserInteractionEnabled = true
     $0.addTarget(self, action: #selector(selectOptionBtnAction), for: .touchUpInside)
   }
-  private lazy var curiousButton = UIButton().then {
+  private let curiousButton = UIButton().then {
     $0.tag = 1
     $0.isSelected = false
     $0.propensityTagButtonStyle(style: .propensityTagUnact, title: propensityTagUnclickData[$0.tag].text)
     $0.isUserInteractionEnabled = true
     $0.addTarget(self, action: #selector(selectOptionBtnAction), for: .touchUpInside)
   }
-  private lazy var comportableButton = UIButton().then {
+  private let comportableButton = UIButton().then {
     $0.tag = 2
     $0.isSelected = false
     $0.propensityTagButtonStyle(style: .propensityTagUnact, title: propensityTagUnclickData[$0.tag].text)
@@ -97,6 +97,10 @@ final class PropensityTagViewController: NiblessViewController, NavigationBarPro
     button.titleLabel?.sizeToFit()
     let width = ((button.titleLabel?.frame.width)!) + Constant.btnMargin * 2
     return width
+  }
+  
+  override func viewDidLayoutSubviews() {
+    <#code#>
   }
 }
 

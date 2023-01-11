@@ -37,8 +37,6 @@ class SimplePwdCheckViewController: NiblessViewController, NavigationBarProtocol
   
   var contentView = UIView()
   
-  var actions = SignUpActions()
-  
   private let titleLabel: UILabel = .init().then {
     $0.text = "설정한 비밀번호를\n한번 더 입력해주세요"
     $0.font = .font(.pretendardBold, ofSize: 24)
@@ -104,8 +102,6 @@ class SimplePwdCheckViewController: NiblessViewController, NavigationBarProtocol
 }
 
 extension SimplePwdCheckViewController {
-
-
   private func setConfig() {
     view.backgroundColor = .gray050
     [titleLabel, progressImageView, faceIDStackVIew, collectionView].forEach {
@@ -182,11 +178,8 @@ extension SimplePwdCheckViewController: UICollectionViewDataSource {
     }
      return cell
  }
-  
-  
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
-    //간편 비밀번호 로직
+    // 간편 비밀번호 로직
     
     if indexPath.item != 11 {
       Constant.index += 1
@@ -207,7 +200,7 @@ extension SimplePwdCheckViewController: UICollectionViewDataSource {
         collectionView.deselectItem(at: indexPath, animated: true)
         if checkImageView.image == UIImage(named: "select") {
           setAuthAlert()
-        }else {
+        } else {
           pushToNextVC(VC: KeyneezTabbarController())
         }
       default:
