@@ -18,10 +18,8 @@ final class KeyneezContentRepository: ContentRepository {
   }
   
   func getDetailContent(token: String, contentID: Int) {
-    <#code#>
   }
   
   func getSearchContent(token: String, keyword: String) {
-    <#code#>
   }
 }

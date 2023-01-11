@@ -10,7 +10,7 @@ import Moya
 
 enum ContentAPI {
   case getAllContents
-  case getDetailContent(param: HomeContentResponseDto)
+  case getDetailContent(param: ContentDetailResponseDto)
   case getSearchContent(keyword: String)
   case postLikeContent
   case getLikedContent
