@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269E2292961DC3700309E8A /* UIFont+Extension.swift */; };
 		02C066A42961C98600AED030 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C066A32961C98600AED030 /* UIColor+Extension.swift */; };
 		02F262AE2965ABEE005A1CE4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F262AD2965ABEE005A1CE4 /* LoadingView.swift */; };
+		1D6CD1BFF0476985CA56B7A7 /* Pods_Keyneez_KeyneezUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2690E656AE8959F583967C /* Pods_Keyneez_KeyneezUITests.framework */; };
 		B10AAD3C296967C700AB8475 /* SeparatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD38296967C600AB8475 /* SeparatedButton.swift */; };
 		B10AAD3D296967C700AB8475 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD39296967C700AB8475 /* UIView+Extension.swift */; };
 		B10AAD3E296967C700AB8475 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD3A296967C700AB8475 /* ReusableView.swift */; };
@@ -99,6 +100,8 @@
 		B8C02F42296C3983005612CE /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F41296C3983005612CE /* UIViewController+Extension.swift */; };
 		B8C02F44296C3DC2005612CE /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F43296C3DC2005612CE /* CategoryView.swift */; };
 		B8C02F46296D5ED2005612CE /* HomeSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F45296D5ED2005612CE /* HomeSearchModel.swift */; };
+		C4E673A65B49C299A564EA37 /* Pods_Keyneez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0913865316C3A35604014EFF /* Pods_Keyneez.framework */; };
+		D751BF704437497F572C630B /* Pods_KeyneezTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136F9C3DABF1403A41A57E9F /* Pods_KeyneezTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +132,13 @@
 		0269E2292961DC3700309E8A /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		02C066A32961C98600AED030 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		02F262AD2965ABEE005A1CE4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		0913865316C3A35604014EFF /* Pods_Keyneez.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Keyneez.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		136F9C3DABF1403A41A57E9F /* Pods_KeyneezTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyneezTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53C4AC44C573A1F105AE3493 /* Pods-KeyneezTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyneezTests.debug.xcconfig"; path = "Target Support Files/Pods-KeyneezTests/Pods-KeyneezTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7674DF794F82FABE2D9EFE16 /* Pods-Keyneez-KeyneezUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez-KeyneezUITests.debug.xcconfig"; path = "Target Support Files/Pods-Keyneez-KeyneezUITests/Pods-Keyneez-KeyneezUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		77D3428FD56E61A83865CEDA /* Pods-KeyneezTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyneezTests.release.xcconfig"; path = "Target Support Files/Pods-KeyneezTests/Pods-KeyneezTests.release.xcconfig"; sourceTree = "<group>"; };
+		A40410AD213302D4DCE6E471 /* Pods-Keyneez-KeyneezUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez-KeyneezUITests.release.xcconfig"; path = "Target Support Files/Pods-Keyneez-KeyneezUITests/Pods-Keyneez-KeyneezUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AD2690E656AE8959F583967C /* Pods_Keyneez_KeyneezUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Keyneez_KeyneezUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B10AAD38296967C600AB8475 /* SeparatedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatedButton.swift; sourceTree = "<group>"; };
 		B10AAD39296967C700AB8475 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B10AAD3A296967C700AB8475 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
@@ -209,6 +219,8 @@
 		B8C02F41296C3983005612CE /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B8C02F43296C3DC2005612CE /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		B8C02F45296D5ED2005612CE /* HomeSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchModel.swift; sourceTree = "<group>"; };
+		E3818A1590105286D89CFDC2 /* Pods-Keyneez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez.release.xcconfig"; path = "Target Support Files/Pods-Keyneez/Pods-Keyneez.release.xcconfig"; sourceTree = "<group>"; };
+		FC64DF4CF12A8089751D7DC1 /* Pods-Keyneez.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez.debug.xcconfig"; path = "Target Support Files/Pods-Keyneez/Pods-Keyneez.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +236,7 @@
 				B1B21D11295C99280083D9EE /* FloatingPanel in Frameworks */,
 				B1B21D0E295C985C0083D9EE /* Toast in Frameworks */,
 				B14D10BE2959D26C0004946F /* Then in Frameworks */,
+				C4E673A65B49C299A564EA37 /* Pods_Keyneez.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D751BF704437497F572C630B /* Pods_KeyneezTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +252,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D6CD1BFF0476985CA56B7A7 /* Pods_Keyneez_KeyneezUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +283,30 @@
 				0253816629674D3D00D29A97 /* LandingPageViewController.swift */,
 			);
 			path = LandingPageView;
+			sourceTree = "<group>";
+		};
+		0BF31931D3C2D8F8B817516C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC64DF4CF12A8089751D7DC1 /* Pods-Keyneez.debug.xcconfig */,
+				E3818A1590105286D89CFDC2 /* Pods-Keyneez.release.xcconfig */,
+				7674DF794F82FABE2D9EFE16 /* Pods-Keyneez-KeyneezUITests.debug.xcconfig */,
+				A40410AD213302D4DCE6E471 /* Pods-Keyneez-KeyneezUITests.release.xcconfig */,
+				53C4AC44C573A1F105AE3493 /* Pods-KeyneezTests.debug.xcconfig */,
+				77D3428FD56E61A83865CEDA /* Pods-KeyneezTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		602536908343F20172C71F32 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0913865316C3A35604014EFF /* Pods_Keyneez.framework */,
+				AD2690E656AE8959F583967C /* Pods_Keyneez_KeyneezUITests.framework */,
+				136F9C3DABF1403A41A57E9F /* Pods_KeyneezTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		B10AAD4A296967F100AB8475 /* IDCard */ = {
@@ -344,6 +383,8 @@
 				B14D109D2959C79A0004946F /* KeyneezUITests */,
 				B14D107B2959C7980004946F /* Products */,
 				B18B60A72965522600AF14F5 /* Recovered References */,
+				0BF31931D3C2D8F8B817516C /* Pods */,
+				602536908343F20172C71F32 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -668,10 +709,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B14D10A42959C79A0004946F /* Build configuration list for PBXNativeTarget "Keyneez" */;
 			buildPhases = (
+				AA4D5E7F621AE6EBC973A42A /* [CP] Check Pods Manifest.lock */,
 				B1B21D15295DDE170083D9EE /* SwiftLint Script */,
 				B14D10762959C7980004946F /* Sources */,
 				B14D10772959C7980004946F /* Frameworks */,
 				B14D10782959C7980004946F /* Resources */,
+				565039BFF4F5DB9EE46340FC /* [CP] Embed Pods Frameworks */,
+				BC7733C38E3330379D185693 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -696,6 +740,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B14D10A72959C79A0004946F /* Build configuration list for PBXNativeTarget "KeyneezTests" */;
 			buildPhases = (
+				2A87E28258FC274AC09F6E99 /* [CP] Check Pods Manifest.lock */,
 				B14D108C2959C79A0004946F /* Sources */,
 				B14D108D2959C79A0004946F /* Frameworks */,
 				B14D108E2959C79A0004946F /* Resources */,
@@ -714,9 +759,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B14D10AA2959C79A0004946F /* Build configuration list for PBXNativeTarget "KeyneezUITests" */;
 			buildPhases = (
+				18070B175DD83C25997D881A /* [CP] Check Pods Manifest.lock */,
 				B14D10962959C79A0004946F /* Sources */,
 				B14D10972959C79A0004946F /* Frameworks */,
 				B14D10982959C79A0004946F /* Resources */,
+				28B2F6826D4B593B544601E8 /* [CP] Embed Pods Frameworks */,
+				7BC9E1C0E61EE0B6556A2E73 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -752,7 +800,7 @@
 				};
 			};
 			buildConfigurationList = B14D10752959C7980004946F /* Build configuration list for PBXProject "Keyneez" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -762,13 +810,13 @@
 			mainGroup = B14D10712959C7980004946F;
 			packageReferences = (
 				B14D10BC2959D26C0004946F /* XCRemoteSwiftPackageReference "Then" */,
-				B14D10BF2959D2BC0004946F /* XCRemoteSwiftPackageReference "Moya" */,
-				B14D10C22959D3070004946F /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				B14D10BF2959D2BC0004946F /* XCRemoteSwiftPackageReference "Moya.git" */,
+				B14D10C22959D3070004946F /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
 				B14D10C52959D3710004946F /* XCRemoteSwiftPackageReference "SnapKit" */,
-				B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift" */,
-				B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel" */,
-				B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty" */,
-				B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet" */,
+				B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift.git" */,
+				B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel.git" */,
+				B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty.git" */,
+				B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet.git" */,
 			);
 			productRefGroup = B14D107B2959C7980004946F /* Products */;
 			projectDirPath = "";
@@ -812,6 +860,123 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		18070B175DD83C25997D881A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Keyneez-KeyneezUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		28B2F6826D4B593B544601E8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Keyneez-KeyneezUITests/Pods-Keyneez-KeyneezUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Keyneez-KeyneezUITests/Pods-Keyneez-KeyneezUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Keyneez-KeyneezUITests/Pods-Keyneez-KeyneezUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A87E28258FC274AC09F6E99 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KeyneezTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		565039BFF4F5DB9EE46340FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Keyneez/Pods-Keyneez-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Keyneez/Pods-Keyneez-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Keyneez/Pods-Keyneez-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BC9E1C0E61EE0B6556A2E73 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Keyneez-KeyneezUITests/Pods-Keyneez-KeyneezUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Keyneez-KeyneezUITests/Pods-Keyneez-KeyneezUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Keyneez-KeyneezUITests/Pods-Keyneez-KeyneezUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA4D5E7F621AE6EBC973A42A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Keyneez-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B1B21D15295DDE170083D9EE /* SwiftLint Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -831,6 +996,23 @@
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		BC7733C38E3330379D185693 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Keyneez/Pods-Keyneez-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Keyneez/Pods-Keyneez-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Keyneez/Pods-Keyneez-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -843,7 +1025,6 @@
 				B10AAD3E296967C700AB8475 /* ReusableView.swift in Sources */,
 				B1A80361296DA4550007DDD9 /* IDInfoEditableActions.swift in Sources */,
 				B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */,
-				B8C02F2C29696537005612CE /* HomePopularViewController.swift in Sources */,
 				B1A80363296DA9A40007DDD9 /* IDIssuedViewActionables.swift in Sources */,
 				B18B60D2296552DA00AF14F5 /* NiblessViewController.swift in Sources */,
 				B10AAD64296967F300AB8475 /* BenefitCollectionViewCell.swift in Sources */,
@@ -883,7 +1064,6 @@
 				B10AAD3D296967C700AB8475 /* UIView+Extension.swift in Sources */,
 				B8C02F46296D5ED2005612CE /* HomeSearchModel.swift in Sources */,
 				B14D10802959C7980004946F /* SceneDelegate.swift in Sources */,
-				B8C02F2E29696DFD005612CE /* HomeNewestViewController.swift in Sources */,
 				B187CA6F296C07CF006B0AE1 /* IDCardGuideActions.swift in Sources */,
 				B10AAD6E296967F300AB8475 /* IDContentActions.swift in Sources */,
 				B10AAD68296967F300AB8475 /* IDCardCotentActionables.swift in Sources */,
@@ -1078,6 +1258,7 @@
 		};
 		B14D10A52959C79A0004946F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC64DF4CF12A8089751D7DC1 /* Pods-Keyneez.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1110,6 +1291,7 @@
 		};
 		B14D10A62959C79A0004946F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3818A1590105286D89CFDC2 /* Pods-Keyneez.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1142,6 +1324,7 @@
 		};
 		B14D10A82959C79A0004946F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53C4AC44C573A1F105AE3493 /* Pods-KeyneezTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1162,6 +1345,7 @@
 		};
 		B14D10A92959C79A0004946F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77D3428FD56E61A83865CEDA /* Pods-KeyneezTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1182,6 +1366,7 @@
 		};
 		B14D10AB2959C79A0004946F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7674DF794F82FABE2D9EFE16 /* Pods-Keyneez-KeyneezUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1200,6 +1385,7 @@
 		};
 		B14D10AC2959C79A0004946F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A40410AD213302D4DCE6E471 /* Pods-Keyneez-KeyneezUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1258,7 +1444,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+		B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/joomcode/BottomSheet.git";
 			requirement = {
@@ -1274,7 +1460,7 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		B14D10BF2959D2BC0004946F /* XCRemoteSwiftPackageReference "Moya" */ = {
+		B14D10BF2959D2BC0004946F /* XCRemoteSwiftPackageReference "Moya.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
 			requirement = {
@@ -1282,7 +1468,7 @@
 				minimumVersion = 15.0.0;
 			};
 		};
-		B14D10C22959D3070004946F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		B14D10C22959D3070004946F /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -1298,7 +1484,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+		B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
 			requirement = {
@@ -1306,7 +1492,7 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+		B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scenee/FloatingPanel.git";
 			requirement = {
@@ -1314,7 +1500,7 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty" */ = {
+		B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kciter/Floaty.git";
 			requirement = {
@@ -1327,7 +1513,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		B10AACFA29673D4100AB8475 /* BottomSheet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			package = B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet.git" */;
 			productName = BottomSheet;
 		};
 		B14D10BD2959D26C0004946F /* Then */ = {
@@ -1337,12 +1523,12 @@
 		};
 		B14D10C02959D2BC0004946F /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B14D10BF2959D2BC0004946F /* XCRemoteSwiftPackageReference "Moya" */;
+			package = B14D10BF2959D2BC0004946F /* XCRemoteSwiftPackageReference "Moya.git" */;
 			productName = Moya;
 		};
 		B14D10C32959D3070004946F /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B14D10C22959D3070004946F /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = B14D10C22959D3070004946F /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
 			productName = Kingfisher;
 		};
 		B14D10C62959D3720004946F /* SnapKit */ = {
@@ -1352,17 +1538,17 @@
 		};
 		B1B21D0D295C985C0083D9EE /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			package = B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift.git" */;
 			productName = Toast;
 		};
 		B1B21D10295C99280083D9EE /* FloatingPanel */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			package = B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel.git" */;
 			productName = FloatingPanel;
 		};
 		B1B21D13295C9C4B0083D9EE /* Floaty */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty" */;
+			package = B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty.git" */;
 			productName = Floaty;
 		};
 /* End XCSwiftPackageProductDependency section */
