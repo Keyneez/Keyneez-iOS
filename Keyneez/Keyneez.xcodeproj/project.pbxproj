@@ -518,19 +518,8 @@
 		B14D10B92959CC340004946F /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
-				B8C02F4B296E9221005612CE /* URLConstant.swift */,
-				B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */,
-				B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */,
-				B8C844BF296EB28D00E88B86 /* SearchContentResponseDto.swift */,
-				B8C844C1296EB35200E88B86 /* LikeContentResponseDto.swift */,
-				B8C844C3296EB39700E88B86 /* LikeContentRequestDto.swift */,
-				B8C844C5296EB41100E88B86 /* MyLikedContentResponseDto.swift */,
-				B8C844C7296EB5B600E88B86 /* UserInquiryResponseDto.swift */,
-				B8C844C9296EB7F900E88B86 /* EditUserResponseDto.swift */,
-				B8C844CB296EBA0B00E88B86 /* EditUserRequestDto.swift */,
-				B8C844CD296EBABB00E88B86 /* UserCheckResponseDto.swift */,
-				B8C844CF296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift */,
-				B8C844D1296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift */,
+				B8C844D4296EBD8100E88B86 /* DTO */,
+				B8C844D3296EBD7600E88B86 /* Base */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -698,6 +687,33 @@
 				B8C02F3F296C32B5005612CE /* ContentDetailViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B8C844D3296EBD7600E88B86 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B8C02F4B296E9221005612CE /* URLConstant.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B8C844D4296EBD8100E88B86 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */,
+				B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */,
+				B8C844BF296EB28D00E88B86 /* SearchContentResponseDto.swift */,
+				B8C844C1296EB35200E88B86 /* LikeContentResponseDto.swift */,
+				B8C844C3296EB39700E88B86 /* LikeContentRequestDto.swift */,
+				B8C844C5296EB41100E88B86 /* MyLikedContentResponseDto.swift */,
+				B8C844C7296EB5B600E88B86 /* UserInquiryResponseDto.swift */,
+				B8C844C9296EB7F900E88B86 /* EditUserResponseDto.swift */,
+				B8C844CB296EBA0B00E88B86 /* EditUserRequestDto.swift */,
+				B8C844CD296EBABB00E88B86 /* UserCheckResponseDto.swift */,
+				B8C844CF296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift */,
+				B8C844D1296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
