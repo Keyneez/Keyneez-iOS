@@ -104,6 +104,7 @@
 		B8C844BE296EB0A100E88B86 /* ContentDetailResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */; };
 		B8C844C0296EB28D00E88B86 /* SearchContentResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844BF296EB28D00E88B86 /* SearchContentResponseDto.swift */; };
 		B8C844C2296EB35200E88B86 /* LikeContentResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844C1296EB35200E88B86 /* LikeContentResponseDto.swift */; };
+		B8C844C4296EB39700E88B86 /* LikeContentRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844C3296EB39700E88B86 /* LikeContentRequestDto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +220,7 @@
 		B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailResponseDto.swift; sourceTree = "<group>"; };
 		B8C844BF296EB28D00E88B86 /* SearchContentResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentResponseDto.swift; sourceTree = "<group>"; };
 		B8C844C1296EB35200E88B86 /* LikeContentResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeContentResponseDto.swift; sourceTree = "<group>"; };
+		B8C844C3296EB39700E88B86 /* LikeContentRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeContentRequestDto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -507,6 +509,7 @@
 				B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */,
 				B8C844BF296EB28D00E88B86 /* SearchContentResponseDto.swift */,
 				B8C844C1296EB35200E88B86 /* LikeContentResponseDto.swift */,
+				B8C844C3296EB39700E88B86 /* LikeContentRequestDto.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -865,6 +868,7 @@
 				B1A80358296D95C10007DDD9 /* PhysicalIDViewController.swift in Sources */,
 				0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */,
 				B181235C296B30CB0029FEB6 /* IDCardGuideView.swift in Sources */,
+				B8C844C4296EB39700E88B86 /* LikeContentRequestDto.swift in Sources */,
 				B187CA6B296BF9AB006B0AE1 /* IDInfoEditableView.swift in Sources */,
 				B8C844C2296EB35200E88B86 /* LikeContentResponseDto.swift in Sources */,
 				B10AAD922969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift in Sources */,
