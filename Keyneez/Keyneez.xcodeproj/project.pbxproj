@@ -110,6 +110,7 @@
 		B8C844CA296EB7F900E88B86 /* EditUserResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844C9296EB7F900E88B86 /* EditUserResponseDto.swift */; };
 		B8C844CC296EBA0B00E88B86 /* EditUserRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844CB296EBA0B00E88B86 /* EditUserRequestDto.swift */; };
 		B8C844CE296EBABB00E88B86 /* UserCheckResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844CD296EBABB00E88B86 /* UserCheckResponseDto.swift */; };
+		B8C844D0296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844CF296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +232,7 @@
 		B8C844C9296EB7F900E88B86 /* EditUserResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserResponseDto.swift; sourceTree = "<group>"; };
 		B8C844CB296EBA0B00E88B86 /* EditUserRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRequestDto.swift; sourceTree = "<group>"; };
 		B8C844CD296EBABB00E88B86 /* UserCheckResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCheckResponseDto.swift; sourceTree = "<group>"; };
+		B8C844CF296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCheckStudentIDRequestDto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -525,6 +527,7 @@
 				B8C844C9296EB7F900E88B86 /* EditUserResponseDto.swift */,
 				B8C844CB296EBA0B00E88B86 /* EditUserRequestDto.swift */,
 				B8C844CD296EBABB00E88B86 /* UserCheckResponseDto.swift */,
+				B8C844CF296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -899,6 +902,7 @@
 				B10AAD71296967F300AB8475 /* IDNotAvailableActionables.swift in Sources */,
 				B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */,
 				B187CA7C296C5B21006B0AE1 /* IDIssuedViewController.swift in Sources */,
+				B8C844D0296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift in Sources */,
 				B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */,
 				B1812357296B001B0029FEB6 /* UIImage+Extension.swift in Sources */,
 				B8C844BC296EADA500E88B86 /* HomeContentResponseDto.swift in Sources */,
