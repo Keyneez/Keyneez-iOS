@@ -296,29 +296,11 @@
 		022CB21F296A2AAE0084DEF5 /* Jelly */ = {
 			isa = PBXGroup;
 			children = (
-				022CB221296A2AEC0084DEF5 /* Views */,
-				022CB220296A2ADD0084DEF5 /* Controllers */,
+				022CB21529696C760084DEF5 /* JellyMakeViewController.swift */,
+				0230ADC8296E9B680079D799 /* JellyDetail */,
+				0230ADC7296E9B510079D799 /* JellyProduct */,
 			);
 			path = Jelly;
-			sourceTree = "<group>";
-		};
-		022CB220296A2ADD0084DEF5 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				0233C6FB296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift */,
-				022CB21529696C760084DEF5 /* JellyMakeViewController.swift */,
-				0233C6F5296C002D00A177E9 /* JellyProductViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		022CB221296A2AEC0084DEF5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				0233C6F7296C07A300A177E9 /* JellyProductCollectionViewCell.swift */,
-				0233C6FD296C8F4A00A177E9 /* JellyDetailView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		022CB222296A2AF50084DEF5 /* Model */ = {
@@ -336,6 +318,24 @@
 				022F68B72962D3A200F32CE1 /* Buildable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		0230ADC7296E9B510079D799 /* JellyProduct */ = {
+			isa = PBXGroup;
+			children = (
+				0233C6F5296C002D00A177E9 /* JellyProductViewController.swift */,
+				0233C6F7296C07A300A177E9 /* JellyProductCollectionViewCell.swift */,
+			);
+			path = JellyProduct;
+			sourceTree = "<group>";
+		};
+		0230ADC8296E9B680079D799 /* JellyDetail */ = {
+			isa = PBXGroup;
+			children = (
+				0233C6FB296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift */,
+				0233C6FD296C8F4A00A177E9 /* JellyDetailView.swift */,
+			);
+			path = JellyDetail;
 			sourceTree = "<group>";
 		};
 		0233C6FF296CA0BD00A177E9 /* PropensityTag */ = {
@@ -970,7 +970,6 @@
 				B1A80361296DA4550007DDD9 /* IDInfoEditableActions.swift in Sources */,
 				022CB224296A2B370084DEF5 /* SignUpContentModel.swift in Sources */,
 				B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */,
-				B8C02F2C29696537005612CE /* HomePopularViewController.swift in Sources */,
 				B1A80363296DA9A40007DDD9 /* IDIssuedViewActionables.swift in Sources */,
 				0233C6F8296C07A300A177E9 /* JellyProductCollectionViewCell.swift in Sources */,
 				B18B60D2296552DA00AF14F5 /* NiblessViewController.swift in Sources */,
