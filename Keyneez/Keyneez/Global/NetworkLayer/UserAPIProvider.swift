@@ -25,7 +25,7 @@ final class UserAPIProvider {
   
   private init() { }
   
-  func postUserInfo(param: UserInfoDTO, completion: @escaping (Result<UserInfo?, Error>) -> Void) {
+  func postUserInfo(param: UserCheckResponseDto, completion: @escaping (Result<UserInfo?, Error>) -> Void) {
     let target = UserAPI.postUserInfo(param: param)
     responseFrom(target, modelType: UserInfo.self, completion: completion)
   }
