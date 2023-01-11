@@ -32,7 +32,6 @@ final class IDViewController: NiblessViewController, NavigationBarProtocol {
     super.viewDidLoad()
     addNavigationViewToSubview()
     setBackgroundColorToBlack()
-  }
     
 }
 
