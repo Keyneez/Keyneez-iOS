@@ -148,6 +148,7 @@
 		B8C844D0296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844CF296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift */; };
 		B8C844D2296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844D1296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift */; };
 		B8FC663A296F22EA00AEE9C3 /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC6639296F22EA00AEE9C3 /* ContentAPI.swift */; };
+		B8FC663C296F2C5700AEE9C3 /* ContentAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC663B296F2C5700AEE9C3 /* ContentAPIProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -307,6 +308,7 @@
 		B8C844CF296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCheckStudentIDRequestDto.swift; sourceTree = "<group>"; };
 		B8C844D1296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCheckYouthIDRequestDto.swift; sourceTree = "<group>"; };
 		B8FC6639296F22EA00AEE9C3 /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
+		B8FC663B296F2C5700AEE9C3 /* ContentAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPIProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -703,6 +705,7 @@
 				B1A80379296E9D680007DDD9 /* Encodable.swift */,
 				B1A8037B296E9DB60007DDD9 /* NetworkLoggerPlugin.swift */,
 				B8FC6639296F22EA00AEE9C3 /* ContentAPI.swift */,
+				B8FC663B296F2C5700AEE9C3 /* ContentAPIProvider.swift */,
 				B1A8037D296E9DF20007DDD9 /* UserAPI.swift */,
 				B1A8037F296EA54E0007DDD9 /* UserAPIProvider.swift */,
 				B1A80381296EA66F0007DDD9 /* GenericResponse.swift */,
@@ -1219,6 +1222,7 @@
 				02500573296DDF8F00DE08BE /* SignUpConstant.swift in Sources */,
 				0233C6FE296C8F4A00A177E9 /* JellyDetailView.swift in Sources */,
 				0230ADDA296EBBFE0079D799 /* ProductDanalRequestDto.swift in Sources */,
+				B8FC663C296F2C5700AEE9C3 /* ContentAPIProvider.swift in Sources */,
 				0233C6F6296C002D00A177E9 /* JellyProductViewController.swift in Sources */,
 				0230ADDC296EBD140079D799 /* ProductDanalResponseDto.swift in Sources */,
 				B10AAD62296967F300AB8475 /* BenefitInfoViewController.swift in Sources */,
