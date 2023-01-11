@@ -47,8 +47,11 @@ extension UserAPIProvider {
   ) {
     switch result {
     case .success(let response):
-      if let data = try? JSONDecoder().decode(GenericResponse<T>.self, from: response.data) {
-        completion(.success(data as? T))
+      let decoder = JSONDecoder()
+      decoder.keyDecodingStrategy = .convertFromSnakeCase
+      if let data = try? decoder.decode(GenericResponse<T>.self, from: response.data) {
+        let body = data.data
+        completion(.success(body as? T))
       } else {
         completion(.failure(DecodeError.decodeError))
       }

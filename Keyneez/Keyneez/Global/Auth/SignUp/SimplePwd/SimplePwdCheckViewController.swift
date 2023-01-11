@@ -47,27 +47,6 @@ class SimplePwdCheckViewController: NiblessViewController, NavigationBarProtocol
     $0.image = UIImage(named: Constant.imageArray[0])
     $0.contentMode = .scaleAspectFit
   }
-  private let faceIDStackVIew: UIStackView = .init().then {
-    $0.axis = .horizontal
-    $0.isUserInteractionEnabled = true
-    $0.distribution = .equalSpacing
-    $0.spacing = 8
-  }
-  
-  @objc
-  func touchUpStackView() {
-      let tap = UITapGestureRecognizer(target: self, action: #selector(stackViewTapped))
-      faceIDStackVIew.addGestureRecognizer(tap)
-  }
-  
-  @objc
-  private func stackViewTapped() {
-    if checkImageView.image == UIImage(named: "unselect") {
-      checkImageView.image = UIImage(named: "select")
-    } else {
-      checkImageView.image = UIImage(named: "unselect")
-    }
-  }
   
   private let checkImageView: UIImageView = .init().then {
     $0.image = UIImage(named: "unselect")
@@ -97,19 +76,16 @@ class SimplePwdCheckViewController: NiblessViewController, NavigationBarProtocol
     setConfig()
     register()
     setLayout()
-    touchUpStackView()
   }
 }
 
 extension SimplePwdCheckViewController {
   private func setConfig() {
     view.backgroundColor = .gray050
-    [titleLabel, progressImageView, faceIDStackVIew, collectionView].forEach {
+    [titleLabel, progressImageView, collectionView].forEach {
       contentView.addSubview($0)
     }
-    [checkImageView, checkLabel].forEach {
-      faceIDStackVIew.addArrangedSubview($0)
-    }
+
   }
   private func setLayout() {
     titleLabel.snp.makeConstraints {
@@ -121,14 +97,8 @@ extension SimplePwdCheckViewController {
       $0.leading.trailing.equalToSuperview().inset(Constant.imageLeading)
       $0.height.equalTo(Constant.imageHeight)
     }
-    faceIDStackVIew.snp.makeConstraints {
-      $0.top.equalTo(progressImageView.snp.bottom).offset(Constant.stackViewTop)
-      $0.centerX.equalToSuperview()
-      $0.width.equalTo(Constant.stackViewWidth)
-      $0.height.equalTo(Constant.stackViewHeight)
-    }
     collectionView.snp.makeConstraints {
-      $0.top.equalTo(faceIDStackVIew.snp.bottom).offset(100)
+      $0.top.equalTo(progressImageView.snp.bottom).offset(100)
       $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(16)
       $0.height.equalTo(calculateCellHeight())
       $0.bottom.equalToSuperview().inset(48)
@@ -169,6 +139,7 @@ extension SimplePwdCheckViewController: UICollectionViewDataSource {
      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SimplePwdCollectionViewCell.identifier, for: indexPath)
              as? SimplePwdCollectionViewCell else {return UICollectionViewCell() }
       cell.dataBind(model: pwdNumberData[indexPath.item])
+    
     if indexPath.item == 9 {
       cell.number.font = .font(.pretendardBold, ofSize: 16)
       cell.number.textColor = .gray500
@@ -198,33 +169,24 @@ extension SimplePwdCheckViewController: UICollectionViewDataSource {
         progressImageView.image = UIImage(named: Constant.imageArray[6])
         Constant.index = 6
         collectionView.deselectItem(at: indexPath, animated: true)
-        if checkImageView.image == UIImage(named: "select") {
-          setAuthAlert()
-        } else {
-          pushToNextVC(VC: KeyneezTabbarController())
-        }
+        pushToNextVC(VC: KeyneezTabbarController())
       default:
         return
-
       }
+      
     } else {
+      
       if Constant.index > 0 && Constant.index < 7 {
         Constant.index -= 1
         progressImageView.image = UIImage(named: Constant.imageArray[Constant.index])
-      } else if Constant.index < 0 {Constant.index = 0}
-      else if Constant.index > 6 {Constant.index = 6}
+        
+      } else if Constant.index < 0 {
+        Constant.index = 0
+        
+      } else if Constant.index > 6 {
+        Constant.index = 6
+        
+      }
     }
   }
 }
-
-private func setAuthAlert() {
-    let message = "'Keyneez'앱이 Face ID 접근 허용되어 있지않습니다."
-    let alert = UIAlertController(title: "'Keyneez'앱이 Face ID를\n 사용하도록 허용하겠습니까?", message: message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "허용 안 함", style: .cancel, handler: nil))
-    alert.addAction(UIAlertAction(title: "승인", style: .default, handler: {(_ action: UIAlertAction) -> Void in
-      SimplePwdCheckViewController().pushToNextVC(VC: KeyneezTabbarController())
-     }))
-}
-
-
-

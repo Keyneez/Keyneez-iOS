@@ -8,13 +8,16 @@
 import Foundation
 import Moya
 
-
 enum UserAPIError: LocalizedError {
   case encodingError
 }
 
 enum UserAPI {
   case postUserInfo(param: ProductDanalRequestDto)
+  case postUserPickInfo(param: ProductJellyRequstDto)
+  case patchUserPwdInfo(param: ProductPwdRequestDto)
+  case postPwdFetch(param: PasswordFetchRequestDto)
+  case postUserLoginInfo(param: LoginRequestDto)
 }
 
 extension UserAPI: TargetType {
@@ -25,8 +28,12 @@ extension UserAPI: TargetType {
   
   var path: String {
     switch self {
-    case .postUserInfo:
+    case .postUserInfo, .postUserPickInfo :
       return "/user/signup"
+    case .patchUserPwdInfo, .postPwdFetch :
+      return "/user/signup/pw"
+    case .postUserLoginInfo :
+      return "/user/signin"
     default:
       return ""
     }
@@ -36,6 +43,14 @@ extension UserAPI: TargetType {
     switch self {
     case .postUserInfo:
       return .post
+    case .postUserPickInfo:
+      return .post
+    case .patchUserPwdInfo:
+      return .patch
+    case .postPwdFetch:
+      return .post
+    case .postUserLoginInfo:
+      return .post
     }
   }
   
@@ -43,10 +58,18 @@ extension UserAPI: TargetType {
     switch self {
     case .postUserInfo(let param):
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
+    case .postUserPickInfo(param: let param):
+      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
+    case .patchUserPwdInfo(param: let param):
+      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
+    case .postPwdFetch(param: let param):
+      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
+    case .postUserLoginInfo(param: let param):
+      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
     }
   }
   
-  var headers: [String : String]? {
+  var headers: [String: String]? {
     switch self {
     case .postUserInfo:
       return ["Content-Type": "application/json"]
