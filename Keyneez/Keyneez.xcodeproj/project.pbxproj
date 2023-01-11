@@ -99,6 +99,7 @@
 		B8C02F42296C3983005612CE /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F41296C3983005612CE /* UIViewController+Extension.swift */; };
 		B8C02F44296C3DC2005612CE /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F43296C3DC2005612CE /* CategoryView.swift */; };
 		B8C02F46296D5ED2005612CE /* HomeSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F45296D5ED2005612CE /* HomeSearchModel.swift */; };
+		B8C02F4C296E9221005612CE /* URLConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F4B296E9221005612CE /* URLConstant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +210,7 @@
 		B8C02F41296C3983005612CE /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B8C02F43296C3DC2005612CE /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		B8C02F45296D5ED2005612CE /* HomeSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchModel.swift; sourceTree = "<group>"; };
+		B8C02F4B296E9221005612CE /* URLConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -492,6 +494,7 @@
 		B14D10B92959CC340004946F /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				B8C02F4B296E9221005612CE /* URLConstant.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -883,6 +886,7 @@
 				B8C02F46296D5ED2005612CE /* HomeSearchModel.swift in Sources */,
 				B14D10802959C7980004946F /* SceneDelegate.swift in Sources */,
 				B187CA6F296C07CF006B0AE1 /* IDCardGuideActions.swift in Sources */,
+				B8C02F4C296E9221005612CE /* URLConstant.swift in Sources */,
 				B10AAD6E296967F300AB8475 /* IDContentActions.swift in Sources */,
 				B10AAD68296967F300AB8475 /* IDCardCotentActionables.swift in Sources */,
 				0253816729674D3D00D29A97 /* LandingPageViewController.swift in Sources */,
