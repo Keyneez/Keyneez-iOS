@@ -111,6 +111,7 @@
 		B8C844CC296EBA0B00E88B86 /* EditUserRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844CB296EBA0B00E88B86 /* EditUserRequestDto.swift */; };
 		B8C844CE296EBABB00E88B86 /* UserCheckResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844CD296EBABB00E88B86 /* UserCheckResponseDto.swift */; };
 		B8C844D0296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844CF296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift */; };
+		B8C844D2296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844D1296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +234,7 @@
 		B8C844CB296EBA0B00E88B86 /* EditUserRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRequestDto.swift; sourceTree = "<group>"; };
 		B8C844CD296EBABB00E88B86 /* UserCheckResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCheckResponseDto.swift; sourceTree = "<group>"; };
 		B8C844CF296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCheckStudentIDRequestDto.swift; sourceTree = "<group>"; };
+		B8C844D1296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCheckYouthIDRequestDto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -528,6 +530,7 @@
 				B8C844CB296EBA0B00E88B86 /* EditUserRequestDto.swift */,
 				B8C844CD296EBABB00E88B86 /* UserCheckResponseDto.swift */,
 				B8C844CF296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift */,
+				B8C844D1296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -918,6 +921,7 @@
 				B187CA71296C096F006B0AE1 /* CameraMode.swift in Sources */,
 				B8C844C8296EB5B600E88B86 /* UserInquiryResponseDto.swift in Sources */,
 				B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */,
+				B8C844D2296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift in Sources */,
 				B187CA6D296C0787006B0AE1 /* IDCardGuideActionables.swift in Sources */,
 				B187CA67296BF896006B0AE1 /* IDInfoEditableViewController.swift in Sources */,
 				B8C844BE296EB0A100E88B86 /* ContentDetailResponseDto.swift in Sources */,
