@@ -28,9 +28,12 @@ class SimplePwdCheckViewController: NiblessViewController, NavigationBarProtocol
 
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
   
-  private var backButton : UIButton = .init(primaryAction: nil).then {
-    $0.setBackgroundImage(UIImage(named: "ic_arrowback"), for: .normal)
+  private lazy var backButton: UIButton = .init(primaryAction: touchUpBackButton).then {
+    $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)
   }
+  private lazy var touchUpBackButton: UIAction = .init(handler: { _ in
+    self.navigationController?.popViewController(animated: true)
+  })
   
   var contentView = UIView()
   
@@ -205,8 +208,7 @@ extension SimplePwdCheckViewController: UICollectionViewDataSource {
         if checkImageView.image == UIImage(named: "select") {
           setAuthAlert()
         }else {
-          //TODO: 화면전환 구현 해야함
-          return
+          pushToNextVC(VC: HomeViewController())
         }
       default:
         return
@@ -226,10 +228,10 @@ private func setAuthAlert() {
     let message = "'Keyneez'앱이 Face ID 접근 허용되어 있지않습니다."
     let alert = UIAlertController(title: "'Keyneez'앱이 Face ID를\n 사용하도록 허용하겠습니까?", message: message, preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "허용 안 함", style: .cancel, handler: nil))
-    alert.addAction(UIAlertAction(title: "승인", style: .default, handler: nil))
-    
-    let viewController = UIApplication.shared.windows.first!.rootViewController!
-    viewController.present(alert, animated: true, completion: nil)
-  
+    alert.addAction(UIAlertAction(title: "승인", style: .default, handler: {(_ action: UIAlertAction) -> Void in
+      SimplePwdCheckViewController().pushToNextVC(VC: HomeViewController())
+     }))
 }
+
+
 

@@ -28,16 +28,19 @@ class SimpleLoginViewController: NiblessViewController, NavigationBarProtocol {
 
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
   
-  private var backButton : UIButton = .init(primaryAction: nil).then {
-    $0.setBackgroundImage(UIImage(named: "ic_arrowback"), for: .normal)
+  private lazy var backButton: UIButton = .init(primaryAction: touchUpBackButton).then {
+    $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)
   }
+  private lazy var touchUpBackButton: UIAction = .init(handler: { _ in
+    self.navigationController?.popViewController(animated: true)
+  })
   
   var contentView = UIView()
   
   var actions = SignUpActions()
   
   private let titleLabel: UILabel = .init().then {
-    $0.text = "간편 비밀번호를\n설정해주세요"
+    $0.text = "간편 비밀번호를\n입력해주세요"
     $0.font = .font(.pretendardBold, ofSize: 24)
     $0.numberOfLines = 0
     $0.textAlignment = .center
@@ -200,8 +203,7 @@ extension SimpleLoginViewController: UICollectionViewDataSource {
       case 6:
         progressImageView.image = UIImage(named: Constant.imageArray[6])
         Constant.index = 6
-        collectionView.deselectItem(at: indexPath, animated: true)
-        //TODO: 화면전환 구현 해야함
+        pushToNextVC(VC: HomeViewController())
       default:
         return
 

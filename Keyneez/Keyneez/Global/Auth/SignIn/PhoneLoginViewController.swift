@@ -13,9 +13,12 @@ class PhoneLoginViewController: NiblessViewController, NavigationBarProtocol, UI
   
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
   
-  private var backButton: UIButton = .init(primaryAction: nil).then {
-    $0.setBackgroundImage(UIImage(named: "ic_arrowback"), for: .normal)
+  private lazy var backButton: UIButton = .init(primaryAction: touchUpBackButton).then {
+    $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)
   }
+  private lazy var touchUpBackButton: UIAction = .init(handler: { _ in
+    self.navigationController?.popViewController(animated: true)
+  })
   
   var contentView = UIView()
   
@@ -29,6 +32,12 @@ class PhoneLoginViewController: NiblessViewController, NavigationBarProtocol, UI
   
   private let nextButton = UIButton().then {
     $0.keyneezButtonStyle(style: .blackUnact, title: "다음으로")
+    $0.addTarget(self, action: #selector(touchUpNextVC), for: .touchUpInside)
+  }
+  
+  @objc
+  private func touchUpNextVC() {
+    pushToNextVC(VC: SimpleLoginViewController())
   }
   
   private func setKeyboard() {
@@ -45,7 +54,9 @@ class PhoneLoginViewController: NiblessViewController, NavigationBarProtocol, UI
     setConfig()
     setLayout()
     phoneTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
-    
+  }
+  override func viewWillDisappear(_ animated: Bool) {
+    self.phoneTextField.becomeFirstResponder()
   }
   
   @objc

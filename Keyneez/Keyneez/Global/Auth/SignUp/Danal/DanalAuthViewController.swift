@@ -15,9 +15,12 @@ final class DanalAuthViewController: NiblessViewController, NavigationBarProtoco
  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
   var contentView = UIView()
   
-  private let backButton = UIButton().then {
-    $0.setBackgroundImage(UIImage(named: "ic_arrowback"), for: .normal)
+  private lazy var backButton: UIButton = .init(primaryAction: touchUpBackButton).then {
+    $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)
   }
+  private lazy var touchUpBackButton: UIAction = .init(handler: { _ in
+    self.navigationController?.popViewController(animated: true)
+  })
   
   private let titleLabel = UILabel().then {
     $0.text = "휴대폰 인증을\n진행해주세요."
@@ -34,16 +37,9 @@ final class DanalAuthViewController: NiblessViewController, NavigationBarProtoco
     $0.addTarget(self, action: #selector(touchUpNextVC), for: .touchUpInside)
   }
   
-  // 화면 전환
-  
-  func pushToDanalSuccessVC() {
-    let nextVC = DanalAuthSuccessViewController()
-    self.navigationController?.pushViewController(nextVC, animated: true)
-  }
-  
   @objc
   private func touchUpNextVC() {
-    pushToDanalSuccessVC()
+    pushToNextVC(VC:DanalAuthSuccessViewController())
   }
   
   // MARK: - Life Cycles

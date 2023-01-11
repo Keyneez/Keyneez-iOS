@@ -33,14 +33,9 @@ class JellyMakeViewController: NiblessViewController {
     $0.addTarget(self, action: #selector(touchUpNextVC), for: .touchUpInside)
   }
   
-  private func pushToPropensityVC() {
-    let nextVC = PropensityTagViewController()
-    self.navigationController?.pushViewController(nextVC, animated: true)
-  }
-  
   @objc
   private func touchUpNextVC() {
-    pushToPropensityVC()
+    pushToNextVC(VC: PropensityTagViewController())
   }
 
   override func viewDidLoad() {

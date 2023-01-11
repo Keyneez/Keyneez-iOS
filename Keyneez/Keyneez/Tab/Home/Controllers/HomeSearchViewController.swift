@@ -20,6 +20,7 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
     $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)
   }
   private lazy var didSearch: UIAction = .init(handler: { _ in print("hi") })
+  
   private lazy var touchUpBackButton: UIAction = .init(handler: { _ in
     self.navigationController?.popViewController(animated: true)
   })

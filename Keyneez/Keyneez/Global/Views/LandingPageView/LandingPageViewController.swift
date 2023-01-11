@@ -60,25 +60,24 @@ class LandingPageViewController: UIViewController {
     let button = UIButton()
     button.keyneezButtonStyle(style: .whiteAct, title: "회원가입")
     button.layer.isHidden = true
-    button.addTarget(self, action: #selector(touchUpNextVC), for: .touchUpInside)
+    button.addTarget(self, action: #selector(touchUpSignUpVC), for: .touchUpInside)
     return button
   }()
   
-  //화면 전환
-  func pushToDanalVC() {
-    let nextVC = DanalAuthViewController()
-    self.navigationController?.pushViewController(nextVC, animated: true)
-    print("터치")
-  }
-  
   @objc
-  private func touchUpNextVC() {
-    pushToDanalVC()
+  private func touchUpSignUpVC() {
+    pushToNextVC(VC: DanalAuthViewController())
   }
   
   private lazy var signInButton = UIButton().then {
     $0.keyneezButtonStyle(style: .blackAct, title: "로그인")
     $0.layer.isHidden = true
+    $0.addTarget(self, action: #selector(touchUpLoginVC), for: .touchUpInside)
+  }
+  
+  @objc
+  private func touchUpLoginVC() {
+    pushToNextVC(VC: PhoneLoginViewController())
   }
   
   // MARK: - Functions

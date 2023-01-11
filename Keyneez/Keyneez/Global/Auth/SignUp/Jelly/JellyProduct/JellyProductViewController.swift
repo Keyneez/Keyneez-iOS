@@ -35,6 +35,18 @@ class JellyProductViewController: NiblessViewController {
     $0.distribution = .equalSpacing
   }
   
+  @objc
+  func touchUpStackView() {
+      let tap = UITapGestureRecognizer(target: self, action: #selector(stackViewTapped))
+      detailStackView.addGestureRecognizer(tap)
+  }
+  
+  @objc
+  private func stackViewTapped() {
+    pushToNextVC(VC: JellyDetailBottomSheetViewController())
+    
+  }
+  
   private lazy var jellyImageView: UIImageView = .init().then {
     $0.image = UIImage(named: "jelly_mint")
     $0.contentMode = .scaleAspectFill
@@ -66,6 +78,12 @@ class JellyProductViewController: NiblessViewController {
   
   private lazy var startButton: UIButton = .init(primaryAction: nil).then {
     $0.keyneezButtonStyle(style: .blackAct, title: "키니즈 시작하기")
+    $0.addTarget(self, action: #selector(touchUpNextVC), for: .touchUpInside)
+  }
+  
+  @objc
+  private func touchUpNextVC() {
+    pushToNextVC(VC: SimplePwdViewController())
   }
   
   override func viewDidLoad() {
@@ -73,6 +91,7 @@ class JellyProductViewController: NiblessViewController {
     setConfig()
     register()
     setLayout()
+    touchUpStackView()
   }
 }
 

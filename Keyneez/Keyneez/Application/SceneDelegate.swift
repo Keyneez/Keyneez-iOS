@@ -18,8 +18,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       let window = UIWindow(windowScene: windowScene)
       window.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
       
-      let tabbarVC = PhoneLoginViewController()
-      window.rootViewController = tabbarVC
+      let rootVC = LandingPageViewController()
+      let navigationController = UINavigationController(rootViewController: rootVC)
+      navigationController.navigationBar.isHidden = true
+
+      //첫번째 스택에 firstCV 추가
+      window.rootViewController = navigationController
+      window.makeKeyAndVisible()
+      
+//      let tabbarVC = LandingPageViewController()
+//      window.rootViewController = tabbarVC
       window.makeKeyAndVisible()
       self.window = window
     }

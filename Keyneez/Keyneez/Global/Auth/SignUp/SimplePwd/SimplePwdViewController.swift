@@ -28,9 +28,12 @@ class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
 
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
   
-  private var backButton : UIButton = .init(primaryAction: nil).then {
-    $0.setBackgroundImage(UIImage(named: "ic_arrowback"), for: .normal)
+  private lazy var backButton: UIButton = .init(primaryAction: touchUpBackButton).then {
+    $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)
   }
+  private lazy var touchUpBackButton: UIAction = .init(handler: { _ in
+    self.navigationController?.popViewController(animated: true)
+  })
   
   var contentView = UIView()
   
@@ -204,9 +207,8 @@ extension SimplePwdViewController: UICollectionViewDataSource {
         progressImageView.image = UIImage(named: Constant.imageArray[5])
       case 6:
         progressImageView.image = UIImage(named: Constant.imageArray[6])
-        Constant.index = 6
+        pushToNextVC(VC: SimplePwdCheckViewController())
         collectionView.deselectItem(at: indexPath, animated: true)
-        //TODO: 화면전환 구현 해야함
       default:
         return
 
@@ -218,8 +220,6 @@ extension SimplePwdViewController: UICollectionViewDataSource {
       } else if Constant.index < 0 {Constant.index = 0}
       else if Constant.index > 6 {Constant.index = 6}
     }
-    
-    print(Constant.index)
   }
 }
 
