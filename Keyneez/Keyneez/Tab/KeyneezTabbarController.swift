@@ -52,6 +52,12 @@ extension KeyneezTabbarController {
     self.viewControllers = navigations
   }
 
+  
+  private func makeHomeViewController() -> HomeViewController {
+    let repository = KeyneezContentRepository()
+    return HomeViewController(repository: repository)
+  }
+  
   private func makeViewController(viewController: UIViewController.Type,
                                   title: String, imageName: String) -> UINavigationController {
     let viewController = viewController.init()

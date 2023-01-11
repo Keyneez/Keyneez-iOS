@@ -48,6 +48,23 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
     addContentViews(asChildViewController: HomeContentViewController())
     addNavigationViewToSubview()
   }
+  
+  var datasources: [[HomeContentResponseDto]] = []
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    repository.getAllHomeContent(token: "adfadf") { arr in
+      self.datasources.append(arr)
+    }
+  }
+  
+  private var repository: ContentRepository
+  
+  init(repository: ContentRepository) {
+    self.repository = repository
+    super.init()
+  }
+  
 }
 
 // MARK: - extra functions
@@ -91,6 +108,7 @@ extension HomeViewController {
   private func changeViewControllers() {
     let segmentIndex = segmentControl.selectedSegmentIndex
     let VCs = [HomeContentViewController(), HomeContentViewController(), HomeContentViewController()]
+    VCs.forEach { $0.updatedataSource([])}
     var count = 0
     for VC in VCs {
       VC.segmentedNumber = count

@@ -13,7 +13,14 @@ import Floaty
 final class HomeContentViewController: UIViewController {
   
   var segmentedNumber: Int = -1
-
+  private var contentlist: [HomeContentResponseDto] = []
+  
+  lazy var updatedataSource: ([HomeContentResponseDto]) -> Void = { [weak self] arr in
+    guard let self else { return }
+    self.contentlist = arr
+    self.recommendContentCollectionView.reloadData()
+  }
+  
   // MARK: - CollectionView
   private lazy var recommendContentCollectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
