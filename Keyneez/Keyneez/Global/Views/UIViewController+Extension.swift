@@ -12,4 +12,8 @@ extension UIViewController {
     let contentDetailViewController = ContentDetailViewController()
     self.navigationController?.pushViewController(contentDetailViewController, animated: true)
   }
+  func pushToNextVC(VC: UIViewController) {
+    let nextVC = VC
+    self.navigationController?.pushViewController(nextVC, animated: true)
+  }
 }

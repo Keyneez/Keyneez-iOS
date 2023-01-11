@@ -9,10 +9,12 @@ import UIKit
 import Then
 import SnapKit
 
-//MARK: - Constant
+// TODO: - Action Event 달기
+
+// MARK: - Constant
 
 private struct Constant {
-  static let navigationBarHeight:CGFloat = 56
+  static let navigationBarHeight: CGFloat = 56
   static let logoWidth: CGFloat = 130
   static let logoHeight: CGFloat = 48
   static let logoBottomMargin: CGFloat = 40
@@ -29,9 +31,9 @@ private struct Constant {
 
 class LandingPageViewController: UIViewController {
   
-  static var landingImages = ["Landing1","Landing2","Landing3","Landing4"]
+  static var landingImages = ["Landing1", "Landing2", "Landing3", "Landing4"]
 
-  //MARK: - UI Components
+  // MARK: - UI Components
   
   let logoImageView = UIImageView().then {
     $0.image = UIImage(named: "logoA")
@@ -58,26 +60,38 @@ class LandingPageViewController: UIViewController {
     let button = UIButton()
     button.keyneezButtonStyle(style: .whiteAct, title: "회원가입")
     button.layer.isHidden = true
+    button.addTarget(self, action: #selector(touchUpSignUpVC), for: .touchUpInside)
     return button
   }()
+  
+  @objc
+  private func touchUpSignUpVC() {
+    pushToNextVC(VC: DanalAuthViewController())
+  }
   
   private lazy var signInButton = UIButton().then {
     $0.keyneezButtonStyle(style: .blackAct, title: "로그인")
     $0.layer.isHidden = true
+    $0.addTarget(self, action: #selector(touchUpLoginVC), for: .touchUpInside)
   }
   
-  //MARK: - Functions
+  @objc
+  private func touchUpLoginVC() {
+    pushToNextVC(VC: PhoneLoginViewController())
+  }
+  
+  // MARK: - Functions
   
   private func setScrollContentView() {
     scrollView.delegate = self
     
     for index in 0..<LandingPageViewController.landingImages.count {
       let imageView = UIImageView()
-      let positionX = (self.view.frame.width) * CGFloat(index) + (self.view.frame.width/2) - (Constant.mainImageWidth/2)
+      let positionX = (self.view.frame.width) * CGFloat(index) + (self.view.frame.width / 2) - (Constant.mainImageWidth / 2)
       imageView.frame = CGRect(x: positionX, y: 0, width: Constant.mainImageWidth, height: Constant.mainImageHeight)
       imageView.image = UIImage(named: LandingPageViewController.landingImages[index])
       scrollView.addSubview(imageView)
-      scrollView.contentSize.width = self.view.frame.width * CGFloat(index+1)
+      scrollView.contentSize.width = self.view.frame.width * CGFloat(index + 1)
     }
   }
   
@@ -96,7 +110,7 @@ class LandingPageViewController: UIViewController {
     
   }
   
-  //MARK: - Life Cycles
+  // MARK: - Life Cycles
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -106,11 +120,11 @@ class LandingPageViewController: UIViewController {
   }
 }
 
-//MARK: - Extensions
+// MARK: - Extensions
 
 extension LandingPageViewController: UIScrollViewDelegate {
   
-  //MARK: - Scroll Helper
+  // MARK: - Scroll Helper
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     let size = scrollView.contentOffset.x / scrollView.frame.size.width
@@ -121,7 +135,8 @@ extension LandingPageViewController: UIScrollViewDelegate {
 
 extension LandingPageViewController {
   
-  //MARK: - Layout Helper
+  // MARK: - Layout Helper
+  
   private func setConfig() {
     view.backgroundColor = .gray050
     [logoImageView, scrollView, pageControl, signUpButton, signInButton].forEach {
@@ -130,38 +145,38 @@ extension LandingPageViewController {
   }
   
   private func setLayout() {
-    let safeArea = self.view.safeAreaLayoutGuide
+    let guide = self.view.safeAreaLayoutGuide
     
     logoImageView.snp.makeConstraints {
-      $0.centerX.equalTo(safeArea)
-      $0.top.equalTo(safeArea).offset(Constant.navigationBarHeight.adjusted)
-      $0.leading.trailing.equalTo(safeArea).inset(Constant.logoWidth.adjusted)
+      $0.centerX.equalTo(guide)
+      $0.top.equalTo(guide).offset(Constant.navigationBarHeight.adjusted)
+      $0.leading.trailing.equalTo(guide).inset(Constant.logoWidth.adjusted)
       $0.height.equalTo(Constant.logoHeight.adjusted)
     }
     
     scrollView.snp.makeConstraints {
       $0.top.equalTo(logoImageView.snp.bottom).offset(Constant.logoBottomMargin.adjusted)
-      $0.centerX.equalTo(safeArea)
-      $0.leading.trailing.equalTo(safeArea)
+      $0.centerX.equalTo(guide)
+      $0.leading.trailing.equalTo(guide)
       $0.height.equalTo(Constant.mainImageHeight)
     }
     
     pageControl.snp.makeConstraints {
       $0.top.equalTo(scrollView.snp.bottom).offset(Constant.bottomMargin.adjusted)
-      $0.centerX.equalToSuperview()
+      $0.centerX.equalTo(guide)
       $0.width.equalTo(Constant.pageControlWidth)
       $0.height.equalTo(Constant.pageControlHeight)
     }
     
     signUpButton.snp.makeConstraints {
       $0.top.equalTo(pageControl.snp.bottom).offset(Constant.landingBarBottomMargin.adjusted)
-      $0.leading.trailing.equalToSuperview().inset(Constant.buttonWidth)
+      $0.leading.trailing.equalTo(guide).inset(Constant.buttonWidth)
       $0.height.equalTo(Constant.buttonHeight)
     }
     
     signInButton.snp.makeConstraints {
       $0.top.equalTo(signUpButton.snp.bottom).offset(Constant.buttonBottomMargin.adjusted)
-      $0.leading.trailing.equalToSuperview().inset(Constant.buttonWidth)
+      $0.leading.trailing.equalTo(signUpButton)
       $0.height.equalTo(Constant.buttonHeight)
     }
   }

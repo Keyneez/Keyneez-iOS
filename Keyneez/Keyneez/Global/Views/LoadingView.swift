@@ -8,15 +8,16 @@
 import UIKit
 
 // 사용법
-//@objc func taped(_ sender: UITapGestureRecognizer) {
+// @objc func taped(_ sender: UITapGestureRecognizer) {
 //    LoadingView.show()
 //
 //    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 //        LoadingView.hide()
 //    }
-//}
+// }
 
 class LoadingView: NSObject {
+  
   private static let sharedInstance = LoadingView()
   private var popupView = UIImageView()
   private var backgroundView = UIView()
