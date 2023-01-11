@@ -22,7 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       let navigationController = UINavigationController(rootViewController: rootVC)
       navigationController.navigationBar.isHidden = true
 
-      //첫번째 스택에 firstCV 추가
       window.rootViewController = navigationController
       window.makeKeyAndVisible()
       

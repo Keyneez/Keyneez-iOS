@@ -208,7 +208,7 @@ extension SimplePwdCheckViewController: UICollectionViewDataSource {
         if checkImageView.image == UIImage(named: "select") {
           setAuthAlert()
         }else {
-          pushToNextVC(VC: HomeViewController())
+          pushToNextVC(VC: KeyneezTabbarController())
         }
       default:
         return
@@ -229,7 +229,7 @@ private func setAuthAlert() {
     let alert = UIAlertController(title: "'Keyneez'앱이 Face ID를\n 사용하도록 허용하겠습니까?", message: message, preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "허용 안 함", style: .cancel, handler: nil))
     alert.addAction(UIAlertAction(title: "승인", style: .default, handler: {(_ action: UIAlertAction) -> Void in
-      SimplePwdCheckViewController().pushToNextVC(VC: HomeViewController())
+      SimplePwdCheckViewController().pushToNextVC(VC: KeyneezTabbarController())
      }))
 }
 

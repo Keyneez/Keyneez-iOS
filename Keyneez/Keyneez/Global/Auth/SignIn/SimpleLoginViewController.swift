@@ -203,7 +203,7 @@ extension SimpleLoginViewController: UICollectionViewDataSource {
       case 6:
         progressImageView.image = UIImage(named: Constant.imageArray[6])
         Constant.index = 6
-        pushToNextVC(VC: HomeViewController())
+        pushToNextVC(VC: KeyneezTabbarController())
       default:
         return
 
