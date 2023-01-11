@@ -52,7 +52,7 @@
 		B10AAD6D296967F300AB8475 /* IDDetailActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD54296967F100AB8475 /* IDDetailActionables.swift */; };
 		B10AAD6E296967F300AB8475 /* IDContentActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD55296967F100AB8475 /* IDContentActions.swift */; };
 		B10AAD70296967F300AB8475 /* IDCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD57296967F200AB8475 /* IDCardView.swift */; };
-		B10AAD71296967F300AB8475 /* IDIssueActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD58296967F200AB8475 /* IDIssueActionables.swift */; };
+		B10AAD71296967F300AB8475 /* IDNotAvailableActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD58296967F200AB8475 /* IDNotAvailableActionables.swift */; };
 		B10AAD7929696AEE00AB8475 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = B10AACFA29673D4100AB8475 /* BottomSheet */; };
 		B10AAD7B29696C7700AB8475 /* IDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD7A29696C7700AB8475 /* IDViewController.swift */; };
 		B10AAD8229696FCA00AB8475 /* IDDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD56296967F200AB8475 /* IDDetailViewController.swift */; };
@@ -94,6 +94,12 @@
 		B18B60D5296552DA00AF14F5 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60CC296552DA00AF14F5 /* NavigationBar.swift */; };
 		B18B60D6296552DA00AF14F5 /* NavigationViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60CD296552DA00AF14F5 /* NavigationViewItem.swift */; };
 		B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60CE296552DA00AF14F5 /* NavigationViewBuilder.swift */; };
+		B1A80358296D95C10007DDD9 /* PhysicalIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80357296D95C10007DDD9 /* PhysicalIDViewController.swift */; };
+		B1A8035B296D98E70007DDD9 /* PhysicalIDActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8035A296D98E70007DDD9 /* PhysicalIDActionables.swift */; };
+		B1A8035D296D99180007DDD9 /* PhysicalIDActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8035C296D99180007DDD9 /* PhysicalIDActions.swift */; };
+		B1A80361296DA4550007DDD9 /* IDInfoEditableActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80360296DA4550007DDD9 /* IDInfoEditableActions.swift */; };
+		B1A80363296DA9A40007DDD9 /* IDIssuedViewActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80362296DA9A40007DDD9 /* IDIssuedViewActionables.swift */; };
+		B1A80365296DD6430007DDD9 /* CameraViewActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80364296DD6430007DDD9 /* CameraViewActions.swift */; };
 		B1B21D0E295C985C0083D9EE /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D0D295C985C0083D9EE /* Toast */; };
 		B1B21D11295C99280083D9EE /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D10295C99280083D9EE /* FloatingPanel */; };
 		B1B21D14295C9C4B0083D9EE /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D13295C9C4B0083D9EE /* Floaty */; };
@@ -181,7 +187,7 @@
 		B10AAD55296967F100AB8475 /* IDContentActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDContentActions.swift; sourceTree = "<group>"; };
 		B10AAD56296967F200AB8475 /* IDDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDDetailViewController.swift; sourceTree = "<group>"; };
 		B10AAD57296967F200AB8475 /* IDCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCardView.swift; sourceTree = "<group>"; };
-		B10AAD58296967F200AB8475 /* IDIssueActionables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDIssueActionables.swift; sourceTree = "<group>"; };
+		B10AAD58296967F200AB8475 /* IDNotAvailableActionables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDNotAvailableActionables.swift; sourceTree = "<group>"; };
 		B10AAD59296967F200AB8475 /* IDNotAvailableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDNotAvailableView.swift; sourceTree = "<group>"; };
 		B10AAD7A29696C7700AB8475 /* IDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDViewController.swift; sourceTree = "<group>"; };
 		B10AAD892969B86500AB8475 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
@@ -221,6 +227,12 @@
 		B18B60CC296552DA00AF14F5 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		B18B60CD296552DA00AF14F5 /* NavigationViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewItem.swift; sourceTree = "<group>"; };
 		B18B60CE296552DA00AF14F5 /* NavigationViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewBuilder.swift; sourceTree = "<group>"; };
+		B1A80357296D95C10007DDD9 /* PhysicalIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalIDViewController.swift; sourceTree = "<group>"; };
+		B1A8035A296D98E70007DDD9 /* PhysicalIDActionables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalIDActionables.swift; sourceTree = "<group>"; };
+		B1A8035C296D99180007DDD9 /* PhysicalIDActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalIDActions.swift; sourceTree = "<group>"; };
+		B1A80360296DA4550007DDD9 /* IDInfoEditableActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDInfoEditableActions.swift; sourceTree = "<group>"; };
+		B1A80362296DA9A40007DDD9 /* IDIssuedViewActionables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDIssuedViewActionables.swift; sourceTree = "<group>"; };
+		B1A80364296DD6430007DDD9 /* CameraViewActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewActions.swift; sourceTree = "<group>"; };
 		B1B21D16295DE0660083D9EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbar.swift; sourceTree = "<group>"; };
 		B8C02F042962F5D4005612CE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -406,7 +418,7 @@
 		B10AAD5E296967F300AB8475 /* IDNotAvailable */ = {
 			isa = PBXGroup;
 			children = (
-				B10AAD58296967F200AB8475 /* IDIssueActionables.swift */,
+				B10AAD58296967F200AB8475 /* IDNotAvailableActionables.swift */,
 				B10AAD59296967F200AB8475 /* IDNotAvailableView.swift */,
 			);
 			path = IDNotAvailable;
@@ -433,6 +445,7 @@
 				B10AAD912969F33D00AB8475 /* AVCaptureDeviceDiscoverySession.swift */,
 				B187CA70296C096F006B0AE1 /* CameraMode.swift */,
 				B187CA80296C8378006B0AE1 /* Camera.swift */,
+				B1A80364296DD6430007DDD9 /* CameraViewActions.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -537,6 +550,7 @@
 				B10AAD4A296967F100AB8475 /* IDCard */,
 				B10AAD50296967F100AB8475 /* IDDetail */,
 				B10AAD5E296967F300AB8475 /* IDNotAvailable */,
+				B1A80359296D95CD0007DDD9 /* PsysicalID */,
 			);
 			path = ID;
 			sourceTree = "<group>";
@@ -669,6 +683,7 @@
 			children = (
 				B187CA66296BF896006B0AE1 /* IDInfoEditableViewController.swift */,
 				B187CA6A296BF9AB006B0AE1 /* IDInfoEditableView.swift */,
+				B1A80360296DA4550007DDD9 /* IDInfoEditableActions.swift */,
 			);
 			path = IDInfoEdit;
 			sourceTree = "<group>";
@@ -678,6 +693,7 @@
 			children = (
 				B187CA7B296C5B21006B0AE1 /* IDIssuedViewController.swift */,
 				B187CA7D296C5B2C006B0AE1 /* IDIssuedView.swift */,
+				B1A80362296DA9A40007DDD9 /* IDIssuedViewActionables.swift */,
 			);
 			path = IDIssued;
 			sourceTree = "<group>";
@@ -720,6 +736,16 @@
 				B18B60CE296552DA00AF14F5 /* NavigationViewBuilder.swift */,
 			);
 			path = NavigationView;
+			sourceTree = "<group>";
+		};
+		B1A80359296D95CD0007DDD9 /* PsysicalID */ = {
+			isa = PBXGroup;
+			children = (
+				B1A80357296D95C10007DDD9 /* PhysicalIDViewController.swift */,
+				B1A8035A296D98E70007DDD9 /* PhysicalIDActionables.swift */,
+				B1A8035C296D99180007DDD9 /* PhysicalIDActions.swift */,
+			);
+			path = PsysicalID;
 			sourceTree = "<group>";
 		};
 		B8C02F032962F5A0005612CE /* Setting */ = {
@@ -941,12 +967,16 @@
 				0230EA71296B5A0D0006940C /* HashTagCollectionViewCell.swift in Sources */,
 				022CB228296A32130084DEF5 /* HashTagView.swift in Sources */,
 				B10AAD3E296967C700AB8475 /* ReusableView.swift in Sources */,
+				B1A80361296DA4550007DDD9 /* IDInfoEditableActions.swift in Sources */,
 				022CB224296A2B370084DEF5 /* SignUpContentModel.swift in Sources */,
 				B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */,
+				B8C02F2C29696537005612CE /* HomePopularViewController.swift in Sources */,
+				B1A80363296DA9A40007DDD9 /* IDIssuedViewActionables.swift in Sources */,
 				0233C6F8296C07A300A177E9 /* JellyProductCollectionViewCell.swift in Sources */,
 				B18B60D2296552DA00AF14F5 /* NiblessViewController.swift in Sources */,
 				B10AAD64296967F300AB8475 /* BenefitCollectionViewCell.swift in Sources */,
 				B10AAD8E2969CA4700AB8475 /* PhotoCaptureDelegate.swift in Sources */,
+				B1A80358296D95C10007DDD9 /* PhysicalIDViewController.swift in Sources */,
 				0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */,
 				02500570296DDBCE00DE08BE /* PropensityTagViewController.swift in Sources */,
 				B181235C296B30CB0029FEB6 /* IDCardGuideView.swift in Sources */,
@@ -964,7 +994,7 @@
 				B8C02F2A29694C82005612CE /* HomeContentViewController.swift in Sources */,
 				B18B60D0296552DA00AF14F5 /* UITextField+Extension.swift in Sources */,
 				B18B60CF296552DA00AF14F5 /* KeyneezTextFieldFactory.swift in Sources */,
-				B10AAD71296967F300AB8475 /* IDIssueActionables.swift in Sources */,
+				B10AAD71296967F300AB8475 /* IDNotAvailableActionables.swift in Sources */,
 				B8C02F0D2962F683005612CE /* LikeViewController.swift in Sources */,
 				B187CA7C296C5B21006B0AE1 /* IDIssuedViewController.swift in Sources */,
 				B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */,
@@ -1022,10 +1052,13 @@
 				B10AAD3C296967C700AB8475 /* SeparatedButton.swift in Sources */,
 				B10AAD8A2969B86500AB8475 /* PreviewView.swift in Sources */,
 				B10AAD6D296967F300AB8475 /* IDDetailActionables.swift in Sources */,
+				B1A8035B296D98E70007DDD9 /* PhysicalIDActionables.swift in Sources */,
 				B10AAD902969F31C00AB8475 /* AVCaptureVideoOrientation.swift in Sources */,
+				B1A8035D296D99180007DDD9 /* PhysicalIDActions.swift in Sources */,
 				022F68B82962D3A200F32CE1 /* Buildable.swift in Sources */,
 				02F262AE2965ABEE005A1CE4 /* LoadingView.swift in Sources */,
 				B10AAD70296967F300AB8475 /* IDCardView.swift in Sources */,
+				B1A80365296DD6430007DDD9 /* CameraViewActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

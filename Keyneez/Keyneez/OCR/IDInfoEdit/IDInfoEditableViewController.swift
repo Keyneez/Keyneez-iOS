@@ -33,15 +33,15 @@ final class IDInfoEditableViewController: BottomSheetViewController {
     addSubview()
   }
   
-  
   override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
   }
   
+  private lazy var actions: IDInfoEditableActionables = IDInfoEditableActions(viewController: self)
+  
   private func addSubview() {
-    let idDetailView = IDInfoEditableView()
+    let idDetailView = IDInfoEditableView(frame: .zero, actions: actions)
     contentView.addSubview(idDetailView)
-    
     idDetailView.snp.makeConstraints {
       $0.left.right.top.bottom.equalToSuperview()
     }

@@ -19,15 +19,16 @@ class IDIssuedView: NiblessView {
     $0.textColor = .gray900
   }
   
-  private lazy var idCardView: IDCardView = .init(frame: .zero, userCardInfo: userInfo, actions: actions)
+  private lazy var idCardView: IDCardView = .init(frame: .zero, userCardInfo: userInfo, action: actions.touchDetailInfo(to: makeDetailViewController()))
   
-  private lazy var confirmButton: UIButton = .init().then {
+  private lazy var confirmButton: UIButton = .init(primaryAction: actions.didTouchConfirmButton()).then {
     $0.keyneezButtonStyle(style: .blackAct, title: "확인")
   }
   
-  private var actions: IDCardContentActionables
+  private var actions: IDIssuedViewActionables
+  private var customNavigationDelegateDetailView = CustomNavigationManager()
   
-  init(frame: CGRect, action: IDCardContentActionables) {
+  init(frame: CGRect, action: IDIssuedViewActionables) {
     self.actions = action
     super.init(frame: frame)
     addsubview()
@@ -37,6 +38,15 @@ class IDIssuedView: NiblessView {
 }
 
 extension IDIssuedView {
+  
+  private func makeDetailViewController() -> IDDetailViewController {
+    let idDetailViewController = IDDetailViewController()
+    customNavigationDelegateDetailView.direction = .bottom
+    customNavigationDelegateDetailView.height = 348
+    idDetailViewController.transitioningDelegate = customNavigationDelegateDetailView
+    idDetailViewController.modalPresentationStyle = .custom
+    return idDetailViewController
+  }
   
   private func addsubview() {
     [titleLabel, idCardView, confirmButton].forEach {

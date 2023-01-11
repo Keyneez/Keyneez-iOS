@@ -36,7 +36,11 @@ struct IDInfo {
   var info: String
 }
 
-final class IDInfoEditableView: NiblessView {
+protocol IDIssuedFactory {
+  func makeIDIssuedViewController() -> IDIssuedViewController
+}
+
+final class IDInfoEditableView: NiblessView, IDIssuedFactory {
   
   private var idSegmentedValue: [IDInfo] = [IDInfo(name: "", idType: .schoolID, info: ""),
                                             IDInfo(name: "", idType: .teenID, info: "")]
@@ -62,11 +66,11 @@ final class IDInfoEditableView: NiblessView {
     self.idSegmentedValue[self.segmentedControl.selectedSegmentIndex].info = str ?? ""
   }).build()
   
-  private lazy var recaptureButton: UIButton = .init().then {
+  private lazy var recaptureButton: UIButton = .init(primaryAction: actions.dismiss()).then {
     $0.keyneezButtonStyle(style: .whiteAct, title: "다시 촬영")
   }
   
-  private lazy var continueButton: UIButton = .init().then {
+  private lazy var continueButton: UIButton = .init(primaryAction: actions.continueToIDIssuedViewController(with: self)).then {
     $0.keyneezButtonStyle(style: .blackUnact, title: "네, 맞아요")
   }
   
@@ -86,13 +90,20 @@ final class IDInfoEditableView: NiblessView {
     }
   }
   
-  override init(frame: CGRect) {
+  private let actions: IDInfoEditableActionables
+  
+  init(frame: CGRect, actions: IDInfoEditableActionables) {
+    self.actions = actions
     super.init(frame: frame)
     addsubview()
     setConstraint()
     setSegmentedControl()
     nameTextField.delegate = self
     infoTextField.delegate = self
+  }
+  
+  func makeIDIssuedViewController() -> IDIssuedViewController {
+    return IDIssuedViewController()
   }
   
 }
