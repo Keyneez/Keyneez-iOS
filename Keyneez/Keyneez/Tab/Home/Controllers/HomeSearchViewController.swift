@@ -18,14 +18,14 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .textfield(configure: (placeholder: "제목, 키워드", completion: { [self] keyword in
     guard let token = UserSession.shared.accessToken else { return }
     repository.getSearchContent(token: token, keyword: keyword!) {
-         [weak self] arr in
-         guard let self else {return}
-         self.searchDatasource = arr
-      
-         DispatchQueue.main.async {
-           self.homeSearchCollectionView.reloadData()
-         }
-       }
+      [weak self] arr in
+      guard let self else {return}
+      self.searchDatasource = arr
+      self.setSearchResultCountingLabel(count: searchDatasource.count)
+      DispatchQueue.main.async {
+        self.homeSearchCollectionView.reloadData()
+      }
+    }
   }))]).build()
   private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
     $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
@@ -89,17 +89,6 @@ extension HomeSearchViewController {
     homeSearchCollectionView.register(
       HomeSearchCollectionViewCell.self,
       forCellWithReuseIdentifier: HomeSearchCollectionViewCell.identifier)
-  }
-  private func updateSearchResults() {
-    homeSearchCollectionView.performBatchUpdates({
-        if !searchDatasource.isEmpty {
-          searchDatasource = []
-        }
-      setSearchResultCountingLabel(count: searchDatasource.count)
-      searchDatasource.enumerated().forEach {
-        homeSearchCollectionView.insertItems(at: [IndexPath(item: $0.offset, section: 0)])
-      }
-    })
   }
   private func setSearchResultCountingLabel(count: Int) {
     let text = NSMutableAttributedString()
