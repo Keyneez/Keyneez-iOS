@@ -23,7 +23,7 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
          self.searchDatasource = arr
       
          DispatchQueue.main.async {
-//           self.updateSearchResults(searchText: keyword!)
+//           self.updateSearchResults()
            self.homeSearchCollectionView.reloadData()
          }
        }
@@ -91,16 +91,14 @@ extension HomeSearchViewController {
       HomeSearchCollectionViewCell.self,
       forCellWithReuseIdentifier: HomeSearchCollectionViewCell.identifier)
   }
-  private func updateSearchResults(searchText: String) {
+  private func updateSearchResults() {
     homeSearchCollectionView.performBatchUpdates({
-        if !homeSearchResults.isEmpty {
-          homeSearchResults = []
+        if !searchDatasource.isEmpty {
+          searchDatasource = []
         }
-      let equalToSearchTextList: [HomeSearchModel] = homeSearchList.filter{ $0.contentTitle.contains(searchText) }
-      setSearchResultCountingLabel(count: equalToSearchTextList.count)
-      for count in 0..<equalToSearchTextList.count {
-        homeSearchResults.insert(equalToSearchTextList[count], at: 0)
-        homeSearchCollectionView.insertItems(at: [IndexPath(item: count, section: 0)])
+      setSearchResultCountingLabel(count: searchDatasource.count)
+      searchDatasource.enumerated().forEach {
+        homeSearchCollectionView.insertItems(at: [IndexPath(item: $0.offset, section: 0)])
       }
     })
   }
@@ -137,15 +135,13 @@ extension HomeSearchViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - UICollectionViewDataSource
 extension HomeSearchViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//    return homeSearchResults.count
-    return searchContentList.count
+    return searchDatasource.count
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let homeSearchCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeSearchCollectionViewCell.identifier, for: indexPath)
             as? HomeSearchCollectionViewCell else { return UICollectionViewCell() }
-//    homeSearchCell.bindHomeSearchData(model: homeSearchResults[indexPath.item])
-    homeSearchCell.bindHomeSearchData(model: searchContentList[indexPath.item])
+    homeSearchCell.bindHomeSearchData(model: searchDatasource[indexPath.item])
     return homeSearchCell
   }
 }

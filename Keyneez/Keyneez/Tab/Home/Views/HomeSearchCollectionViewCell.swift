@@ -55,10 +55,10 @@ extension HomeSearchCollectionViewCell {
       $0.centerX.equalToSuperview()
     }
   }
-//  func bindHomeSearchData(model: HomeSearchModel) {
   func bindHomeSearchData(model: SearchContentResponseDto) {
-    dateLabel.text = setDateLabel(model: model)
     titleLabel.text = model.contentTitle
+    dateLabel.text = setDateLabel(model: model)
+    // TODO: 이미지, 버튼 값 변경
   }
   @objc
   private func touchUpLikeButton() {
@@ -71,8 +71,8 @@ extension HomeSearchCollectionViewCell {
     let day = (fullDate[dayIndex...])
     return month + "." + day
   }
-//  private func setDateLabel(model: HomeSearchModel) -> String {
   private func setDateLabel(model: SearchContentResponseDto) -> String {
+    if model.startAt == nil || model.endAt == nil { return "2023 ~ " }
     if model.startAt!.isEmpty || model.endAt!.isEmpty { return "2023 ~ " }
     return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
   }
