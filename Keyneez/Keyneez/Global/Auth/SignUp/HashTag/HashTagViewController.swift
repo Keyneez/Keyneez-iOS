@@ -30,7 +30,7 @@ final class HashTagViewController: NiblessViewController, NavigationBarProtocol 
   })
   
   // MARK: - UI Components
-  lazy var selectedIndex = [Int]()
+  lazy var selectedHashTag = [Int]()
     
   private lazy var titleLabel: UILabel = .init().then {
     $0.text = "관심있는 해시태그에\n체크해주세요"
@@ -56,9 +56,38 @@ final class HashTagViewController: NiblessViewController, NavigationBarProtocol 
     $0.addTarget(self, action: #selector(touchUpNextVC), for: .touchUpInside)
   }
   
+  var propensityNumber: Int = 0
+  func dataBind(propensity: Int) {
+     propensityNumber = propensity
+  }
+  
+  private func jellyInfo(token: String, with dto: ProductJellyRequstDto, completion: @escaping(ProductJellyResponseDto) -> Void) {
+    
+    UserAPIProvider.shared.patchUserInfo(token: token, param: dto) { [weak self] result in
+      guard self != nil else { return }
+      switch result {
+      case .success(let data):
+        DispatchQueue.main.async {
+          self!.pushToNextVC(VC: JellyProductViewController())
+        }
+      case .failure(let error):
+        print(error)
+      }
+    }
+  }
+  
   @objc
   private func touchUpNextVC() {
-    pushToNextVC(VC: JellyProductViewController())
+    var selectedHashTagText: [String] = []
+    for index in selectedHashTag {
+      selectedHashTagText.append(hashTagData[index].text)
+
+    }
+    var jellyInfoRequestDto = ProductJellyRequstDto(disposition: propensityTagUnclickData[propensityNumber].text, interest: selectedHashTagText)
+    guard let token = UserSession.shared.accessToken else {return}
+    jellyInfo(token: token, with: jellyInfoRequestDto) { userdata in
+      
+    }
   }
   
   private let clickCountLabel: UILabel = .init().then {
@@ -163,26 +192,26 @@ extension HashTagViewController: UICollectionViewDataSource {
     
     if cell?.indexView.isHidden == true {
       
-      if selectedIndex.count < 3 {
-        selectedIndex.append(indexPath.row)
-        guard let index = selectedIndex.firstIndex(of: indexPath.row) else { return }
+      if selectedHashTag.count < 3 {
+        selectedHashTag.append(indexPath.row)
+        guard let index = selectedHashTag.firstIndex(of: indexPath.row) else { return }
         cell?.selectView(index: index)
-        clickCountLabel.text = String(selectedIndex.count)
+        clickCountLabel.text = String(selectedHashTag.count)
         
       }
     } else {
-      guard let index = selectedIndex.firstIndex(of: indexPath.item) else { return }
-      selectedIndex.remove(at: index)
+      guard let index = selectedHashTag.firstIndex(of: indexPath.item) else { return }
+      selectedHashTag.remove(at: index)
       cell?.unSelectiView()
-      selectedIndex.forEach {
+      selectedHashTag.forEach {
         let cell = collectionView.cellForItem(at: [0, $0]) as? HashTagCollectionViewCell
-        guard let newIndex = selectedIndex.firstIndex(of: $0) else {
+        guard let newIndex = selectedHashTag.firstIndex(of: $0) else {
           return }
         cell?.changeIndexLabel(index: newIndex)
       }
-      clickCountLabel.text = String(selectedIndex.count)
+      clickCountLabel.text = String(selectedHashTag.count)
     }
-    if selectedIndex.count == 3 {
+    if selectedHashTag.count == 3 {
       nextButton.keyneezButtonStyle(style: .blackAct, title: "다음으로")
       allCountLabel.textColor = .mint500
       clickCountLabel.textColor = .mint500

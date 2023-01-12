@@ -10,6 +10,6 @@ import Foundation
 //MARK: - 유저 생성(성향, 관심사) RequestDto
 
 struct ProductJellyRequstDto: Codable {
-  let dispositon: String
-  let interst: [String]
+  let disposition: String
+  let interest: [String]
 }

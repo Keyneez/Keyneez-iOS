@@ -83,6 +83,7 @@ class DanalUserDataViewController: NiblessViewController, NavigationBarProtocol,
       var danalRequestDTO = ProductDanalRequestDto(userName: name, userBirth: birthday,
                                                    userGender: " ", userPhone: phone)
         signUp(with: danalRequestDTO) { userdata in
+          UserSession.shared.accessToken = userdata.accessToken
       }
     }
   }

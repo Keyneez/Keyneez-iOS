@@ -62,25 +62,14 @@ final class PropensityTagViewController: NiblessViewController, NavigationBarPro
    
    @objc
    private func touchUpNextVC() {
+     let hashTagVC = HashTagViewController()
      for button in btnArray {
        if button.isSelected == true {
-         
+         hashTagVC.dataBind(propensity: button.tag)
+         pushToNextVC(VC: hashTagVC)
        }
      }
    }
-  
-  private func propensityInfo(with dto: ProductJellyRequstDto, completion: @escaping(ProductJellyResponseDto) -> Void) {
-    UserAPIProvider.shared.patchUserInfo(param: dto) { [weak self] result in
-      guard self != nil else { return }
-      switch result {
-      case .success(let data):
-        self?.pushToNextVC(VC: HashTagViewController())
-        return
-      case .failure(let error):
-        print(error)
-      }
-    }
-  }
   
   private var btnArray = [UIButton]()
   

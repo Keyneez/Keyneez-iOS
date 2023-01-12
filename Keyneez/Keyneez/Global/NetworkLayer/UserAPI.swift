@@ -14,8 +14,8 @@ enum UserAPIError: LocalizedError {
 
 enum UserAPI {
   case postUserInfo(param: ProductDanalRequestDto)
-  case postUserPickInfo(param: ProductJellyRequstDto)
-  case patchUserPwdInfo(param: ProductPwdRequestDto)
+  case patchUserPickInfo(token: String, param: ProductJellyRequstDto)
+  case patchUserPwdInfo(token: String, param: ProductPwdRequestDto)
   case postPwdFetch(param: PasswordFetchRequestDto)
   case postUserLoginInfo(param: LoginRequestDto)
 }
@@ -28,11 +28,11 @@ extension UserAPI: TargetType {
   
   var path: String {
     switch self {
-    case .postUserInfo, .postUserPickInfo :
+    case .postUserInfo, .patchUserPickInfo:
       return "/user/signup"
-    case .patchUserPwdInfo, .postPwdFetch :
+    case .patchUserPwdInfo, .postPwdFetch:
       return "/user/signup/pw"
-    case .postUserLoginInfo :
+    case .postUserLoginInfo:
       return "/user/signin"
     default:
       return ""
@@ -43,8 +43,8 @@ extension UserAPI: TargetType {
     switch self {
     case .postUserInfo:
       return .post
-    case .postUserPickInfo:
-      return .post
+    case .patchUserPickInfo:
+      return .patch
     case .patchUserPwdInfo:
       return .patch
     case .postPwdFetch:
@@ -58,9 +58,9 @@ extension UserAPI: TargetType {
     switch self {
     case .postUserInfo(let param):
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
-    case .postUserPickInfo(param: let param):
+    case .patchUserPickInfo(_, let param):
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
-    case .patchUserPwdInfo(param: let param):
+    case .patchUserPwdInfo(_, let param):
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
     case .postPwdFetch(param: let param):
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
@@ -71,8 +71,10 @@ extension UserAPI: TargetType {
   
   var headers: [String: String]? {
     switch self {
-    case .postUserInfo:
+    case .postUserInfo, .postPwdFetch, .postUserLoginInfo:
       return ["Content-Type": "application/json"]
+    case .patchUserPickInfo(let token, _), .patchUserPwdInfo(let token, _):
+      return ["Content-Type": "application/json", "Authorization": token]
     default:
       return nil
     }

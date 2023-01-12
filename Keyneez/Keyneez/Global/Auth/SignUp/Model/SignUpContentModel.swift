@@ -30,18 +30,18 @@ struct HashTagContentModel {
 }
 
 var hashTagData: [HashTagContentModel] = [
-  HashTagContentModel(image: "amusementPark", text: "#놀이공원"),
-  HashTagContentModel(image: "active", text: "#대외활동"),
-  HashTagContentModel(image: "traffic", text: "#대중교통"),
-  HashTagContentModel(image: "movie", text: "#영화관"),
-  HashTagContentModel(image: "add", text: "#혜택"),
-  HashTagContentModel(image: "travel", text: "#여행"),
-  HashTagContentModel(image: "scholaship", text: "#장학"),
-  HashTagContentModel(image: "art", text: "#미술관"),
-  HashTagContentModel(image: "checkCard", text: "#체크카드"),
-  HashTagContentModel(image: "volunteer", text: "#봉사"),
-  HashTagContentModel(image: "museum", text: "#박물관"),
-  HashTagContentModel(image: "career", text: "#진로")
+  HashTagContentModel(image: "amusementPark", text: "놀이공원"),
+  HashTagContentModel(image: "active", text: "대외활동"),
+  HashTagContentModel(image: "traffic", text: "대중교통"),
+  HashTagContentModel(image: "movie", text: "영화관"),
+  HashTagContentModel(image: "add", text: "혜택"),
+  HashTagContentModel(image: "travel", text: "여행"),
+  HashTagContentModel(image: "scholaship", text: "장학"),
+  HashTagContentModel(image: "art", text: "미술관"),
+  HashTagContentModel(image: "checkCard", text: "체크카드"),
+  HashTagContentModel(image: "volunteer", text: "봉사"),
+  HashTagContentModel(image: "museum", text: "박물관"),
+  HashTagContentModel(image: "career", text: "진로")
 ]
 
 struct JellyContentModel {

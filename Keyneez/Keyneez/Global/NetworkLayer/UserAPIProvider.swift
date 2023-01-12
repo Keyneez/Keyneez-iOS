@@ -30,8 +30,8 @@ final class UserAPIProvider {
     responseFrom(target, modelType: ProductDanalResponseDto.self, completion: completion)
   }
   
-  func patchUserInfo(param: ProductJellyRequstDto, completion: @escaping (Result<ProductJellyResponseDto?, Error>) -> Void) {
-    let target = UserAPI.postUserPickInfo(param: param)
+  func patchUserInfo(token: String, param: ProductJellyRequstDto, completion: @escaping (Result<ProductJellyResponseDto?, Error>) -> Void) {
+    let target = UserAPI.patchUserPickInfo(token: token, param: param)
     responseFrom(target, modelType: ProductJellyResponseDto.self, completion: completion)
   }
   
