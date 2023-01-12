@@ -128,8 +128,6 @@ extension HomeContentCollectionViewCell {
       $0.height.equalTo(72)
     }
     contentImageView.backgroundColor = .gray400
-//    setLabelLineBreak(label: contentTitle) -> 두개다 지우면 이 함수 지우기
-//    setLabelLineBreak(label: contentIntroduction)
   }
   
   func bindHomeData(model: HomeContentResponseDto) {
@@ -159,9 +157,5 @@ extension HomeContentCollectionViewCell {
   @objc
   private func touchUpLikeButton() {
     likeButton.isSelected = !likeButton.isSelected
-  }
-  private func setLabelLineBreak(label: UILabel) {
-    label.lineBreakStrategy = .hangulWordPriority
-    label.numberOfLines = 0
   }
 }
