@@ -9,7 +9,7 @@ import Foundation
 
 protocol ContentRepository {
   func getAllContents(token: String, completion: @escaping([HomeContentResponseDto]) -> Void)
-  func getDetailContent(token: String, contentID: Int)
+  func getDetailContent(token: String, contentID: Int, completion: @escaping([ContentDetailResponseDto]) -> Void)
   func getSearchContent(token: String, keyword: String, completion: @escaping([SearchContentResponseDto]) -> Void)
 }
 
@@ -27,7 +27,16 @@ final class KeyneezContentRepository: ContentRepository {
     }
   }
   
-  func getDetailContent(token: String, contentID: Int) {
+  func getDetailContent(token: String, contentID: Int, completion: @escaping([ContentDetailResponseDto]) -> Void) {
+    ContentAPIProvider.shared.getDetailContent(token: token, contentID: Int) { result in
+      switch result {
+      case .success(let data):
+        guard let detailContentList = data else { return }
+        completion(detailContentList)
+      case .failure(let failure):
+        print("fail")
+      }
+    }
   }
   
   func getSearchContent(token: String, keyword: String, completion: @escaping ([SearchContentResponseDto]) -> Void) {
