@@ -6,13 +6,24 @@
 //
 
 import AVFoundation
+import MLKitTextRecognitionKorean
+import MLKitTextRecognition
+import MLKit
+import MLImage
+import CoreVideo
+
 import UIKit
+
+private enum Constant {
+  static let videoDataOutputQueueLabel = "VideoDataOutputQueue"
+  static let sessionQueueLabel = "textrecognizer.SessionQueue"
+}
 
 final class Camera {
   
   private var videoDeviceInput: AVCaptureDeviceInput!
   
-  private let sessionQueue = DispatchQueue(label: "session queue")
+  let sessionQueue = DispatchQueue(label: "session queue")
   let session = AVCaptureSession()
   private var isSessionRunning = false
   private var selectedSemanticSegmentationMatteTypes = [AVSemanticSegmentationMatte.MatteType]()
@@ -31,6 +42,35 @@ final class Camera {
   private var portraitEffectsMatteDeliveryMode: PortraitEffectsMatteDeliveryMode = .off
   // 이건뭐임?
   private var photoQualityPrioritizationMode: AVCapturePhotoOutput.QualityPrioritization = .balanced
+  
+  var lastFrame: CMSampleBuffer?
+  
+  private var koreanOptions = KoreanTextRecognizerOptions()
+  
+  private func updatePreviewOverlayViewWithLastFrame() {
+    
+    DispatchQueue.main.async { [weak self] in
+      
+      guard let self else {
+        print("Self is nil")
+        return
+      }
+      
+      guard let lastFrame = self.lastFrame, let imageBuffer = CMSampleBufferGetImageBuffer(lastFrame) else {return}
+      
+      self.updatePreviewOverlayViewWithImageBuffer(imageBuffer)
+//      self.removeDetectionAnnotations()
+      
+    }
+  }
+  
+  private func updatePreviewOverlayViewWithImageBuffer(_ imageBuffer: CVImageBuffer?) {
+    guard let imageBuffer = imageBuffer else { return }
+    let orientation: UIImage.Orientation = .leftMirrored
+    let image = UIUtilities.createUIImage(from: imageBuffer, orientation: orientation)
+    print(image)
+  }
+  
   
   init() {
     checkCameraAuthroizationStatus()
@@ -153,6 +193,7 @@ extension Camera {
     addPhotoOutput()
   }
   
+ 
   private func addDeviceInputToSession(with deviceInput: AVCaptureDeviceInput, completion: @escaping () -> Void) {
     session.addInput(deviceInput)
     self.videoDeviceInput = deviceInput
@@ -191,10 +232,10 @@ extension Camera {
     case .notDetermined:
       sessionQueue.suspend()
       AVCaptureDevice.requestAccess(for: .video, completionHandler: { granted in
-          if !granted {
-              self.setupResult = .notAuthorized
-          }
-          self.sessionQueue.resume()
+        if !granted {
+          self.setupResult = .notAuthorized
+        }
+        self.sessionQueue.resume()
       })
     default:
       setupResult = .notAuthorized
@@ -205,6 +246,7 @@ extension Camera {
 // MARK: - Capture Photo
 
 extension Camera {
+  
   func capturePhoto(videoPreviewLayerOrientation: AVCaptureVideoOrientation?) {
     
     sessionQueue.async {
