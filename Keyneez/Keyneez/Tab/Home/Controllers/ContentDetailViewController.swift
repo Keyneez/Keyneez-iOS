@@ -151,7 +151,7 @@ extension ContentDetailViewController {
     }
     benefitLabel.snp.makeConstraints {
       $0.top.equalTo(firstSepareteLine.snp.bottom).offset(16)
-      $0.leading.equalTo(benefitBasicLabel)
+      $0.leading.trailing.equalTo(contentView).inset(24)
     }
     usageBasicLabel.snp.makeConstraints {
       $0.top.equalTo(benefitLabel.snp.bottom).offset(40)
@@ -164,7 +164,7 @@ extension ContentDetailViewController {
     }
     usageLabel.snp.makeConstraints {
       $0.top.equalTo(secondSeparateLine.snp.bottom).offset(16)
-      $0.leading.equalTo(usageBasicLabel)
+      $0.leading.trailing.equalTo(contentView).inset(24)
       $0.bottom.equalToSuperview().inset(30)
     }
   }
@@ -189,13 +189,13 @@ extension ContentDetailViewController {
   private func setInfoLabelLayoutWithButton() {
     contentInfoLabel.snp.makeConstraints {
       $0.top.equalTo(urlRoundButton.snp.bottom).offset(16)
-      $0.leading.trailing.equalToSuperview().inset(24)
+      $0.leading.trailing.equalTo(contentView).inset(24)
     }
   }
   private func setInfoLabelLayoutWithoutButton() {
     contentInfoLabel.snp.makeConstraints {
       $0.top.equalTo(contentImageView.snp.bottom).offset(24)
-      $0.leading.trailing.equalToSuperview().inset(24)
+      $0.leading.trailing.equalTo(contentView).inset(24)
     }
   }
   @objc
@@ -232,6 +232,8 @@ extension ContentDetailViewController {
       $0.text = text
       $0.font = .font(.pretendardMedium, ofSize: 14)
       $0.textColor = .gray900
+      $0.lineBreakStrategy = .hangulWordPriority
+      $0.numberOfLines = 0
     }
     return label
   }
@@ -253,4 +255,5 @@ extension ContentDetailViewController {
     if model.startAt!.isEmpty || model.endAt!.isEmpty { return "2023 ~" }
     return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
   }
+
 }
