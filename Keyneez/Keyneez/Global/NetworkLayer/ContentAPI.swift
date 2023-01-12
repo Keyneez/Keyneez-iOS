@@ -10,7 +10,7 @@ import Moya
 
 enum ContentAPI {
   case getAllContents(token: String)
-  case getDetailContent(param: ContentDetailResponseDto)
+  case getDetailContent(token: String, contentID: Int)
   case getSearchContent(token: String, keyword: String)
   case postLikeContent
   case getLikedContent
@@ -52,8 +52,8 @@ extension ContentAPI: TargetType {
     switch self {
     case .getAllContents:
       return .requestPlain
-    case .getDetailContent(let param):
-      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
+    case .getDetailContent(_, let contentID):
+      return .requestParameters(parameters: ["contentID": contentID], encoding: JSONEncoding.default)
     case .getSearchContent(_, let keyword):
       return .requestParameters(parameters: ["keyword": keyword], encoding: URLEncoding.queryString)
     case .postLikeContent:
@@ -65,9 +65,7 @@ extension ContentAPI: TargetType {
   
   var headers: [String: String]? {
     switch self {
-    case .getDetailContent:
-      return ["Content-Type": "application/json"]
-    case .getAllContents(let token), .getSearchContent(let token, _):
+    case .getAllContents(let token), .getSearchContent(let token, _), .getDetailContent(let token,_):
       return ["Content-Type": "application/json", "Authorization": token]
     default:
       return nil
