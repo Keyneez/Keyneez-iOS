@@ -68,7 +68,7 @@ extension HomeSearchCollectionViewCell {
   }
   @objc
   private func touchUpLikeButton() {
-    print(likeButton.state)
+      likeButton.isSelected = !likeButton.isSelected
   }
   private func getDate(fullDate: String) -> String {
     let monthIndex = fullDate.index(fullDate.endIndex, offsetBy: -4)
@@ -82,8 +82,4 @@ extension HomeSearchCollectionViewCell {
     if model.startAt!.isEmpty || model.endAt!.isEmpty { return "2023 ~ " }
     return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
   }
-  func hiddenLikeButton() {
-    likeButton.isHidden = true
-  }
 }
-

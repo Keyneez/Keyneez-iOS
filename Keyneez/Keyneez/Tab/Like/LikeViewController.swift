@@ -111,7 +111,6 @@ extension LikeViewController: UICollectionViewDataSource {
     guard let homeSearchCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeSearchCollectionViewCell.identifier, for: indexPath)
             as? HomeSearchCollectionViewCell else { return UICollectionViewCell() }
-    homeSearchCell.hiddenLikeButton()
 //    homeSearchCell.bindHomeSearchData(model: homeSearchList[indexPath.item])
     return homeSearchCell
   }
