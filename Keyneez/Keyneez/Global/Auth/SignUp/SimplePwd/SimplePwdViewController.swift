@@ -190,7 +190,7 @@ extension SimplePwdViewController: UICollectionViewDataSource {
         
       }
     
-    }else {
+    } else {
       
       if Constant.index > 0 && Constant.index < 7 {
         Constant.index -= 1

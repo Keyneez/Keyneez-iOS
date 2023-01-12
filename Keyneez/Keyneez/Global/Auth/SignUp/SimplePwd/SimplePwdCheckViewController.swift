@@ -85,6 +85,8 @@ class SimplePwdCheckViewController: NiblessViewController, NavigationBarProtocol
     self.userData = userData
   }
   
+  private var selectedNumber:[Int] = []
+  
   private func passwordInfo(token: String, with dto: ProductPwdRequestDto, completion: @escaping(ProductPwdResponseDto) -> Void) {
     UserAPIProvider.shared.patchPwdInfo(token: token, param: dto) { [weak self] result in
       guard let self else {return}
@@ -175,7 +177,8 @@ extension SimplePwdCheckViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     // 간편 비밀번호 로직
     
-    if indexPath.item != 11 {
+    if indexPath.item != 11 && indexPath.item != 9 {
+      selectedNumber.append(Int(pwdNumberData[indexPath.row].text)!)
       Constant.index += 1
       switch Constant.index {
       case 1:
@@ -191,6 +194,7 @@ extension SimplePwdCheckViewController: UICollectionViewDataSource {
       case 6:
         progressImageView.image = UIImage(named: Constant.imageArray[6])
         Constant.index = 6
+        
         var pwdInfoRequsetDto = ProductPwdRequestDto(userPassword: password)
         guard let token = UserSession.shared.accessToken else {return}
         passwordInfo(token: token, with: pwdInfoRequsetDto) { _ in }
@@ -204,13 +208,20 @@ extension SimplePwdCheckViewController: UICollectionViewDataSource {
         Constant.index -= 1
         progressImageView.image = UIImage(named: Constant.imageArray[Constant.index])
         
-      } else if Constant.index < 0 {
-        Constant.index = 0
-        
-      } else if Constant.index > 6 {
-        Constant.index = 6
-        
-      }
+        switch  indexPath.item {
+        case 11:
+          selectedNumber.removeLast()
+        case 9:
+          // TODO: - 재배열 코드 넣어주기
+          return
+        default:
+          return
+        }
+  
+      } else if Constant.index < 0 {Constant.index = 0}
+      else if Constant.index > 6 {Constant.index = 6}
     }
+    
+    print(selectedNumber)
   }
 }
