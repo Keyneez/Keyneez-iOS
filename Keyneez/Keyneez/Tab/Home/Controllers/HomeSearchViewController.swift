@@ -23,7 +23,6 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
          self.searchDatasource = arr
       
          DispatchQueue.main.async {
-//           self.updateSearchResults()
            self.homeSearchCollectionView.reloadData()
          }
        }
