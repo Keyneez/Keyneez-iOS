@@ -79,7 +79,7 @@ extension HomeContentViewController: UICollectionViewDelegateFlowLayout {
     return homeContentInset
   }
   func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-    pushToContentDetailView()
+//    pushToContentDetailView(model: <#ContentDetailResponseDto#>)
     return true
   }
 }

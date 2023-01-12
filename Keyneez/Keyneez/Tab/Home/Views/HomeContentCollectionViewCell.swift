@@ -11,6 +11,7 @@ import SnapKit
 
 final class HomeContentCollectionViewCell: UICollectionViewCell {
   static let identifier = "HomeContentCollectionViewCell"
+  var homeContentID = -1
   // MARK: - UI Components
 
   private let shadowView = UIView().then {
@@ -130,6 +131,7 @@ extension HomeContentCollectionViewCell {
   }
   
   func bindHomeData(model: HomeContentResponseDto) {
+    homeContentID = model.contentKey
 //    contentImageView.image = UIImage(named: model.contentImage)
     dateLabel.text = setDateLabel(model: model)
 //    category.text = model.categoty[0]

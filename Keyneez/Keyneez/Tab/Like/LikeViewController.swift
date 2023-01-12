@@ -97,7 +97,7 @@ extension LikeViewController: UICollectionViewDelegateFlowLayout {
     return likeInset
   }
   func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-    pushToContentDetailView()
+//    pushToContentDetailView()
     return true
   }
 }

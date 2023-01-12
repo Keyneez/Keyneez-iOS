@@ -17,7 +17,7 @@ struct ContentDetailResponseDto: Codable {
   let contentImg,
       startAt,
       endAt: String?
-  let contentLink: URL
+  let contentLink: String
   let liked: Bool
   let category: [String]
 }

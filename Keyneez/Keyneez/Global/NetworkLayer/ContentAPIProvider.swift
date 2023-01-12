@@ -19,15 +19,16 @@ final class ContentAPIProvider {
     let target = ContentAPI.getSearchContent(token: token, keyword: keyword)
     requestFrom(target, modelType: [SearchContentResponseDto].self, completion: completion)
   }
-  func getDetailContent(token: String, contentID: Int, completion: @escaping (Result<[ContentDetailResponseDto]?, Error>) -> Void) {
-    let target = ContentAPI.getDetailContent(token: token, contentID: contentID)
-    requestFrom(target, modelType: [ContentDetailResponseDto].self, completion: completion)
+  func getDetailContent(token: String, contentId: Int, completion: @escaping (Result<ContentDetailResponseDto?, Error>) -> Void) {
+    let target = ContentAPI.getDetailContent(token: token, contentId: contentId)
+    requestFrom(target, modelType: ContentDetailResponseDto.self, completion: completion)
   }
 }
 
 extension ContentAPIProvider {
   func requestFrom<T: Codable>(_ target: ContentAPI, modelType: T.Type, completion: @escaping (Result<T?, Error>) -> Void) {
     contentProvider.request(target) { result in
+      
       self.process(type: modelType, result: result, completion: completion)
     }
   }
@@ -42,7 +43,7 @@ extension ContentAPIProvider {
       let decoder = JSONDecoder()
       decoder.keyDecodingStrategy = .convertFromSnakeCase
       if let data = try? decoder.decode(GenericResponse<T>.self, from: response.data) {
-        guard let body = data.data else { print("nobody"); return }
+        guard let body = data.data else { print("ContentAPI nobddy"); return }
         completion(.success(body))
       } else {
         completion(.failure(DecodeError.decodeError))

@@ -875,10 +875,10 @@
 		B8C02F1829656E33005612CE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B8C02F3F296C32B5005612CE /* ContentDetailViewController.swift */,
 				B8C02F0A2962F65E005612CE /* HomeViewController.swift */,
 				B8C02F2929694C82005612CE /* HomeContentViewController.swift */,
 				B8C02F33296B1AA3005612CE /* HomeSearchViewController.swift */,
-				B8C02F3F296C32B5005612CE /* ContentDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

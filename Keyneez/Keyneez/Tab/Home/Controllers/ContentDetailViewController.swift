@@ -202,7 +202,7 @@ extension ContentDetailViewController {
   private func touchUpUrlRoundButton() {
     print("touch up Url Button")
   }
-  func bindContentDetailData(model: HomeContentModel) {
+  func bindContentDetailData(model: ContentDetailResponseDto) {
     contentTitle.text = model.contentTitle
   }
 }
