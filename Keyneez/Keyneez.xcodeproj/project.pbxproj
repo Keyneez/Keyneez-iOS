@@ -103,19 +103,21 @@
 		B18B60D5296552DA00AF14F5 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60CC296552DA00AF14F5 /* NavigationBar.swift */; };
 		B18B60D6296552DA00AF14F5 /* NavigationViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60CD296552DA00AF14F5 /* NavigationViewItem.swift */; };
 		B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60CE296552DA00AF14F5 /* NavigationViewBuilder.swift */; };
+		B18C2BBA296F267C00A9AA1B /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C2BB9296F267C00A9AA1B /* UIUtilities.swift */; };
+		B18C2BBC296FF0B600A9AA1B /* OCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C2BBB296FF0B600A9AA1B /* OCR.swift */; };
 		B1A80358296D95C10007DDD9 /* PhysicalIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80357296D95C10007DDD9 /* PhysicalIDViewController.swift */; };
 		B1A8035B296D98E70007DDD9 /* PhysicalIDActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8035A296D98E70007DDD9 /* PhysicalIDActionables.swift */; };
 		B1A8035D296D99180007DDD9 /* PhysicalIDActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8035C296D99180007DDD9 /* PhysicalIDActions.swift */; };
 		B1A80361296DA4550007DDD9 /* IDInfoEditableActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80360296DA4550007DDD9 /* IDInfoEditableActions.swift */; };
 		B1A80363296DA9A40007DDD9 /* IDIssuedViewActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80362296DA9A40007DDD9 /* IDIssuedViewActionables.swift */; };
 		B1A80365296DD6430007DDD9 /* CameraViewActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80364296DD6430007DDD9 /* CameraViewActions.swift */; };
+		B1A80377296E98B70007DDD9 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80375296E98B70007DDD9 /* UserSession.swift */; };
+		B1A80378296E98B70007DDD9 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80376296E98B70007DDD9 /* KeyChainService.swift */; };
 		B1A8037A296E9D680007DDD9 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80379296E9D680007DDD9 /* Encodable.swift */; };
 		B1A8037C296E9DB60007DDD9 /* NetworkLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8037B296E9DB60007DDD9 /* NetworkLoggerPlugin.swift */; };
 		B1A8037E296E9DF20007DDD9 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8037D296E9DF20007DDD9 /* UserAPI.swift */; };
 		B1A80380296EA54E0007DDD9 /* UserAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8037F296EA54E0007DDD9 /* UserAPIProvider.swift */; };
 		B1A80382296EA66F0007DDD9 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80381296EA66F0007DDD9 /* GenericResponse.swift */; };
-		B1A80377296E98B70007DDD9 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80375296E98B70007DDD9 /* UserSession.swift */; };
-		B1A80378296E98B70007DDD9 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80376296E98B70007DDD9 /* KeyChainService.swift */; };
 		B1B21D0E295C985C0083D9EE /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D0D295C985C0083D9EE /* Toast */; };
 		B1B21D11295C99280083D9EE /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D10295C99280083D9EE /* FloatingPanel */; };
 		B1B21D14295C9C4B0083D9EE /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = B1B21D13295C9C4B0083D9EE /* Floaty */; };
@@ -135,8 +137,6 @@
 		B8C02F42296C3983005612CE /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F41296C3983005612CE /* UIViewController+Extension.swift */; };
 		B8C02F44296C3DC2005612CE /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F43296C3DC2005612CE /* CategoryView.swift */; };
 		B8C02F46296D5ED2005612CE /* HomeSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F45296D5ED2005612CE /* HomeSearchModel.swift */; };
-		C4E673A65B49C299A564EA37 /* Pods_Keyneez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0913865316C3A35604014EFF /* Pods_Keyneez.framework */; };
-		D751BF704437497F572C630B /* Pods_KeyneezTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136F9C3DABF1403A41A57E9F /* Pods_KeyneezTests.framework */; };
 		B8C02F4C296E9221005612CE /* URLConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F4B296E9221005612CE /* URLConstant.swift */; };
 		B8C844BC296EADA500E88B86 /* HomeContentResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */; };
 		B8C844BE296EB0A100E88B86 /* ContentDetailResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */; };
@@ -150,6 +150,8 @@
 		B8C844CE296EBABB00E88B86 /* UserCheckResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844CD296EBABB00E88B86 /* UserCheckResponseDto.swift */; };
 		B8C844D0296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844CF296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift */; };
 		B8C844D2296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C844D1296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift */; };
+		C4E673A65B49C299A564EA37 /* Pods_Keyneez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0913865316C3A35604014EFF /* Pods_Keyneez.framework */; };
+		D751BF704437497F572C630B /* Pods_KeyneezTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136F9C3DABF1403A41A57E9F /* Pods_KeyneezTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,7 +178,6 @@
 		022CB21A296A11A40084DEF5 /* NavigationBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarProtocol.swift; sourceTree = "<group>"; };
 		022CB223296A2B370084DEF5 /* SignUpContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContentModel.swift; sourceTree = "<group>"; };
 		022CB227296A32130084DEF5 /* HashTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagViewController.swift; sourceTree = "<group>"; };
-		022F68B42962D10500F32CE1 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		022F68B72962D3A200F32CE1 /* Buildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buildable.swift; sourceTree = "<group>"; };
 		0230ADCB296EB58F0079D799 /* ProductPwdRequestDto.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPwdRequestDto.swift.swift; sourceTree = "<group>"; };
 		0230ADCE296EB5E40079D799 /* ProductPwdResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPwdResponseDto.swift; sourceTree = "<group>"; };
@@ -256,7 +257,6 @@
 		B1812356296B001B0029FEB6 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		B1812359296B2EF20029FEB6 /* IDCardGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardGuideViewController.swift; sourceTree = "<group>"; };
 		B181235B296B30CB0029FEB6 /* IDCardGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardGuideView.swift; sourceTree = "<group>"; };
-		B184089329632CBD005E4802 /* KeyneezTextFieldFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTextFieldFactory.swift; sourceTree = "<group>"; };
 		B187CA66296BF896006B0AE1 /* IDInfoEditableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDInfoEditableViewController.swift; sourceTree = "<group>"; };
 		B187CA6A296BF9AB006B0AE1 /* IDInfoEditableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDInfoEditableView.swift; sourceTree = "<group>"; };
 		B187CA6C296C0787006B0AE1 /* IDCardGuideActionables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCardGuideActionables.swift; sourceTree = "<group>"; };
@@ -273,19 +273,21 @@
 		B18B60CC296552DA00AF14F5 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		B18B60CD296552DA00AF14F5 /* NavigationViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewItem.swift; sourceTree = "<group>"; };
 		B18B60CE296552DA00AF14F5 /* NavigationViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewBuilder.swift; sourceTree = "<group>"; };
+		B18C2BB9296F267C00A9AA1B /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
+		B18C2BBB296FF0B600A9AA1B /* OCR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCR.swift; sourceTree = "<group>"; };
 		B1A80357296D95C10007DDD9 /* PhysicalIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalIDViewController.swift; sourceTree = "<group>"; };
 		B1A8035A296D98E70007DDD9 /* PhysicalIDActionables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalIDActionables.swift; sourceTree = "<group>"; };
 		B1A8035C296D99180007DDD9 /* PhysicalIDActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalIDActions.swift; sourceTree = "<group>"; };
 		B1A80360296DA4550007DDD9 /* IDInfoEditableActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDInfoEditableActions.swift; sourceTree = "<group>"; };
 		B1A80362296DA9A40007DDD9 /* IDIssuedViewActionables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDIssuedViewActionables.swift; sourceTree = "<group>"; };
 		B1A80364296DD6430007DDD9 /* CameraViewActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewActions.swift; sourceTree = "<group>"; };
+		B1A80375296E98B70007DDD9 /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		B1A80376296E98B70007DDD9 /* KeyChainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		B1A80379296E9D680007DDD9 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		B1A8037B296E9DB60007DDD9 /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
 		B1A8037D296E9DF20007DDD9 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		B1A8037F296EA54E0007DDD9 /* UserAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIProvider.swift; sourceTree = "<group>"; };
 		B1A80381296EA66F0007DDD9 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
-		B1A80375296E98B70007DDD9 /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
-		B1A80376296E98B70007DDD9 /* KeyChainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		B1B21D16295DE0660083D9EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbar.swift; sourceTree = "<group>"; };
 		B8C02F042962F5D4005612CE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -302,8 +304,6 @@
 		B8C02F41296C3983005612CE /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B8C02F43296C3DC2005612CE /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		B8C02F45296D5ED2005612CE /* HomeSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchModel.swift; sourceTree = "<group>"; };
-		E3818A1590105286D89CFDC2 /* Pods-Keyneez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez.release.xcconfig"; path = "Target Support Files/Pods-Keyneez/Pods-Keyneez.release.xcconfig"; sourceTree = "<group>"; };
-		FC64DF4CF12A8089751D7DC1 /* Pods-Keyneez.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez.debug.xcconfig"; path = "Target Support Files/Pods-Keyneez/Pods-Keyneez.debug.xcconfig"; sourceTree = "<group>"; };
 		B8C02F4B296E9221005612CE /* URLConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstant.swift; sourceTree = "<group>"; };
 		B8C844BB296EADA500E88B86 /* HomeContentResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentResponseDto.swift; sourceTree = "<group>"; };
 		B8C844BD296EB0A100E88B86 /* ContentDetailResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailResponseDto.swift; sourceTree = "<group>"; };
@@ -317,6 +317,8 @@
 		B8C844CD296EBABB00E88B86 /* UserCheckResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCheckResponseDto.swift; sourceTree = "<group>"; };
 		B8C844CF296EBC0000E88B86 /* UserCheckStudentIDRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCheckStudentIDRequestDto.swift; sourceTree = "<group>"; };
 		B8C844D1296EBCAC00E88B86 /* UserCheckYouthIDRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCheckYouthIDRequestDto.swift; sourceTree = "<group>"; };
+		E3818A1590105286D89CFDC2 /* Pods-Keyneez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez.release.xcconfig"; path = "Target Support Files/Pods-Keyneez/Pods-Keyneez.release.xcconfig"; sourceTree = "<group>"; };
+		FC64DF4CF12A8089751D7DC1 /* Pods-Keyneez.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez.debug.xcconfig"; path = "Target Support Files/Pods-Keyneez/Pods-Keyneez.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -489,7 +491,6 @@
 				53C4AC44C573A1F105AE3493 /* Pods-KeyneezTests.debug.xcconfig */,
 				77D3428FD56E61A83865CEDA /* Pods-KeyneezTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -564,6 +565,8 @@
 				B187CA70296C096F006B0AE1 /* CameraMode.swift */,
 				B187CA80296C8378006B0AE1 /* Camera.swift */,
 				B1A80364296DD6430007DDD9 /* CameraViewActions.swift */,
+				B18C2BB9296F267C00A9AA1B /* UIUtilities.swift */,
+				B18C2BBB296FF0B600A9AA1B /* OCR.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -576,7 +579,6 @@
 				B14D10932959C79A0004946F /* KeyneezTests */,
 				B14D109D2959C79A0004946F /* KeyneezUITests */,
 				B14D107B2959C7980004946F /* Products */,
-				B18B60A72965522600AF14F5 /* Recovered References */,
 				0BF31931D3C2D8F8B817516C /* Pods */,
 				602536908343F20172C71F32 /* Frameworks */,
 			);
@@ -826,15 +828,6 @@
 				B1A80362296DA9A40007DDD9 /* IDIssuedViewActionables.swift */,
 			);
 			path = IDIssued;
-			sourceTree = "<group>";
-		};
-		B18B60A72965522600AF14F5 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				022F68B42962D10500F32CE1 /* UITextField+Extension.swift */,
-				B184089329632CBD005E4802 /* KeyneezTextFieldFactory.swift */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		B18B60C3296552DA00AF14F5 /* TextField */ = {
@@ -1098,13 +1091,13 @@
 			mainGroup = B14D10712959C7980004946F;
 			packageReferences = (
 				B14D10BC2959D26C0004946F /* XCRemoteSwiftPackageReference "Then" */,
-				B14D10BF2959D2BC0004946F /* XCRemoteSwiftPackageReference "Moya.git" */,
-				B14D10C22959D3070004946F /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
+				B14D10BF2959D2BC0004946F /* XCRemoteSwiftPackageReference "Moya" */,
+				B14D10C22959D3070004946F /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				B14D10C52959D3710004946F /* XCRemoteSwiftPackageReference "SnapKit" */,
-				B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift.git" */,
-				B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel.git" */,
-				B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty.git" */,
-				B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet.git" */,
+				B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+				B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty" */,
+				B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = B14D107B2959C7980004946F /* Products */;
 			projectDirPath = "";
@@ -1333,6 +1326,7 @@
 				B10AAD8329696FCD00AB8475 /* IDDetailView.swift in Sources */,
 				B1A8037A296E9D680007DDD9 /* Encodable.swift in Sources */,
 				0230EA6F296AD8C90006940C /* PropensityTagViewController.swift in Sources */,
+				B18C2BBC296FF0B600A9AA1B /* OCR.swift in Sources */,
 				B10AAD8229696FCA00AB8475 /* IDDetailViewController.swift in Sources */,
 				B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */,
 				023B559429655CD200FB2462 /* CGFloat+Extension.swift in Sources */,
@@ -1374,6 +1368,7 @@
 				B10AAD3F296967C700AB8475 /* BottomSheetViewController.swift in Sources */,
 				B10AAD3D296967C700AB8475 /* UIView+Extension.swift in Sources */,
 				B8C02F46296D5ED2005612CE /* HomeSearchModel.swift in Sources */,
+				B18C2BBA296F267C00A9AA1B /* UIUtilities.swift in Sources */,
 				B14D10802959C7980004946F /* SceneDelegate.swift in Sources */,
 				B8C844CC296EBA0B00E88B86 /* EditUserRequestDto.swift in Sources */,
 				B187CA6F296C07CF006B0AE1 /* IDCardGuideActions.swift in Sources */,
@@ -1601,7 +1596,7 @@
 				BASE_URL = "http://15.165.186.200:3000/";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2QWMDJG53V;
+				DEVELOPMENT_TEAM = 693WY75AQY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Keyneez/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1635,7 +1630,7 @@
 				BASE_URL = "http://15.165.186.200:3000/";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2QWMDJG53V;
+				DEVELOPMENT_TEAM = 693WY75AQY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Keyneez/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1782,7 +1777,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet.git" */ = {
+		B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/joomcode/BottomSheet.git";
 			requirement = {
@@ -1798,7 +1793,7 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		B14D10BF2959D2BC0004946F /* XCRemoteSwiftPackageReference "Moya.git" */ = {
+		B14D10BF2959D2BC0004946F /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
 			requirement = {
@@ -1806,7 +1801,7 @@
 				minimumVersion = 15.0.0;
 			};
 		};
-		B14D10C22959D3070004946F /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
+		B14D10C22959D3070004946F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -1822,7 +1817,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift.git" */ = {
+		B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
 			requirement = {
@@ -1830,7 +1825,7 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel.git" */ = {
+		B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scenee/FloatingPanel.git";
 			requirement = {
@@ -1838,7 +1833,7 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty.git" */ = {
+		B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kciter/Floaty.git";
 			requirement = {
@@ -1851,7 +1846,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		B10AACFA29673D4100AB8475 /* BottomSheet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet.git" */;
+			package = B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet" */;
 			productName = BottomSheet;
 		};
 		B14D10BD2959D26C0004946F /* Then */ = {
@@ -1861,12 +1856,12 @@
 		};
 		B14D10C02959D2BC0004946F /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B14D10BF2959D2BC0004946F /* XCRemoteSwiftPackageReference "Moya.git" */;
+			package = B14D10BF2959D2BC0004946F /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
 		};
 		B14D10C32959D3070004946F /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B14D10C22959D3070004946F /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
+			package = B14D10C22959D3070004946F /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 		B14D10C62959D3720004946F /* SnapKit */ = {
@@ -1876,17 +1871,17 @@
 		};
 		B1B21D0D295C985C0083D9EE /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift.git" */;
+			package = B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
 		};
 		B1B21D10295C99280083D9EE /* FloatingPanel */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel.git" */;
+			package = B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel" */;
 			productName = FloatingPanel;
 		};
 		B1B21D13295C9C4B0083D9EE /* Floaty */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty.git" */;
+			package = B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty" */;
 			productName = Floaty;
 		};
 /* End XCSwiftPackageProductDependency section */
