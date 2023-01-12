@@ -66,7 +66,9 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
   private lazy var contentInfoLabel = makeLabel(text: "어찌구저찌구 활동 설명입니다.")
   private lazy var benefitBasicLabel = makeBasicLabel(text: "청소년 혜택")
   private lazy var firstSepareteLine = makeLine()
-  private lazy var benefitLabel = makeLabel(text: "티켓 가격 15% 할인")
+  private lazy var benefitLabel = makeLabel(text: "티켓 가격 15% 할인").then {
+    $0.setLineSpacing(spacing: 8)
+  }
   private lazy var usageBasicLabel = makeBasicLabel(text: "이용방법")
   private lazy var secondSeparateLine = makeLine()
   private lazy var usageLabel = makeLabel(text: "학생증/청소년증 제시")
