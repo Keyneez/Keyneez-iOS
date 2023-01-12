@@ -97,7 +97,7 @@ extension LikeViewController: UICollectionViewDelegateFlowLayout {
     return likeInset
   }
   func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-    pushToContentDetailView()
+//    pushToContentDetailView()
     return true
   }
 }
@@ -111,8 +111,7 @@ extension LikeViewController: UICollectionViewDataSource {
     guard let homeSearchCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeSearchCollectionViewCell.identifier, for: indexPath)
             as? HomeSearchCollectionViewCell else { return UICollectionViewCell() }
-    homeSearchCell.hiddenLikeButton()
-    homeSearchCell.bindHomeSearchData(model: homeSearchList[indexPath.item])
+//    homeSearchCell.bindHomeSearchData(model: homeSearchList[indexPath.item])
     return homeSearchCell
   }
 }

@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Then
+import Kingfisher
 
 final class HomeSearchCollectionViewCell: UICollectionViewCell {
   static let identifier = "HomeSearchCollectionViewCell"
@@ -20,6 +21,8 @@ final class HomeSearchCollectionViewCell: UICollectionViewCell {
   private let titleLabel: UILabel = .init().then {
     $0.font = .font(.pretendardSemiBold, ofSize: 24)
     $0.textColor = .gray050
+    $0.numberOfLines = 3
+    $0.textAlignment = .center
   }
   private lazy var likeButton: UIButton = .init().then {
     $0.setImage(UIImage(named: "ic_favorite_line__search"), for: .normal)
@@ -47,7 +50,7 @@ extension HomeSearchCollectionViewCell {
       $0.centerX.equalToSuperview()
     }
     titleLabel.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(85)
+      $0.centerY.equalToSuperview()
       $0.centerX.equalToSuperview()
     }
     likeButton.snp.makeConstraints {
@@ -55,13 +58,17 @@ extension HomeSearchCollectionViewCell {
       $0.centerX.equalToSuperview()
     }
   }
-  func bindHomeSearchData(model: HomeSearchModel) {
-    dateLabel.text = setDateLabel(model: model)
+  func bindHomeSearchData(model: SearchContentResponseDto) {
     titleLabel.text = model.contentTitle
+    dateLabel.text = setDateLabel(model: model)
+    guard let url = URL(string: model.contentImg ?? "") else { return }
+      backgroundImageView.kf.setImage(with: url)
+//    backgroundImageView.load(url: URL(string: model.contentImg!)!)
+    // TODO: 이미지, 버튼 값 변경
   }
   @objc
   private func touchUpLikeButton() {
-    print(likeButton.state)
+      likeButton.isSelected = !likeButton.isSelected
   }
   private func getDate(fullDate: String) -> String {
     let monthIndex = fullDate.index(fullDate.endIndex, offsetBy: -4)
@@ -70,11 +77,9 @@ extension HomeSearchCollectionViewCell {
     let day = (fullDate[dayIndex...])
     return month + "." + day
   }
-  private func setDateLabel(model: HomeSearchModel) -> String {
-    if model.startAt.isEmpty || model.endAt.isEmpty { return "2023 ~ " }
-    return getDate(fullDate: model.startAt) + " ~ " + getDate(fullDate: model.endAt)
-  }
-  func hiddenLikeButton() {
-    likeButton.isHidden = true
+  private func setDateLabel(model: SearchContentResponseDto) -> String {
+    if model.startAt == nil || model.endAt == nil { return "2023 ~ " }
+    if model.startAt!.isEmpty || model.endAt!.isEmpty { return "2023 ~ " }
+    return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
   }
 }

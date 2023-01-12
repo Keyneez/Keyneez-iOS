@@ -8,8 +8,6 @@
 import Foundation
 import Moya
 
-
-
 enum UserAPIError: LocalizedError {
   case encodingError
 }

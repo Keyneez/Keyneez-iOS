@@ -151,7 +151,7 @@ extension ContentDetailViewController {
     }
     benefitLabel.snp.makeConstraints {
       $0.top.equalTo(firstSepareteLine.snp.bottom).offset(16)
-      $0.leading.equalTo(benefitBasicLabel)
+      $0.leading.trailing.equalTo(contentView).inset(24)
     }
     usageBasicLabel.snp.makeConstraints {
       $0.top.equalTo(benefitLabel.snp.bottom).offset(40)
@@ -164,7 +164,7 @@ extension ContentDetailViewController {
     }
     usageLabel.snp.makeConstraints {
       $0.top.equalTo(secondSeparateLine.snp.bottom).offset(16)
-      $0.leading.equalTo(usageBasicLabel)
+      $0.leading.trailing.equalTo(contentView).inset(24)
       $0.bottom.equalToSuperview().inset(30)
     }
   }
@@ -189,21 +189,28 @@ extension ContentDetailViewController {
   private func setInfoLabelLayoutWithButton() {
     contentInfoLabel.snp.makeConstraints {
       $0.top.equalTo(urlRoundButton.snp.bottom).offset(16)
-      $0.leading.trailing.equalToSuperview().inset(24)
+      $0.leading.trailing.equalTo(contentView).inset(24)
     }
   }
   private func setInfoLabelLayoutWithoutButton() {
     contentInfoLabel.snp.makeConstraints {
       $0.top.equalTo(contentImageView.snp.bottom).offset(24)
-      $0.leading.trailing.equalToSuperview().inset(24)
+      $0.leading.trailing.equalTo(contentView).inset(24)
     }
   }
   @objc
   private func touchUpUrlRoundButton() {
     print("touch up Url Button")
   }
-  func bindContentDetailData(model: HomeContentModel) {
-    contentTitle.text = model.contentTitle
+  func bindContentDetailData(model: ContentDetailResponseDto) {
+    contentTitle.text = deleteNewLine(fullString: model.contentTitle)
+    locationLabel.text = deleteNewLine(fullString: model.place)
+    durationLabel.text = setDateLabel(model: model)
+    contentInfoLabel.text = model.introduction
+    benefitLabel.text = model.benefit
+    usageLabel.text = model.usage
+    benefitLabel.setLineSpacing(spacing: 8)
+    usageLabel.setLineSpacing(spacing: 8)
   }
 }
 
@@ -227,6 +234,8 @@ extension ContentDetailViewController {
       $0.text = text
       $0.font = .font(.pretendardMedium, ofSize: 14)
       $0.textColor = .gray900
+      $0.lineBreakStrategy = .hangulWordPriority
+      $0.numberOfLines = 0
     }
     return label
   }
@@ -236,4 +245,21 @@ extension ContentDetailViewController {
     }
     return button
   }
+  private func deleteNewLine(fullString: String) -> String {
+    guard let text = fullString as? String else {return ""}
+        return text.replacingOccurrences(of: "\n", with: " ")
+  }
+  private func getDate(fullDate: String) -> String {
+    let monthIndex = fullDate.index(fullDate.endIndex, offsetBy: -4)
+    let dayIndex = fullDate.index(fullDate.endIndex, offsetBy: -2)
+    let month = String(fullDate[monthIndex..<dayIndex])
+    let day = (fullDate[dayIndex...])
+    return month + "." + day
+  }
+  private func setDateLabel(model: ContentDetailResponseDto) -> String {
+    if model.startAt == nil || model.endAt == nil { return "2023 ~" }
+    if model.startAt!.isEmpty || model.endAt!.isEmpty { return "2023 ~" }
+    return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
+  }
+
 }
