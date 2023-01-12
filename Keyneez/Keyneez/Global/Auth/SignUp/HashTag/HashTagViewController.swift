@@ -68,7 +68,11 @@ final class HashTagViewController: NiblessViewController, NavigationBarProtocol 
       switch result {
       case .success(let data):
         DispatchQueue.main.async {
-          self!.pushToNextVC(VC: JellyProductViewController())
+//          let dataArray: [Any] = [data?.userKey, data?.userName, data?.userAge, data?.userGender, data?.userPhone, data?.userBirth, data?.userSchool, data?.userCharacter, data?.userPassword, data?.userOcr, data?.ocrDir, data?.userBenefit, data?.characters]
+          let nextVC = JellyProductViewController()
+          guard let data = data else {return}
+          nextVC.dataBind(data: data)
+          self!.pushToNextVC(VC: nextVC)
         }
       case .failure(let error):
         print(error)

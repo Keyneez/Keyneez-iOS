@@ -77,6 +77,29 @@ class SimplePwdCheckViewController: NiblessViewController, NavigationBarProtocol
     register()
     setLayout()
   }
+  
+  var password: String = ""
+  var userData: ProductJellyResponseDto?
+  func dataBind(pwd: String, userData: ProductJellyResponseDto) {
+    password = pwd
+    self.userData = userData
+  }
+  
+  private func passwordInfo(token: String, with dto: ProductPwdRequestDto, completion: @escaping(ProductPwdResponseDto) -> Void) {
+    UserAPIProvider.shared.patchPwdInfo(token: token, param: dto) { [weak self] result in
+      guard let self else {return}
+      switch result {
+      case .success(let data):
+        guard let userData = self.userData else {return}
+        UserSession.shared.profile = Profile(name: userData.userName, birthday: userData.userBirth, userCharacter: userData.characters?.character, userPhoneNumber: userData.userPhone)
+        DispatchQueue.main.async {
+          self.view.window?.rootViewController = KeyneezTabbarController()
+                  }
+      case .failure(let error):
+        print(error)
+      }
+    }
+  }
 }
 
 extension SimplePwdCheckViewController {
@@ -168,8 +191,9 @@ extension SimplePwdCheckViewController: UICollectionViewDataSource {
       case 6:
         progressImageView.image = UIImage(named: Constant.imageArray[6])
         Constant.index = 6
-        collectionView.deselectItem(at: indexPath, animated: true)
-        pushToNextVC(VC: KeyneezTabbarController())
+        var pwdInfoRequsetDto = ProductPwdRequestDto(userPassword: password)
+        guard let token = UserSession.shared.accessToken else {return}
+        passwordInfo(token: token, with: pwdInfoRequsetDto) { _ in }
       default:
         return
       }

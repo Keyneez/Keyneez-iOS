@@ -16,8 +16,8 @@ enum UserAPI {
   case postUserInfo(param: ProductDanalRequestDto)
   case patchUserPickInfo(token: String, param: ProductJellyRequstDto)
   case patchUserPwdInfo(token: String, param: ProductPwdRequestDto)
-  case postPwdFetch(param: PasswordFetchRequestDto)
-  case postUserLoginInfo(param: LoginRequestDto)
+  case postPwdFetch(token: String, param: PasswordFetchRequestDto)
+  case postUserLoginInfo(token: String, param: LoginRequestDto)
 }
 
 extension UserAPI: TargetType {
@@ -62,18 +62,18 @@ extension UserAPI: TargetType {
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
     case .patchUserPwdInfo(_, let param):
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
-    case .postPwdFetch(param: let param):
+    case .postPwdFetch(_, param: let param):
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
-    case .postUserLoginInfo(param: let param):
+    case .postUserLoginInfo(_, param: let param):
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
     }
   }
   
   var headers: [String: String]? {
     switch self {
-    case .postUserInfo, .postPwdFetch, .postUserLoginInfo:
+    case .postUserInfo:
       return ["Content-Type": "application/json"]
-    case .patchUserPickInfo(let token, _), .patchUserPwdInfo(let token, _):
+    case .patchUserPickInfo(let token, _), .patchUserPwdInfo(let token, _), .postPwdFetch(let token, _), .postUserLoginInfo(let token, _):
       return ["Content-Type": "application/json", "Authorization": token]
     default:
       return nil

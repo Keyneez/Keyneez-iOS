@@ -65,6 +65,7 @@ var jellyIconData: [JellyContentModel] = [
 struct SimplePwdContentModel {
   let text: String
 }
+
 var pwdNumberData: [SimplePwdContentModel] = [
   SimplePwdContentModel(text: "8"),
   SimplePwdContentModel(text: "9"),

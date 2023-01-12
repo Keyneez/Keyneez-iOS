@@ -26,6 +26,7 @@ private struct Constant {
 }
 class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
 
+  private var selectedNumber: [Int] = []
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
   
   private lazy var backButton: UIButton = .init(primaryAction: touchUpBackButton).then {
@@ -46,27 +47,6 @@ class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
   private let progressImageView: UIImageView = .init().then {
     $0.image = UIImage(named: Constant.imageArray[0])
     $0.contentMode = .scaleAspectFit
-  }
-  private let faceIDStackVIew: UIStackView = .init().then {
-    $0.axis = .horizontal
-    $0.isUserInteractionEnabled = true
-    $0.distribution = .equalSpacing
-    $0.spacing = 8
-  }
-  
-  @objc
-  func touchUpStackView() {
-      let tap = UITapGestureRecognizer(target: self, action: #selector(stackViewTapped))
-      faceIDStackVIew.addGestureRecognizer(tap)
-  }
-  
-  @objc
-  private func stackViewTapped() {
-    if checkImageView.image == UIImage(named: "unselect") {
-      checkImageView.image = UIImage(named: "select")
-    } else {
-      checkImageView.image = UIImage(named: "unselect")
-    }
   }
   
   private let checkImageView: UIImageView = .init().then {
@@ -91,6 +71,11 @@ class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
     return collectionView
   }()
   
+  var userData: ProductJellyResponseDto?
+  func dataBind(data: ProductJellyResponseDto) {
+    userData = data
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     addNavigationViewToSubview()
@@ -98,7 +83,6 @@ class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
     setConfig()
     register()
     setLayout()
-    touchUpStackView()
   }
 }
 
@@ -110,11 +94,8 @@ extension SimplePwdViewController {
   
   private func setConfig() {
     view.backgroundColor = .gray050
-    [titleLabel, progressImageView, faceIDStackVIew, collectionView].forEach {
+    [titleLabel, progressImageView, collectionView].forEach {
       contentView.addSubview($0)
-    }
-    [checkImageView, checkLabel].forEach {
-      faceIDStackVIew.addArrangedSubview($0)
     }
   }
   private func setLayout() {
@@ -127,14 +108,9 @@ extension SimplePwdViewController {
       $0.leading.trailing.equalToSuperview().inset(Constant.imageLeading)
       $0.height.equalTo(Constant.imageHeight)
     }
-    faceIDStackVIew.snp.makeConstraints {
-      $0.top.equalTo(progressImageView.snp.bottom).offset(Constant.stackViewTop)
-      $0.centerX.equalToSuperview()
-      $0.width.equalTo(Constant.stackViewWidth)
-      $0.height.equalTo(Constant.stackViewHeight)
-    }
+
     collectionView.snp.makeConstraints {
-      $0.top.equalTo(faceIDStackVIew.snp.bottom).offset(100)
+      $0.top.equalTo(progressImageView.snp.bottom).offset(100)
       $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(16)
       $0.height.equalTo(calculateCellHeight())
       $0.bottom.equalToSuperview().inset(48)
@@ -188,8 +164,8 @@ extension SimplePwdViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
     // 간편 비밀번호 로직
-    
     if indexPath.item != 11 && indexPath.item != 9 {
+      selectedNumber.append(Int(pwdNumberData[indexPath.row].text)!)
       Constant.index += 1
       switch Constant.index {
       case 1:
@@ -204,18 +180,36 @@ extension SimplePwdViewController: UICollectionViewDataSource {
         progressImageView.image = UIImage(named: Constant.imageArray[5])
       case 6:
         progressImageView.image = UIImage(named: Constant.imageArray[6])
-        pushToNextVC(VC: SimplePwdCheckViewController())
-        collectionView.deselectItem(at: indexPath, animated: true)
+        guard let userData = userData else {return}
+        let password = selectedNumber.map { String($0) }
+        let nextVC = SimplePwdCheckViewController()
+        nextVC.dataBind(pwd: password.joined(), userData: userData)
+        pushToNextVC(VC: nextVC)
       default:
         return
         
       }
-    } else {
+    
+    }else {
+      
       if Constant.index > 0 && Constant.index < 7 {
         Constant.index -= 1
         progressImageView.image = UIImage(named: Constant.imageArray[Constant.index])
-      } else if Constant.index < 0 {Constant.index = 0 }
+        
+        switch  indexPath.item {
+        case 11:
+          selectedNumber.removeLast()
+        case 9:
+          // TODO: - 재배열 코드 넣어주기
+          return
+        default:
+          return
+        }
+  
+      } else if Constant.index < 0 {Constant.index = 0}
       else if Constant.index > 6 {Constant.index = 6}
     }
+    
+    print(selectedNumber)
   }
 }

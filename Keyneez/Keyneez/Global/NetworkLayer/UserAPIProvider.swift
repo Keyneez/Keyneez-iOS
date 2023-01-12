@@ -35,6 +35,11 @@ final class UserAPIProvider {
     responseFrom(target, modelType: ProductJellyResponseDto.self, completion: completion)
   }
   
+  func patchPwdInfo(token: String, param: ProductPwdRequestDto, completion: @escaping (Result<ProductPwdResponseDto?, Error>) -> Void) {
+    let target = UserAPI.patchUserPwdInfo(token: token, param: param)
+    responseFrom(target, modelType: ProductPwdResponseDto.self, completion: completion)
+  }
+  
 }
 
 extension UserAPIProvider {

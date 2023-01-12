@@ -129,7 +129,6 @@ class DanalUserDataViewController: NiblessViewController, NavigationBarProtocol,
     super.viewWillAppear(animated)
     setKeyboard()
     setButton()
-    print("이름",nameTextField.text, "번호",phoneTextField.text, "생일", birthTextField.text)
   }
   
 }
