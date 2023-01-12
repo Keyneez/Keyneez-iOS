@@ -54,8 +54,8 @@ extension ContentAPI: TargetType {
       return .requestPlain
     case .getDetailContent(let param):
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
-    case .getSearchContent(let keyword):
-      return .requestParameters(parameters: ["keyword": keyword], encoding: JSONEncoding.default)
+    case .getSearchContent(_, let keyword):
+      return .requestParameters(parameters: ["keyword": keyword], encoding: URLEncoding.queryString)
     case .postLikeContent:
       return .requestPlain
     case .getLikedContent:
@@ -65,10 +65,9 @@ extension ContentAPI: TargetType {
   
   var headers: [String: String]? {
     switch self {
-    case .getDetailContent,
-        .getSearchContent:
+    case .getDetailContent:
       return ["Content-Type": "application/json"]
-    case .getAllContents(let token):
+    case .getAllContents(let token), .getSearchContent(let token, _):
       return ["Content-Type": "application/json", "Authorization": token]
     default:
       return nil

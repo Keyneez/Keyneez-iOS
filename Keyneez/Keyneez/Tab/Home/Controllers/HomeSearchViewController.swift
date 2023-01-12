@@ -13,25 +13,18 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
   var searchContentList: [SearchContentResponseDto] = []
   private var repository: ContentRepository = KeyneezContentRepository()
   
-  var searchDatasources: [[SearchContentResponseDto]] = [] {
-    didSet {
-      print(searchDatasources)
-    }
-  }
+  var searchDatasource: [SearchContentResponseDto] = []
 
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .textfield(configure: (placeholder: "제목, 키워드", completion: { [self] keyword in
-//    self.updateSearchResults(searchText: str!)
     guard let token = UserSession.shared.accessToken else { return }
     repository.getSearchContent(token: token, keyword: keyword!) {
          [weak self] arr in
          guard let self else {return}
-         self.searchDatasources.append(arr)
+         self.searchDatasource = arr
+      
          DispatchQueue.main.async {
-//           self.VCs.forEach {
-//             $0.contentList = self.searchDatasources[0]
-//             $0.recommendContentCollectionView.reloadData()
-//           }
-           self.updateSearchResults(searchText: keyword!)
+//           self.updateSearchResults(searchText: keyword!)
+           self.homeSearchCollectionView.reloadData()
          }
        }
   }))]).build()

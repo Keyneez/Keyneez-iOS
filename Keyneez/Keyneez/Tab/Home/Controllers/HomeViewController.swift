@@ -50,11 +50,7 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
   }
   private var repository: ContentRepository = KeyneezContentRepository()
   
-  var datasources: [[HomeContentResponseDto]] = [] {
-    didSet {
-      print(datasources)
-    }
-  }
+  var datasources: [[HomeContentResponseDto]] = [] 
   let VCs: [HomeContentViewController] = [HomeContentViewController(), HomeContentViewController(), HomeContentViewController()]
   
   override func viewWillAppear(_ animated: Bool) {
