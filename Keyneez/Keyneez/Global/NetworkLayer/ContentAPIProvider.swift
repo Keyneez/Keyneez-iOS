@@ -15,10 +15,13 @@ final class ContentAPIProvider {
     let target = ContentAPI.getAllContents(token: token)
     requestFrom(target, modelType: [HomeContentResponseDto].self, completion: completion)
   }
-  func getSearchContent(token: String, keyword: String, completion: @escaping
-                        (Result<[SearchContentResponseDto]?, Error>) -> Void) {
+  func getSearchContent(token: String, keyword: String, completion: @escaping (Result<[SearchContentResponseDto]?, Error>) -> Void) {
     let target = ContentAPI.getSearchContent(token: token, keyword: keyword)
     requestFrom(target, modelType: [SearchContentResponseDto].self, completion: completion)
+  }
+  func getDetailContent(token: String, contentID: Int, completion: @escaping (Result<[ContentDetailResponseDto]? Error>) -> Void) {
+    let target = ContentAPI.getDetailContent(token: token, contentID: contentID)
+    requestFrom(target, modelType: [ContentDetailResponseDto].self, completion: completion)
   }
 }
 
