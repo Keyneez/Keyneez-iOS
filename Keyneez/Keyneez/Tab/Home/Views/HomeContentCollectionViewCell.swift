@@ -127,7 +127,6 @@ extension HomeContentCollectionViewCell {
       $0.height.equalTo(72)
     }
     contentImageView.backgroundColor = .gray400
-    likeButton.backgroundColor = .mint200
   }
   
   func bindHomeData(model: HomeContentResponseDto) {
