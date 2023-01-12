@@ -8,16 +8,10 @@
 import Foundation
 
 struct SearchContentResponseDto: Codable {
-  let status: Int
-  let message: String
-  let data: [SearchContentResponseData]
-}
-
-struct SearchContentResponseData: Codable {
   let contentKey: Int
-  let contentTitle,
-      startAt,
+  let contentTitle: String
+  let startAt,
       endAt,
-      contentImg: String
+      contentImg: String?
   let liked: Bool
 }

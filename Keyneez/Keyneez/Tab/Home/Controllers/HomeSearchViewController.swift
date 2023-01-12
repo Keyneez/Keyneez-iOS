@@ -10,8 +10,22 @@ import SnapKit
 import Then
 
 final class HomeSearchViewController: NiblessViewController, NavigationBarProtocol {
-  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .textfield(configure: (placeholder: "제목, 키워드", completion: { str in
-    self.updateSearchResults(searchText: str!)
+  var searchContentList: [SearchContentResponseDto] = []
+  private var repository: ContentRepository = KeyneezContentRepository()
+  
+  var searchDatasource: [SearchContentResponseDto] = []
+
+  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .textfield(configure: (placeholder: "제목, 키워드", completion: { [self] keyword in
+    guard let token = UserSession.shared.accessToken else { return }
+    repository.getSearchContent(token: token, keyword: keyword!) {
+      [weak self] arr in
+      guard let self else {return}
+      self.searchDatasource = arr
+      self.setSearchResultCountingLabel(count: searchDatasource.count)
+      DispatchQueue.main.async {
+        self.homeSearchCollectionView.reloadData()
+      }
+    }
   }))]).build()
   private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
     $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
@@ -76,19 +90,6 @@ extension HomeSearchViewController {
       HomeSearchCollectionViewCell.self,
       forCellWithReuseIdentifier: HomeSearchCollectionViewCell.identifier)
   }
-  private func updateSearchResults(searchText: String) {
-    homeSearchCollectionView.performBatchUpdates({
-        if !homeSearchResults.isEmpty {
-          homeSearchResults = []
-        }
-      let equalToSearchTextList: [HomeSearchModel] = homeSearchList.filter{ $0.contentTitle.contains(searchText) }
-      setSearchResultCountingLabel(count: equalToSearchTextList.count)
-      for count in 0..<equalToSearchTextList.count {
-        homeSearchResults.insert(equalToSearchTextList[count], at: 0)
-        homeSearchCollectionView.insertItems(at: [IndexPath(item: count, section: 0)])
-      }
-    })
-  }
   private func setSearchResultCountingLabel(count: Int) {
     let text = NSMutableAttributedString()
     text.append(NSAttributedString(string: "검색결과 ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray900]))
@@ -113,22 +114,27 @@ extension HomeSearchViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     return homeSearchInset
   }
-  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-    pushToContentDetailView()
-    return true
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let token = UserSession.shared.accessToken else { return }
+    let cotentId = searchDatasource[indexPath.row].contentKey
+    repository.getDetailContent(token: token, contentId: cotentId) {
+      [weak self] arr in
+      guard let self else { return }
+      self.pushToContentDetailView(model: arr)
+    }
   }
 }
 
 // MARK: - UICollectionViewDataSource
 extension HomeSearchViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return homeSearchResults.count
+    return searchDatasource.count
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let homeSearchCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeSearchCollectionViewCell.identifier, for: indexPath)
             as? HomeSearchCollectionViewCell else { return UICollectionViewCell() }
-    homeSearchCell.bindHomeSearchData(model: homeSearchResults[indexPath.item])
+    homeSearchCell.bindHomeSearchData(model: searchDatasource[indexPath.item])
     return homeSearchCell
   }
 }

@@ -6,14 +6,23 @@
 //
 
 import UIKit
-import AVFoundation
+import Foundation
 import SnapKit
+import AVFoundation
+import MLKitTextRecognitionKorean
+import MLKitTextRecognition
+import MLKit
+import MLImage
+import CoreVideo
+import Photos
 
 private struct Constant {
   static let bottomsheetHeight: CGFloat = 520
   static let bottomsheetHeightWithKeyboard: CGFloat = 660
   static let xbuttonName = "ic_close"
   static let switchButtonName = "ic_switch"
+  static let videoDataOutputQueueLabel = "VideoDataOutputQueue"
+  static let sessionQueueLabel = "textrecognizer.SessionQueue"
 }
 
 final class CameraViewController: NiblessViewController {
@@ -42,7 +51,7 @@ final class CameraViewController: NiblessViewController {
   private lazy var cameraButton: UIButton =
     .init(primaryAction: didTouchCaptureButton())
     .then {
-    $0.setBackgroundImage(UIImage(named: "btn_cam"), for: .normal)
+      $0.setBackgroundImage(UIImage(named: "btn_cam"), for: .normal)
     }
   
   private lazy var changeAutoModeButton: UIButton = makeAttrStringButton(with: "자동 인식").then {
@@ -89,8 +98,23 @@ final class CameraViewController: NiblessViewController {
     self.previewView.toggleCaptureModeUI(with: self.captureMode, previeMode: self.previewViewMode)
   }
   
-  private var camera: Camera = .init()
+  private var camera: Camera
+  private var ocrService: OCRService
+  
+  override init() {
+    self.camera = Camera()
+    self.ocrService = OCRService()
+    super.init()
+  }
+  
   private lazy var actions: CameraViewActionables = CameraViewActions(viewcontroller: self)
+  private var semaphoreValue = 5
+  private let semaphore = DispatchSemaphore(value: 5)
+  private var textBuffer: [[String]] = [] {
+    didSet {
+      print(textBuffer)
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -98,10 +122,12 @@ final class CameraViewController: NiblessViewController {
     setConstraint()
     toggleCaptureModeUI()
     previewView.session = camera.session
+    
     camera.configure { [weak self] in
       guard let self else {return}
-      self.setVideoOrientation()
     }
+    self.setVideoOrientation()
+    setUpCaptureSessionOutput()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -197,4 +223,174 @@ extension CameraViewController {
     [navigationView, idCardNotWorkingButton, cameraButton, changeAutoModeButton]
       .forEach { self.previewView.addSubview($0) }
   }
+}
+
+// MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
+
+extension CameraViewController {
+  func setUpCaptureSessionOutput() {
+    weak var weakSelf = self
+    weakSelf?.camera.sessionQueue.async {
+      guard let strongSelf = weakSelf else {
+        print("Self is nil!")
+        return
+      }
+      strongSelf.camera.session.beginConfiguration()
+      // When performing latency tests to determine ideal capture settings,
+      // run the app in 'release' mode to get accurate performance metrics
+      
+      let output = AVCaptureVideoDataOutput()
+      output.videoSettings = [
+        (kCVPixelBufferPixelFormatTypeKey as String): kCVPixelFormatType_32BGRA
+      ]
+      output.alwaysDiscardsLateVideoFrames = true
+      let outputQueue = DispatchQueue(label: Constant.videoDataOutputQueueLabel)
+      output.setSampleBufferDelegate(strongSelf, queue: outputQueue)
+      guard strongSelf.camera.session.canAddOutput(output) else {
+        print("Failed to add capture session output.")
+        return
+      }
+      strongSelf.camera.session.addOutput(output)
+      strongSelf.camera.session.commitConfiguration()
+    }
+  }
+}
+
+extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+  
+  func captureOutput(
+    _ output: AVCaptureOutput,
+    didOutput sampleBuffer: CMSampleBuffer,
+    from connection: AVCaptureConnection
+  ) {
+    
+    //버퍼처리를 할 Semaphore
+    semaphore.wait()
+    
+    defer {
+      for _ in 0..<5 {
+        semaphore .signal()
+      }
+    }
+    
+    guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
+      print("Failed to get image buffer from sample buffer.")
+      return
+    }
+    
+    camera.lastFrame = sampleBuffer
+    let ciimage = convert(sampleBuffer)
+    let tempImage = UIImage(ciImage: ciimage)
+    
+    let deviceScreen = UIScreen.main.bounds.size
+    let newImage = UIImage(cgImage: resizeImage(image: tempImage, size: tempImage.size))
+    let newx = regionOfInterestSize.origin.x / deviceScreen.height * tempImage.size.height
+    let newy = regionOfInterestSize.origin.y / deviceScreen.height * tempImage.size.height
+    let newHeight = regionOfInterestSize.height / deviceScreen.height * tempImage.size.height
+    let newWidth = newHeight * regionOfInterestSize.width / regionOfInterestSize.height
+    
+    let cropped = newImage.cgImage?.cropping(to: CGRect(x: tempImage.size.width / 2 - newWidth / 2, y: newy, width: newHeight * regionOfInterestSize.width / regionOfInterestSize.height, height: newHeight))
+    
+    let newCropped = UIImage(cgImage: cropped!, scale: newImage.scale, orientation: newImage.imageOrientation)
+    
+    let visionImage = VisionImage(image: newCropped)
+    let orientation = UIUtilities.imageOrientation(
+      fromDevicePosition: .front
+    )
+    visionImage.orientation = orientation
+    
+    guard let inputImage = MLImage(sampleBuffer: sampleBuffer) else {
+      print("Failed to create MLImage from sample buffer.")
+      return
+    }
+    inputImage.orientation = orientation
+    
+    let imageWidth = CGFloat(CVPixelBufferGetWidth(imageBuffer))
+    let imageHeight = CGFloat(CVPixelBufferGetHeight(imageBuffer))
+    self.saveImage(image: newCropped, name: self.semaphoreValue)
+    ocrService.recognizeText(in: visionImage, width: imageWidth, height: imageHeight) { [weak self] in
+      print($0)
+      guard let self else {return}
+      let textele = $0.split(separator: "\n").map {String($0)}
+      self.textBuffer.append(textele)
+    }
+    if self.semaphoreValue == 1 {
+      self.camera.session.stopRunning()
+    }
+  }
+}
+
+// MARK: - Save, Resize, BufferToCIImage
+
+extension CameraViewController {
+  
+  func saveImage(image: UIImage, name: Int) -> Bool {
+          guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
+              return false
+          }
+          guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+              return false
+          }
+          do {
+              try data.write(to: directory.appendingPathComponent("profile\(name).png")!)
+            self.semaphoreValue -= 1
+              return true
+          } catch {
+              print(error.localizedDescription)
+              return false
+          }
+      }
+  
+  private func resizeImage(image: UIImage, size: CGSize) -> CGImage {
+    UIGraphicsBeginImageContext(size)
+    image.draw(in:CGRect(x: 0, y: 0, width: size.width, height:size.height))
+    let renderImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    guard let resultImage = renderImage?.cgImage else {
+      print("image resizing error")
+      return UIImage().cgImage!
+    }
+    return resultImage
+  }
+  
+  private func convert(_ sampleBuffer: CMSampleBuffer) -> CIImage {
+    let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)!
+    CVPixelBufferLockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)))
+    
+    let baseAddress = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0)!
+    let bytesPerRow = CVPixelBufferGetBytesPerRow(pixelBuffer)
+    let width = CVPixelBufferGetWidth(pixelBuffer)
+    let height = CVPixelBufferGetHeight(pixelBuffer)
+    
+    let colorSpace = CGColorSpaceCreateDeviceRGB()
+    
+    let newContext = CGContext(data: baseAddress,
+                               width: width,
+                               height: height,
+                               bitsPerComponent: 8,
+                               bytesPerRow: bytesPerRow,
+                               space: colorSpace,
+                               bitmapInfo: CGImageAlphaInfo.premultipliedFirst.rawValue | CGBitmapInfo.byteOrder32Little.rawValue)!
+    
+    let imageRef = newContext.makeImage()!
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
+    
+    var output = CIImage(cgImage: imageRef)
+    
+    var transform = output.orientationTransform(forExifOrientation: 6) // UIImageOrientation.right
+    output = output.transformed(by: transform)
+    
+    let ratio = output.extent.size.width / output.extent.size.width
+    transform = output.orientationTransform(forExifOrientation: 1)
+    transform = transform.scaledBy(x: ratio, y: ratio)
+    output = output.transformed(by: transform)
+    
+    transform = output.orientationTransform(forExifOrientation: 1)
+    transform = transform.translatedBy(x: 0, y: -(output.extent.size.height - output.extent.size.height) / 2)
+    output = output.transformed(by: transform)
+    
+    return output.cropped(to: CGRect(origin: CGPoint.zero, size: output.extent.size))
+  }
+  
 }
