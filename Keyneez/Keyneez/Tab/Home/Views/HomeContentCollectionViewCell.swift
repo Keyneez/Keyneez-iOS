@@ -132,8 +132,12 @@ extension HomeContentCollectionViewCell {
 //    contentImageView.image = UIImage(named: model.contentImage)
     dateLabel.text = setDateLabel(model: model)
 //    category.text = model.categoty[0]
-    contentTitle.text = model.contentTitle
+    contentTitle.text = setTitle(fullTitle: model.contentTitle)
     contentIntroduction.text = model.introduction
+  }
+  private func setTitle(fullTitle: String) -> String {
+    guard let title = fullTitle as? String else {return ""}
+        return title.replacingOccurrences(of: "\n", with: " ")
   }
   private func getDate(fullDate: String) -> String {
     let monthIndex = fullDate.index(fullDate.endIndex, offsetBy: -4)
