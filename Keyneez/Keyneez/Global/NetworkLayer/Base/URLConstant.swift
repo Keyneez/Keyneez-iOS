@@ -14,7 +14,7 @@ struct URLConstant {
   
   // MARK: - User
   
-  static let user = "/user/"
+  static let user = "user/"
   static let userCheck = user + "check/"
   
   // MARK: - Sign In
@@ -28,7 +28,7 @@ struct URLConstant {
   
   // MARK: - Content
   
-  static let content = "/content/"
+  static let content = "content/"
   static let contentDetail = content + "view/"
   static let searchContent = content + "search/"
   static let saveContent = content + "save/"

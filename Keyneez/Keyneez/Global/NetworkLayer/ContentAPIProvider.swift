@@ -11,9 +11,14 @@ import Moya
 final class ContentAPIProvider {
   static let shared: ContentAPIProvider = .init()
   let contentProvider = MoyaProvider<ContentAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
-  func getAllContent(completion: @escaping (Result<HomeContentResponseDto?, Error>) -> Void) {
-    let target = ContentAPI.getAllContents
-    requestFrom(target, modelType: HomeContentResponseDto.self, completion: completion)
+  func getAllContent(token: String, completion: @escaping (Result<[HomeContentResponseDto]?, Error>) -> Void) {
+    let target = ContentAPI.getAllContents(token: token)
+    requestFrom(target, modelType: [HomeContentResponseDto].self, completion: completion)
+  }
+  func getSearchContent(token: String, keyword: String, completion: @escaping
+                        (Result<[SearchContentResponseDto]?, Error>) -> Void) {
+    let target = ContentAPI.getSearchContent(token: token, keyword: keyword)
+    requestFrom(target, modelType: [SearchContentResponseDto].self, completion: completion)
   }
 }
 
@@ -31,8 +36,11 @@ extension ContentAPIProvider {
   ) {
     switch result {
     case .success(let response):
-      if let data = try? JSONDecoder().decode(GenericResponse<T>.self, from: response.data) {
-        completion(.success(data as? T))
+      let decoder = JSONDecoder()
+      decoder.keyDecodingStrategy = .convertFromSnakeCase
+      if let data = try? decoder.decode(GenericResponse<T>.self, from: response.data) {
+        guard let body = data.data else { print("nobody"); return }
+        completion(.success(body))
       } else {
         completion(.failure(DecodeError.decodeError))
       }

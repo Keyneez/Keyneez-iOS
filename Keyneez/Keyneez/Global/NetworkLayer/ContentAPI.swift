@@ -9,9 +9,9 @@ import Foundation
 import Moya
 
 enum ContentAPI {
-  case getAllContents
+  case getAllContents(token: String)
   case getDetailContent(param: ContentDetailResponseDto)
-  case getSearchContent(keyword: String)
+  case getSearchContent(token: String, keyword: String)
   case postLikeContent
   case getLikedContent
 }
@@ -65,10 +65,11 @@ extension ContentAPI: TargetType {
   
   var headers: [String: String]? {
     switch self {
-    case .getAllContents,
-        .getDetailContent,
+    case .getDetailContent,
         .getSearchContent:
       return ["Content-Type": "application/json"]
+    case .getAllContents(let token):
+      return ["Content-Type": "application/json", "Authorization": token]
     default:
       return nil
     }

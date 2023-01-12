@@ -112,7 +112,7 @@ extension LikeViewController: UICollectionViewDataSource {
       withReuseIdentifier: HomeSearchCollectionViewCell.identifier, for: indexPath)
             as? HomeSearchCollectionViewCell else { return UICollectionViewCell() }
     homeSearchCell.hiddenLikeButton()
-    homeSearchCell.bindHomeSearchData(model: homeSearchList[indexPath.item])
+//    homeSearchCell.bindHomeSearchData(model: homeSearchList[indexPath.item])
     return homeSearchCell
   }
 }

@@ -128,9 +128,9 @@ extension HomeContentCollectionViewCell {
     likeButton.backgroundColor = .mint200
   }
   
-  func bindHomeData(model: HomeContentModel) {
-    contentImageView.image = UIImage(named: model.contentImage)
-    dateLabel.text = model.startAt + " ~ " + model.endAt
+  func bindHomeData(model: HomeContentResponseDto) {
+//    contentImageView.image = UIImage(named: model.contentImage)
+    dateLabel.text = (model.startAt ?? "") + " ~ " + (model.endAt ?? "")
 //    category.text = model.categoty[0]
     contentTitle.text = model.contentTitle
     contentIntroduction.text = model.introduction

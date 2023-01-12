@@ -21,6 +21,6 @@ final class UserSession {
   private init() { }
   
   var profile: Profile?
-  var accessToken: String?
+  var accessToken: String? = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2tleSI6NTgsImlhdCI6MTY3MzUwMzEyNywiZXhwIjoxNjczNTEwMzI3fQ.8G6ttSbqCvN2m_t25Bo-KhHWXDW6eHIhpVRWRRrCKm8"
 
 }
