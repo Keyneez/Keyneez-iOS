@@ -105,6 +105,8 @@
 		B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60CE296552DA00AF14F5 /* NavigationViewBuilder.swift */; };
 		B18C2BBA296F267C00A9AA1B /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C2BB9296F267C00A9AA1B /* UIUtilities.swift */; };
 		B18C2BBC296FF0B600A9AA1B /* OCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C2BBB296FF0B600A9AA1B /* OCR.swift */; };
+		B18C2BC529706DC000A9AA1B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B18C2BC429706DC000A9AA1B /* FirebaseStorage */; };
+		B18C2BC729706DC000A9AA1B /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B18C2BC629706DC000A9AA1B /* FirebaseStorageCombine-Community */; };
 		B1A80358296D95C10007DDD9 /* PhysicalIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80357296D95C10007DDD9 /* PhysicalIDViewController.swift */; };
 		B1A8035B296D98E70007DDD9 /* PhysicalIDActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8035A296D98E70007DDD9 /* PhysicalIDActionables.swift */; };
 		B1A8035D296D99180007DDD9 /* PhysicalIDActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8035C296D99180007DDD9 /* PhysicalIDActions.swift */; };
@@ -326,9 +328,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B18C2BC729706DC000A9AA1B /* FirebaseStorageCombine-Community in Frameworks */,
 				B10AAD7929696AEE00AB8475 /* BottomSheet in Frameworks */,
 				B14D10C42959D3070004946F /* Kingfisher in Frameworks */,
 				B14D10C72959D3720004946F /* SnapKit in Frameworks */,
+				B18C2BC529706DC000A9AA1B /* FirebaseStorage in Frameworks */,
 				B14D10C12959D2BC0004946F /* Moya in Frameworks */,
 				B1B21D14295C9C4B0083D9EE /* Floaty in Frameworks */,
 				B1B21D11295C99280083D9EE /* FloatingPanel in Frameworks */,
@@ -1012,6 +1016,8 @@
 				B1B21D10295C99280083D9EE /* FloatingPanel */,
 				B1B21D13295C9C4B0083D9EE /* Floaty */,
 				B10AACFA29673D4100AB8475 /* BottomSheet */,
+				B18C2BC429706DC000A9AA1B /* FirebaseStorage */,
+				B18C2BC629706DC000A9AA1B /* FirebaseStorageCombine-Community */,
 			);
 			productName = Keyneez;
 			productReference = B14D107A2959C7980004946F /* Keyneez.app */;
@@ -1098,6 +1104,7 @@
 				B1B21D0F295C99270083D9EE /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 				B1B21D12295C9C4B0083D9EE /* XCRemoteSwiftPackageReference "Floaty" */,
 				B10AACF929673D4100AB8475 /* XCRemoteSwiftPackageReference "BottomSheet" */,
+				B18C2BC329706DC000A9AA1B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = B14D107B2959C7980004946F /* Products */;
 			projectDirPath = "";
@@ -1817,6 +1824,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		B18C2BC329706DC000A9AA1B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		B1B21D0C295C985C0083D9EE /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -1868,6 +1883,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B14D10C52959D3710004946F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		B18C2BC429706DC000A9AA1B /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B18C2BC329706DC000A9AA1B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		B18C2BC629706DC000A9AA1B /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B18C2BC329706DC000A9AA1B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
 		};
 		B1B21D0D295C985C0083D9EE /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
