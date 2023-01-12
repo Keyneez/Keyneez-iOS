@@ -14,6 +14,7 @@ final class HomeContentViewController: UIViewController {
   
   var segmentedNumber: Int = -1
   var contentList: [HomeContentResponseDto] = []
+  private var repository: ContentRepository = KeyneezContentRepository()
 
   // MARK: - CollectionView
   lazy var recommendContentCollectionView: UICollectionView = {
@@ -78,9 +79,14 @@ extension HomeContentViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     return homeContentInset
   }
-  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-//    pushToContentDetailView(model: <#ContentDetailResponseDto#>)
-    return true
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let token = UserSession.shared.accessToken else { return }
+    let cotentId = contentList[indexPath.row].contentKey
+    repository.getDetailContent(token: token, contentId: cotentId) {
+      [weak self] arr in
+      guard let self else { return }
+      self.pushToContentDetailView(model: arr)
+    }
   }
 }
 
