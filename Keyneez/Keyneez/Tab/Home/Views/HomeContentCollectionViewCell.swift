@@ -130,9 +130,21 @@ extension HomeContentCollectionViewCell {
   
   func bindHomeData(model: HomeContentResponseDto) {
 //    contentImageView.image = UIImage(named: model.contentImage)
-    dateLabel.text = (model.startAt ?? "") + " ~ " + (model.endAt ?? "")
+    dateLabel.text = setDateLabel(model: model)
 //    category.text = model.categoty[0]
     contentTitle.text = model.contentTitle
     contentIntroduction.text = model.introduction
+  }
+  private func getDate(fullDate: String) -> String {
+    let monthIndex = fullDate.index(fullDate.endIndex, offsetBy: -4)
+    let dayIndex = fullDate.index(fullDate.endIndex, offsetBy: -2)
+    let month = String(fullDate[monthIndex..<dayIndex])
+    let day = (fullDate[dayIndex...])
+    return month + "." + day
+  }
+  private func setDateLabel(model: HomeContentResponseDto) -> String {
+    if model.startAt == nil || model.endAt == nil { dateView.isHidden = true; return "" }
+    if model.startAt!.isEmpty || model.endAt!.isEmpty { dateView.isHidden = true; return "" }
+    return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
   }
 }
