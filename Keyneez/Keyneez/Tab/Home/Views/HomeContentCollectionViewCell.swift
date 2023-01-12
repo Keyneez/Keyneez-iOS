@@ -41,8 +41,10 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
     $0.textColor = UIColor.gray900
   }
   private let categoryView = CategoryView()
-  private let likeButton = UIButton().then {
-    $0.setImage(UIImage(named: "favorite_home_filled"), for: .normal)
+  private lazy var likeButton = UIButton().then {
+    $0.setImage(UIImage(named: "ic_favorite_home_line"), for: .normal)
+    $0.setImage(UIImage(named: "ic_favorite_home_filled"), for: .selected)
+    $0.addTarget(self, action: #selector(touchUpLikeButton), for: .touchUpInside)
   }
   private let cardImageView: UIImageView = .init().then {
     $0.image = UIImage(named: "card_blue_home")
@@ -150,5 +152,9 @@ extension HomeContentCollectionViewCell {
     if model.startAt == nil || model.endAt == nil { dateView.isHidden = true; return "" }
     if model.startAt!.isEmpty || model.endAt!.isEmpty { dateView.isHidden = true; return "" }
     return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
+  }
+  @objc
+  private func touchUpLikeButton() {
+    likeButton.isSelected = !likeButton.isSelected
   }
 }
