@@ -127,18 +127,16 @@ extension HomeSearchViewController: UICollectionViewDelegateFlowLayout {
   }
   func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
     
-    
     return true
   }
-  func collectionView(_ collectionView: UICollectionView,
-    didSelectItemAt indexPath: IndexPath) {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeSearchCollectionViewCell.identifier, for: indexPath)
     guard let token = UserSession.shared.accessToken else { return }
     repository.getDetailContent(token: token, contentId: 3) {
          [weak self] arr in
          guard let self else { return }
 //         self.searchDatasource = arr
-      print(arr)
+//      print(arr)
       self.pushToContentDetailView(model: arr)
 //         DispatchQueue.main.async {
 //           self.homeSearchCollectionView.reloadData()

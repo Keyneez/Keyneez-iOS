@@ -204,6 +204,11 @@ extension ContentDetailViewController {
   }
   func bindContentDetailData(model: ContentDetailResponseDto) {
     contentTitle.text = model.contentTitle
+    locationLabel.text = model.place
+    durationLabel.text = setDateLabel(model: model)
+    contentInfoLabel.text = model.introduction
+    benefitLabel.text = model.benefit
+    usageLabel.text = model.usage
   }
 }
 
@@ -235,5 +240,17 @@ extension ContentDetailViewController {
       $0.setBackgroundImage(UIImage(named: imageName), for: .normal)
     }
     return button
+  }
+  private func getDate(fullDate: String) -> String {
+    let monthIndex = fullDate.index(fullDate.endIndex, offsetBy: -4)
+    let dayIndex = fullDate.index(fullDate.endIndex, offsetBy: -2)
+    let month = String(fullDate[monthIndex..<dayIndex])
+    let day = (fullDate[dayIndex...])
+    return month + "." + day
+  }
+  private func setDateLabel(model: ContentDetailResponseDto) -> String {
+    if model.startAt == nil || model.endAt == nil { return "2023 ~" }
+    if model.startAt!.isEmpty || model.endAt!.isEmpty { return "2023 ~" }
+    return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
   }
 }
