@@ -42,7 +42,7 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
   }
   private let categoryView = CategoryView()
   private let likeButton = UIButton().then {
-    $0.setImage(UIImage(named: "white_like_empty"), for: .normal)
+    $0.setImage(UIImage(named: "favorite_home_filled"), for: .normal)
   }
   private let cardImageView: UIImageView = .init().then {
     $0.image = UIImage(named: "card_blue_home")
