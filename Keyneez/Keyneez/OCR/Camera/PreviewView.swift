@@ -21,6 +21,8 @@ private struct Constant {
   static let guideTitle = "신분증 앞면을\n사각형 안에 맞춰주세요."
 }
 
+var regionOfInterestSize: CGRect = .init()
+
 final class PreviewView: NiblessView {
   
   var videoPreviewLayer: AVCaptureVideoPreviewLayer {
@@ -59,7 +61,7 @@ final class PreviewView: NiblessView {
     $0.numberOfLines = 2
   }
   
-  private var maskLayer = CAShapeLayer()
+  var maskLayer = CAShapeLayer()
   private var regionOfInterestOutline = CAShapeLayer()
   private lazy var regionOfInterestView: UIView = .init()
   private lazy var regionOfInterest = CGRect.init()
@@ -74,7 +76,7 @@ final class PreviewView: NiblessView {
   override func layoutSubviews() {
     super.layoutSubviews()
     self.regionOfInterest = self.regionOfInterestView.frame
-    
+    regionOfInterestSize = self.regionOfInterestView.frame
     let path = UIBezierPath(rect: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
     path.append(UIBezierPath(roundedRect: regionOfInterest, cornerRadius: Constant.cornerRadius))
     path.usesEvenOddFillRule = true
