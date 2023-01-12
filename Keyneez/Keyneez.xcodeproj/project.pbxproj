@@ -150,6 +150,7 @@
 		B8FC663A296F22EA00AEE9C3 /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC6639296F22EA00AEE9C3 /* ContentAPI.swift */; };
 		B8FC663C296F2C5700AEE9C3 /* ContentAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC663B296F2C5700AEE9C3 /* ContentAPIProvider.swift */; };
 		B8FC663E296F2DDA00AEE9C3 /* ContentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC663D296F2DDA00AEE9C3 /* ContentRepository.swift */; };
+		B8FC6640297057A400AEE9C3 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC663F297057A400AEE9C3 /* UILabel+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -311,6 +312,7 @@
 		B8FC6639296F22EA00AEE9C3 /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
 		B8FC663B296F2C5700AEE9C3 /* ContentAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPIProvider.swift; sourceTree = "<group>"; };
 		B8FC663D296F2DDA00AEE9C3 /* ContentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRepository.swift; sourceTree = "<group>"; };
+		B8FC663F297057A400AEE9C3 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -736,6 +738,7 @@
 				023B559329655CD200FB2462 /* CGFloat+Extension.swift */,
 				B8C02F2F296B185B005612CE /* UISegmentedControl+Extension.swift */,
 				B8C02F41296C3983005612CE /* UIViewController+Extension.swift */,
+				B8FC663F297057A400AEE9C3 /* UILabel+Extension.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1188,6 +1191,7 @@
 				0230ADCC296EB58F0079D799 /* ProductPwdRequestDto.swift.swift in Sources */,
 				B10AAD61296967F300AB8475 /* IDCardContentView.swift in Sources */,
 				B8C02F0B2962F65E005612CE /* HomeViewController.swift in Sources */,
+				B8FC6640297057A400AEE9C3 /* UILabel+Extension.swift in Sources */,
 				0230ADD3296EB7D70079D799 /* PasswordFetchResponseDto.swift in Sources */,
 				B187CA71296C096F006B0AE1 /* CameraMode.swift in Sources */,
 				B8C844C8296EB5B600E88B86 /* UserInquiryResponseDto.swift in Sources */,
