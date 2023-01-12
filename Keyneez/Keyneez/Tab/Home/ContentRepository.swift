@@ -28,7 +28,7 @@ final class KeyneezContentRepository: ContentRepository {
   }
   
   func getDetailContent(token: String, contentID: Int, completion: @escaping([ContentDetailResponseDto]) -> Void) {
-    ContentAPIProvider.shared.getDetailContent(token: token, contentID: Int) { result in
+    ContentAPIProvider.shared.getDetailContent(token: token, contentID: contentID) { result in
       switch result {
       case .success(let data):
         guard let detailContentList = data else { return }
