@@ -66,9 +66,7 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
   private lazy var contentInfoLabel = makeLabel(text: "어찌구저찌구 활동 설명입니다.")
   private lazy var benefitBasicLabel = makeBasicLabel(text: "청소년 혜택")
   private lazy var firstSepareteLine = makeLine()
-  private lazy var benefitLabel = makeLabel(text: "티켓 가격 15% 할인").then {
-    $0.setLineSpacing(spacing: 8)
-  }
+  private lazy var benefitLabel = makeLabel(text: "티켓 가격 15% 할인")
   private lazy var usageBasicLabel = makeBasicLabel(text: "이용방법")
   private lazy var secondSeparateLine = makeLine()
   private lazy var usageLabel = makeLabel(text: "학생증/청소년증 제시")
@@ -205,12 +203,14 @@ extension ContentDetailViewController {
     print("touch up Url Button")
   }
   func bindContentDetailData(model: ContentDetailResponseDto) {
-    contentTitle.text = model.contentTitle
-    locationLabel.text = model.place
+    contentTitle.text = deleteNewLine(fullString: model.contentTitle)
+    locationLabel.text = deleteNewLine(fullString: model.place)
     durationLabel.text = setDateLabel(model: model)
     contentInfoLabel.text = model.introduction
     benefitLabel.text = model.benefit
     usageLabel.text = model.usage
+    benefitLabel.setLineSpacing(spacing: 8)
+    usageLabel.setLineSpacing(spacing: 8)
   }
 }
 
@@ -244,6 +244,10 @@ extension ContentDetailViewController {
       $0.setBackgroundImage(UIImage(named: imageName), for: .normal)
     }
     return button
+  }
+  private func deleteNewLine(fullString: String) -> String {
+    guard let text = fullString as? String else {return ""}
+        return text.replacingOccurrences(of: "\n", with: " ")
   }
   private func getDate(fullDate: String) -> String {
     let monthIndex = fullDate.index(fullDate.endIndex, offsetBy: -4)
