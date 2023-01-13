@@ -169,7 +169,7 @@ extension ContentDetailViewController {
     usageLabel.snp.makeConstraints {
       $0.top.equalTo(secondSeparateLine.snp.bottom).offset(16)
       $0.leading.trailing.equalTo(contentView).inset(24)
-      $0.bottom.equalToSuperview().inset(30)
+      $0.bottom.equalToSuperview().inset(100)
     }
   }
   private func showUrlRoundButton() {
