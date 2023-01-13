@@ -103,7 +103,7 @@ final class PropensityTagViewController: NiblessViewController, NavigationBarPro
     let width = ((button.titleLabel?.frame.width)!) + Constant.btnMargin * 2
     return width
   }
-  
+
 }
 
 extension PropensityTagViewController {

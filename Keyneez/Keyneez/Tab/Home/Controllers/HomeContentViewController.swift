@@ -41,6 +41,7 @@ final class HomeContentViewController: UIViewController {
     super.viewDidLoad()
     register()
     setLayout()
+    floatyFilter.isHidden = true
   }
 
   private func register() {
@@ -94,35 +95,17 @@ extension HomeContentViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeContentViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//    switch(segmentedNumber) {
-//    case 0:
-//      return h.count
-//    case 1:
-//      return popularContentList.count
-//    case 2:
-//      return newestContentList.count
-//    default:
-//      return recommendContentList.count
-//    }
     return contentList.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let model: [HomeContentModel]
-//    switch(segmentedNumber) {
-//    case 0:
-//       model = recommendContentList
-//    case 1:
-//      model = popularContentList
-//    case 2:
-//      model = newestContentList
-//    default:
-//      model = recommendContentList
-//    }
     guard let homeContentCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeContentCollectionViewCell.identifier, for: indexPath)
             as? HomeContentCollectionViewCell else { return UICollectionViewCell() }
+    
     homeContentCell.bindHomeData(model: contentList[indexPath.item])
+    // 여기서 setCategory
+    homeContentCell.setHomeCategoryCard(category: contentList[indexPath.item].category[0])
     return homeContentCell
   }
 }

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Toast
+import Toast_Swift
 
 private struct Constant {
   static let firstTextFieldTop: CGFloat = 91
