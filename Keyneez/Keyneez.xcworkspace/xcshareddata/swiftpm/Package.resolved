@@ -28,30 +28,12 @@
       }
     },
     {
-      "identity" : "bottomsheet",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/joomcode/BottomSheet.git",
-      "state" : {
-        "revision" : "2397f22fa1828169dbb233a9ad9d83ed72b6a236",
-        "version" : "2.0.1"
-      }
-    },
-    {
       "identity" : "firebase-ios-sdk",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk.git",
       "state" : {
         "revision" : "dce2e1abc6c0d5e830ff1cffe3f8633fda64001e",
         "version" : "10.3.0"
-      }
-    },
-    {
-      "identity" : "floatingpanel",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/scenee/FloatingPanel.git",
-      "state" : {
-        "revision" : "4ab7d260301ddf1cab5376ea14e285a128f5ba39",
-        "version" : "2.5.5"
       }
     },
     {

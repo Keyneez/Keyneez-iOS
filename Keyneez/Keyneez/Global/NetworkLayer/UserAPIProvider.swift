@@ -25,9 +25,19 @@ final class UserAPIProvider {
   
   private init() { }
   
-  func postUserInfo(param: UserCheckResponseDto, completion: @escaping (Result<UserInfo?, Error>) -> Void) {
+  func postUserInfo(param: ProductDanalRequestDto, completion: @escaping (Result<ProductDanalResponseDto?, Error>) -> Void) {
     let target = UserAPI.postUserInfo(param: param)
-    responseFrom(target, modelType: UserInfo.self, completion: completion)
+    responseFrom(target, modelType: ProductDanalResponseDto.self, completion: completion)
+  }
+  
+  func patchUserInfo(token: String, param: ProductJellyRequstDto, completion: @escaping (Result<ProductJellyResponseDto?, Error>) -> Void) {
+    let target = UserAPI.patchUserPickInfo(token: token, param: param)
+    responseFrom(target, modelType: ProductJellyResponseDto.self, completion: completion)
+  }
+  
+  func patchPwdInfo(token: String, param: ProductPwdRequestDto, completion: @escaping (Result<ProductPwdResponseDto?, Error>) -> Void) {
+    let target = UserAPI.patchUserPwdInfo(token: token, param: param)
+    responseFrom(target, modelType: ProductPwdResponseDto.self, completion: completion)
   }
   
 }
@@ -47,7 +57,9 @@ extension UserAPIProvider {
   ) {
     switch result {
     case .success(let response):
-      if let data = try? JSONDecoder().decode(GenericResponse<T>.self, from: response.data) {
+      let decoder = JSONDecoder()
+      decoder.keyDecodingStrategy = .convertFromSnakeCase
+      if let data = try? decoder.decode(GenericResponse<T>.self, from: response.data) {
         let body = data.data
         completion(.success(body as? T))
       } else {

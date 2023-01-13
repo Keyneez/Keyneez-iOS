@@ -43,7 +43,6 @@ final class PropensityTagViewController: NiblessViewController, NavigationBarPro
   }
   private let curiousButton = UIButton().then {
     $0.tag = 1
-    $0.isSelected = false
     $0.propensityTagButtonStyle(style: .propensityTagUnact, title: propensityTagUnclickData[$0.tag].text)
     $0.isUserInteractionEnabled = true
     $0.addTarget(self, action: #selector(selectOptionBtnAction), for: .touchUpInside)
@@ -63,7 +62,13 @@ final class PropensityTagViewController: NiblessViewController, NavigationBarPro
    
    @objc
    private func touchUpNextVC() {
-     pushToNextVC(VC: HashTagViewController())
+     let hashTagVC = HashTagViewController()
+     for button in btnArray {
+       if button.isSelected == true {
+         hashTagVC.dataBind(propensity: button.tag)
+         pushToNextVC(VC: hashTagVC)
+       }
+     }
    }
   
   private var btnArray = [UIButton]()
@@ -98,14 +103,7 @@ final class PropensityTagViewController: NiblessViewController, NavigationBarPro
     let width = ((button.titleLabel?.frame.width)!) + Constant.btnMargin * 2
     return width
   }
-<<<<<<< HEAD
   
-//  override func viewDidLayoutSubviews() {
-//    <#code#>
-//  }
-=======
-
->>>>>>> upstream/develop
 }
 
 extension PropensityTagViewController {

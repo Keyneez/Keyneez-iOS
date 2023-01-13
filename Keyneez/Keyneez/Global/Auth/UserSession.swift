@@ -11,7 +11,7 @@ struct Profile {
   var name: String
   var birthday: String
   var userOCRLink: String?
-  var userCharacter: String
+  var userCharacter: String?
   var userPhoneNumber: String
 }
 

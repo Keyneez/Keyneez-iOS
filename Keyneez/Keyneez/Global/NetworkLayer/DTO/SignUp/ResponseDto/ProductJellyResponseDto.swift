@@ -10,12 +10,6 @@ import Foundation
 // MARK: - 유저 생성 (성향, 관심사) ResponseDto
 
 struct ProductJellyResponseDto: Codable {
-  let status: Int
-  let message: String
-  let data: ProductJellyData?
-}
-
-struct ProductJellyData: Codable {
   let userKey: Int
   let userName: String
   let userAge: Int?
@@ -25,7 +19,7 @@ struct ProductJellyData: Codable {
   let userSchool: String?
   let userCharacter: Int
   let userPassword: String?
-  let userOcr: String
+  let userOcr: String?
   let ocrDir: Bool
   let userBenefit: Bool
   let characters: Characters?
