@@ -27,6 +27,10 @@ final class ContentAPIProvider {
     let target = ContentAPI.getLikedContent(token: token)
     requestFrom(target, modelType: [MyLikedContentResponseDto].self, completion: completion)
   }
+  func postLikeContent(token: String, contentId: Int, completion: @escaping (Result<LikeContentRequestDto?, Error>) -> Void) {
+    let target = ContentAPI.postLikeContent(token: token, contentId: contentId)
+    requestFrom(target, modelType: LikeContentRequestDto.self, completion: completion)
+  }
 }
 
 extension ContentAPIProvider {

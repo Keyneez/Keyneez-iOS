@@ -12,6 +12,8 @@ import SnapKit
 final class HomeContentCollectionViewCell: UICollectionViewCell {
   static let identifier = "HomeContentCollectionViewCell"
   var homeContentID = -1
+  
+  let repository: ContentRepository = KeyneezContentRepository()
   // MARK: - UI Components
 
   private let shadowView = UIView().then {
@@ -157,5 +159,9 @@ extension HomeContentCollectionViewCell {
   @objc
   private func touchUpLikeButton() {
     likeButton.isSelected = !likeButton.isSelected
+    guard let token = UserSession.shared.accessToken else { return }
+    repository.postLikeContent(token: token, contentId: homeContentID) { result in
+      print(result)
+    }
   }
 }
