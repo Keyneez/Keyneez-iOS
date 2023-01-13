@@ -17,6 +17,7 @@ final class HomeSearchCollectionViewCell: UICollectionViewCell {
   
   private let backgroundImageView: UIImageView = .init().then {
     $0.layer.cornerRadius = 4
+    $0.clipsToBounds = true
   }
   private let opacityView: UIView = .init().then {
     $0.backgroundColor = .gray900

@@ -34,6 +34,7 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
   }
   private let contentImageView = UIImageView().then {
     $0.layer.cornerRadius = 4
+    $0.clipsToBounds = true
     $0.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
   }
   private let dateView = UIView().then {
