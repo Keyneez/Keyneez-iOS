@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '14.0'
+platform :ios, '14.0'
 
 target 'Keyneez' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -8,6 +8,13 @@ target 'Keyneez' do
   # Pods for Keynee
   pod 'GoogleMLKit/TextRecognition','3.2.0'
   pod 'GoogleMLKit/TextRecognitionKorean', '3.2.0'
+  pod 'SnapKit', '~> 5.6.0'
+  pod 'Then'
+  pod 'Kingfisher', '~> 7.0'
+  pod 'Toast-Swift', '~> 5.0.1'
+  pod 'Floaty', '~> 4.2.0'
+  pod 'Moya', '~> 15.0'
+  pod 'FirebaseStorage'
 
   target 'KeyneezTests' do
     inherit! :search_paths
