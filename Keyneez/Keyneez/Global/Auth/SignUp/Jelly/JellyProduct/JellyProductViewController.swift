@@ -81,9 +81,17 @@ class JellyProductViewController: NiblessViewController {
     $0.addTarget(self, action: #selector(touchUpNextVC), for: .touchUpInside)
   }
   
+  var userData: ProductJellyResponseDto?
+  func dataBind(data: ProductJellyResponseDto) {
+    userData = data
+  }
+  
   @objc
   private func touchUpNextVC() {
-    pushToNextVC(VC: SimplePwdViewController())
+    let nextVC = SimplePwdViewController()
+    guard let userData = userData else {return}
+    nextVC.dataBind(data: userData)
+    pushToNextVC(VC: nextVC)
   }
   
   override func viewDidLoad() {
