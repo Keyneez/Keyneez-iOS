@@ -29,6 +29,7 @@ final class HomeSearchViewController: NiblessViewController, NavigationBarProtoc
   }))]).build()
   private lazy var searchButton: UIButton = .init(primaryAction: didSearch).then {
     $0.setBackgroundImage(UIImage(named: "ic_search"), for: .normal)
+    $0.endEditing(true)
   }
   private lazy var backButton: UIButton = .init(primaryAction: touchUpBackButton).then {
     $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)

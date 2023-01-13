@@ -1587,7 +1587,7 @@
 				BASE_URL = "http://15.165.186.200:3000/";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 693WY75AQY;
+				DEVELOPMENT_TEAM = 82Q43H4UQQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Keyneez/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1623,7 +1623,7 @@
 				BASE_URL = "http://15.165.186.200:3000/";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 693WY75AQY;
+				DEVELOPMENT_TEAM = 82Q43H4UQQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Keyneez/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

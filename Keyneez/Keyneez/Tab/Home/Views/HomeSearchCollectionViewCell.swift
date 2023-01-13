@@ -24,6 +24,7 @@ final class HomeSearchCollectionViewCell: UICollectionViewCell {
     $0.layer.opacity = 0.2
     $0.layer.cornerRadius = 4
   }
+  private let likeButtonView: UIView = .init()
   private let dateLabel: UILabel = .init().then {
     $0.font = .font(.pretendardSemiBold, ofSize: 14)
     $0.textColor = .gray050
@@ -48,17 +49,18 @@ final class HomeSearchCollectionViewCell: UICollectionViewCell {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
 }
 
 extension HomeSearchCollectionViewCell {
   private func setLayout() {
-    contentView.addSubviews(backgroundImageView)
+    contentView.addSubviews(backgroundImageView, likeButton)
     contentView.layer.cornerRadius = 4
     backgroundImageView.layer.cornerRadius = 4
     backgroundImageView.snp.makeConstraints {
       $0.top.leading.trailing.bottom.equalToSuperview()
     }
-    backgroundImageView.addSubviews(opacityView, dateLabel, titleLabel, likeButton)
+    backgroundImageView.addSubviews(opacityView, dateLabel, titleLabel)
     opacityView.snp.makeConstraints {
       $0.top.leading.trailing.bottom.equalToSuperview()
     }
