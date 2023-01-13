@@ -131,7 +131,7 @@ extension LikeViewController: UICollectionViewDataSource {
     guard let likedContentCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeSearchCollectionViewCell.identifier, for: indexPath)
             as? HomeSearchCollectionViewCell else { return UICollectionViewCell() }
-//    homeSearchCell.bindHomeSearchData(model: homeSearchList[indexPath.item])
+    likedContentCell.bindLikedContentData(model: likedContentDataSource[indexPath.item])
     return likedContentCell
   }
 }

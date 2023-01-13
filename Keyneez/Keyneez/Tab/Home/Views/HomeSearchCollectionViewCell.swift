@@ -60,10 +60,15 @@ extension HomeSearchCollectionViewCell {
   }
   func bindHomeSearchData(model: SearchContentResponseDto) {
     titleLabel.text = model.contentTitle
-    dateLabel.text = setDateLabel(model: model)
+    dateLabel.text = setDateLabel(startAt: model.startAt, endAt: model.endAt)
     guard let url = URL(string: model.contentImg ?? "") else { return }
-      backgroundImageView.kf.setImage(with: url)
-//    backgroundImageView.load(url: URL(string: model.contentImg!)!)
+    // TODO: 이미지, 버튼 값 변경
+  }
+  func bindLikedContentData(model: MyLikedContentResponseDto) {
+    titleLabel.text = model.contentTitle
+    dateLabel.text = setDateLabel(startAt: model.startAt, endAt: model.endAt)
+    likeButton.isHidden = true
+    guard let url = URL(string: model.contentImg ?? "") else { return }
     // TODO: 이미지, 버튼 값 변경
   }
   @objc
@@ -77,9 +82,9 @@ extension HomeSearchCollectionViewCell {
     let day = (fullDate[dayIndex...])
     return month + "." + day
   }
-  private func setDateLabel(model: SearchContentResponseDto) -> String {
-    if model.startAt == nil || model.endAt == nil { return "2023 ~ " }
-    if model.startAt!.isEmpty || model.endAt!.isEmpty { return "2023 ~ " }
-    return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
+  private func setDateLabel(startAt: String?, endAt: String?) -> String {
+    if startAt == nil || endAt == nil { return "2023 ~ " }
+    if startAt!.isEmpty || endAt!.isEmpty { return "2023 ~ " }
+    return getDate(fullDate: startAt!) + " ~ " + getDate(fullDate: endAt!)
   }
 }
