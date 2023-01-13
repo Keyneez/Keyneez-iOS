@@ -26,6 +26,8 @@ class PhotoCaptureProcessor: NSObject {
   
   private let photoProcessingHandler: (Bool) -> Void
   
+  private let OCRCompletionHandler: ([String], UIImage) -> Void
+  
   private var photoData: Data?
   
   private var livePhotoCompanionMovieURL: URL?
@@ -45,12 +47,15 @@ class PhotoCaptureProcessor: NSObject {
        willCapturePhotoAnimation: @escaping () -> Void,
        livePhotoCaptureHandler: @escaping (Bool) -> Void,
        completionHandler: @escaping (PhotoCaptureProcessor) -> Void,
-       photoProcessingHandler: @escaping (Bool) -> Void) {
+       photoProcessingHandler: @escaping (Bool) -> Void,
+       OCRCompletionHandler: @escaping ([String], UIImage) -> Void
+  ) {
     self.requestedPhotoSettings = requestedPhotoSettings
     self.willCapturePhotoAnimation = willCapturePhotoAnimation
     self.livePhotoCaptureHandler = livePhotoCaptureHandler
     self.completionHandler = completionHandler
     self.photoProcessingHandler = photoProcessingHandler
+    self.OCRCompletionHandler = OCRCompletionHandler
   }
   
   private func didFinish() {
@@ -65,21 +70,6 @@ class PhotoCaptureProcessor: NSObject {
     }
     
     completionHandler(self)
-  }
-}
-
-extension PhotoCaptureProcessor {
-  private func recognizeText(in image: VisionImage, width: CGFloat, height: CGFloat) {
-    var recognizedText: Text
-    do {
-      recognizedText = try TextRecognizer.textRecognizer(options: koreanOptions)
-        .results(in: image)
-      print(recognizedText.text)
-    } catch {
-      print("Failed to recognize text with error: \(error.localizedDescription).")
-      //      self.updatePreviewOverlayViewWithLastFrame()
-      return
-    }
   }
 }
 
@@ -111,7 +101,6 @@ extension PhotoCaptureProcessor: AVCapturePhotoCaptureDelegate {
     }
   }
   
-  
   /// - Tag: DidFinishProcessingPhoto
   func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
     photoProcessingHandler(false)
@@ -133,33 +122,19 @@ extension PhotoCaptureProcessor: AVCapturePhotoCaptureDelegate {
       var cropped = newImage.cgImage?.cropping(to: CGRect(x: tempImage.size.width / 2 - newWidth / 2, y: newy, width: newHeight * regionOfInterestSize.width / regionOfInterestSize.height, height: newHeight))
       
       var newCropped = UIImage(cgImage: cropped!, scale: newImage.scale, orientation: newImage.imageOrientation)
+      
       photoData = newCropped.pngData()
+      
       DispatchQueue.global().async { [weak self] in
         guard let self = self else {return}
         let visionImage = VisionImage(image: newCropped)
-        OCRService().recognizeText(in: visionImage, with: newCropped, width: newCropped.size.width, height: newCropped.size.height) { str, image in
-          print(str)
+        OCRService().recognizeTextWithManual(in: visionImage, with: newCropped, width: newCropped.size.width, height: newCropped.size.height) { text, image in
+          self.OCRCompletionHandler(text, image)
         }
         
       }
     }
     
-  }
-  
-  private func cropImage( image:UIImage , cropRect: CGRect) -> UIImage
-  {
-    UIGraphicsBeginImageContextWithOptions(cropRect.size, false, 0)
-    let context = UIGraphicsGetCurrentContext()
-    
-    context?.translateBy(x: 0.0, y: image.size.height)
-    context?.scaleBy(x: 1.0, y: -1.0)
-    print("변경된", image.size)
-    context?.draw(image.cgImage!, in: CGRect(x:0, y:0, width:image.size.width, height:image.size.height), byTiling: false)
-    context?.clip(to: [cropRect])
-    
-    let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    return croppedImage!
   }
   
   /// - Tag: DidFinishRecordingLive
@@ -188,53 +163,6 @@ extension PhotoCaptureProcessor: AVCapturePhotoCaptureDelegate {
       print("No photo data resource")
       didFinish()
       return
-    }
-    
-    PHPhotoLibrary.requestAuthorization { status in
-      if status == .authorized {
-        PHPhotoLibrary.shared().performChanges({
-          let options = PHAssetResourceCreationOptions()
-          let creationRequest = PHAssetCreationRequest.forAsset()
-          options.uniformTypeIdentifier = self.requestedPhotoSettings.processedFileType.map { $0.rawValue }
-          creationRequest.addResource(with: .photo, data: photoData, options: options)
-          
-          // Specify the location the photo was taken
-          creationRequest.location = self.location
-          
-          if let livePhotoCompanionMovieURL = self.livePhotoCompanionMovieURL {
-            let livePhotoCompanionMovieFileOptions = PHAssetResourceCreationOptions()
-            livePhotoCompanionMovieFileOptions.shouldMoveFile = true
-            creationRequest.addResource(with: .pairedVideo,
-                                        fileURL: livePhotoCompanionMovieURL,
-                                        options: livePhotoCompanionMovieFileOptions)
-          }
-          
-          // Save Portrait Effects Matte to Photos Library only if it was generated
-          if let portraitEffectsMatteData = self.portraitEffectsMatteData {
-            let creationRequest = PHAssetCreationRequest.forAsset()
-            creationRequest.addResource(with: .photo,
-                                        data: portraitEffectsMatteData,
-                                        options: nil)
-          }
-          // Save Portrait Effects Matte to Photos Library only if it was generated
-          for semanticSegmentationMatteData in self.semanticSegmentationMatteDataArray {
-            let creationRequest = PHAssetCreationRequest.forAsset()
-            creationRequest.addResource(with: .photo,
-                                        data: semanticSegmentationMatteData,
-                                        options: nil)
-          }
-          
-        }, completionHandler: { _, error in
-          if let error = error {
-            print("Error occurred while saving photo to photo library: \(error)")
-          }
-          
-          self.didFinish()
-        }
-        )
-      } else {
-        self.didFinish()
-      }
     }
   }
   

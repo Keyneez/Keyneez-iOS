@@ -76,7 +76,9 @@ final class CameraViewController: NiblessViewController {
   private func didTouchCaptureButton() -> UIAction {
     return UIAction { [weak self] _ in
       guard let self else { return }
-      self.camera.capturePhoto(videoPreviewLayerOrientation: self.previewView.videoPreviewLayer.connection?.videoOrientation)
+      self.camera.capturePhoto(videoPreviewLayerOrientation: self.previewView.videoPreviewLayer.connection?.videoOrientation) { text, image in
+        self.actions.OCRConfirmed(with: self.customNavigationDelegate, height: 520, heightIncludeKeyboard: 690, text: text, image: image)
+      }
     }
   }
   
@@ -126,10 +128,6 @@ final class CameraViewController: NiblessViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     camera.checkSetupResult()
-  }
-  
-  deinit {
-    print(self, #function)
   }
 }
 
@@ -297,20 +295,18 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     let imageWidth = CGFloat(CVPixelBufferGetWidth(imageBuffer))
     let imageHeight = CGFloat(CVPixelBufferGetHeight(imageBuffer))
-    print("isOn")
     ocrService.recognizeText(in: visionImage, with: newCropped, width: imageWidth, height: imageHeight) { [weak self] text, image in
       guard let self else {return}
       self.processWhenSuccessOCRAuto(image: image, text: text, name: 4)
     }
   }
   
-  func processWhenSuccessOCRAuto(image: UIImage, text: String,  name: Int) {
+  func processWhenSuccessOCRAuto(image: UIImage, text: [String],  name: Int) {
     // Text Process
     DispatchQueue.main.async {
-      self.dismiss(animated: true) {
-        self.camera.session.stopRunning()
-        self.saveImage(image: image, name: 4)
-      }
+      self.actions.OCRConfirmed(with: self.customNavigationDelegate, height: 520, heightIncludeKeyboard: 690, text: text, image: image)
+      self.saveImage(image: image, name: 4)
+      self.camera.session.stopRunning()
     }
   }
 }

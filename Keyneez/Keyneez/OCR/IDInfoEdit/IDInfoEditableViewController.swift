@@ -24,6 +24,29 @@
  
  */
 
+enum IDType: String {
+  case schoolID = "학교"
+  case teenID = "생년월일"
+  
+  var title: String {
+    switch self {
+    case .schoolID:
+      return "학생증"
+    case .teenID:
+      return "청소년증"
+    }
+  }
+  
+  var placeholder: String {
+    switch self {
+    case .teenID:
+      return "YYMMDD"
+    case .schoolID:
+      return "OO학교"
+    }
+  }
+}
+
 import UIKit
 
 final class IDInfoEditableViewController: BottomSheetViewController {
@@ -38,9 +61,17 @@ final class IDInfoEditableViewController: BottomSheetViewController {
   }
   
   private lazy var actions: IDInfoEditableActionables = IDInfoEditableActions(viewController: self)
+  private var ocrTexts: [String]
+  private var type: IDType
+  
+  init(ocrTexts: [String]) {
+    self.ocrTexts = ocrTexts
+    self.type = ocrTexts.contains("청소년증") == true ? IDType.teenID : IDType.schoolID
+    super.init()
+  }
   
   private func addSubview() {
-    let idDetailView = IDInfoEditableView(frame: .zero, actions: actions)
+    let idDetailView = IDInfoEditableView(frame: .zero, actions: actions, ocrTexts: ocrTexts, type: type)
     contentView.addSubview(idDetailView)
     idDetailView.snp.makeConstraints {
       $0.left.right.top.bottom.equalToSuperview()

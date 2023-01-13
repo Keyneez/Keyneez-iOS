@@ -29,7 +29,7 @@ private struct Constant {
   static let pageControlHeight: CGFloat = 12
 }
 
-class LandingPageViewController: UIViewController {
+class LandingPageViewController: NiblessViewController {
   
   static var landingImages = ["Landing1", "Landing2", "Landing3", "Landing4"]
 
