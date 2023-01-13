@@ -94,6 +94,18 @@ extension HomeViewController {
   @objc private func changeUnderLinePosition() {
     animateUnderline()
     changeViewControllers()
+    guard let token = UserSession.shared.accessToken else { return }
+    repository.getAllContents(token: token) {
+      [weak self] arr in
+      guard let self else {return}
+      self.datasources.append(arr)
+      DispatchQueue.main.async {
+        self.VCs.forEach {
+          $0.contentList = self.datasources[0]
+          $0.recommendContentCollectionView.reloadData()
+        }
+      }
+    }
   }
   private func animateUnderline() {
     let segmentIndex = segmentControl.selectedSegmentIndex
