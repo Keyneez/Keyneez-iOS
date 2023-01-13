@@ -139,6 +139,7 @@ extension HomeContentCollectionViewCell {
 //    category.text = model.categoty[0]
     contentTitle.text = setTitle(fullTitle: model.contentTitle)
     contentIntroduction.text = model.introduction
+    likeButton.isSelected = model.liked
   }
   private func setTitle(fullTitle: String) -> String {
     guard let title = fullTitle as? String else {return ""}
