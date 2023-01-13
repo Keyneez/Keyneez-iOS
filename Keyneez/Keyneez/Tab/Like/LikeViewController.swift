@@ -8,6 +8,8 @@
 import UIKit
 
 final class LikeViewController: NiblessViewController, NavigationBarProtocol {
+  let repository: ContentRepository = KeyneezContentRepository()
+  
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.button(with: myLikeButton), .flexibleBox, .iconButton(with: editButton)]).build()
   private lazy var myLikeButton: UIButton = .init(primaryAction: touchUpMyLikeButton).then {
     $0.setTitle("저장", for: .normal)
@@ -52,6 +54,17 @@ final class LikeViewController: NiblessViewController, NavigationBarProtocol {
     register()
     addNavigationViewToSubview()
   }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    guard let token = UserSession.shared.accessToken else { return }
+    repository.get(token: token, keyword: keyword!) {
+      [weak self] arr in
+      guard let self else {return}
+      self.searchDatasource = arr
+      self.setSearchResultCountingLabel(count: searchDatasource.count)
+      DispatchQueue.main.async {
+        self.homeSearchCollectionView.reloadData()
+      }
 }
 
 extension LikeViewController {

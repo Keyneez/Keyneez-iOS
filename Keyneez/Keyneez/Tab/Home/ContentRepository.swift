@@ -11,6 +11,7 @@ protocol ContentRepository {
   func getAllContents(token: String, completion: @escaping([HomeContentResponseDto]) -> Void)
   func getDetailContent(token: String, contentId: Int, completion: @escaping(ContentDetailResponseDto) -> Void)
   func getSearchContent(token: String, keyword: String, completion: @escaping([SearchContentResponseDto]) -> Void)
+  func getLikedContent(token: String, completion: @escaping([LikeContentResponseDto]) -> Void)
 }
 
 final class KeyneezContentRepository: ContentRepository {
@@ -45,6 +46,18 @@ final class KeyneezContentRepository: ContentRepository {
       case .success(let data):
         guard let searchList = data else { return }
         completion(searchList)
+      case .failure(let failure):
+        print("fail")
+      }
+    }
+  }
+  
+  func getLikedContent(token: String, completion: @escaping ([LikeContentResponseDto]) -> Void) {
+    ContentAPIProvider.shared.getLikedContent(token: token) { result in
+      switch result {
+      case .success(let data):
+        guard let likedContentList = data else { return }
+        completion(likedContentList)
       case .failure(let failure):
         print("fail")
       }
