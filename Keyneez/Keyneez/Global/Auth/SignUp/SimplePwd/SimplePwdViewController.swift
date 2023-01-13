@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-import Toast
+//import Toast
 import Then
 
 private struct Constant {
@@ -105,7 +105,7 @@ class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
 extension SimplePwdViewController {
 
   private func setToast() {
-    view.makeToast("마지막 단계!", duration: 0.7, position: .center)
+//    view.makeToast("마지막 단계!", duration: 0.7, position: .center)
   }
   
   private func setConfig() {
