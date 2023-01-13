@@ -137,7 +137,7 @@ extension PhotoCaptureProcessor: AVCapturePhotoCaptureDelegate {
       DispatchQueue.global().async { [weak self] in
         guard let self = self else {return}
         let visionImage = VisionImage(image: newCropped)
-        OCRService().recognizeText(in: visionImage, width: newCropped.size.width, height: newCropped.size.height) { str in
+        OCRService().recognizeText(in: visionImage, with: newCropped, width: newCropped.size.width, height: newCropped.size.height) { str, image in
           print(str)
         }
         
