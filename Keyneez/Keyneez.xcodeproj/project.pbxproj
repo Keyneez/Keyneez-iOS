@@ -105,7 +105,7 @@
 		B18B60D6296552DA00AF14F5 /* NavigationViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60CD296552DA00AF14F5 /* NavigationViewItem.swift */; };
 		B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18B60CE296552DA00AF14F5 /* NavigationViewBuilder.swift */; };
 		B18C2BBA296F267C00A9AA1B /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C2BB9296F267C00A9AA1B /* UIUtilities.swift */; };
-		B18C2BBC296FF0B600A9AA1B /* OCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C2BBB296FF0B600A9AA1B /* OCR.swift */; };
+		B18C2BBC296FF0B600A9AA1B /* OCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18C2BBB296FF0B600A9AA1B /* OCRService.swift */; };
 		B1A80358296D95C10007DDD9 /* PhysicalIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80357296D95C10007DDD9 /* PhysicalIDViewController.swift */; };
 		B1A8035B296D98E70007DDD9 /* PhysicalIDActionables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8035A296D98E70007DDD9 /* PhysicalIDActionables.swift */; };
 		B1A8035D296D99180007DDD9 /* PhysicalIDActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8035C296D99180007DDD9 /* PhysicalIDActions.swift */; };
@@ -272,7 +272,7 @@
 		B18B60CD296552DA00AF14F5 /* NavigationViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewItem.swift; sourceTree = "<group>"; };
 		B18B60CE296552DA00AF14F5 /* NavigationViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewBuilder.swift; sourceTree = "<group>"; };
 		B18C2BB9296F267C00A9AA1B /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
-		B18C2BBB296FF0B600A9AA1B /* OCR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCR.swift; sourceTree = "<group>"; };
+		B18C2BBB296FF0B600A9AA1B /* OCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRService.swift; sourceTree = "<group>"; };
 		B1A80357296D95C10007DDD9 /* PhysicalIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalIDViewController.swift; sourceTree = "<group>"; };
 		B1A8035A296D98E70007DDD9 /* PhysicalIDActionables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalIDActionables.swift; sourceTree = "<group>"; };
 		B1A8035C296D99180007DDD9 /* PhysicalIDActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalIDActions.swift; sourceTree = "<group>"; };
@@ -329,14 +329,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				027E2522297093A2004A84A2 /* Toast in Frameworks */,
-				027E251C29709358004A84A2 /* Kingfisher in Frameworks */,
-				C5F04103F38C3EA6BF1A98B9 /* Pods_Keyneez.framework in Frameworks */,
-				027E2525297093E4004A84A2 /* Floaty in Frameworks */,
-				027E251629709331004A84A2 /* Then in Frameworks */,
-				027E25282970941F004A84A2 /* FirebaseStorage in Frameworks */,
-				027E251929709348004A84A2 /* Moya in Frameworks */,
-				027E251F29709376004A84A2 /* SnapKit in Frameworks */,
+				C4E673A65B49C299A564EA37 /* Pods_Keyneez.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,7 +549,7 @@
 				B187CA80296C8378006B0AE1 /* Camera.swift */,
 				B1A80364296DD6430007DDD9 /* CameraViewActions.swift */,
 				B18C2BB9296F267C00A9AA1B /* UIUtilities.swift */,
-				B18C2BBB296FF0B600A9AA1B /* OCR.swift */,
+				B18C2BBB296FF0B600A9AA1B /* OCRService.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -1008,13 +1001,6 @@
 			);
 			name = Keyneez;
 			packageProductDependencies = (
-				027E251529709331004A84A2 /* Then */,
-				027E251829709348004A84A2 /* Moya */,
-				027E251B29709358004A84A2 /* Kingfisher */,
-				027E251E29709376004A84A2 /* SnapKit */,
-				027E2521297093A2004A84A2 /* Toast */,
-				027E2524297093E4004A84A2 /* Floaty */,
-				027E25272970941F004A84A2 /* FirebaseStorage */,
 			);
 			productName = Keyneez;
 			productReference = B14D107A2959C7980004946F /* Keyneez.app */;
@@ -1093,13 +1079,6 @@
 			);
 			mainGroup = B14D10712959C7980004946F;
 			packageReferences = (
-				027E251429709331004A84A2 /* XCRemoteSwiftPackageReference "Then" */,
-				027E251729709348004A84A2 /* XCRemoteSwiftPackageReference "Moya" */,
-				027E251A29709358004A84A2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				027E251D29709376004A84A2 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				027E2520297093A2004A84A2 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
-				027E2523297093E4004A84A2 /* XCRemoteSwiftPackageReference "Floaty" */,
-				027E25262970941F004A84A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = B14D107B2959C7980004946F /* Products */;
 			projectDirPath = "";
@@ -1326,7 +1305,7 @@
 				B10AAD8329696FCD00AB8475 /* IDDetailView.swift in Sources */,
 				B1A8037A296E9D680007DDD9 /* Encodable.swift in Sources */,
 				0230EA6F296AD8C90006940C /* PropensityTagViewController.swift in Sources */,
-				B18C2BBC296FF0B600A9AA1B /* OCR.swift in Sources */,
+				B18C2BBC296FF0B600A9AA1B /* OCRService.swift in Sources */,
 				B10AAD8229696FCA00AB8475 /* IDDetailViewController.swift in Sources */,
 				B18B60D3296552DA00AF14F5 /* UIButton+Extension.swift in Sources */,
 				023B559429655CD200FB2462 /* CGFloat+Extension.swift in Sources */,
@@ -1788,103 +1767,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		027E251429709331004A84A2 /* XCRemoteSwiftPackageReference "Then" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/Then";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-		027E251729709348004A84A2 /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 15.0.0;
-			};
-		};
-		027E251A29709358004A84A2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-		027E251D29709376004A84A2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		027E2520297093A2004A84A2 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-		027E2523297093E4004A84A2 /* XCRemoteSwiftPackageReference "Floaty" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kciter/Floaty.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		027E25262970941F004A84A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		027E251529709331004A84A2 /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027E251429709331004A84A2 /* XCRemoteSwiftPackageReference "Then" */;
-			productName = Then;
-		};
-		027E251829709348004A84A2 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027E251729709348004A84A2 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
-		027E251B29709358004A84A2 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027E251A29709358004A84A2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		027E251E29709376004A84A2 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027E251D29709376004A84A2 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		027E2521297093A2004A84A2 /* Toast */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027E2520297093A2004A84A2 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
-			productName = Toast;
-		};
-		027E2524297093E4004A84A2 /* Floaty */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027E2523297093E4004A84A2 /* XCRemoteSwiftPackageReference "Floaty" */;
-			productName = Floaty;
-		};
-		027E25272970941F004A84A2 /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027E25262970941F004A84A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B14D10722959C7980004946F /* Project object */;
 }
