@@ -10,17 +10,28 @@ import SnapKit
 import Then
 
 // TODO: - 2개만 선택되게 !!!!!
-class JellyProductViewController: NiblessViewController {
+class JellyProductViewController: NiblessViewController, NavigationBarProtocol {
+ 
+  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.flexibleBox]).build()
+   var contentView = UIView()
+   
+   private lazy var backButton: UIButton = .init(primaryAction: touchUpBackButton).then {
+     $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)
+   }
+   private lazy var touchUpBackButton: UIAction = .init(handler: { _ in
+     self.navigationController?.popViewController(animated: true)
+   })
   
   // MARK: - UI Components
   
+  
   private let titleLabel: UILabel = .init().then {
-    $0.text = "민지님의 젤리는"
+    $0.text = "김민지님의 젤리는"
     $0.font = .font(.pretendardSemiBold, ofSize: 20)
     $0.textColor = .gray500
   }
   private let subTitleLabel: UILabel = .init().then {
-    $0.text = "호기심 가득 문화인"
+    $0.text = "호기심 많은 문화인"
     $0.font = UIFont.font(.pretendardBold, ofSize: 28)
     $0.textColor = .gray900
   }
@@ -83,7 +94,7 @@ class JellyProductViewController: NiblessViewController {
   
   var userData: ProductJellyResponseDto?
   func dataBind(data: ProductJellyResponseDto) {
-    userData = data
+    self.userData = data
   }
   
   @objc
@@ -91,11 +102,18 @@ class JellyProductViewController: NiblessViewController {
     let nextVC = SimplePwdViewController()
     guard let userData = userData else {return}
     nextVC.dataBind(data: userData)
+    print(userData)
     pushToNextVC(VC: nextVC)
   }
   
+//  private func setText() {
+//    guard let userData = self.userData else {return}
+//    subTitleLabel.text = userData.characters?.character
+//  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
+    addNavigationViewToSubview()
     setConfig()
     register()
     setLayout()
@@ -112,7 +130,7 @@ extension JellyProductViewController {
   private func setConfig() {
     view.backgroundColor = .gray050
     [titleLabel, detailStackView, jellyImageView, itemLabel, itemCountLabel, collectionView, startButton].forEach {
-      view.addSubview($0)
+      contentView.addSubview($0)
     }
     [subTitleLabel, detailButton].forEach {
       detailStackView.addArrangedSubview($0)
@@ -125,7 +143,7 @@ extension JellyProductViewController {
   private func setLayout() {
     
     titleLabel.snp.makeConstraints {
-      $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(SignUpConstant.labelTopExpand)
+      $0.top.equalToSuperview().offset(SignUpConstant.labelTop)
       $0.leading.equalTo(self.view.safeAreaLayoutGuide).offset(SignUpConstant.labelLeading)
     }
     detailStackView.snp.makeConstraints {
@@ -180,10 +198,7 @@ extension JellyProductViewController: UICollectionViewDataSource {
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JellyProductCollectionViewCell.identifier, for: indexPath)
               as? JellyProductCollectionViewCell else { return UICollectionViewCell() }
       cell.dataBind(model: jellyIconData[indexPath.item])
-      if jellyIconData[indexPath.item].index == 0 || jellyIconData[indexPath.item].index == 1 {
-        cell.layer.borderColor = UIColor.mint500.cgColor
-        cell.layer.borderWidth = 2
-      }
+
       return cell
     }
       }

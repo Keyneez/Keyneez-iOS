@@ -19,13 +19,15 @@ private struct Constant {
 
 final class PropensityTagViewController: NiblessViewController, NavigationBarProtocol {
   
-   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
-  
-    var contentView = UIView()
+  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox]).build()
+   var contentView = UIView()
    
-   private let backButton = UIButton().then {
-     $0.setBackgroundImage(UIImage(named: "ic_arrowback"), for: .normal)
+   private lazy var backButton: UIButton = .init(primaryAction: touchUpBackButton).then {
+     $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)
    }
+   private lazy var touchUpBackButton: UIAction = .init(handler: { _ in
+     self.navigationController?.popViewController(animated: true)
+   })
    
   // MARK: - UI Components
   
@@ -129,9 +131,9 @@ extension PropensityTagViewController {
       $0.height.equalTo(Constant.btnHeight)
     }
     pushToHashVCButton.snp.makeConstraints {
-      $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(SignUpConstant.buttonBottom)
-      $0.height.equalTo(Constant.btnHeight)
-      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(SignUpConstant.labelTop)
+      $0.bottom.equalToSuperview().inset(40)
+      $0.leading.trailing.equalToSuperview().inset(16)
+      $0.height.equalTo(SignUpConstant.buttonHeight)
     }
     
   }

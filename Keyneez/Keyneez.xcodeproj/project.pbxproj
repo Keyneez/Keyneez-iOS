@@ -41,13 +41,6 @@
 		0269E2262961DAC900309E8A /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0269E2252961DAC900309E8A /* Pretendard-Medium.otf */; };
 		0269E2282961DAD400309E8A /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0269E2272961DAD400309E8A /* Pretendard-SemiBold.otf */; };
 		0269E22A2961DC3700309E8A /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269E2292961DC3700309E8A /* UIFont+Extension.swift */; };
-		027E251629709331004A84A2 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 027E251529709331004A84A2 /* Then */; };
-		027E251929709348004A84A2 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 027E251829709348004A84A2 /* Moya */; };
-		027E251C29709358004A84A2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 027E251B29709358004A84A2 /* Kingfisher */; };
-		027E251F29709376004A84A2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 027E251E29709376004A84A2 /* SnapKit */; };
-		027E2522297093A2004A84A2 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 027E2521297093A2004A84A2 /* Toast */; };
-		027E2525297093E4004A84A2 /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = 027E2524297093E4004A84A2 /* Floaty */; };
-		027E25282970941F004A84A2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 027E25272970941F004A84A2 /* FirebaseStorage */; };
 		02C066A42961C98600AED030 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C066A32961C98600AED030 /* UIColor+Extension.swift */; };
 		02F262AE2965ABEE005A1CE4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F262AD2965ABEE005A1CE4 /* LoadingView.swift */; };
 		02F4D81029716A8B0089AFC3 /* LoginRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4D80F29716A8B0089AFC3 /* LoginRequestDto.swift */; };
@@ -333,14 +326,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				027E2522297093A2004A84A2 /* Toast in Frameworks */,
-				027E251C29709358004A84A2 /* Kingfisher in Frameworks */,
 				C5F04103F38C3EA6BF1A98B9 /* Pods_Keyneez.framework in Frameworks */,
-				027E2525297093E4004A84A2 /* Floaty in Frameworks */,
-				027E251629709331004A84A2 /* Then in Frameworks */,
-				027E25282970941F004A84A2 /* FirebaseStorage in Frameworks */,
-				027E251929709348004A84A2 /* Moya in Frameworks */,
-				027E251F29709376004A84A2 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1014,13 +1000,6 @@
 			);
 			name = Keyneez;
 			packageProductDependencies = (
-				027E251529709331004A84A2 /* Then */,
-				027E251829709348004A84A2 /* Moya */,
-				027E251B29709358004A84A2 /* Kingfisher */,
-				027E251E29709376004A84A2 /* SnapKit */,
-				027E2521297093A2004A84A2 /* Toast */,
-				027E2524297093E4004A84A2 /* Floaty */,
-				027E25272970941F004A84A2 /* FirebaseStorage */,
 			);
 			productName = Keyneez;
 			productReference = B14D107A2959C7980004946F /* Keyneez.app */;
@@ -1099,13 +1078,6 @@
 			);
 			mainGroup = B14D10712959C7980004946F;
 			packageReferences = (
-				027E251429709331004A84A2 /* XCRemoteSwiftPackageReference "Then" */,
-				027E251729709348004A84A2 /* XCRemoteSwiftPackageReference "Moya" */,
-				027E251A29709358004A84A2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				027E251D29709376004A84A2 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				027E2520297093A2004A84A2 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
-				027E2523297093E4004A84A2 /* XCRemoteSwiftPackageReference "Floaty" */,
-				027E25262970941F004A84A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = B14D107B2959C7980004946F /* Products */;
 			projectDirPath = "";
@@ -1432,7 +1404,7 @@
 				022F68B82962D3A200F32CE1 /* Buildable.swift in Sources */,
 				0230ADE2296EC4590079D799 /* DanalUserDataViewController.swift in Sources */,
 				02F4D81029716A8B0089AFC3 /* LoginRequestDto.swift in Sources */,
-				0230ADD1296EB7960079D799 /* FetchPasswordRequestDto.swift in Sources */,
+				0230ADD1296EB7960079D799 /* PasswordFetchRequestDto.swift in Sources */,
 				02F262AE2965ABEE005A1CE4 /* LoadingView.swift in Sources */,
 				B8FC663A296F22EA00AEE9C3 /* ContentAPI.swift in Sources */,
 				B10AAD70296967F300AB8475 /* IDCardView.swift in Sources */,
@@ -1796,103 +1768,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		027E251429709331004A84A2 /* XCRemoteSwiftPackageReference "Then" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/Then";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-		027E251729709348004A84A2 /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 15.0.0;
-			};
-		};
-		027E251A29709358004A84A2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-		027E251D29709376004A84A2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		027E2520297093A2004A84A2 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-		027E2523297093E4004A84A2 /* XCRemoteSwiftPackageReference "Floaty" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kciter/Floaty.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		027E25262970941F004A84A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		027E251529709331004A84A2 /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027E251429709331004A84A2 /* XCRemoteSwiftPackageReference "Then" */;
-			productName = Then;
-		};
-		027E251829709348004A84A2 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027E251729709348004A84A2 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
-		027E251B29709358004A84A2 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027E251A29709358004A84A2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		027E251E29709376004A84A2 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027E251D29709376004A84A2 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		027E2521297093A2004A84A2 /* Toast */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027E2520297093A2004A84A2 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
-			productName = Toast;
-		};
-		027E2524297093E4004A84A2 /* Floaty */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027E2523297093E4004A84A2 /* XCRemoteSwiftPackageReference "Floaty" */;
-			productName = Floaty;
-		};
-		027E25272970941F004A84A2 /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027E25262970941F004A84A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B14D10722959C7980004946F /* Project object */;
 }

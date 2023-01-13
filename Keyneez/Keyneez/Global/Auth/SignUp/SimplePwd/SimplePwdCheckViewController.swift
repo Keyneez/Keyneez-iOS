@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-import Toast
+import Toast_Swift
 import Then
 
 private struct Constant {
@@ -196,6 +196,7 @@ extension SimplePwdCheckViewController: UICollectionViewDataSource {
         let passwordArray = selectedNumber.map { String($0) }
         //처음 입력한 비밀번호와 체크 비밀번호가 같을때
         if password == passwordArray.joined() {
+          
           guard let token = UserSession.shared.accessToken else {return}
           var pwdInfoRequsetDto = ProductPwdRequestDto(userPassword: password)
           passwordInfo(token: token, with: pwdInfoRequsetDto) { _ in }
@@ -206,10 +207,6 @@ extension SimplePwdCheckViewController: UICollectionViewDataSource {
           Constant.index = 0
           progressImageView.image = UIImage(named: Constant.imageArray[0])
         }
-        
-        var pwdInfoRequsetDto = ProductPwdRequestDto(userPassword: password)
-        guard let token = UserSession.shared.accessToken else {return}
-        passwordInfo(token: token, with: pwdInfoRequsetDto) { _ in }
       default:
         return
       }

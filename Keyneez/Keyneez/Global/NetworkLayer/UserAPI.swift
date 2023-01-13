@@ -16,7 +16,7 @@ enum UserAPI {
   case postUserInfo(param: ProductDanalRequestDto)
   case patchUserPickInfo(token: String, param: ProductJellyRequstDto)
   case patchUserPwdInfo(token: String, param: ProductPwdRequestDto)
-  case postPwdFetch(token: String, param: FetchPasswordRequestDto)
+  case postPwdFetch(token: String, param: PasswordFetchRequestDto)
   case postUserLoginInfo(param: LoginRequestDto)
 }
 

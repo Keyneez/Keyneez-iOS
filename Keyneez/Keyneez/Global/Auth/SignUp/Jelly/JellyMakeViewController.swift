@@ -11,7 +11,18 @@ import Then
 
 // MARK: - 네비게이션 추가
 
-class JellyMakeViewController: NiblessViewController {
+class JellyMakeViewController: NiblessViewController, NavigationBarProtocol {
+  
+  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.flexibleBox]).build()
+   var contentView = UIView()
+   
+   private lazy var backButton: UIButton = .init(primaryAction: touchUpBackButton).then {
+     $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)
+   }
+   private lazy var touchUpBackButton: UIAction = .init(handler: { _ in
+     self.navigationController?.popViewController(animated: true)
+   })
+  
   
   // MARK: - UI Components
   
@@ -40,6 +51,7 @@ class JellyMakeViewController: NiblessViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    addNavigationViewToSubview()
     setConfig()
     setLayout()
   }
@@ -54,13 +66,13 @@ extension JellyMakeViewController {
   private func setConfig() {
     self.view.backgroundColor = .gray050
     [titleLabel, subTitleLabel, jellyImageView, startButton].forEach {
-      view.addSubview($0)
+      contentView.addSubview($0)
     }
   }
   private func setLayout() {
     
     titleLabel.snp.makeConstraints {
-      $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(SignUpConstant.labelTopExpand)
+      $0.top.equalToSuperview().offset(SignUpConstant.labelTop)
       $0.leading.equalTo(self.view.safeAreaLayoutGuide).offset(SignUpConstant.labelLeading)
     }
     subTitleLabel.snp.makeConstraints {
@@ -73,7 +85,7 @@ extension JellyMakeViewController {
       $0.height.equalTo(SignUpConstant.jellyImageHeight)
     }
     startButton.snp.makeConstraints {
-      $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(SignUpConstant.buttonBottom.adjusted)
+      $0.bottom.equalToSuperview().inset(SignUpConstant.buttonBottom.adjusted)
       $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(SignUpConstant.labelTop)
       $0.height.equalTo(SignUpConstant.buttonHeight.adjusted)
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-import Toast
+import Toast_Swift
 import Then
 
 private struct Constant {
@@ -163,6 +163,9 @@ extension SimplePwdViewController: UICollectionViewDataSource {
     
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SimplePwdCollectionViewCell.identifier, for: indexPath)
+            as? SimplePwdCollectionViewCell else { return }
+    
     // 간편 비밀번호 로직
     if indexPath.item != 11 && indexPath.item != 9 {
       selectedNumber.append(Int(pwdNumberData[indexPath.row].text)!)
@@ -200,7 +203,10 @@ extension SimplePwdViewController: UICollectionViewDataSource {
         case 11:
           selectedNumber.removeLast()
         case 9:
-          // TODO: - 재배열 코드 넣어주기
+//          pwdNumberData[0..<9].shuffle()
+//          print(pwdNumberData)
+//          collectionView.reloadData()
+          
           return
         default:
           return
