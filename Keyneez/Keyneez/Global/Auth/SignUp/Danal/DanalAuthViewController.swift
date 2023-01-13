@@ -78,9 +78,9 @@ extension DanalAuthViewController {
       $0.height.equalTo(SignUpConstant.phoneImageHeight.adjusted)
     }
     authButton.snp.makeConstraints {
-      $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(SignUpConstant.buttonBottom.adjusted)
-      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(SignUpConstant.labelTop)
-      $0.height.equalTo(SignUpConstant.buttonHeight.adjusted)
+      $0.bottom.equalToSuperview().inset(40)
+      $0.leading.trailing.equalToSuperview().inset(16)
+      $0.height.equalTo(SignUpConstant.buttonHeight)
     }
   }
 }

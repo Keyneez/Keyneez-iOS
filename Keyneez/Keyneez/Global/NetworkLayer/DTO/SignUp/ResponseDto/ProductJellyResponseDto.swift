@@ -26,5 +26,18 @@ struct ProductJellyResponseDto: Codable {
 }
 
 struct Characters: Codable {
-    let character: String
+  let characterKey: Int
+  let inter: String
+  let dispo: String
+  let character: String
+  let characterImg: String
+  let characterDesc: String
+  let testImg: String
+  let items: Items?
+}
+
+struct Items: Codable {
+  let itemKey: Int
+  let itemImage: String
+  let itmeName: String
 }

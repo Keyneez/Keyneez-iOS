@@ -37,7 +37,9 @@ class PhoneLoginViewController: NiblessViewController, NavigationBarProtocol, UI
   
   @objc
   private func touchUpNextVC() {
-    pushToNextVC(VC: SimpleLoginViewController())
+    let nextVC = SimpleLoginViewController()
+    nextVC.dataBind(phone: phoneTextField.text!)
+    pushToNextVC(VC: nextVC)
   }
   
   private func setKeyboard() {

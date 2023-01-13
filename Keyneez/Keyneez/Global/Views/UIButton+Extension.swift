@@ -18,8 +18,7 @@ extension UIButton {
     case blackAct
     case blackUnact
     case btnM
-    case propensityTagUnact
-    case propensityTagAct
+
 
     var backgroundColor: UIColor? {
       switch self {
@@ -33,10 +32,7 @@ extension UIButton {
         return .gray300
       case .btnM:
         return .gray050
-      case .propensityTagUnact:
-        return .gray100
-      case .propensityTagAct:
-        return .gray900
+
       }
   
     }
@@ -53,10 +49,7 @@ extension UIButton {
         return .gray050
       case .btnM:
         return .gray800
-      case .propensityTagUnact:
-        return .gray400
-      case.propensityTagAct:
-        return .gray050
+ 
       }
     }
   }
@@ -83,15 +76,5 @@ extension UIButton {
     default:
       return
     }
-  }
-  
-  func propensityTagButtonStyle(style: KeyneezButtonStyle, title: String) {
-    self.setTitle(title, for: .normal)
-    self.titleLabel?.font = UIFont.font(.pretendardMedium, ofSize: 24)
-    self.backgroundColor = style.backgroundColor
-    self.setTitleColor(style.foregroundColor, for: .normal)
-//    self.setRound([.bottomLeft, .bottomRight, .topRight], radius: 24)
-//    self.layer.cornerRadius = 4
-//    self.layer.maskedCorners = CACornerMask.layerMaxXMinYCorner
   }
 }

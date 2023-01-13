@@ -13,15 +13,15 @@ struct PropensityTagContentModel {
 }
 
 var propensityTagUnclickData: [PropensityTagContentModel] = [
-  PropensityTagContentModel(text: "활발하게 놀러다녀요!"),
-  PropensityTagContentModel(text: "호기심 가득 정보를 탐색중"),
-  PropensityTagContentModel(text: "포근한 집이 최고")
+  PropensityTagContentModel(text: "activeUnClick"),
+  PropensityTagContentModel(text: "curiousUnclick"),
+  PropensityTagContentModel(text: "comportableUnclick")
 ]
 
 var propensityTagClickData: [PropensityTagContentModel] = [
-  PropensityTagContentModel(text: "🎾 활발하게 놀러다녀요!"),
-  PropensityTagContentModel(text: "🔍 호기심 가득 정보를 탐색중"),
-  PropensityTagContentModel(text: "🧸 포근한 집이 최고")
+  PropensityTagContentModel(text: "activeClick"),
+  PropensityTagContentModel(text: "curiousClick"),
+  PropensityTagContentModel(text: "comportableClick")
 ]
 
 struct HashTagContentModel {
@@ -45,21 +45,21 @@ var hashTagData: [HashTagContentModel] = [
 ]
 
 struct JellyContentModel {
-  let image: String
-  let index: Int
+  let itemImage: String
+  let backImage: String
 }
 
 var jellyIconData: [JellyContentModel] = [
-  JellyContentModel(image: "skateboard", index: 0),
-  JellyContentModel(image: "headset", index: 1),
-  JellyContentModel(image: "hat", index: 2),
-  JellyContentModel(image: "glasses", index: 3),
-  JellyContentModel(image: "book", index: 4),
-  JellyContentModel(image: "wing", index: 5),
-  JellyContentModel(image: "ring", index: 6),
-  JellyContentModel(image: "telescope", index: 7),
-  JellyContentModel(image: "coin", index: 8),
-  JellyContentModel(image: "tie", index: 9)
+  JellyContentModel(itemImage: "skateboard", backImage: "jellybackground_line" ),
+  JellyContentModel(itemImage: "headset", backImage: "jellybackground_line"),
+  JellyContentModel(itemImage: "hat", backImage: "jellybackground"),
+  JellyContentModel(itemImage: "glasses", backImage: "jellybackground"),
+  JellyContentModel(itemImage: "book", backImage: "jellybackground"),
+  JellyContentModel(itemImage: "wing", backImage: "jellybackground"),
+  JellyContentModel(itemImage: "ring", backImage: "jellybackground"),
+  JellyContentModel(itemImage: "telescope", backImage: "jellybackground"),
+  JellyContentModel(itemImage: "coin", backImage: "jellybackground"),
+  JellyContentModel(itemImage: "tie", backImage: "jellybackground")
 ]
 
 struct SimplePwdContentModel {
