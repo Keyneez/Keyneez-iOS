@@ -64,6 +64,7 @@ extension HomeSearchCollectionViewCell {
     titleLabel.text = model.contentTitle
     dateLabel.text = setDateLabel(startAt: model.startAt, endAt: model.endAt)
     searchContentId = model.contentKey
+    likeButton.isSelected = model.liked
     guard let url = URL(string: model.contentImg ?? "") else { return }
     // TODO: 이미지, 버튼 값 변경
   }
