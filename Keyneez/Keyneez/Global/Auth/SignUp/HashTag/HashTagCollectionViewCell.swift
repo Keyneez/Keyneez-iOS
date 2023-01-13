@@ -86,6 +86,6 @@ extension HashTagCollectionViewCell {
   }
   func dataBind(model: HashTagContentModel) {
     hashTagImageView.image = UIImage(named: model.image)
-    hashTagLabel.text = model.text
+    hashTagLabel.text = "#" + model.text
   }
 }

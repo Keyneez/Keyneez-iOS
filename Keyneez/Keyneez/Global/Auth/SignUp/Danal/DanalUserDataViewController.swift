@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 private struct Constant {
   static let firstTextFieldTop: CGFloat = 91
@@ -39,7 +40,7 @@ class DanalUserDataViewController: NiblessViewController, NavigationBarProtocol,
   
   private lazy var birthTextField: UITextField = KeyneezTextFieldFactory.formStyleTextfield(placeholder: "생년월일(6자)", borderStyle: .underline(padding: 1)).build()
   
-  private let nextButton = UIButton().then {
+  private lazy var nextButton = UIButton().then {
     $0.keyneezButtonStyle(style: .blackUnact, title: "다음으로")
     $0.addTarget(self, action: #selector(touchUpNextVC), for: .touchUpInside)
   }
@@ -47,9 +48,44 @@ class DanalUserDataViewController: NiblessViewController, NavigationBarProtocol,
   var phoneTextCount: Int = 0
   var birthTextCount: Int = 0
   
+  private func signUp(with dto: ProductDanalRequestDto,
+                      completion: @escaping((ProductDanalResponseDto) -> Void)) {
+    
+    UserAPIProvider.shared.postUserInfo(param: dto) { [weak self] result in
+      guard self != nil else { return }
+      switch result {
+      case .success(let data):
+        // 같은 유저가 있을 때
+        guard let userdata = data else {
+          // UI change
+          DispatchQueue.main.async {
+            self!.view.makeToast("이미 존재하는 휴대폰 입니다.", duration: 0.7, position: .center)
+          }
+          return
+        }
+        // new one
+        DispatchQueue.main.async {
+          completion(userdata)
+          self?.pushToNextVC(VC: JellyMakeViewController())
+        }
+        
+      case .failure(let error):
+        print(error)
+      }
+    }
+  }
+  
   @objc
   private func touchUpNextVC() {
-    pushToNextVC(VC: JellyMakeViewController())
+    if let name = nameTextField.text,
+       let phone = phoneTextField.text,
+       let birthday = birthTextField.text {
+      var danalRequestDTO = ProductDanalRequestDto(userName: name, userBirth: birthday,
+                                                   userGender: " ", userPhone: phone)
+        signUp(with: danalRequestDTO) { userdata in
+          UserSession.shared.accessToken = userdata.accessToken
+      }
+    }
   }
   
   private func setKeyboard() {

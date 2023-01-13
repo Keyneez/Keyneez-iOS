@@ -247,7 +247,7 @@ extension Camera {
 
 extension Camera {
   
-  func capturePhoto(videoPreviewLayerOrientation: AVCaptureVideoOrientation?) {
+  func capturePhoto(videoPreviewLayerOrientation: AVCaptureVideoOrientation?, photoCompletion: @escaping( [String], UIImage) -> Void) {
     
     sessionQueue.async {
       if let photoOutputConnection = self.photoOutput.connection(with: .video) {
@@ -303,15 +303,13 @@ extension Camera {
         }
       }, photoProcessingHandler: { _ in
         // Animates a spinner while photo is processing
-        DispatchQueue.main.async {
-          // TODO: 여기에 이미지 처리할때 어떻게 처리할지 정의
-        }
+        
+        
+      }, OCRCompletionHandler: { text, image in
+        photoCompletion(text, image)
       })
       
-      // 사진이 어디에 저장되는지 정하기
-      //      photoCaptureProcessor.location = self.locationManager.location
-      
-      // The photo output holds a weak reference to the photo capture delegate and stores it in an array to maintain a strong reference.
+
       self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = photoCaptureProcessor
       self.photoOutput.capturePhoto(with: photoSettings, delegate: photoCaptureProcessor)
       
