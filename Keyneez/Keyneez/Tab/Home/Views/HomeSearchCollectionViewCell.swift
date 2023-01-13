@@ -12,6 +12,8 @@ import Kingfisher
 
 final class HomeSearchCollectionViewCell: UICollectionViewCell {
   static let identifier = "HomeSearchCollectionViewCell"
+  let repository: ContentRepository = KeyneezContentRepository()
+  var searchContentId: Int = -1
   
   private let backgroundImageView: UIImageView = .init()
   private let dateLabel: UILabel = .init().then {
@@ -61,6 +63,7 @@ extension HomeSearchCollectionViewCell {
   func bindHomeSearchData(model: SearchContentResponseDto) {
     titleLabel.text = model.contentTitle
     dateLabel.text = setDateLabel(startAt: model.startAt, endAt: model.endAt)
+    searchContentId = model.contentKey
     guard let url = URL(string: model.contentImg ?? "") else { return }
     // TODO: 이미지, 버튼 값 변경
   }
@@ -73,7 +76,12 @@ extension HomeSearchCollectionViewCell {
   }
   @objc
   private func touchUpLikeButton() {
-      likeButton.isSelected = !likeButton.isSelected
+    likeButton.isSelected = !likeButton.isSelected
+    print("클릭했다")
+      guard let token = UserSession.shared.accessToken else { return }
+      repository.postLikeContent(token: token, contentId: searchContentId) { result in
+        print(result)
+    }
   }
   private func getDate(fullDate: String) -> String {
     let monthIndex = fullDate.index(fullDate.endIndex, offsetBy: -4)
