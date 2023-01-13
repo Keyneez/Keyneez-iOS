@@ -8,10 +8,12 @@
 import UIKit
 import Then
 import SnapKit
+import SafariServices
 
 final class ContentDetailViewController: NiblessViewController, NavigationBarProtocol {
   
   var isLiked: Bool = false
+  private var contentLink: String = ""
   
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox, .iconButton(with: shareButton), .sizedBox(width: 16), .iconButton(with: likeButton)]).build()
   private lazy var backButton = makeIconButton(imageName: "ic_arrowback_search", action: touchUpBackButton)
@@ -204,7 +206,7 @@ extension ContentDetailViewController {
   }
   @objc
   private func touchUpUrlRoundButton() {
-    print("touch up Url Button")
+    goToSite(url: contentLink)
   }
   func bindContentDetailData(model: ContentDetailResponseDto) {
     contentTitle.text = deleteNewLine(fullString: model.contentTitle)
@@ -219,6 +221,11 @@ extension ContentDetailViewController {
     guard let url = model.contentImg else { return }
     contentImageView.setImage(url: url)
     categoryView.setCategory(with: model.category[0])
+    contentLink = model.contentLink
+  }
+  private func goToSite(url: String) {
+    let safariView: SFSafariViewController = SFSafariViewController(url: URL(string: url)!)
+    self.present(safariView, animated: true, completion: nil)
   }
 }
 
