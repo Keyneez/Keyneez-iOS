@@ -30,9 +30,9 @@ extension ContentAPI: TargetType {
     case .getSearchContent:
       return URLConstant.searchContent
     case .postLikeContent:
-      return URLConstant.likeContent
-    case .getLikedContent:
       return URLConstant.saveContent
+    case .getLikedContent:
+      return URLConstant.likeContent
     }
   }
   

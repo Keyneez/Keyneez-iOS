@@ -23,9 +23,9 @@ final class ContentAPIProvider {
     let target = ContentAPI.getDetailContent(token: token, contentId: contentId)
     requestFrom(target, modelType: ContentDetailResponseDto.self, completion: completion)
   }
-  func getLikedContent(token: String, completion: @escaping (Result<LikeContentResponseDto?, Error>) -> Void) {
+  func getLikedContent(token: String, completion: @escaping (Result<[MyLikedContentResponseDto]?, Error>) -> Void) {
     let target = ContentAPI.getLikedContent(token: token)
-    requestFrom(target, modelType: LikeContentResponseDto.self, completion: completion)
+    requestFrom(target, modelType: [MyLikedContentResponseDto].self, completion: completion)
   }
 }
 

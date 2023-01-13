@@ -9,6 +9,7 @@ import UIKit
 
 final class LikeViewController: NiblessViewController, NavigationBarProtocol {
   let repository: ContentRepository = KeyneezContentRepository()
+  var likedContentDataSource: [MyLikedContentResponseDto] = []
   
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.button(with: myLikeButton), .flexibleBox, .iconButton(with: editButton)]).build()
   private lazy var myLikeButton: UIButton = .init(primaryAction: touchUpMyLikeButton).then {
@@ -57,14 +58,15 @@ final class LikeViewController: NiblessViewController, NavigationBarProtocol {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     guard let token = UserSession.shared.accessToken else { return }
-    repository.get(token: token, keyword: keyword!) {
-      [weak self] arr in
+    repository.getLikedContent(token: token) {
+      [weak self] result in
       guard let self else {return}
-      self.searchDatasource = arr
-      self.setSearchResultCountingLabel(count: searchDatasource.count)
+      self.likedContentDataSource = result
       DispatchQueue.main.async {
-        self.homeSearchCollectionView.reloadData()
+        self.likeCollectionView.reloadData()
       }
+    }
+  }
 }
 
 extension LikeViewController {
@@ -118,13 +120,13 @@ extension LikeViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - UICollectionViewDataSource
 extension LikeViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return homeSearchList.count
+    return likedContentDataSource.count
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let homeSearchCell = collectionView.dequeueReusableCell(
+    guard let likedContentCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeSearchCollectionViewCell.identifier, for: indexPath)
             as? HomeSearchCollectionViewCell else { return UICollectionViewCell() }
 //    homeSearchCell.bindHomeSearchData(model: homeSearchList[indexPath.item])
-    return homeSearchCell
+    return likedContentCell
   }
 }
