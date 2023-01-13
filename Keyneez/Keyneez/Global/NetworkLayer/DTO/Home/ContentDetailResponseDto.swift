@@ -7,23 +7,17 @@
 
 import Foundation
 
-struct ContentDetailResponseDto : Codable {
-  let status: Int
-  let message: String
-  let data: [ContentDetailResponseData]
-}
-
-struct ContentDetailResponseData: Codable {
+struct ContentDetailResponseDto: Codable {
   let contentKey: Int
   let contentTitle,
-      contentImg,
       place,
       introduction,
       benefit,
-      usage,
+      usage: String
+  let contentImg,
       startAt,
-      endAt: String
-  let contentLink: URL
+      endAt: String?
+  let contentLink: String
   let liked: Bool
   let category: [String]
 }

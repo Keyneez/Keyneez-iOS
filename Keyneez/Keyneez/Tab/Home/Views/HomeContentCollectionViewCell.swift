@@ -11,6 +11,7 @@ import SnapKit
 
 final class HomeContentCollectionViewCell: UICollectionViewCell {
   static let identifier = "HomeContentCollectionViewCell"
+  var homeContentID = -1
   // MARK: - UI Components
 
   private let shadowView = UIView().then {
@@ -41,8 +42,10 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
     $0.textColor = UIColor.gray900
   }
   private let categoryView = CategoryView()
-  private let likeButton = UIButton().then {
-    $0.setImage(UIImage(named: "white_like_empty"), for: .normal)
+  private lazy var likeButton = UIButton().then {
+    $0.setImage(UIImage(named: "ic_favorite_home_line"), for: .normal)
+    $0.setImage(UIImage(named: "ic_favorite_home_filled"), for: .selected)
+    $0.addTarget(self, action: #selector(touchUpLikeButton), for: .touchUpInside)
   }
   private let cardImageView: UIImageView = .init().then {
     $0.image = UIImage(named: "card_blue_home")
@@ -112,11 +115,11 @@ extension HomeContentCollectionViewCell {
     }
     contentTitle.snp.makeConstraints {
       $0.top.equalTo(categoryView.snp.bottom).offset(12)
-      $0.leading.equalTo(categoryView)
+      $0.leading.trailing.equalToSuperview().inset(21)
     }
     contentIntroduction.snp.makeConstraints {
       $0.top.equalTo(contentTitle.snp.bottom).offset(4)
-      $0.leading.equalTo(contentTitle)
+      $0.leading.trailing.equalTo(contentTitle)
     }
     cardImageView.snp.makeConstraints {
       $0.top.equalToSuperview().inset(207)
@@ -125,14 +128,34 @@ extension HomeContentCollectionViewCell {
       $0.height.equalTo(72)
     }
     contentImageView.backgroundColor = .gray400
-    likeButton.backgroundColor = .mint200
   }
   
-  func bindHomeData(model: HomeContentModel) {
-    contentImageView.image = UIImage(named: model.contentImage)
-    dateLabel.text = model.startAt + " ~ " + model.endAt
+  func bindHomeData(model: HomeContentResponseDto) {
+    homeContentID = model.contentKey
+//    contentImageView.image = UIImage(named: model.contentImage)
+    dateLabel.text = setDateLabel(model: model)
 //    category.text = model.categoty[0]
-    contentTitle.text = model.contentTitle
+    contentTitle.text = setTitle(fullTitle: model.contentTitle)
     contentIntroduction.text = model.introduction
+  }
+  private func setTitle(fullTitle: String) -> String {
+    guard let title = fullTitle as? String else {return ""}
+        return title.replacingOccurrences(of: "\n", with: " ")
+  }
+  private func getDate(fullDate: String) -> String {
+    let monthIndex = fullDate.index(fullDate.endIndex, offsetBy: -4)
+    let dayIndex = fullDate.index(fullDate.endIndex, offsetBy: -2)
+    let month = String(fullDate[monthIndex..<dayIndex])
+    let day = (fullDate[dayIndex...])
+    return month + "." + day
+  }
+  private func setDateLabel(model: HomeContentResponseDto) -> String {
+    if model.startAt == nil || model.endAt == nil { dateView.isHidden = true; return "" }
+    if model.startAt!.isEmpty || model.endAt!.isEmpty { dateView.isHidden = true; return "" }
+    return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
+  }
+  @objc
+  private func touchUpLikeButton() {
+    likeButton.isSelected = !likeButton.isSelected
   }
 }

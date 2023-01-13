@@ -13,9 +13,11 @@ import Floaty
 final class HomeContentViewController: UIViewController {
   
   var segmentedNumber: Int = -1
+  var contentList: [HomeContentResponseDto] = []
+  private var repository: ContentRepository = KeyneezContentRepository()
 
   // MARK: - CollectionView
-  private lazy var recommendContentCollectionView: UICollectionView = {
+  lazy var recommendContentCollectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .vertical
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -77,9 +79,14 @@ extension HomeContentViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     return homeContentInset
   }
-  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-    pushToContentDetailView()
-    return true
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let token = UserSession.shared.accessToken else { return }
+    let cotentId = contentList[indexPath.row].contentKey
+    repository.getDetailContent(token: token, contentId: cotentId) {
+      [weak self] arr in
+      guard let self else { return }
+      self.pushToContentDetailView(model: arr)
+    }
   }
 }
 
@@ -87,34 +94,35 @@ extension HomeContentViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeContentViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    switch(segmentedNumber) {
-    case 0:
-      return recommendContentList.count
-    case 1:
-      return popularContentList.count
-    case 2:
-      return newestContentList.count
-    default:
-      return recommendContentList.count
-    }
+//    switch(segmentedNumber) {
+//    case 0:
+//      return h.count
+//    case 1:
+//      return popularContentList.count
+//    case 2:
+//      return newestContentList.count
+//    default:
+//      return recommendContentList.count
+//    }
+    return contentList.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let model: [HomeContentModel]
-    switch(segmentedNumber) {
-    case 0:
-       model = recommendContentList
-    case 1:
-      model = popularContentList
-    case 2:
-      model = newestContentList
-    default:
-      model = recommendContentList
-    }
+//    switch(segmentedNumber) {
+//    case 0:
+//       model = recommendContentList
+//    case 1:
+//      model = popularContentList
+//    case 2:
+//      model = newestContentList
+//    default:
+//      model = recommendContentList
+//    }
     guard let homeContentCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeContentCollectionViewCell.identifier, for: indexPath)
             as? HomeContentCollectionViewCell else { return UICollectionViewCell() }
-    homeContentCell.bindHomeData(model: model[indexPath.item])
+    homeContentCell.bindHomeData(model: contentList[indexPath.item])
     return homeContentCell
   }
 }
