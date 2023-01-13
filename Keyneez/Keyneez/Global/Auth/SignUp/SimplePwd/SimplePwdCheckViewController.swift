@@ -15,9 +15,9 @@ private struct Constant {
   static let imageTop: CGFloat = 31
   static let imageLeading: CGFloat = 88
   static let imageHeight: CGFloat = 20
-  static let stackViewTop: CGFloat = 43
-  static let stackViewWidth: CGFloat = 146
-  static let stackViewHeight: CGFloat = 24
+  static let collectionLeading: CGFloat = 16
+  static let collectionBottom: CGFloat = 48
+  static let imageBottom: CGFloat = 151
   static let cellHeight: CGFloat = 90
   static let cellInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
   static let imageArray: [String] = ["pwd0", "pwd1", "pwd2", "pwd3", "pwd4", "pwd5", "pwd6"]
@@ -114,19 +114,19 @@ extension SimplePwdCheckViewController {
   }
   private func setLayout() {
     titleLabel.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(Constant.titleTop)
+      $0.top.equalToSuperview().offset(Constant.titleTop.adjusted)
       $0.centerX.equalToSuperview()
     }
     progressImageView.snp.makeConstraints {
-      $0.top.equalTo(titleLabel.snp.bottom).offset(Constant.imageTop)
-      $0.leading.trailing.equalToSuperview().inset(Constant.imageLeading)
-      $0.height.equalTo(Constant.imageHeight)
+      $0.top.equalTo(titleLabel.snp.bottom).offset(Constant.imageTop.adjusted)
+      $0.leading.trailing.equalToSuperview().inset(Constant.imageLeading.adjusted)
+      $0.height.equalTo(Constant.imageHeight.adjusted)
     }
     collectionView.snp.makeConstraints {
-      $0.top.equalTo(progressImageView.snp.bottom).offset(100)
-      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(16)
+      $0.top.equalTo(progressImageView.snp.bottom).offset(Constant.imageBottom.adjusted)
+      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(Constant.collectionLeading.adjusted)
       $0.height.equalTo(calculateCellHeight())
-      $0.bottom.equalToSuperview().inset(48)
+      $0.bottom.equalToSuperview().inset(Constant.collectionBottom.adjusted)
     }
   }
   private func calculateCellHeight() -> CGFloat {
@@ -193,7 +193,19 @@ extension SimplePwdCheckViewController: UICollectionViewDataSource {
         progressImageView.image = UIImage(named: Constant.imageArray[5])
       case 6:
         progressImageView.image = UIImage(named: Constant.imageArray[6])
-        Constant.index = 6
+        let passwordArray = selectedNumber.map { String($0) }
+        //처음 입력한 비밀번호와 체크 비밀번호가 같을때
+        if password == passwordArray.joined() {
+          guard let token = UserSession.shared.accessToken else {return}
+          var pwdInfoRequsetDto = ProductPwdRequestDto(userPassword: password)
+          passwordInfo(token: token, with: pwdInfoRequsetDto) { _ in }
+          
+        }else {
+          view.makeToast("비밀번호가 일치하지 않습니다.\n         다시 입력해주세요.", duration: 0.8, position: .center)
+          selectedNumber.removeAll()
+          Constant.index = 0
+          progressImageView.image = UIImage(named: Constant.imageArray[0])
+        }
         
         var pwdInfoRequsetDto = ProductPwdRequestDto(userPassword: password)
         guard let token = UserSession.shared.accessToken else {return}

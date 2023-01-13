@@ -37,20 +37,19 @@ final class PropensityTagViewController: NiblessViewController, NavigationBarPro
   
   private let activeButton = UIButton().then {
     $0.tag = 0
-    $0.propensityTagButtonStyle(style: .propensityTagUnact, title: propensityTagUnclickData[$0.tag].text)
+    $0.setBackgroundImage(UIImage(named: propensityTagUnclickData[$0.tag].text), for: .normal)
     $0.isUserInteractionEnabled = true
     $0.addTarget(self, action: #selector(selectOptionBtnAction), for: .touchUpInside)
   }
   private let curiousButton = UIButton().then {
     $0.tag = 1
-    $0.propensityTagButtonStyle(style: .propensityTagUnact, title: propensityTagUnclickData[$0.tag].text)
+    $0.setBackgroundImage(UIImage(named: propensityTagUnclickData[$0.tag].text), for: .normal)
     $0.isUserInteractionEnabled = true
     $0.addTarget(self, action: #selector(selectOptionBtnAction), for: .touchUpInside)
   }
   private let comportableButton = UIButton().then {
     $0.tag = 2
-    $0.isSelected = false
-    $0.propensityTagButtonStyle(style: .propensityTagUnact, title: propensityTagUnclickData[$0.tag].text)
+    $0.setBackgroundImage(UIImage(named: propensityTagUnclickData[$0.tag].text), for: .normal)
     $0.isUserInteractionEnabled = true
     $0.addTarget(self, action: #selector(selectOptionBtnAction), for: .touchUpInside)
   }
@@ -86,24 +85,16 @@ final class PropensityTagViewController: NiblessViewController, NavigationBarPro
     for button in btnArray {
       if button == sender {
         button.isSelected = true
-        button.propensityTagButtonStyle(style: .propensityTagAct, title: propensityTagClickData[button.tag].text)
+        button.setBackgroundImage(UIImage(named: propensityTagClickData[button.tag].text), for: .normal)
         button.titleLabel?.font = .font(.pretendardMedium, ofSize: 22)
         pushToHashVCButton.keyneezButtonStyle(style: .blackAct, title: "다음으로")
       } else {
         button.isSelected = false
-        button.propensityTagButtonStyle(style: .propensityTagUnact, title: propensityTagUnclickData[button.tag].text)
-        button.frame.size.width = setUnclickButtonWidth(button: button)
+        button.setBackgroundImage(UIImage(named: propensityTagUnclickData[button.tag].text), for: .normal)
 
       }
     }
   }
-  private func setUnclickButtonWidth(button: UIButton) -> CGFloat {
-    button.titleLabel?.text = propensityTagUnclickData[button.tag].text
-    button.titleLabel?.sizeToFit()
-    let width = ((button.titleLabel?.frame.width)!) + Constant.btnMargin * 2
-    return width
-  }
-  
 }
 
 extension PropensityTagViewController {
@@ -125,19 +116,16 @@ extension PropensityTagViewController {
     activeButton.snp.makeConstraints {
       $0.top.equalTo(titleLabel.snp.bottom).offset(Constant.firstBtnTop)
       $0.leading.equalTo(titleLabel)
-      $0.width.equalTo(setUnclickButtonWidth(button: activeButton))
       $0.height.equalTo(Constant.btnHeight)
     }
     curiousButton.snp.makeConstraints {
       $0.top.equalTo(activeButton.snp.bottom).offset(Constant.btnPadding)
       $0.leading.equalTo(activeButton)
-      $0.width.equalTo(setUnclickButtonWidth(button: curiousButton))
       $0.height.equalTo(Constant.btnHeight)
     }
     comportableButton.snp.makeConstraints {
       $0.top.equalTo(curiousButton.snp.bottom).offset(Constant.btnPadding)
       $0.leading.equalTo(activeButton)
-      $0.width.equalTo(setUnclickButtonWidth(button: comportableButton))
       $0.height.equalTo(Constant.btnHeight)
     }
     pushToHashVCButton.snp.makeConstraints {

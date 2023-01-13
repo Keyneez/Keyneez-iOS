@@ -13,15 +13,15 @@ struct PropensityTagContentModel {
 }
 
 var propensityTagUnclickData: [PropensityTagContentModel] = [
-  PropensityTagContentModel(text: "활발하게 놀러다녀요!"),
-  PropensityTagContentModel(text: "호기심 가득 정보를 탐색중"),
-  PropensityTagContentModel(text: "포근한 집이 최고")
+  PropensityTagContentModel(text: "activeUnClick"),
+  PropensityTagContentModel(text: "curiousUnclick"),
+  PropensityTagContentModel(text: "comportableUnclick")
 ]
 
 var propensityTagClickData: [PropensityTagContentModel] = [
-  PropensityTagContentModel(text: "🎾 활발하게 놀러다녀요!"),
-  PropensityTagContentModel(text: "🔍 호기심 가득 정보를 탐색중"),
-  PropensityTagContentModel(text: "🧸 포근한 집이 최고")
+  PropensityTagContentModel(text: "activeClick"),
+  PropensityTagContentModel(text: "curiousClick"),
+  PropensityTagContentModel(text: "comportableClick")
 ]
 
 struct HashTagContentModel {

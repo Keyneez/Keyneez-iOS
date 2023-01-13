@@ -57,5 +57,6 @@ extension JellyProductCollectionViewCell {
   
   func dataBind(model: JellyContentModel) {
     imageView.image = UIImage(named: model.image)
+
   }
 }

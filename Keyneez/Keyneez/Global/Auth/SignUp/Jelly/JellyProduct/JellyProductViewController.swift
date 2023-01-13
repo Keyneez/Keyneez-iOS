@@ -180,6 +180,10 @@ extension JellyProductViewController: UICollectionViewDataSource {
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JellyProductCollectionViewCell.identifier, for: indexPath)
               as? JellyProductCollectionViewCell else { return UICollectionViewCell() }
       cell.dataBind(model: jellyIconData[indexPath.item])
+      if jellyIconData[indexPath.item].index == 0 || jellyIconData[indexPath.item].index == 1 {
+        cell.layer.borderColor = UIColor.mint500.cgColor
+        cell.layer.borderWidth = 2
+      }
       return cell
     }
       }
