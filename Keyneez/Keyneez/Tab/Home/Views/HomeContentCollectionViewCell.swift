@@ -138,14 +138,13 @@ extension HomeContentCollectionViewCell {
   
   func bindHomeData(model: HomeContentResponseDto) {
     homeContentID = model.contentKey
-//    contentImageView.image = UIImage(named: model.contentImage)
     dateLabel.text = setDateLabel(model: model)
-//    category.text = model.categoty[0]
+//    category.text = model.categoty[0] // 카테고리 여러 개 받기
     contentTitle.text = setTitle(fullTitle: model.contentTitle)
     contentIntroduction.text = model.introduction
     likeButton.isSelected = model.liked
-//    contentImageView.setImage(with: model.contentImg)
     contentImageView.setImage(url: model.contentImg)
+    setCategoryCard(category: model.category[0])
   }
   private func setTitle(fullTitle: String) -> String {
     guard let title = fullTitle as? String else {return ""}
@@ -163,6 +162,23 @@ extension HomeContentCollectionViewCell {
     if model.startAt!.isEmpty || model.endAt!.isEmpty { dateView.isHidden = true; return "" }
     return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
   }
+  private func setCategoryCard(category: String) {
+    switch(category) {
+    case "진로" :
+      cardImageView.image = UIImage(named: "card_green_home")
+    case "봉사":
+      cardImageView.image = UIImage(named: "card_purple_home")
+    case "여행":
+      cardImageView.image = UIImage(named: "card_pink_home")
+    case "문화":
+      cardImageView.image = UIImage(named: "card_blue_home")
+    case "경제":
+      cardImageView.image = UIImage(named: "card_orange_home")
+    default:
+      break
+    }
+  }
+  
   @objc
   private func touchUpLikeButton() {
     likeButton.isSelected = !likeButton.isSelected

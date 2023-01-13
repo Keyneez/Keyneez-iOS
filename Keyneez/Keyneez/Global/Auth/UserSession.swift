@@ -21,6 +21,6 @@ final class UserSession {
   private init() { }
   
   var profile: Profile?
-  var accessToken: String? = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2tleSI6Mjc1LCJpYXQiOjE2NzM2MjcyNjQsImV4cCI6MTY3MzYzNDQ2NH0.BQ1kUEycoo7tfP5kmiQcETR6CtS3wpiqxeaqZDSfO-E"
+  var accessToken: String? = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2tleSI6Mjc3LCJpYXQiOjE2NzM2MzU3ODIsImV4cCI6MTY3MzY0Mjk4Mn0.XlA3A1w72I3OIF3h_nBxk4WtDjl_-gDV97xzw_fllCQ"
 
 }

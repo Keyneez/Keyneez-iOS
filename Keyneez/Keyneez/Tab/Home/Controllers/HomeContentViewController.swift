@@ -62,11 +62,6 @@ final class HomeContentViewController: UIViewController {
       $0.trailing.equalToSuperview().inset(9)
     }
   }
-  private func setCategoryCard(category: String) {
-    switch (category) {
-      case 
-    }
-  }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
