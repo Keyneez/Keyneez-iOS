@@ -47,11 +47,23 @@ final class HomeViewController: NiblessViewController, NavigationBarProtocol {
     setLayout()
     addContentViews(asChildViewController: HomeContentViewController())
     addNavigationViewToSubview()
+    guard let token = UserSession.shared.accessToken else { return }
+    repository.getAllContents(token: token) {
+      [weak self] arr in
+      guard let self else {return}
+      self.datasources.append(arr)
+      DispatchQueue.main.async {
+        self.VCs.forEach {
+          $0.contentList = self.datasources[0]
+          $0.recommendContentCollectionView.reloadData()
+        }
+      }
+    }
   }
   private var repository: ContentRepository = KeyneezContentRepository()
   
   var datasources: [[HomeContentResponseDto]] = []
-  let VCs: [HomeContentViewController] = [HomeContentViewController(), HomeContentViewController(), HomeContentViewController()]
+  var VCs: [HomeContentViewController] = [HomeContentViewController(), HomeContentViewController(), HomeContentViewController()]
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)

@@ -15,6 +15,7 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
   static let identifier = "HomeContentCollectionViewCell"
   var homeContentID = -1
   var homeContentImageURL: String = ""
+  private var homeContentCategory = ""
   
   let repository: ContentRepository = KeyneezContentRepository()
   // MARK: - UI Components
@@ -47,7 +48,7 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
     $0.font = UIFont.font(.pretendardSemiBold, ofSize: 12)
     $0.textColor = UIColor.gray900
   }
-  private var homeContentCategoryView = CategoryView()
+  lazy var homeContentCategoryView = CategoryView()
   private lazy var likeButton = UIButton().then {
     $0.setImage(UIImage(named: "ic_favorite_home_line"), for: .normal)
     $0.setImage(UIImage(named: "ic_favorite_home_filled"), for: .selected)
@@ -64,6 +65,8 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
     $0.font = UIFont.font(.pretendardMedium, ofSize: 14)
     $0.textColor = UIColor.gray600
   }
+  
+  var categoryInfo: String = ""
   // MARK: - Life Cycle
 
   override init(frame: CGRect) {
@@ -76,6 +79,33 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
 }
 
 extension HomeContentCollectionViewCell {
+  
+//  override func prepareForReuse() {
+//    super.prepareForReuse()
+//    self.homeContentCategoryView = setHomeCategoryView(category: categoryInfo)
+//  }
+  
+  private func setHomeCategoryView(category: String) -> CategoryView {
+    let categoryview = CategoryView()
+    homeContentCategoryView.setCategory(with: category)
+    switch(category) {
+    case "진로" :
+       categoryview.setCategory(with: "진로")
+    case "봉사":
+      categoryview.setCategory(with: "봉사")
+    case "여행":
+      categoryview.setCategory(with: "여행")
+    case "문화":
+      categoryview.setCategory(with: "문화")
+    case "경제":
+      categoryview.setCategory(with: "경제")
+    default:
+      break
+    }
+    return categoryview
+  }
+  
+  
   private func setLayout() {
     contentView.addSubviews(shadowView, containerView)
     containerView.addSubviews(
@@ -139,13 +169,10 @@ extension HomeContentCollectionViewCell {
   func bindHomeData(model: HomeContentResponseDto) {
     homeContentID = model.contentKey
     dateLabel.text = setDateLabel(model: model)
-//    category.text = model.categoty[0] // 카테고리 여러 개 받기
     contentTitle.text = setTitle(fullTitle: model.contentTitle)
     contentIntroduction.text = model.introduction
     likeButton.isSelected = model.liked
     contentImageView.setImage(url: model.contentImg)
-//    setCategoryCard(category: model.category[0]) // 여기야
-//    homeContentCategoryView.setCategory(with: model.category[0])
   }
   private func setTitle(fullTitle: String) -> String {
     guard let title = fullTitle as? String else {return ""}
@@ -163,7 +190,8 @@ extension HomeContentCollectionViewCell {
     if model.startAt!.isEmpty || model.endAt!.isEmpty { dateView.isHidden = true; return "" }
     return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
   }
-  func setHomeCategoryCard(category: String) {
+  func setHomeCategoryCard(category: String) { // 카드 색 변경
+    homeContentCategoryView.setCategory(with: category)
     switch(category) {
     case "진로" :
       cardImageView.image = UIImage(named: "card_green_home")
@@ -178,10 +206,6 @@ extension HomeContentCollectionViewCell {
     default:
       break
     }
-  }
-  
-  func setHomeCategoryView(category: String) {
-    homeContentCategoryView.setCategory(with: category)
   }
   
   @objc
