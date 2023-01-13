@@ -216,6 +216,8 @@ extension ContentDetailViewController {
     benefitLabel.setLineSpacing(spacing: 8)
     usageLabel.setLineSpacing(spacing: 8)
     setLikeButton(isLiked: model.liked)
+    guard let url = model.contentImg else { return }
+    contentImageView.setImage(url: url)
   }
 }
 

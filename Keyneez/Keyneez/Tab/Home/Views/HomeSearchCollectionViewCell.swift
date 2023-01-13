@@ -15,7 +15,14 @@ final class HomeSearchCollectionViewCell: UICollectionViewCell {
   let repository: ContentRepository = KeyneezContentRepository()
   var searchContentId: Int = -1
   
-  private let backgroundImageView: UIImageView = .init()
+  private let backgroundImageView: UIImageView = .init().then {
+    $0.layer.cornerRadius = 4
+  }
+  private let opacityView: UIView = .init().then {
+    $0.backgroundColor = .gray900
+    $0.layer.opacity = 0.2
+    $0.layer.cornerRadius = 4
+  }
   private let dateLabel: UILabel = .init().then {
     $0.font = .font(.pretendardSemiBold, ofSize: 14)
     $0.textColor = .gray050
@@ -44,9 +51,16 @@ final class HomeSearchCollectionViewCell: UICollectionViewCell {
 
 extension HomeSearchCollectionViewCell {
   private func setLayout() {
-    contentView.backgroundColor = .gray900
+    contentView.addSubviews(backgroundImageView)
     contentView.layer.cornerRadius = 4
-    contentView.addSubviews(dateLabel, titleLabel, likeButton)
+    backgroundImageView.layer.cornerRadius = 4
+    backgroundImageView.snp.makeConstraints {
+      $0.top.leading.trailing.bottom.equalToSuperview()
+    }
+    backgroundImageView.addSubviews(opacityView, dateLabel, titleLabel, likeButton)
+    opacityView.snp.makeConstraints {
+      $0.top.leading.trailing.bottom.equalToSuperview()
+    }
     dateLabel.snp.makeConstraints {
       $0.top.equalToSuperview().inset(19)
       $0.centerX.equalToSuperview()
@@ -65,14 +79,16 @@ extension HomeSearchCollectionViewCell {
     dateLabel.text = setDateLabel(startAt: model.startAt, endAt: model.endAt)
     searchContentId = model.contentKey
     likeButton.isSelected = model.liked
-    guard let url = URL(string: model.contentImg ?? "") else { return }
+    guard let url = model.contentImg else { return }
+    backgroundImageView.setImage(url: url)
     // TODO: 이미지, 버튼 값 변경
   }
   func bindLikedContentData(model: MyLikedContentResponseDto) {
     titleLabel.text = model.contentTitle
     dateLabel.text = setDateLabel(startAt: model.startAt, endAt: model.endAt)
     likeButton.isHidden = true
-    guard let url = URL(string: model.contentImg ?? "") else { return }
+    guard let url = model.contentImg else { return }
+    backgroundImageView.setImage(url: url)
     // TODO: 이미지, 버튼 값 변경
   }
   @objc
