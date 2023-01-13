@@ -145,6 +145,7 @@ extension HomeContentCollectionViewCell {
     likeButton.isSelected = model.liked
     contentImageView.setImage(url: model.contentImg)
     setCategoryCard(category: model.category[0])
+    categoryView.setCategory(with: model.category[0])
   }
   private func setTitle(fullTitle: String) -> String {
     guard let title = fullTitle as? String else {return ""}
