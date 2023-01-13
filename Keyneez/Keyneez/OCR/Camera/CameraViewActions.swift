@@ -9,7 +9,7 @@ import UIKit
 
 protocol CameraViewActionables {
   func didTouchBackButton() -> UIAction
-  func OCRConfirmed(with navigationDelegate: CustomNavigationManager, height: CGFloat, heightIncludeKeyboard: CGFloat) -> UIAction
+  func OCRConfirmed(with navigationDelegate: CustomNavigationManager, height: CGFloat, heightIncludeKeyboard: CGFloat,text: [String], image: UIImage)
 }
 
 final class CameraViewActions: CameraViewActionables {
@@ -28,17 +28,20 @@ final class CameraViewActions: CameraViewActionables {
   
   func OCRConfirmed(with navigationDelegate: CustomNavigationManager,
                     height: CGFloat,
-                    heightIncludeKeyboard: CGFloat) -> UIAction {
-    return UIAction(handler: { [unowned self] _ in
+                    heightIncludeKeyboard: CGFloat,
+                    text: [String],
+                    image: UIImage
+    ) {
+    DispatchQueue.main.async {
       navigationDelegate.direction = .bottom
       navigationDelegate.height = height
       navigationDelegate.heightIncludeKeyboard = heightIncludeKeyboard
       navigationDelegate.dimmed = false
-      let idInfoEditVC = IDInfoEditableViewController()
+      let idInfoEditVC = IDInfoEditableViewController(ocrTexts: text)
       idInfoEditVC.transitioningDelegate = navigationDelegate
       idInfoEditVC.modalPresentationStyle = .custom
       self.viewcontroller?.present(idInfoEditVC, animated: true)
-    })
+    }
   }
   
   deinit {

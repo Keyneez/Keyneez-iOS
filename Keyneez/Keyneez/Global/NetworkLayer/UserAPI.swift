@@ -13,7 +13,11 @@ enum UserAPIError: LocalizedError {
 }
 
 enum UserAPI {
-  case postUserInfo(param: UserCheckResponseDto)
+  case postUserInfo(param: ProductDanalRequestDto)
+  case patchUserPickInfo(token: String, param: ProductJellyRequstDto)
+  case patchUserPwdInfo(token: String, param: ProductPwdRequestDto)
+  case postPwdFetch(token: String, param: PasswordFetchRequestDto)
+//  case postUserLoginInfo(token: String, param: LoginRequestDto)
 }
 
 extension UserAPI: TargetType {
@@ -24,8 +28,10 @@ extension UserAPI: TargetType {
   
   var path: String {
     switch self {
-    case .postUserInfo:
+    case .postUserInfo, .patchUserPickInfo:
       return "/user/signup"
+    case .patchUserPwdInfo, .postPwdFetch:
+      return "/user/signup/pw"
     default:
       return ""
     }
@@ -35,6 +41,12 @@ extension UserAPI: TargetType {
     switch self {
     case .postUserInfo:
       return .post
+    case .patchUserPickInfo:
+      return .patch
+    case .patchUserPwdInfo:
+      return .patch
+    case .postPwdFetch:
+      return .post
     }
   }
   
@@ -42,13 +54,21 @@ extension UserAPI: TargetType {
     switch self {
     case .postUserInfo(let param):
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
+    case .patchUserPickInfo(_, let param):
+      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
+    case .patchUserPwdInfo(_, let param):
+      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
+    case .postPwdFetch(_, param: let param):
+      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
     }
   }
   
-  var headers: [String : String]? {
+  var headers: [String: String]? {
     switch self {
     case .postUserInfo:
       return ["Content-Type": "application/json"]
+    case .patchUserPickInfo(let token, _), .patchUserPwdInfo(let token, _), .postPwdFetch(let token, _):
+      return ["Content-Type": "application/json", "Authorization": token]
     default:
       return nil
     }
