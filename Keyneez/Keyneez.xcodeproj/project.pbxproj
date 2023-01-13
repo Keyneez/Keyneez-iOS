@@ -116,6 +116,7 @@
 		B1A80380296EA54E0007DDD9 /* UserAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8037F296EA54E0007DDD9 /* UserAPIProvider.swift */; };
 		B1A80382296EA66F0007DDD9 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80381296EA66F0007DDD9 /* GenericResponse.swift */; };
 		B1B21D17295DE0660083D9EE /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B1B21D16295DE0660083D9EE /* .swiftlint.yml */; };
+		B81EE0052971B6FA00167750 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EE0042971B6FA00167750 /* UIImageView+Extension.swift */; };
 		B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */; };
 		B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F042962F5D4005612CE /* SettingViewController.swift */; };
 		B8C02F092962F646005612CE /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F082962F646005612CE /* MyPageViewController.swift */; };
@@ -284,6 +285,7 @@
 		B1A8037F296EA54E0007DDD9 /* UserAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIProvider.swift; sourceTree = "<group>"; };
 		B1A80381296EA66F0007DDD9 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		B1B21D16295DE0660083D9EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		B81EE0042971B6FA00167750 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbar.swift; sourceTree = "<group>"; };
 		B8C02F042962F5D4005612CE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B8C02F082962F646005612CE /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageViewController.swift; path = Keyneez/Tab/MyPage/MyPageViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -756,6 +758,7 @@
 				B8C02F2F296B185B005612CE /* UISegmentedControl+Extension.swift */,
 				B8C02F41296C3983005612CE /* UIViewController+Extension.swift */,
 				B8FC663F297057A400AEE9C3 /* UILabel+Extension.swift */,
+				B81EE0042971B6FA00167750 /* UIImageView+Extension.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1357,6 +1360,7 @@
 				0233C6FA296C8D0D00A177E9 /* SimplePwdViewController.swift in Sources */,
 				0253816729674D3D00D29A97 /* LandingPageViewController.swift in Sources */,
 				B10AAD43296967D000AB8475 /* CustomNavigationAnimator.swift in Sources */,
+				B81EE0052971B6FA00167750 /* UIImageView+Extension.swift in Sources */,
 				B8C02F38296B3F6E005612CE /* HomeSearchCollectionViewCell.swift in Sources */,
 				B18B60D7296552DA00AF14F5 /* NavigationViewBuilder.swift in Sources */,
 				B1A8037E296E9DF20007DDD9 /* UserAPI.swift in Sources */,
