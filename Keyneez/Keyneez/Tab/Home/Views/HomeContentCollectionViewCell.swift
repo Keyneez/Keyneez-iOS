@@ -8,10 +8,13 @@
 import UIKit
 import Then
 import SnapKit
+import Kingfisher
+import FirebaseStorage
 
 final class HomeContentCollectionViewCell: UICollectionViewCell {
   static let identifier = "HomeContentCollectionViewCell"
   var homeContentID = -1
+  var homeContentImageURL: String = ""
   
   let repository: ContentRepository = KeyneezContentRepository()
   // MARK: - UI Components
@@ -140,6 +143,8 @@ extension HomeContentCollectionViewCell {
     contentTitle.text = setTitle(fullTitle: model.contentTitle)
     contentIntroduction.text = model.introduction
     likeButton.isSelected = model.liked
+//    contentImageView.setImage(with: model.contentImg)
+    contentImageView.setImage(url: model.contentImg)
   }
   private func setTitle(fullTitle: String) -> String {
     guard let title = fullTitle as? String else {return ""}
