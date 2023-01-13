@@ -8,8 +8,12 @@
 import UIKit
 import Then
 import SnapKit
+import SafariServices
 
 final class ContentDetailViewController: NiblessViewController, NavigationBarProtocol {
+  
+  var isLiked: Bool = false
+  private var contentLink: String = ""
   
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox, .iconButton(with: shareButton), .sizedBox(width: 16), .iconButton(with: likeButton)]).build()
   private lazy var backButton = makeIconButton(imageName: "ic_arrowback_search", action: touchUpBackButton)
@@ -22,7 +26,9 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
     print("touch up ShareButton")
   })
   private lazy var touchUpLikeButton: UIAction = .init(handler: { _ in
-    print("touch up LikeButton")
+//    self.likeButton.isSelected = !self.likeButton.isSelected
+    print("touch up like button")
+    self.setLikeButton(isLiked: !self.isLiked)
   })
   var contentView: UIView = .init()
   private let scrollView: UIScrollView = .init().then {
@@ -165,7 +171,7 @@ extension ContentDetailViewController {
     usageLabel.snp.makeConstraints {
       $0.top.equalTo(secondSeparateLine.snp.bottom).offset(16)
       $0.leading.trailing.equalTo(contentView).inset(24)
-      $0.bottom.equalToSuperview().inset(30)
+      $0.bottom.equalToSuperview().inset(100)
     }
   }
   private func showUrlRoundButton() {
@@ -200,7 +206,7 @@ extension ContentDetailViewController {
   }
   @objc
   private func touchUpUrlRoundButton() {
-    print("touch up Url Button")
+    goToSite(url: contentLink)
   }
   func bindContentDetailData(model: ContentDetailResponseDto) {
     contentTitle.text = deleteNewLine(fullString: model.contentTitle)
@@ -211,6 +217,15 @@ extension ContentDetailViewController {
     usageLabel.text = model.usage
     benefitLabel.setLineSpacing(spacing: 8)
     usageLabel.setLineSpacing(spacing: 8)
+    setLikeButton(isLiked: model.liked)
+    guard let url = model.contentImg else { return }
+    contentImageView.setImage(url: url)
+    categoryView.setCategory(with: model.category[0])
+    contentLink = model.contentLink
+  }
+  private func goToSite(url: String) {
+    let safariView: SFSafariViewController = SFSafariViewController(url: URL(string: url)!)
+    self.present(safariView, animated: true, completion: nil)
   }
 }
 
@@ -261,5 +276,13 @@ extension ContentDetailViewController {
     if model.startAt!.isEmpty || model.endAt!.isEmpty { return "2023 ~" }
     return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
   }
-
+  private func setLikeButton(isLiked: Bool) {
+    if isLiked {
+      likeButton.setImage(UIImage(named: "Property 1=fill"), for: .normal)
+      self.isLiked = true
+    } else {
+      likeButton.setImage(UIImage(named: "Property 1=line"), for: .normal)
+      self.isLiked = false
+    }
+  }
 }

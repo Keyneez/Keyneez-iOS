@@ -76,7 +76,9 @@ final class CameraViewController: NiblessViewController {
   private func didTouchCaptureButton() -> UIAction {
     return UIAction { [weak self] _ in
       guard let self else { return }
-      self.camera.capturePhoto(videoPreviewLayerOrientation: self.previewView.videoPreviewLayer.connection?.videoOrientation)
+      self.camera.capturePhoto(videoPreviewLayerOrientation: self.previewView.videoPreviewLayer.connection?.videoOrientation) { text, image in
+        self.actions.OCRConfirmed(with: self.customNavigationDelegate, height: 520, heightIncludeKeyboard: 690, text: text, image: image)
+      }
     }
   }
   
@@ -108,13 +110,6 @@ final class CameraViewController: NiblessViewController {
   }
   
   private lazy var actions: CameraViewActionables = CameraViewActions(viewcontroller: self)
-  private var semaphoreValue = 5
-  private let semaphore = DispatchSemaphore(value: 5)
-  private var textBuffer: [[String]] = [] {
-    didSet {
-      print(textBuffer)
-    }
-  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -133,10 +128,6 @@ final class CameraViewController: NiblessViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     camera.checkSetupResult()
-  }
-  
-  deinit {
-    print(self, #function)
   }
 }
 
@@ -264,15 +255,12 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     from connection: AVCaptureConnection
   ) {
     
+    // 수동모드일때 OFF
+    if captureMode == .manual { return }
+    
     //버퍼처리를 할 Semaphore
-    semaphore.wait()
-    
-    defer {
-      for _ in 0..<5 {
-        semaphore .signal()
-      }
-    }
-    
+    ocrService.semaphore.wait()
+
     guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
       print("Failed to get image buffer from sample buffer.")
       return
@@ -307,14 +295,17 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     let imageWidth = CGFloat(CVPixelBufferGetWidth(imageBuffer))
     let imageHeight = CGFloat(CVPixelBufferGetHeight(imageBuffer))
-    self.saveImage(image: newCropped, name: self.semaphoreValue)
-    ocrService.recognizeText(in: visionImage, width: imageWidth, height: imageHeight) { [weak self] in
-      print($0)
+    ocrService.recognizeText(in: visionImage, with: newCropped, width: imageWidth, height: imageHeight) { [weak self] text, image in
       guard let self else {return}
-      let textele = $0.split(separator: "\n").map {String($0)}
-      self.textBuffer.append(textele)
+      self.processWhenSuccessOCRAuto(image: image, text: text, name: 4)
     }
-    if self.semaphoreValue == 1 {
+  }
+  
+  func processWhenSuccessOCRAuto(image: UIImage, text: [String],  name: Int) {
+    // Text Process
+    DispatchQueue.main.async {
+      self.actions.OCRConfirmed(with: self.customNavigationDelegate, height: 520, heightIncludeKeyboard: 690, text: text, image: image)
+      self.saveImage(image: image, name: 4)
       self.camera.session.stopRunning()
     }
   }
@@ -333,7 +324,6 @@ extension CameraViewController {
           }
           do {
               try data.write(to: directory.appendingPathComponent("profile\(name).png")!)
-            self.semaphoreValue -= 1
               return true
           } catch {
               print(error.localizedDescription)

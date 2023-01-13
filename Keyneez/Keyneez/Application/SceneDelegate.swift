@@ -25,8 +25,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       window.rootViewController = navigationController
       window.makeKeyAndVisible()
       
-//      let tabbarVC = LandingPageViewController()
-//      window.rootViewController = tabbarVC
+//      let tabbarVC = UINavigationController(rootViewController: rootVC)
+//      tabbarVC.isNavigationBarHidden = true
+      let tabbarVC = KeyneezTabbarController()
+      window.rootViewController = tabbarVC
       window.makeKeyAndVisible()
       self.window = window
     }

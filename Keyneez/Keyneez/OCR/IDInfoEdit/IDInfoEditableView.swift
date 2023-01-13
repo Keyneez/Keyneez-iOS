@@ -7,29 +7,6 @@
 
 import UIKit
 
-enum IDType: String {
-  case schoolID = "학교"
-  case teenID = "생년월일"
-  
-  var title: String {
-    switch self {
-    case .schoolID:
-      return "학교"
-    case .teenID:
-      return "청소년증"
-    }
-  }
-  
-  var placeholder: String {
-    switch self {
-    case .teenID:
-      return "YYMMDD"
-    case .schoolID:
-      return "OO학교"
-    }
-  }
-}
-
 struct IDInfo {
   var name: String
   var idType: IDType
@@ -91,15 +68,49 @@ final class IDInfoEditableView: NiblessView, IDIssuedFactory {
   }
   
   private let actions: IDInfoEditableActionables
+  private var idType: IDType
+  private var ocrText: [String]
   
-  init(frame: CGRect, actions: IDInfoEditableActionables) {
+  init(frame: CGRect, actions: IDInfoEditableActionables, ocrTexts: [String], type: IDType ) {
     self.actions = actions
+    self.ocrText = ocrTexts
+    self.idType = type
     super.init(frame: frame)
     addsubview()
     setConstraint()
     setSegmentedControl()
     nameTextField.delegate = self
     infoTextField.delegate = self
+    while ocrText.count < 3 {
+      ocrText.append("")
+    }
+    if ocrText.contains("청소년증")  {
+      segmentedControl.selectedSegmentIndex = 1
+      ocrText.removeAll {
+        $0 == "청소년증"
+      }
+      for text in ocrText {
+        if text.allSatisfy { $0.isNumber } {
+          idSegmentedValue[1].info = text
+          infoTextField.text = text
+        } else {
+          idSegmentedValue[1].name = text
+          nameTextField.text = text
+        }
+      }
+    } else {
+      segmentedControl.selectedSegmentIndex = 0
+      for text in ocrText {
+        if text.contains("학생증") { continue }
+        else if text.contains("학교") {
+          idSegmentedValue[0].info = text
+          infoTextField.text = text
+        } else {
+          idSegmentedValue[0].name = text
+          nameTextField.text = text
+        }
+      }
+    }
   }
   
   func makeIDIssuedViewController() -> IDIssuedViewController {
