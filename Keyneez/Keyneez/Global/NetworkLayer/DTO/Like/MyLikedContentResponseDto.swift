@@ -13,7 +13,7 @@ struct MyLikedContentResponseDto: Codable {
   let data: [MyLikedContentResponseData]
 }
 
-struct MyLikedContentResponseData: Codable {
+struct MyLikedContentResponseDto: Codable {
   let contentKey: Int
   let contentTitle,
       startAt,

@@ -13,7 +13,7 @@ enum ContentAPI {
   case getDetailContent(token: String, contentId: Int)
   case getSearchContent(token: String, keyword: String)
   case postLikeContent
-  case getLikedContent
+  case getLikedContent(token: String)
 }
 
 extension ContentAPI: TargetType {
@@ -63,7 +63,10 @@ extension ContentAPI: TargetType {
   
   var headers: [String: String]? {
     switch self {
-    case .getAllContents(let token), .getSearchContent(let token, _), .getDetailContent(let token, _):
+    case .getAllContents(let token),
+        .getSearchContent(let token, _),
+        .getDetailContent(let token, _),
+        .getLikedContent(let token):
       return ["Content-Type": "application/json", "Authorization": token]
     default:
       return nil
