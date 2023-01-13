@@ -8,12 +8,6 @@
 import Foundation
 
 struct MyLikedContentResponseDto: Codable {
-  let status: Int
-  let message: String
-  let data: [MyLikedContentResponseData]
-}
-
-struct MyLikedContentResponseDto: Codable {
   let contentKey: Int
   let contentTitle,
       startAt,
