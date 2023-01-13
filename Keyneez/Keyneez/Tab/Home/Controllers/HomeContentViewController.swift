@@ -124,6 +124,9 @@ extension HomeContentViewController: UICollectionViewDataSource {
       withReuseIdentifier: HomeContentCollectionViewCell.identifier, for: indexPath)
             as? HomeContentCollectionViewCell else { return UICollectionViewCell() }
     homeContentCell.bindHomeData(model: contentList[indexPath.item])
+    // 여기서 setCategory
+    homeContentCell.setHomeCategoryCard(category: contentList[indexPath.item].category[0])
+    homeContentCell.setHomeCategoryView(category: contentList[indexPath.item].category[0])
     return homeContentCell
   }
 }

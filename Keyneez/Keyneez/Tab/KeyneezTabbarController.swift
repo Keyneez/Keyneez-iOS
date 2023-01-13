@@ -66,6 +66,8 @@ extension KeyneezTabbarController {
     var navigations = tabInfos.map {
       makeViewController(viewController: $0.viewController!, title: $0.title, imageName: $0.imageName)
     }
+    navigations[3].tabBarItem.isEnabled = false
+    navigations[4].tabBarItem.isEnabled = false
 //    navigations.insert(homeViewNavigationController, at: 0)
     self.viewControllers = navigations
   }

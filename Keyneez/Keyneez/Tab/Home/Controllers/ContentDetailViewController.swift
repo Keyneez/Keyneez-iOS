@@ -218,6 +218,7 @@ extension ContentDetailViewController {
     setLikeButton(isLiked: model.liked)
     guard let url = model.contentImg else { return }
     contentImageView.setImage(url: url)
+    categoryView.setCategory(with: model.category[0])
   }
 }
 

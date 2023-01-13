@@ -47,7 +47,7 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
     $0.font = UIFont.font(.pretendardSemiBold, ofSize: 12)
     $0.textColor = UIColor.gray900
   }
-  private let categoryView = CategoryView()
+  private var homeContentCategoryView = CategoryView()
   private lazy var likeButton = UIButton().then {
     $0.setImage(UIImage(named: "ic_favorite_home_line"), for: .normal)
     $0.setImage(UIImage(named: "ic_favorite_home_filled"), for: .selected)
@@ -82,7 +82,7 @@ extension HomeContentCollectionViewCell {
       contentImageView,
       dateView,
       likeButton,
-      categoryView,
+      homeContentCategoryView,
       contentTitle,
       contentIntroduction,
       cardImageView
@@ -113,14 +113,14 @@ extension HomeContentCollectionViewCell {
       $0.trailing.equalToSuperview().inset(24)
       $0.width.height.equalTo(32)
     }
-    categoryView.snp.makeConstraints {
+    homeContentCategoryView.snp.makeConstraints {
       $0.top.equalTo(contentImageView.snp.bottom).offset(27)
       $0.leading.equalTo(dateView)
       $0.width.equalTo(49)
       $0.height.equalTo(33)
     }
     contentTitle.snp.makeConstraints {
-      $0.top.equalTo(categoryView.snp.bottom).offset(12)
+      $0.top.equalTo(homeContentCategoryView.snp.bottom).offset(12)
       $0.leading.trailing.equalToSuperview().inset(21)
     }
     contentIntroduction.snp.makeConstraints {
@@ -144,8 +144,8 @@ extension HomeContentCollectionViewCell {
     contentIntroduction.text = model.introduction
     likeButton.isSelected = model.liked
     contentImageView.setImage(url: model.contentImg)
-    setCategoryCard(category: model.category[0])
-    categoryView.setCategory(with: model.category[0])
+//    setCategoryCard(category: model.category[0]) // 여기야
+//    homeContentCategoryView.setCategory(with: model.category[0])
   }
   private func setTitle(fullTitle: String) -> String {
     guard let title = fullTitle as? String else {return ""}
@@ -163,7 +163,7 @@ extension HomeContentCollectionViewCell {
     if model.startAt!.isEmpty || model.endAt!.isEmpty { dateView.isHidden = true; return "" }
     return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
   }
-  private func setCategoryCard(category: String) {
+  func setHomeCategoryCard(category: String) {
     switch(category) {
     case "진로" :
       cardImageView.image = UIImage(named: "card_green_home")
@@ -178,6 +178,10 @@ extension HomeContentCollectionViewCell {
     default:
       break
     }
+  }
+  
+  func setHomeCategoryView(category: String) {
+    homeContentCategoryView.setCategory(with: category)
   }
   
   @objc
