@@ -12,7 +12,7 @@ enum ContentAPI {
   case getAllContents(token: String)
   case getDetailContent(token: String, contentId: Int)
   case getSearchContent(token: String, keyword: String)
-  case postLikeContent
+  case postLikeContent(token: String, contentId: Int)
   case getLikedContent(token: String)
 }
 
@@ -54,8 +54,8 @@ extension ContentAPI: TargetType {
       return .requestPlain
     case .getSearchContent(_, let keyword):
       return .requestParameters(parameters: ["keyword": keyword], encoding: URLEncoding.queryString)
-    case .postLikeContent:
-      return .requestPlain
+    case .postLikeContent(_, let contentId):
+      return .requestParameters(parameters: ["content_id": contentId], encoding: JSONEncoding.default)
     case .getLikedContent:
       return .requestPlain
     }
@@ -66,7 +66,8 @@ extension ContentAPI: TargetType {
     case .getAllContents(let token),
         .getSearchContent(let token, _),
         .getDetailContent(let token, _),
-        .getLikedContent(let token):
+        .getLikedContent(let token),
+        .postLikeContent(let token, _):
       return ["Content-Type": "application/json", "Authorization": token]
     default:
       return nil
