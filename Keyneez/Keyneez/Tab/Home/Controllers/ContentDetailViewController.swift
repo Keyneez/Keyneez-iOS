@@ -11,6 +11,8 @@ import SnapKit
 
 final class ContentDetailViewController: NiblessViewController, NavigationBarProtocol {
   
+  var isLiked: Bool = false
+  
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.iconButton(with: backButton), .flexibleBox, .iconButton(with: shareButton), .sizedBox(width: 16), .iconButton(with: likeButton)]).build()
   private lazy var backButton = makeIconButton(imageName: "ic_arrowback_search", action: touchUpBackButton)
   private lazy var shareButton = makeIconButton(imageName: "ic_share3", action: touchUpShareButton)
@@ -22,7 +24,9 @@ final class ContentDetailViewController: NiblessViewController, NavigationBarPro
     print("touch up ShareButton")
   })
   private lazy var touchUpLikeButton: UIAction = .init(handler: { _ in
-    print("touch up LikeButton")
+//    self.likeButton.isSelected = !self.likeButton.isSelected
+    print("touch up like button")
+    self.setLikeButton(isLiked: !self.isLiked)
   })
   var contentView: UIView = .init()
   private let scrollView: UIScrollView = .init().then {
@@ -211,6 +215,7 @@ extension ContentDetailViewController {
     usageLabel.text = model.usage
     benefitLabel.setLineSpacing(spacing: 8)
     usageLabel.setLineSpacing(spacing: 8)
+    setLikeButton(isLiked: model.liked)
   }
 }
 
@@ -261,5 +266,13 @@ extension ContentDetailViewController {
     if model.startAt!.isEmpty || model.endAt!.isEmpty { return "2023 ~" }
     return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
   }
-
+  private func setLikeButton(isLiked: Bool) {
+    if isLiked {
+      likeButton.setImage(UIImage(named: "Property 1=fill"), for: .normal)
+      self.isLiked = true
+    } else {
+      likeButton.setImage(UIImage(named: "Property 1=line"), for: .normal)
+      self.isLiked = false
+    }
+  }
 }
