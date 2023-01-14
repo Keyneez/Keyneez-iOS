@@ -45,6 +45,16 @@ final class UserAPIProvider {
     responseFrom(target, modelType: LoginResponseDto.self, completion: completion)
   }
   
+  func patchInfoWithStudentIDOCR(token: String, param: UserCheckStudentIDRequestDto, completion: @escaping(Result<EditUserResponseDto?, Error>) -> Void) {
+    let target = UserAPI.patchUserWithOCRSchoolID(token: token, param: param)
+    responseFrom(target, modelType: EditUserResponseDto.self, completion: completion)
+  }
+  
+  func patchInfoWithTeenIDOCR(token: String, param: UserCheckYouthIDRequestDto, completion:  @escaping(Result<EditUserResponseDto?, Error>) -> Void) {
+    let target = UserAPI.patchUserWithOCRTeenID(token: token, param: param)
+    responseFrom(target, modelType: EditUserResponseDto.self, completion: completion)
+  }
+  
   func getUserInfo(token: String, completion: @escaping (Result<UserInquiryResponseDto?, Error>) -> Void) {
     let target = UserAPI.getUserInfo(token: token)
     responseFrom(target, modelType: UserInquiryResponseDto.self, completion: completion)

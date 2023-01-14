@@ -14,9 +14,9 @@ protocol CameraViewActionables {
 
 final class CameraViewActions: CameraViewActionables {
   
-  private weak var viewcontroller: NiblessViewController?
+  private weak var viewcontroller: CameraViewController?
   
-  init(viewcontroller: NiblessViewController? = nil) {
+  init(viewcontroller: CameraViewController? = nil) {
     self.viewcontroller = viewcontroller
   }
   
@@ -37,7 +37,8 @@ final class CameraViewActions: CameraViewActionables {
       navigationDelegate.height = height
       navigationDelegate.heightIncludeKeyboard = heightIncludeKeyboard
       navigationDelegate.dimmed = false
-      let idInfoEditVC = IDInfoEditableViewController(ocrTexts: text)
+      guard let viewController = self.viewcontroller else {return}
+      let idInfoEditVC = IDInfoEditableViewController(ocrTexts: text, camera: viewController.camera, OCRService: viewController.ocrService)
       idInfoEditVC.transitioningDelegate = navigationDelegate
       idInfoEditVC.modalPresentationStyle = .custom
       self.viewcontroller?.present(idInfoEditVC, animated: true)

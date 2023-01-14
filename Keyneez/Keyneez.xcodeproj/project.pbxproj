@@ -45,9 +45,10 @@
 		02F262AE2965ABEE005A1CE4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F262AD2965ABEE005A1CE4 /* LoadingView.swift */; };
 		02F4D81029716A8B0089AFC3 /* LoginRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4D80F29716A8B0089AFC3 /* LoginRequestDto.swift */; };
 		02F4D81229716A960089AFC3 /* LoginResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4D81129716A960089AFC3 /* LoginResponseDto.swift */; };
-		7DB6281614F7E06418D27E55 /* Pods_KeyneezTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C9F05ED8D139C19FD246C64 /* Pods_KeyneezTests.framework */; };
-		9C098C55FE861F3428F093B1 /* Pods_Keyneez_KeyneezUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C921F7A8AE80E4BDABD773 /* Pods_Keyneez_KeyneezUITests.framework */; };
-		A950C69C942A4DAE3D4201EB /* Pods_Keyneez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671435B36F051082A61C539 /* Pods_Keyneez.framework */; };
+		661C784F24C11D12F0D80C35 /* Pods_KeyneezTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC36E7E1D718FBE5D5C994C /* Pods_KeyneezTests.framework */; };
+		7DB6281614F7E06418D27E55 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		9C098C55FE861F3428F093B1 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		A950C69C942A4DAE3D4201EB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		B10AAD3C296967C700AB8475 /* SeparatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD38296967C600AB8475 /* SeparatedButton.swift */; };
 		B10AAD3D296967C700AB8475 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD39296967C700AB8475 /* UIView+Extension.swift */; };
 		B10AAD3E296967C700AB8475 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD3A296967C700AB8475 /* ReusableView.swift */; };
@@ -150,8 +151,8 @@
 		B8FC663C296F2C5700AEE9C3 /* ContentAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC663B296F2C5700AEE9C3 /* ContentAPIProvider.swift */; };
 		B8FC663E296F2DDA00AEE9C3 /* ContentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC663D296F2DDA00AEE9C3 /* ContentRepository.swift */; };
 		B8FC6640297057A400AEE9C3 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC663F297057A400AEE9C3 /* UILabel+Extension.swift */; };
-		CEF280B919715441397D1139 /* Pods_KeyneezTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91C66608A0A6BABB508A5079 /* Pods_KeyneezTests.framework */; };
-		E54277F14D6B0FCA0CE83CA2 /* Pods_Keyneez_KeyneezUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21673CF9BF79C663F860B797 /* Pods_Keyneez_KeyneezUITests.framework */; };
+		CD09C0D810048F1D6A72506B /* Pods_Keyneez_KeyneezUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919C3E4FDAE2774A18937211 /* Pods_Keyneez_KeyneezUITests.framework */; };
+		DEC3D49FCD2B8F56434B6C6B /* Pods_Keyneez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E00ABF65E29CB37AD1ED99C /* Pods_Keyneez.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -332,6 +333,7 @@
 		B8FC663B296F2C5700AEE9C3 /* ContentAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPIProvider.swift; sourceTree = "<group>"; };
 		B8FC663D296F2DDA00AEE9C3 /* ContentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRepository.swift; sourceTree = "<group>"; };
 		B8FC663F297057A400AEE9C3 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		BEC36E7E1D718FBE5D5C994C /* Pods_KeyneezTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyneezTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6C5B1E4317A6DE1579DBE0D /* Pods-Keyneez-KeyneezUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez-KeyneezUITests.release.xcconfig"; path = "Target Support Files/Pods-Keyneez-KeyneezUITests/Pods-Keyneez-KeyneezUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EF90E3D929AC960DE4EB6A0D /* Pods-Keyneez.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez.debug.xcconfig"; path = "Target Support Files/Pods-Keyneez/Pods-Keyneez.debug.xcconfig"; sourceTree = "<group>"; };
 		C6B446B88B2DF43284930057 /* Pods-Keyneez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez.release.xcconfig"; path = "Target Support Files/Pods-Keyneez/Pods-Keyneez.release.xcconfig"; sourceTree = "<group>"; };
@@ -495,8 +497,6 @@
 			isa = PBXGroup;
 			children = (
 				EF90E3D929AC960DE4EB6A0D /* Pods-Keyneez.debug.xcconfig */,
-				3378EF98C2FF0E7FABFE5CB3 /* Pods-Keyneez.release.xcconfig */,
-				5724B3AE16342A0985729055 /* Pods-Keyneez-KeyneezUITests.debug.xcconfig */,
 				C6C5B1E4317A6DE1579DBE0D /* Pods-Keyneez-KeyneezUITests.release.xcconfig */,
 				571904CC11A5B4DBA1EEF533 /* Pods-KeyneezTests.debug.xcconfig */,
 				1FFDCE1E9D9C2224E24C11E0 /* Pods-KeyneezTests.release.xcconfig */,
@@ -513,9 +513,9 @@
 		5E14F2A450C6B70B395ACD37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0671435B36F051082A61C539 /* Pods_Keyneez.framework */,
-				46C921F7A8AE80E4BDABD773 /* Pods_Keyneez_KeyneezUITests.framework */,
-				0C9F05ED8D139C19FD246C64 /* Pods_KeyneezTests.framework */,
+				1E00ABF65E29CB37AD1ED99C /* Pods_Keyneez.framework */,
+				919C3E4FDAE2774A18937211 /* Pods_Keyneez_KeyneezUITests.framework */,
+				BEC36E7E1D718FBE5D5C994C /* Pods_KeyneezTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1654,7 +1654,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2QWMDJG53V;
+				DEVELOPMENT_TEAM = 693WY75AQY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Keyneez/Application/Info.plist;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
@@ -1686,7 +1686,7 @@
 		};
 		B14D10A62959C79A0004946F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6B446B88B2DF43284930057 /* Pods-Keyneez.release.xcconfig */;
+			baseConfigurationReference = 3F9B56EF6F300DE9680A929F /* Pods-Keyneez.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1694,7 +1694,7 @@
 				BASE_URL = "http://15.165.186.200:3000/";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2QWMDJG53V;
+				DEVELOPMENT_TEAM = 693WY75AQY;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1748,7 +1748,7 @@
 		};
 		B14D10A92959C79A0004946F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD0E46DD3B8F7024B2F74F01 /* Pods-KeyneezTests.release.xcconfig */;
+			baseConfigurationReference = 0730864FCA457C68591C1EA9 /* Pods-KeyneezTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

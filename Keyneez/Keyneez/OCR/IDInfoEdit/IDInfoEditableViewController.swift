@@ -58,15 +58,22 @@ final class IDInfoEditableViewController: BottomSheetViewController {
   
   override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
+    camera.resume(sessionNotRunningcompletion: nil, sessionRunningCompletion: nil)
+    ocrService.flush()
   }
   
-  private lazy var actions: IDInfoEditableActionables = IDInfoEditableActions(viewController: self)
+  private lazy var actions: IDInfoEditableActionables = IDInfoEditableActions(viewController: self, respository: repository)
   private var ocrTexts: [String]
   private var type: IDType
+  private var ocrService: OCRService
+  private var camera: Camera
+  private var repository: KeyneezIDInfoRepository = KeyneezIDInfoRepository()
   
-  init(ocrTexts: [String]) {
+  init(ocrTexts: [String], camera: Camera, OCRService: OCRService) {
     self.ocrTexts = ocrTexts
+    self.ocrService = OCRService
     self.type = ocrTexts.contains("청소년증") == true ? IDType.teenID : IDType.schoolID
+    self.camera = camera
     super.init()
   }
   

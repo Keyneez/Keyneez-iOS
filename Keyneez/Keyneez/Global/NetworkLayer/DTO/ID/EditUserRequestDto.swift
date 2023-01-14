@@ -9,8 +9,7 @@ import Foundation
 
 struct EditUserRequestDto: Codable {
   let userName,
-      userSchool,
-      userBirth,
       userOcr: String
+  let userSchool, userBirth: String?
   let ocrDir: Bool
 }
