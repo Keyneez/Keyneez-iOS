@@ -36,7 +36,6 @@ final class ContentAPIProvider {
 extension ContentAPIProvider {
   func requestFrom<T: Codable>(_ target: ContentAPI, modelType: T.Type, completion: @escaping (Result<T?, Error>) -> Void) {
     contentProvider.request(target) { result in
-      
       self.process(type: modelType, result: result, completion: completion)
     }
   }

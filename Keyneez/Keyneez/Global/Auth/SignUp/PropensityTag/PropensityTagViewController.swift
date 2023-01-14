@@ -97,6 +97,12 @@ final class PropensityTagViewController: NiblessViewController, NavigationBarPro
       }
     }
   }
+  private func setUnclickButtonWidth(button: UIButton) -> CGFloat {
+    button.titleLabel?.text = propensityTagUnclickData[button.tag].text
+    button.titleLabel?.sizeToFit()
+    let width = ((button.titleLabel?.frame.width)!) + Constant.btnMargin * 2
+    return width
+  }
 }
 
 extension PropensityTagViewController {

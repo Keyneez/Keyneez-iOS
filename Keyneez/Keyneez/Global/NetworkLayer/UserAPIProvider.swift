@@ -55,6 +55,10 @@ final class UserAPIProvider {
     responseFrom(target, modelType: EditUserResponseDto.self, completion: completion)
   }
   
+  func getUserInfo(token: String, completion: @escaping (Result<UserInquiryResponseDto?, Error>) -> Void) {
+    let target = UserAPI.getUserInfo(token: token)
+    responseFrom(target, modelType: UserInquiryResponseDto.self, completion: completion)
+  }
 }
 
 extension UserAPIProvider {

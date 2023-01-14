@@ -23,5 +23,6 @@ struct UserInquiryResponseDto: Codable {
 }
 
 struct UserInquiryCharacterData: Codable {
-  let character: String
+  let characterKey: Int
+  let inter, dispo, character, characterImg, characterDesc, testImg: String
 }

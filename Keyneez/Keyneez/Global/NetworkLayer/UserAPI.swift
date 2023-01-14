@@ -31,6 +31,8 @@ extension UserAPI: TargetType {
   
   var path: String {
     switch self {
+    case .getUserInfo:
+      return URLConstant.user
     case .postUserInfo, .patchUserPickInfo:
       return "/user/signup"
     case .patchUserPwdInfo, .postPwdFetch:
