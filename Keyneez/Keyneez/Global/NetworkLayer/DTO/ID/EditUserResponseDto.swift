@@ -8,15 +8,7 @@
 import Foundation
 
 struct EditUserResponseDto: Codable {
-  let status: Int
-  let message: String
-  let data: [EditUserResponseData]
-}
-
-struct EditUserResponseData: Codable {
-  let userName,
-      userSchool,
-      userBirth,
-      userOcr: String
+  let userName: String
+  let userSchool, userBirth, userOcr: String?
   let ocrDir: Bool
 }

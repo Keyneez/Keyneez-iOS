@@ -100,8 +100,8 @@ final class CameraViewController: NiblessViewController {
     self.previewView.toggleCaptureModeUI(with: self.captureMode, previeMode: self.previewViewMode)
   }
   
-  private var camera: Camera
-  private var ocrService: OCRService
+  var camera: Camera
+  var ocrService: OCRService
   
   override init() {
     self.camera = Camera()
@@ -129,6 +129,17 @@ final class CameraViewController: NiblessViewController {
     super.viewWillAppear(animated)
     camera.checkSetupResult()
   }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    camera.resume(sessionNotRunningcompletion: nil, sessionRunningCompletion: nil)
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    self.camera.session.stopRunning()
+  }
+  
 }
 
 // MARK: - Private

@@ -8,12 +8,6 @@
 import Foundation
 
 struct UserCheckResponseDto: Codable {
-  let status: Int
-  let message: String
-  let data: [UserCheckResponseData]
-}
-
-struct UserCheckResponseData: Codable {
   let userKey,
       userAge,
       userCharacter: Int

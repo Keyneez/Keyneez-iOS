@@ -18,6 +18,9 @@ enum UserAPI {
   case patchUserPwdInfo(token: String, param: ProductPwdRequestDto)
   case postPwdFetch(token: String, param: PasswordFetchRequestDto)
   case postUserLoginInfo(param: LoginRequestDto)
+  case getUserInfo(token: String)
+  case patchUserWithOCRSchoolID(token: String, param: UserCheckStudentIDRequestDto)
+  case patchUserWithOCRTeenID(token: String, param: UserCheckYouthIDRequestDto)
 }
 
 extension UserAPI: TargetType {
@@ -34,6 +37,8 @@ extension UserAPI: TargetType {
       return "/user/signup/pw"
     case .postUserLoginInfo:
       return "/user/signin"
+    case .patchUserWithOCRSchoolID, .patchUserWithOCRTeenID, .getUserInfo:
+      return "/user"
     default:
       return ""
     }
@@ -45,12 +50,14 @@ extension UserAPI: TargetType {
       return .post
     case .patchUserPickInfo:
       return .patch
-    case .patchUserPwdInfo:
+    case .patchUserPwdInfo, .patchUserWithOCRTeenID, .patchUserWithOCRSchoolID:
       return .patch
     case .postPwdFetch:
       return .post
     case .postUserLoginInfo:
       return .post
+    case .getUserInfo:
+      return .get
     }
   }
   
@@ -66,6 +73,12 @@ extension UserAPI: TargetType {
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
     case .postUserLoginInfo(let param):
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
+    case .getUserInfo:
+      return .requestPlain
+    case .patchUserWithOCRSchoolID(_, let param):
+      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
+    case .patchUserWithOCRTeenID(_, let param):
+      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
     }
   }
   
@@ -78,7 +91,7 @@ extension UserAPI: TargetType {
     case .postUserInfo, .postUserLoginInfo:
       return ["Content-Type": "application/json"]
     case .patchUserPickInfo(let token, _), .patchUserPwdInfo(let token, _),
-        .postPwdFetch(let token, _):
+        .postPwdFetch(let token, _), .getUserInfo(let token), .patchUserWithOCRTeenID(let token, _), .patchUserWithOCRSchoolID(let token, _):
       return ["Content-Type": "application/json", "Authorization": token]
     default:
       return nil

@@ -26,7 +26,6 @@ final class Camera {
   let sessionQueue = DispatchQueue(label: "session queue")
   let session = AVCaptureSession()
   private var isSessionRunning = false
-  private var selectedSemanticSegmentationMatteTypes = [AVSemanticSegmentationMatte.MatteType]()
   
   private var setupResult: SessionSetupResult = .success
   
@@ -269,7 +268,6 @@ extension Camera {
       
       if photoSettings.isDepthDataDeliveryEnabled {
         if !self.photoOutput.availableSemanticSegmentationMatteTypes.isEmpty {
-          photoSettings.enabledSemanticSegmentationMatteTypes = self.selectedSemanticSegmentationMatteTypes
         }
       }
       
@@ -325,17 +323,9 @@ extension Camera {
   func addPhotoOutput() {
     if session.canAddOutput(photoOutput) {
       session.addOutput(photoOutput)
-      
+    
       photoOutput.isHighResolutionCaptureEnabled = true
-      photoOutput.isLivePhotoCaptureEnabled = photoOutput.isLivePhotoCaptureSupported
-      photoOutput.isDepthDataDeliveryEnabled = photoOutput.isDepthDataDeliverySupported
-      photoOutput.isPortraitEffectsMatteDeliveryEnabled = photoOutput.isPortraitEffectsMatteDeliverySupported
-      photoOutput.enabledSemanticSegmentationMatteTypes = photoOutput.availableSemanticSegmentationMatteTypes
-      selectedSemanticSegmentationMatteTypes = photoOutput.availableSemanticSegmentationMatteTypes
       photoOutput.maxPhotoQualityPrioritization = .quality
-      livePhotoMode = photoOutput.isLivePhotoCaptureSupported ? .on : .off
-      depthDataDeliveryMode = photoOutput.isDepthDataDeliverySupported ? .on : .off
-      portraitEffectsMatteDeliveryMode = photoOutput.isPortraitEffectsMatteDeliverySupported ? .on : .off
       photoQualityPrioritizationMode = .balanced
       
     } else {

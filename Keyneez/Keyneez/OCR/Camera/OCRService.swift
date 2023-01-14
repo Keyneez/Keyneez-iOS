@@ -13,8 +13,6 @@ import MLKit
 import MLImage
 import UIKit
 
-fileprivate let success = false
-
 protocol TextRecognizable {
   func recognizeText(in image: VisionImage, with uiimage: UIImage, width: CGFloat, height: CGFloat, completion: @escaping ([String], UIImage) -> Void)
 }
@@ -22,7 +20,7 @@ protocol TextRecognizable {
 final class OCRService: TextRecognizable {
   
   private var koreanOptions = KoreanTextRecognizerOptions()
-  var bufferLength = 10
+  var bufferLength = 20
   var semaphore: DispatchSemaphore
   var textBuffer: [[String]] = []
   var imageBuffer: [UIImage] = []
@@ -54,7 +52,6 @@ final class OCRService: TextRecognizable {
       if bufferHasSurplusSpace() {
         let splited = recognizedText.text.components(separatedBy: ["\n", ":", "."]).map { String($0)}
         let regexed = regexIDCard(with: splited)
-        
         append(text: regexed, image: uiimage)
       } else {
         checkOCRSuccess(completion: completion) { [weak self] in
@@ -115,8 +112,10 @@ final class OCRService: TextRecognizable {
     newArr = Array(newArr[0..<3])
     if checkTeenID(in: newArr) || checkSchool(in: newArr) {
       completion(newArr, imageBuffer[5])
+      failure()
       return
     }
+    failure()
   }
   
   private func checkTeenID(in arr: [String]) -> Bool {
@@ -162,7 +161,6 @@ final class OCRService: TextRecognizable {
             // 숫자가 들어있거나 영어가 들어있지 않다면 추가
             let pattern = "^[가-힣]*$"
             guard let range = strList[index].range(of: pattern, options: .regularExpression) else { continue }
-            print(range)
             resultSet.insert(strList[index])
           }
         }
@@ -194,8 +192,4 @@ final class OCRService: TextRecognizable {
     return Array(Set(result))
   }
   
-  func regexStudentID(with strList: [String]) {
-    
-  }
-    
 }
