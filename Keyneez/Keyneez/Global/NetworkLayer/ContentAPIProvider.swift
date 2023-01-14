@@ -31,6 +31,7 @@ final class ContentAPIProvider {
     let target = ContentAPI.postLikeContent(token: token, contentId: contentId)
     requestFrom(target, modelType: LikeContentRequestDto.self, completion: completion)
   }
+  
 }
 
 extension ContentAPIProvider {
