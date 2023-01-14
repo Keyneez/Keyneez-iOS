@@ -8,7 +8,7 @@
 import Foundation
 
 protocol IDRepository {
-  func getUserInfo(token: String, completion: @escaping([HomeContentResponseDto]) -> Void)
+  func getUserInfo(token: String, completion: @escaping(UserInquiryResponseDto) -> Void)
 }
 
 final class KeyneezIDRepository: IDRepository {
@@ -23,3 +23,4 @@ final class KeyneezIDRepository: IDRepository {
       }
     }
   }
+}

@@ -43,15 +43,6 @@ extension KeyneezTabbarController {
     homeViewController.viewWillAppear(true)
     let homeViewNavigationController = makeHomeNaviController(homeViewController: homeViewController)
     
-    var cardAsset = "id_card_tabbar"
-    
-    guard let token = UserSession.shared.accessToken else { return }
-    idRepository.getUserInfo(token: token) {
-      [weak self] userData in
-      guard let self else { return }
-      self.pushToContentDetailView(model: userData)
-    }
-    
     let tabInfos: [TabInfo] = [
 //      TabInfo(viewController: HomeViewController.self, title: "홈", imageName: "ic_home_tabbar"),
       TabInfo(viewController: LikeViewController.self, title: "좋아요", imageName: "ic_like_tabbar"),
@@ -90,16 +81,5 @@ extension KeyneezTabbarController {
     nav.isNavigationBarHidden = true
     nav.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "ic_home_tabbar"), selectedImage: nil)
     return nav
-  }
-  
-  private func setTabBarCardColor(characterInter: String) ->  {
-    switch(characterInter) {
-    case "탐험가":
-      
-    case "경제인":
-    case "문화인":
-    case "탐색러":
-    case "봉사자":
-    }
   }
 }

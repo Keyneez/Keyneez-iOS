@@ -47,7 +47,7 @@ final class UserAPIProvider {
   
   func getUserInfo(token: String, completion: @escaping (Result<UserInquiryResponseDto?, Error>) -> Void) {
     let target = UserAPI.getUserInfo(token: token)
-    responseFrom(target, modelType: UserInquiryResponseDto.self, completion)
+    responseFrom(target, modelType: UserInquiryResponseDto.self, completion: completion)
   }
 }
 

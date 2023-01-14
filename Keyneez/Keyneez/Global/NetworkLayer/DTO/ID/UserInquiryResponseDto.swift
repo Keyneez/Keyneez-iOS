@@ -24,10 +24,5 @@ struct UserInquiryResponseDto: Codable {
 
 struct UserInquiryCharacterData: Codable {
   let characterKey: Int
-  let inter,
-      dispo,
-      character,
-      characterImg,
-      characterDesc,
-      testImg: String,
+  let inter, dispo, character, characterImg, characterDesc, testImg: String
 }
