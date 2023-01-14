@@ -147,9 +147,9 @@ extension IDInfoEditableView {
       self.nameTextField.text = self.idSegmentedValue[self.segmentedControl.selectedSegmentIndex].name
       self.infoTextField.text = self.idSegmentedValue[self.segmentedControl.selectedSegmentIndex].info
       if self.segmentedControl.selectedSegmentIndex == 0 {
-        self.continueButton.addAction(self.actions.continueWithStudentID(with: <#T##IDIssuedFactory#>, dto: <#T##UserCheckStudentIDRequestDto#>), for: .touchUpInside)
+//        self.continueButton.addAction(self.actions.continueWithStudentID(with: <#T##IDIssuedFactory#>, dto: <#T##UserCheckStudentIDRequestDto#>), for: .touchUpInside)
       } else {
-        self.continueButton.addAction(self.actions.continueWithYouthID(with: <#T##IDIssuedFactory#>, dto: <#T##UserCheckYouthIDRequestDto#>), for: .touchUpInside)
+//        self.continueButton.addAction(self.actions.continueWithYouthID(with: <#T##IDIssuedFactory#>, dto: <#T##UserCheckYouthIDRequestDto#>), for: .touchUpInside)
       }
       self.checkTextFields()
     })
