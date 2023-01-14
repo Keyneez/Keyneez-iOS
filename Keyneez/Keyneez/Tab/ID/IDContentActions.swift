@@ -44,4 +44,16 @@ final class IDContentActions: IDCardContentActionables, IDNotAvailableActionable
     })
   }
   
+  func getUserInfo() -> UIAction {
+    return UIAction(handler: { _ in
+      guard let token = UserSession.shared.accessToken else { return }
+      repository.getDetailContent(token: token, contentId: cotentId) {
+        [weak self] arr in
+        guard let self else { return }
+        self.pushToContentDetailView(model: arr)
+      }
+      
+    })
+  }
+  
 }

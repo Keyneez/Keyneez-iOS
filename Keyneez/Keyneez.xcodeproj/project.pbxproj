@@ -116,6 +116,7 @@
 		B1A80380296EA54E0007DDD9 /* UserAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8037F296EA54E0007DDD9 /* UserAPIProvider.swift */; };
 		B1A80382296EA66F0007DDD9 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A80381296EA66F0007DDD9 /* GenericResponse.swift */; };
 		B1B21D17295DE0660083D9EE /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B1B21D16295DE0660083D9EE /* .swiftlint.yml */; };
+		B81B7B2D297236DA00985FCF /* IDRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81B7B2C297236DA00985FCF /* IDRepository.swift */; };
 		B81EE0052971B6FA00167750 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EE0042971B6FA00167750 /* UIImageView+Extension.swift */; };
 		B8C02F022962F4AF005612CE /* KeyneezTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */; };
 		B8C02F052962F5D4005612CE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C02F042962F5D4005612CE /* SettingViewController.swift */; };
@@ -286,6 +287,7 @@
 		B1A8037F296EA54E0007DDD9 /* UserAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIProvider.swift; sourceTree = "<group>"; };
 		B1A80381296EA66F0007DDD9 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		B1B21D16295DE0660083D9EE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		B81B7B2C297236DA00985FCF /* IDRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDRepository.swift; sourceTree = "<group>"; };
 		B81EE0042971B6FA00167750 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		B8C02F012962F4AF005612CE /* KeyneezTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyneezTabbar.swift; sourceTree = "<group>"; };
 		B8C02F042962F5D4005612CE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -661,6 +663,7 @@
 			children = (
 				B10AAD7A29696C7700AB8475 /* IDViewController.swift */,
 				B10AAD55296967F100AB8475 /* IDContentActions.swift */,
+				B81B7B2C297236DA00985FCF /* IDRepository.swift */,
 				B10AAD5A296967F300AB8475 /* BenefitInfo */,
 				B10AAD4A296967F100AB8475 /* IDCard */,
 				B10AAD50296967F100AB8475 /* IDDetail */,
@@ -1352,6 +1355,7 @@
 				B8C844CC296EBA0B00E88B86 /* EditUserRequestDto.swift in Sources */,
 				B187CA6F296C07CF006B0AE1 /* IDCardGuideActions.swift in Sources */,
 				B8C02F4C296E9221005612CE /* URLConstant.swift in Sources */,
+				B81B7B2D297236DA00985FCF /* IDRepository.swift in Sources */,
 				B10AAD6E296967F300AB8475 /* IDContentActions.swift in Sources */,
 				0250056E296DB58600DE08BE /* PhoneLoginViewController.swift in Sources */,
 				0233C6FC296C8E4600A177E9 /* JellyDetailBottomSheetViewController.swift in Sources */,
