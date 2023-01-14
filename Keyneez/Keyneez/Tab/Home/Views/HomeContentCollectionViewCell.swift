@@ -89,7 +89,7 @@ extension HomeContentCollectionViewCell {
     let categoryview = CategoryView()
     homeContentCategoryView.setCategory(with: category)
     switch(category) {
-    case "진로" :
+    case "진로":
        categoryview.setCategory(with: "진로")
     case "봉사":
       categoryview.setCategory(with: "봉사")

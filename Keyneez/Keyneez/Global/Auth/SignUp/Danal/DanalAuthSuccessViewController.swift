@@ -13,6 +13,11 @@ import Then
 
 class DanalAuthSuccessViewController: NiblessViewController, NavigationBarProtocol {
   
+  var userData: ProductDanalResponseDto?
+  func dataBind(userData: ProductDanalResponseDto) {
+    self.userData = userData
+  }
+  
   // MARK: - UI Components
   
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.flexibleBox]).build()
@@ -24,12 +29,19 @@ class DanalAuthSuccessViewController: NiblessViewController, NavigationBarProtoc
     $0.numberOfLines = 0
   }
   
+  private func setTitle() {
+    guard let userData = userData else {return}
+    let name = userData.userName
+    titleLabel.text = "만나서 반가워요!\n이제 \(name)님의 젤리를\n만들어 볼까요?"
+  }
+  
   // MARK: - Life Cycles
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setConfig()
     setLayout()
+    setTitle()
     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
       self.pushToNextVC(VC: JellyMakeViewController())
     }
