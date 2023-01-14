@@ -36,7 +36,6 @@ final class HomeContentViewController: UIViewController {
     super.viewDidLoad()
     register()
     setLayout()
-    floatyFilter.isHidden = true
   }
 
   private func register() {
