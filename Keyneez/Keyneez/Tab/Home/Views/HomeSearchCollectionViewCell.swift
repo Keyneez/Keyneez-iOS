@@ -12,8 +12,19 @@ import Kingfisher
 
 final class HomeSearchCollectionViewCell: UICollectionViewCell {
   static let identifier = "HomeSearchCollectionViewCell"
+  let repository: ContentRepository = KeyneezContentRepository()
+  var searchContentId: Int = -1
   
-  private let backgroundImageView: UIImageView = .init()
+  private let backgroundImageView: UIImageView = .init().then {
+    $0.layer.cornerRadius = 4
+    $0.clipsToBounds = true
+  }
+  private let opacityView: UIView = .init().then {
+    $0.backgroundColor = .gray900
+    $0.layer.opacity = 0.2
+    $0.layer.cornerRadius = 4
+  }
+  private let likeButtonView: UIView = .init()
   private let dateLabel: UILabel = .init().then {
     $0.font = .font(.pretendardSemiBold, ofSize: 14)
     $0.textColor = .gray050
@@ -38,13 +49,21 @@ final class HomeSearchCollectionViewCell: UICollectionViewCell {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
 }
 
 extension HomeSearchCollectionViewCell {
   private func setLayout() {
-    contentView.backgroundColor = .gray900
+    contentView.addSubviews(backgroundImageView, likeButton)
     contentView.layer.cornerRadius = 4
-    contentView.addSubviews(dateLabel, titleLabel, likeButton)
+    backgroundImageView.layer.cornerRadius = 4
+    backgroundImageView.snp.makeConstraints {
+      $0.top.leading.trailing.bottom.equalToSuperview()
+    }
+    backgroundImageView.addSubviews(opacityView, dateLabel, titleLabel)
+    opacityView.snp.makeConstraints {
+      $0.top.leading.trailing.bottom.equalToSuperview()
+    }
     dateLabel.snp.makeConstraints {
       $0.top.equalToSuperview().inset(19)
       $0.centerX.equalToSuperview()
@@ -60,15 +79,29 @@ extension HomeSearchCollectionViewCell {
   }
   func bindHomeSearchData(model: SearchContentResponseDto) {
     titleLabel.text = model.contentTitle
-    dateLabel.text = setDateLabel(model: model)
-    guard let url = URL(string: model.contentImg ?? "") else { return }
-      backgroundImageView.kf.setImage(with: url)
-//    backgroundImageView.load(url: URL(string: model.contentImg!)!)
+    dateLabel.text = setDateLabel(startAt: model.startAt, endAt: model.endAt)
+    searchContentId = model.contentKey
+    likeButton.isSelected = model.liked
+    guard let url = model.contentImg else { return }
+    backgroundImageView.setImage(url: url)
+    // TODO: 이미지, 버튼 값 변경
+  }
+  func bindLikedContentData(model: MyLikedContentResponseDto) {
+    titleLabel.text = model.contentTitle
+    dateLabel.text = setDateLabel(startAt: model.startAt, endAt: model.endAt)
+    likeButton.isHidden = true
+    guard let url = model.contentImg else { return }
+    backgroundImageView.setImage(url: url)
     // TODO: 이미지, 버튼 값 변경
   }
   @objc
   private func touchUpLikeButton() {
-      likeButton.isSelected = !likeButton.isSelected
+    likeButton.isSelected = !likeButton.isSelected
+    print("클릭했다")
+      guard let token = UserSession.shared.accessToken else { return }
+      repository.postLikeContent(token: token, contentId: searchContentId) { result in
+        print(result)
+    }
   }
   private func getDate(fullDate: String) -> String {
     let monthIndex = fullDate.index(fullDate.endIndex, offsetBy: -4)
@@ -77,9 +110,9 @@ extension HomeSearchCollectionViewCell {
     let day = (fullDate[dayIndex...])
     return month + "." + day
   }
-  private func setDateLabel(model: SearchContentResponseDto) -> String {
-    if model.startAt == nil || model.endAt == nil { return "2023 ~ " }
-    if model.startAt!.isEmpty || model.endAt!.isEmpty { return "2023 ~ " }
-    return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
+  private func setDateLabel(startAt: String?, endAt: String?) -> String {
+    if startAt == nil || endAt == nil { return "2023 ~ " }
+    if startAt!.isEmpty || endAt!.isEmpty { return "2023 ~ " }
+    return getDate(fullDate: startAt!) + " ~ " + getDate(fullDate: endAt!)
   }
 }

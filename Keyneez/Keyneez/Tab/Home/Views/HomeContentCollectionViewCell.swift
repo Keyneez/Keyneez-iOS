@@ -8,10 +8,16 @@
 import UIKit
 import Then
 import SnapKit
+import Kingfisher
+import FirebaseStorage
 
 final class HomeContentCollectionViewCell: UICollectionViewCell {
   static let identifier = "HomeContentCollectionViewCell"
   var homeContentID = -1
+  var homeContentImageURL: String = ""
+  private var homeContentCategory = ""
+  
+  let repository: ContentRepository = KeyneezContentRepository()
   // MARK: - UI Components
 
   private let shadowView = UIView().then {
@@ -29,6 +35,7 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
   }
   private let contentImageView = UIImageView().then {
     $0.layer.cornerRadius = 4
+    $0.clipsToBounds = true
     $0.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
   }
   private let dateView = UIView().then {
@@ -41,7 +48,7 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
     $0.font = UIFont.font(.pretendardSemiBold, ofSize: 12)
     $0.textColor = UIColor.gray900
   }
-  private let categoryView = CategoryView()
+  lazy var homeContentCategoryView = CategoryView()
   private lazy var likeButton = UIButton().then {
     $0.setImage(UIImage(named: "ic_favorite_home_line"), for: .normal)
     $0.setImage(UIImage(named: "ic_favorite_home_filled"), for: .selected)
@@ -58,6 +65,8 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
     $0.font = UIFont.font(.pretendardMedium, ofSize: 14)
     $0.textColor = UIColor.gray600
   }
+  
+  var categoryInfo: String = ""
   // MARK: - Life Cycle
 
   override init(frame: CGRect) {
@@ -70,13 +79,40 @@ final class HomeContentCollectionViewCell: UICollectionViewCell {
 }
 
 extension HomeContentCollectionViewCell {
+  
+//  override func prepareForReuse() {
+//    super.prepareForReuse()
+//    self.homeContentCategoryView = setHomeCategoryView(category: categoryInfo)
+//  }
+  
+  private func setHomeCategoryView(category: String) -> CategoryView {
+    let categoryview = CategoryView()
+    homeContentCategoryView.setCategory(with: category)
+    switch(category) {
+    case "진로" :
+       categoryview.setCategory(with: "진로")
+    case "봉사":
+      categoryview.setCategory(with: "봉사")
+    case "여행":
+      categoryview.setCategory(with: "여행")
+    case "문화":
+      categoryview.setCategory(with: "문화")
+    case "경제":
+      categoryview.setCategory(with: "경제")
+    default:
+      break
+    }
+    return categoryview
+  }
+  
+  
   private func setLayout() {
     contentView.addSubviews(shadowView, containerView)
     containerView.addSubviews(
       contentImageView,
       dateView,
       likeButton,
-      categoryView,
+      homeContentCategoryView,
       contentTitle,
       contentIntroduction,
       cardImageView
@@ -107,14 +143,14 @@ extension HomeContentCollectionViewCell {
       $0.trailing.equalToSuperview().inset(24)
       $0.width.height.equalTo(32)
     }
-    categoryView.snp.makeConstraints {
+    homeContentCategoryView.snp.makeConstraints {
       $0.top.equalTo(contentImageView.snp.bottom).offset(27)
       $0.leading.equalTo(dateView)
       $0.width.equalTo(49)
       $0.height.equalTo(33)
     }
     contentTitle.snp.makeConstraints {
-      $0.top.equalTo(categoryView.snp.bottom).offset(12)
+      $0.top.equalTo(homeContentCategoryView.snp.bottom).offset(12)
       $0.leading.trailing.equalToSuperview().inset(21)
     }
     contentIntroduction.snp.makeConstraints {
@@ -132,11 +168,11 @@ extension HomeContentCollectionViewCell {
   
   func bindHomeData(model: HomeContentResponseDto) {
     homeContentID = model.contentKey
-//    contentImageView.image = UIImage(named: model.contentImage)
     dateLabel.text = setDateLabel(model: model)
-//    category.text = model.categoty[0]
     contentTitle.text = setTitle(fullTitle: model.contentTitle)
     contentIntroduction.text = model.introduction
+    likeButton.isSelected = model.liked
+    contentImageView.setImage(url: model.contentImg)
   }
   private func setTitle(fullTitle: String) -> String {
     guard let title = fullTitle as? String else {return ""}
@@ -154,8 +190,30 @@ extension HomeContentCollectionViewCell {
     if model.startAt!.isEmpty || model.endAt!.isEmpty { dateView.isHidden = true; return "" }
     return getDate(fullDate: model.startAt!) + " ~ " + getDate(fullDate: model.endAt!)
   }
+  func setHomeCategoryCard(category: String) { // 카드 색 변경
+    homeContentCategoryView.setCategory(with: category)
+    switch(category) {
+    case "진로" :
+      cardImageView.image = UIImage(named: "card_green_home")
+    case "봉사":
+      cardImageView.image = UIImage(named: "card_purple_home")
+    case "여행":
+      cardImageView.image = UIImage(named: "card_pink_home")
+    case "문화":
+      cardImageView.image = UIImage(named: "card_blue_home")
+    case "경제":
+      cardImageView.image = UIImage(named: "card_orange_home")
+    default:
+      break
+    }
+  }
+  
   @objc
   private func touchUpLikeButton() {
     likeButton.isSelected = !likeButton.isSelected
+    guard let token = UserSession.shared.accessToken else { return }
+    repository.postLikeContent(token: token, contentId: homeContentID) { result in
+      print(result)
+    }
   }
 }

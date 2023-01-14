@@ -8,6 +8,9 @@
 import UIKit
 
 final class LikeViewController: NiblessViewController, NavigationBarProtocol {
+  let repository: ContentRepository = KeyneezContentRepository()
+  var likedContentDataSource: [MyLikedContentResponseDto] = []
+  
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.button(with: myLikeButton), .flexibleBox, .iconButton(with: editButton)]).build()
   private lazy var myLikeButton: UIButton = .init(primaryAction: touchUpMyLikeButton).then {
     $0.setTitle("저장", for: .normal)
@@ -51,6 +54,18 @@ final class LikeViewController: NiblessViewController, NavigationBarProtocol {
     setLayout()
     register()
     addNavigationViewToSubview()
+  }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    guard let token = UserSession.shared.accessToken else { return }
+    repository.getLikedContent(token: token) {
+      [weak self] result in
+      guard let self else {return}
+      self.likedContentDataSource = result
+      DispatchQueue.main.async {
+        self.likeCollectionView.reloadData()
+      }
+    }
   }
 }
 
@@ -96,22 +111,27 @@ extension LikeViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     return likeInset
   }
-  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-//    pushToContentDetailView()
-    return true
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let token = UserSession.shared.accessToken else { return }
+    let cotentId = likedContentDataSource[indexPath.row].contentKey
+    repository.getDetailContent(token: token, contentId: cotentId) {
+      [weak self] arr in
+      guard let self else { return }
+      self.pushToContentDetailView(model: arr)
+    }
   }
 }
 
 // MARK: - UICollectionViewDataSource
 extension LikeViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return homeSearchList.count
+    return likedContentDataSource.count
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let homeSearchCell = collectionView.dequeueReusableCell(
+    guard let likedContentCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeSearchCollectionViewCell.identifier, for: indexPath)
             as? HomeSearchCollectionViewCell else { return UICollectionViewCell() }
-//    homeSearchCell.bindHomeSearchData(model: homeSearchList[indexPath.item])
-    return homeSearchCell
+    likedContentCell.bindLikedContentData(model: likedContentDataSource[indexPath.item])
+    return likedContentCell
   }
 }

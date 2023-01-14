@@ -41,7 +41,7 @@ class DanalUserDataViewController: NiblessViewController, NavigationBarProtocol,
   private lazy var birthTextField: UITextField = KeyneezTextFieldFactory.formStyleTextfield(placeholder: "생년월일(6자)", borderStyle: .underline(padding: 1)).build()
   
   private lazy var nextButton = UIButton().then {
-    $0.keyneezButtonStyle(style: .blackUnact, title: "다음으로")
+    $0.keyneezButtonStyle(style: .blackAct, title: "다음으로")
     $0.addTarget(self, action: #selector(touchUpNextVC), for: .touchUpInside)
   }
   var nameTextCount: Int = 0
@@ -66,7 +66,7 @@ class DanalUserDataViewController: NiblessViewController, NavigationBarProtocol,
         // new one
         DispatchQueue.main.async {
           completion(userdata)
-          self?.pushToNextVC(VC: JellyMakeViewController())
+          self?.pushToNextVC(VC: DanalAuthSuccessViewController())
         }
         
       case .failure(let error):
@@ -82,8 +82,8 @@ class DanalUserDataViewController: NiblessViewController, NavigationBarProtocol,
        let birthday = birthTextField.text {
       var danalRequestDTO = ProductDanalRequestDto(userName: name, userBirth: birthday,
                                                    userGender: " ", userPhone: phone)
-        signUp(with: danalRequestDTO) { userdata in
-          UserSession.shared.accessToken = userdata.accessToken
+      signUp(with: danalRequestDTO) { userdata in
+        UserSession.shared.accessToken = userdata.accessToken
       }
     }
   }
@@ -117,21 +117,20 @@ class DanalUserDataViewController: NiblessViewController, NavigationBarProtocol,
     
   }
   
-  private func setButton() {
-    if nameTextCount > 1 && phoneTextCount == 11 && birthTextCount == 6 {
-      nextButton.keyneezButtonStyle(style: .blackAct, title: "다음으로")
-    } else {
-      nextButton.keyneezButtonStyle(style: .blackUnact, title: "다음으로")
-    }
-  }
-
+  //  private func setButton() {
+  //    if nameTextCount > 1 && phoneTextCount == 11 && birthTextCount == 6 {
+  //      nextButton.keyneezButtonStyle(style: .blackAct, title: "다음으로")
+  //    } else {
+  //      nextButton.keyneezButtonStyle(style: .blackUnact, title: "다음으로")
+  //    }
+  //  }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     setKeyboard()
-    setButton()
   }
-  
 }
+
 extension DanalUserDataViewController {
   private func setConfig() {
     view.backgroundColor = .gray050

@@ -8,15 +8,9 @@
 import Foundation
 
 struct MyLikedContentResponseDto: Codable {
-  let status: Int
-  let message: String
-  let data: [MyLikedContentResponseData]
-}
-
-struct MyLikedContentResponseData: Codable {
   let contentKey: Int
-  let contentTitle,
-      startAt,
+  let contentTitle: String
+  let startAt,
       endAt,
-      contentImg: String
+      contentImg: String?
 }

@@ -13,11 +13,7 @@ class JellyProductCollectionViewCell: UICollectionViewCell {
   
   static let identifier = "JellyProductCollectionViewCell"
   
-   let imageContainerView = UIView().then {
-    $0.backgroundColor = .gray100
-    $0.layer.cornerRadius = 8
-     
-   }
+   let imageContainerView = UIImageView()
   
    let imageView = UIImageView().then {
     $0.image = UIImage(named: "mintJelly")
@@ -56,6 +52,8 @@ extension JellyProductCollectionViewCell {
   }
   
   func dataBind(model: JellyContentModel) {
-    imageView.image = UIImage(named: model.image)
+    imageContainerView.image = UIImage(named: model.backImage)
+    imageView.image = UIImage(named: model.itemImage)
+
   }
 }

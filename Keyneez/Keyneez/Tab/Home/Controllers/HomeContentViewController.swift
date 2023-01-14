@@ -8,7 +8,6 @@
 import UIKit
 import Then
 import SnapKit
-import Floaty
 
 final class HomeContentViewController: UIViewController {
   
@@ -28,10 +27,6 @@ final class HomeContentViewController: UIViewController {
     collectionView.dataSource = self
     return collectionView
   }()
-  private let floatyFilter = Floaty().then {
-    $0.buttonColor = UIColor.gray050
-    $0.buttonImage = UIImage(named: "ic_filter_floating")
-  }
  
   final let homeContentInset: UIEdgeInsets = UIEdgeInsets(top: 32, left: 17, bottom: 32, right: 17)
   final let homeContentLineSpacing: CGFloat = 16
@@ -50,16 +45,12 @@ final class HomeContentViewController: UIViewController {
   }
   
   private func setLayout() {
-    view.addSubviews(recommendContentCollectionView, floatyFilter)
+    view.addSubviews(recommendContentCollectionView)
     recommendContentCollectionView.snp.makeConstraints {
       $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
       $0.top.bottom.equalToSuperview()
     }
-    floatyFilter.snp.makeConstraints {
-      $0.width.height.equalTo(64)
-      $0.bottom.equalTo(recommendContentCollectionView).inset(138) // tabbar height + 54
-      $0.trailing.equalToSuperview().inset(9)
-    }
+    
   }
 }
 
@@ -94,35 +85,17 @@ extension HomeContentViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeContentViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//    switch(segmentedNumber) {
-//    case 0:
-//      return h.count
-//    case 1:
-//      return popularContentList.count
-//    case 2:
-//      return newestContentList.count
-//    default:
-//      return recommendContentList.count
-//    }
     return contentList.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let model: [HomeContentModel]
-//    switch(segmentedNumber) {
-//    case 0:
-//       model = recommendContentList
-//    case 1:
-//      model = popularContentList
-//    case 2:
-//      model = newestContentList
-//    default:
-//      model = recommendContentList
-//    }
     guard let homeContentCell = collectionView.dequeueReusableCell(
       withReuseIdentifier: HomeContentCollectionViewCell.identifier, for: indexPath)
             as? HomeContentCollectionViewCell else { return UICollectionViewCell() }
+    
     homeContentCell.bindHomeData(model: contentList[indexPath.item])
+    // 여기서 setCategory
+    homeContentCell.setHomeCategoryCard(category: contentList[indexPath.item].category[0])
     return homeContentCell
   }
 }

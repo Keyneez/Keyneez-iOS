@@ -17,7 +17,7 @@ enum UserAPI {
   case patchUserPickInfo(token: String, param: ProductJellyRequstDto)
   case patchUserPwdInfo(token: String, param: ProductPwdRequestDto)
   case postPwdFetch(token: String, param: PasswordFetchRequestDto)
-//  case postUserLoginInfo(token: String, param: LoginRequestDto)
+  case postUserLoginInfo(param: LoginRequestDto)
 }
 
 extension UserAPI: TargetType {
@@ -32,6 +32,8 @@ extension UserAPI: TargetType {
       return "/user/signup"
     case .patchUserPwdInfo, .postPwdFetch:
       return "/user/signup/pw"
+    case .postUserLoginInfo:
+      return "/user/signin"
     default:
       return ""
     }
@@ -47,6 +49,8 @@ extension UserAPI: TargetType {
       return .patch
     case .postPwdFetch:
       return .post
+    case .postUserLoginInfo:
+      return .post
     }
   }
   
@@ -60,14 +64,21 @@ extension UserAPI: TargetType {
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
     case .postPwdFetch(_, param: let param):
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
+    case .postUserLoginInfo(let param):
+      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
     }
+  }
+  
+  private var vaildationType: Moya.ValidationType {
+    return .successAndRedirectCodes
   }
   
   var headers: [String: String]? {
     switch self {
-    case .postUserInfo:
+    case .postUserInfo, .postUserLoginInfo:
       return ["Content-Type": "application/json"]
-    case .patchUserPickInfo(let token, _), .patchUserPwdInfo(let token, _), .postPwdFetch(let token, _):
+    case .patchUserPickInfo(let token, _), .patchUserPwdInfo(let token, _),
+        .postPwdFetch(let token, _):
       return ["Content-Type": "application/json", "Authorization": token]
     default:
       return nil

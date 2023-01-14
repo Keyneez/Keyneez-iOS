@@ -11,21 +11,17 @@ import Then
 
 // TODO: 3초 있다가 자동 화면 넘기기 구현
 
-class DanalAuthSuccessViewController: UIViewController {
+class DanalAuthSuccessViewController: NiblessViewController, NavigationBarProtocol {
   
   // MARK: - UI Components
   
-  private lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.flexibleBox, .flexibleBox, .flexibleBox]).build()
+  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.flexibleBox]).build()
+   var contentView = UIView()
   
   private let titleLabel = UILabel().then {
-    $0.text = "만나서 반가워요!\n이제 민지님의 젤리를\n만들어 볼까요?"
+    $0.text = "만나서 반가워요!\n이제 김민지님의 젤리를\n만들어 볼까요?"
     $0.font = UIFont.font(.pretendardBold, ofSize: 24)
     $0.numberOfLines = 0
-  }
-  
-  private func pushToJellyVC() {
-    let nextVC = JellyMakeViewController()
-    self.navigationController?.pushViewController(nextVC, animated: true)
   }
   
   // MARK: - Life Cycles
@@ -35,8 +31,7 @@ class DanalAuthSuccessViewController: UIViewController {
     setConfig()
     setLayout()
     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
-      let nextVC = JellyMakeViewController()
-      self.pushToJellyVC()
+      self.pushToNextVC(VC: JellyMakeViewController())
     }
   }
 }

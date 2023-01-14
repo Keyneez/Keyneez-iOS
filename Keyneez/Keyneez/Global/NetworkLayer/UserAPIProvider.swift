@@ -40,6 +40,10 @@ final class UserAPIProvider {
     responseFrom(target, modelType: ProductPwdResponseDto.self, completion: completion)
   }
   
+  func postLoginInfo(param: LoginRequestDto, completion: @escaping (Result<LoginResponseDto?, Error>) -> Void) {
+    let target = UserAPI.postUserLoginInfo(param: param)
+    responseFrom(target, modelType: LoginResponseDto.self, completion: completion)
+  }
 }
 
 extension UserAPIProvider {
@@ -54,12 +58,12 @@ extension UserAPIProvider {
     type: T.Type,
     result: Result<Response, MoyaError>,
     completion: @escaping (Result<T?, Error>) -> Void
-  ) {
+  ) { 
     switch result {
     case .success(let response):
       let decoder = JSONDecoder()
       decoder.keyDecodingStrategy = .convertFromSnakeCase
-      if let data = try? decoder.decode(GenericResponse<T>.self, from: response.data) {
+      if let data = try? decoder.decode(GenericResponse<T>.self, from: response.data), data.status >= 200 && data.status < 400 {
         let body = data.data
         completion(.success(body as? T))
       } else {

@@ -47,27 +47,6 @@ class SimpleLoginViewController: NiblessViewController, NavigationBarProtocol {
     $0.image = UIImage(named: Constant.imageArray[0])
     $0.contentMode = .scaleAspectFit
   }
-  private let faceIDStackVIew: UIStackView = .init().then {
-    $0.axis = .horizontal
-    $0.isUserInteractionEnabled = true
-    $0.distribution = .equalSpacing
-    $0.spacing = 8
-  }
-  
-  @objc
-  func touchUpStackView() {
-      let tap = UITapGestureRecognizer(target: self, action: #selector(stackViewTapped))
-      faceIDStackVIew.addGestureRecognizer(tap)
-  }
-  
-  @objc
-  private func stackViewTapped() {
-    if checkImageView.image == UIImage(named: "unselect") {
-      checkImageView.image = UIImage(named: "select")
-    } else {
-      checkImageView.image = UIImage(named: "unselect")
-    }
-  }
   
   private let checkImageView: UIImageView = .init().then {
     $0.image = UIImage(named: "unselect")
@@ -97,7 +76,34 @@ class SimpleLoginViewController: NiblessViewController, NavigationBarProtocol {
     setConfig()
     register()
     setLayout()
-    touchUpStackView()
+  }
+  
+  private var phoneNumber: String = ""
+  func dataBind(phone: String) {
+    phoneNumber = phone
+  }
+  
+  private var selectedNumber: [Int] = []
+  
+  private func loginInfo(with dto: LoginRequestDto, completion: @escaping(LoginResponseDto) -> Void) {
+    UserAPIProvider.shared.postLoginInfo(param: dto) { [weak self] result in
+      guard let self else {return}
+      switch result {
+      case .success(let data):
+        guard let loginResponseDTO = data else {return}
+        UserSession.shared.accessToken = loginResponseDTO.accessToken
+        DispatchQueue.main.async {
+          self.view.window?.rootViewController = KeyneezTabbarController()
+        }
+      case .failure(let error):
+        self.view.makeToast("잘못된 비밀번호 입니다.       \n다시 입력해주세요.", duration: 0.8, position: .center)
+        self.selectedNumber.removeAll()
+        Constant.index = 0
+        self.progressImageView.image = UIImage(named: Constant.imageArray[0])
+        print(error)
+        
+      }
+    }
   }
 }
 
@@ -105,11 +111,8 @@ extension SimpleLoginViewController {
   
   private func setConfig() {
     view.backgroundColor = .gray050
-    [titleLabel, progressImageView, faceIDStackVIew, collectionView].forEach {
+    [titleLabel, progressImageView, collectionView].forEach {
       contentView.addSubview($0)
-    }
-    [checkImageView, checkLabel].forEach {
-      faceIDStackVIew.addArrangedSubview($0)
     }
   }
   private func setLayout() {
@@ -122,14 +125,8 @@ extension SimpleLoginViewController {
       $0.leading.trailing.equalToSuperview().inset(Constant.imageLeading)
       $0.height.equalTo(Constant.imageHeight)
     }
-    faceIDStackVIew.snp.makeConstraints {
-      $0.top.equalTo(progressImageView.snp.bottom).offset(Constant.stackViewTop)
-      $0.centerX.equalToSuperview()
-      $0.width.equalTo(Constant.stackViewWidth)
-      $0.height.equalTo(Constant.stackViewHeight)
-    }
     collectionView.snp.makeConstraints {
-      $0.top.equalTo(faceIDStackVIew.snp.bottom).offset(100)
+      $0.top.equalTo(progressImageView.snp.bottom).offset(100)
       $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(16)
       $0.height.equalTo(calculateCellHeight())
       $0.bottom.equalToSuperview().inset(48)
@@ -184,9 +181,13 @@ extension SimpleLoginViewController: UICollectionViewDataSource {
     
     // 간편 비밀번호 로직
     
-    if indexPath.item != 11 {
+    if indexPath.item != 11 && indexPath.item != 9 {
+      selectedNumber.append(Int(pwdNumberData[indexPath.row].text)!)
       Constant.index += 1
       switch Constant.index {
+
+      case 0:
+        progressImageView.image = (UIImage(named: Constant.imageArray[0]))
       case 1:
         progressImageView.image = UIImage(named: Constant.imageArray[1])
       case 2:
@@ -199,20 +200,35 @@ extension SimpleLoginViewController: UICollectionViewDataSource {
         progressImageView.image = UIImage(named: Constant.imageArray[5])
       case 6:
         progressImageView.image = UIImage(named: Constant.imageArray[6])
-        Constant.index = 6
-        pushToNextVC(VC: KeyneezTabbarController())
+        let loginPasswordArray = selectedNumber.map{ String($0) }
+        var loginInfoRequestDto = LoginRequestDto(userPhone: phoneNumber, userPassword: loginPasswordArray.joined())
+        self.loginInfo(with: loginInfoRequestDto) { _ in }
+        return
       default:
         return
-
       }
     } else {
       if Constant.index > 0 && Constant.index < 7 {
         Constant.index -= 1
         progressImageView.image = UIImage(named: Constant.imageArray[Constant.index])
+        
+        switch  indexPath.item {
+        case 11:
+          if selectedNumber.count > 0 {
+            selectedNumber.removeLast()
+          } else {
+            selectedNumber = []
+          }
+        case 9:
+          // TODO: - 재배열 코드 넣어주기
+          return
+        default:
+          return
+        }
+  
       } else if Constant.index < 0 {Constant.index = 0}
       else if Constant.index > 6 {Constant.index = 6}
     }
-    
     print(Constant.index)
   }
 }

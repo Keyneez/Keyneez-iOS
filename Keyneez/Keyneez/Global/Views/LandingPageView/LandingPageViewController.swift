@@ -29,7 +29,17 @@ private struct Constant {
   static let pageControlHeight: CGFloat = 12
 }
 
-class LandingPageViewController: NiblessViewController {
+class LandingPageViewController: NiblessViewController, NavigationBarProtocol {
+  
+  lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.flexibleBox]).build()
+   var contentView = UIView()
+   
+   private lazy var backButton: UIButton = .init(primaryAction: touchUpBackButton).then {
+     $0.setBackgroundImage(UIImage(named: "ic_arrowback_search"), for: .normal)
+   }
+   private lazy var touchUpBackButton: UIAction = .init(handler: { _ in
+     self.navigationController?.popViewController(animated: true)
+   })
   
   static var landingImages = ["Landing1", "Landing2", "Landing3", "Landing4"]
 
@@ -114,6 +124,7 @@ class LandingPageViewController: NiblessViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    addNavigationViewToSubview()
     setConfig()
     setLayout()
     setScrollContentView()
@@ -140,7 +151,7 @@ extension LandingPageViewController {
   private func setConfig() {
     view.backgroundColor = .gray050
     [logoImageView, scrollView, pageControl, signUpButton, signInButton].forEach {
-      view.addSubview($0)
+      contentView.addSubview($0)
     }
   }
   

@@ -15,11 +15,11 @@ private struct Constant {
   static let imageTop: CGFloat = 31
   static let imageLeading: CGFloat = 88
   static let imageHeight: CGFloat = 20
-  static let stackViewTop: CGFloat = 43
-  static let stackViewWidth: CGFloat = 146
-  static let stackViewHeight: CGFloat = 24
+  static let collectionLeading: CGFloat = 16
+  static let collectionBottom: CGFloat = 48
   static let cellHeight: CGFloat = 90
   static let cellInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+  static let imageBottom: CGFloat = 151
   static let imageArray: [String] = ["pwd0", "pwd1", "pwd2", "pwd3", "pwd4", "pwd5", "pwd6"]
   static var index: Int = 0
 
@@ -89,7 +89,7 @@ class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
 extension SimplePwdViewController {
 
   private func setToast() {
-    view.makeToast("마지막 단계!", duration: 0.7, position: .center)
+//    view.makeToast("마지막 단계!", duration: 0.7, position: .center)
   }
   
   private func setConfig() {
@@ -100,20 +100,20 @@ extension SimplePwdViewController {
   }
   private func setLayout() {
     titleLabel.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(Constant.titleTop)
+      $0.top.equalToSuperview().offset(Constant.titleTop.adjusted)
       $0.centerX.equalToSuperview()
     }
     progressImageView.snp.makeConstraints {
-      $0.top.equalTo(titleLabel.snp.bottom).offset(Constant.imageTop)
-      $0.leading.trailing.equalToSuperview().inset(Constant.imageLeading)
-      $0.height.equalTo(Constant.imageHeight)
+      $0.top.equalTo(titleLabel.snp.bottom).offset(Constant.imageTop.adjusted)
+      $0.leading.trailing.equalToSuperview().inset(Constant.imageLeading.adjusted)
+      $0.height.equalTo(Constant.imageHeight.adjusted)
     }
 
     collectionView.snp.makeConstraints {
-      $0.top.equalTo(progressImageView.snp.bottom).offset(100)
-      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(16)
+      $0.top.equalTo(progressImageView.snp.bottom).offset(Constant.imageBottom.adjusted)
+      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(Constant.collectionLeading.adjusted)
       $0.height.equalTo(calculateCellHeight())
-      $0.bottom.equalToSuperview().inset(48)
+      $0.bottom.equalToSuperview().inset(Constant.collectionBottom)
     }
   }
   private func calculateCellHeight() -> CGFloat {
@@ -163,6 +163,9 @@ extension SimplePwdViewController: UICollectionViewDataSource {
     
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SimplePwdCollectionViewCell.identifier, for: indexPath)
+            as? SimplePwdCollectionViewCell else { return }
+    
     // 간편 비밀번호 로직
     if indexPath.item != 11 && indexPath.item != 9 {
       selectedNumber.append(Int(pwdNumberData[indexPath.row].text)!)
@@ -200,7 +203,10 @@ extension SimplePwdViewController: UICollectionViewDataSource {
         case 11:
           selectedNumber.removeLast()
         case 9:
-          // TODO: - 재배열 코드 넣어주기
+//          pwdNumberData[0..<9].shuffle()
+//          print(pwdNumberData)
+//          collectionView.reloadData()
+          
           return
         default:
           return
