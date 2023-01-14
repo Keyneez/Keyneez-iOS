@@ -93,7 +93,7 @@ class JellyProductViewController: NiblessViewController, NavigationBarProtocol {
   
   var userData: ProductJellyResponseDto?
   func dataBind(data: ProductJellyResponseDto) {
-    userData = data
+    self.userData = data
   }
   
   @objc
@@ -101,6 +101,7 @@ class JellyProductViewController: NiblessViewController, NavigationBarProtocol {
     let nextVC = SimplePwdViewController()
     guard let userData = userData else {return}
     nextVC.dataBind(data: userData)
+    print(userData)
     pushToNextVC(VC: nextVC)
   }
   

@@ -18,6 +18,7 @@ enum UserAPI {
   case patchUserPwdInfo(token: String, param: ProductPwdRequestDto)
   case postPwdFetch(token: String, param: PasswordFetchRequestDto)
   case postUserLoginInfo(param: LoginRequestDto)
+  case getUserInfo(token: String)
 }
 
 extension UserAPI: TargetType {
@@ -28,6 +29,8 @@ extension UserAPI: TargetType {
   
   var path: String {
     switch self {
+    case .getUserInfo:
+      return URLConstant.user
     case .postUserInfo, .patchUserPickInfo:
       return "/user/signup"
     case .patchUserPwdInfo, .postPwdFetch:
@@ -51,6 +54,8 @@ extension UserAPI: TargetType {
       return .post
     case .postUserLoginInfo:
       return .post
+    case .getUserInfo:
+      return .get
     }
   }
   
@@ -66,6 +71,8 @@ extension UserAPI: TargetType {
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
     case .postUserLoginInfo(let param):
       return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
+    case .getUserInfo(_):
+      return .requestPlain
     }
   }
   
@@ -78,7 +85,7 @@ extension UserAPI: TargetType {
     case .postUserInfo, .postUserLoginInfo:
       return ["Content-Type": "application/json"]
     case .patchUserPickInfo(let token, _), .patchUserPwdInfo(let token, _),
-        .postPwdFetch(let token, _):
+        .postPwdFetch(let token, _), .getUserInfo(let token):
       return ["Content-Type": "application/json", "Authorization": token]
     default:
       return nil

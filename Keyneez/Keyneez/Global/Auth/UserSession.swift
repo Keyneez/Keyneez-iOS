@@ -15,12 +15,18 @@ struct Profile {
   var userPhoneNumber: String
 }
 
+struct UserCharacters {
+  let characterKey: Int
+  let inter, dispo, character, characterImg, characterDesc, testImg: String
+}
+
 final class UserSession {
   
   static let shared = UserSession()
   private init() { }
   
   var profile: Profile?
+  var characters: UserCharacters?
   var accessToken: String? = ""
 
 }

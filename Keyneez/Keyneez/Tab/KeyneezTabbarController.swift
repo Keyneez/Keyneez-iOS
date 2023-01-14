@@ -21,7 +21,7 @@ final class KeyneezTabbarController: UITabBarController {
     createTabbarItems()
   }
   
-//  let repository = KeyneezContentRepository()
+  private let idRepository = KeyneezIDRepository()
 
   private func assignTabbar() {
     let tabBar = { () -> KeyneezTabar in
@@ -39,21 +39,9 @@ final class KeyneezTabbarController: UITabBarController {
 // MARK: - Setting ViewController in TabbarViewController
 extension KeyneezTabbarController {
   fileprivate func createTabbarItems() {
-    
     let homeViewController = HomeViewController()
     homeViewController.viewWillAppear(true)
     let homeViewNavigationController = makeHomeNaviController(homeViewController: homeViewController)
-//
-//    guard let token = UserSession.shared.accessToken else { return }
-//    repository.getAllContents(token: token) {
-//      [weak self] arr in
-//      homeViewController.datasources.append(arr)
-//      DispatchQueue.main.async {
-//        homeViewController.VCs.forEach {
-//          $0.contentList = homeViewController.datasources[0]
-//        }
-//      }
-//    }
     
     let tabInfos: [TabInfo] = [
 //      TabInfo(viewController: HomeViewController.self, title: "홈", imageName: "ic_home_tabbar"),

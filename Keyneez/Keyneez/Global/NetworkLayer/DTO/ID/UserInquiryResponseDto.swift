@@ -8,12 +8,6 @@
 import Foundation
 
 struct UserInquiryResponseDto: Codable {
-  let status: Int
-  let message: String
-  let data: [UserInquiryResponseData]
-}
-
-struct UserInquiryResponseData: Codable {
   let userKey,
       userAge,
       userCharacter: Int
@@ -29,5 +23,6 @@ struct UserInquiryResponseData: Codable {
 }
 
 struct UserInquiryCharacterData: Codable {
-  let character: String
+  let characterKey: Int
+  let inter, dispo, character, characterImg, characterDesc, testImg: String
 }
