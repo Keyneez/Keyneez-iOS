@@ -83,13 +83,14 @@ class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
     setConfig()
     register()
     setLayout()
+    print(userData)
   }
 }
 
 extension SimplePwdViewController {
 
   private func setToast() {
-//    view.makeToast("마지막 단계!", duration: 0.7, position: .center)
+    view.makeToast("마지막 단계!", duration: 0.7, position: .center)
   }
   
   private func setConfig() {
@@ -110,10 +111,10 @@ extension SimplePwdViewController {
     }
 
     collectionView.snp.makeConstraints {
-      $0.top.equalTo(progressImageView.snp.bottom).offset(100)
-      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(16)
+      $0.top.equalTo(progressImageView.snp.bottom).offset(Constant.imageBottom.adjusted)
+      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(Constant.collectionLeading.adjusted)
       $0.height.equalTo(calculateCellHeight())
-      $0.bottom.equalToSuperview().inset(48)
+      $0.bottom.equalToSuperview().inset(Constant.collectionBottom)
     }
   }
   private func calculateCellHeight() -> CGFloat {
@@ -184,6 +185,7 @@ extension SimplePwdViewController: UICollectionViewDataSource {
       case 6:
         progressImageView.image = UIImage(named: Constant.imageArray[6])
         guard let userData = userData else {return}
+        print("비번1",userData)
         let password = selectedNumber.map { String($0) }
         let nextVC = SimplePwdCheckViewController()
         nextVC.dataBind(pwd: password.joined(), userData: userData)

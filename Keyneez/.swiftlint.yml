@@ -53,6 +53,7 @@ opt_in_rules:
   - yoda_condition
 disabled_rules:
 # 추가한 rules
+  - identifier_name
   - todo
   - orphaned_doc_comment
   - empty_xctest_method
@@ -78,9 +79,9 @@ nesting:
     warning: 3
   statement_level:
     warning: 5
-identifier_name:
-  excluded:
-    - id
+#identifier_name:
+#  excluded:
+#    - id
 # number_separator:
 #   minimum_length: 5
 # file_name:
