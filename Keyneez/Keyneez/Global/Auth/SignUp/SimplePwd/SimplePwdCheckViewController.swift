@@ -76,6 +76,7 @@ class SimplePwdCheckViewController: NiblessViewController, NavigationBarProtocol
     setConfig()
     register()
     setLayout()
+    print("비번2",userData)
   }
   
   var password: String = ""
@@ -93,7 +94,7 @@ class SimplePwdCheckViewController: NiblessViewController, NavigationBarProtocol
       switch result {
       case .success(let data):
         guard let userData = self.userData else {return}
-        UserSession.shared.profile = Profile(name: userData.userName, birthday: userData.userBirth, userCharacter: userData.characters?.character, userPhoneNumber: userData.userPhone)
+        UserSession.shared.profile = Profile(name: userData.userName, birthday: userData.userBirth, userCharacter: userData.Characters?.character, userPhoneNumber: userData.userPhone)
         DispatchQueue.main.async {
           self.view.window?.rootViewController = KeyneezTabbarController()
                   }

@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 import Then
 
-// TODO: - 2개만 선택되게 !!!!!
 class JellyProductViewController: NiblessViewController, NavigationBarProtocol {
  
   lazy var navigationView: UIView = NavigationViewBuilder(barViews: [.flexibleBox]).build()
@@ -94,7 +93,7 @@ class JellyProductViewController: NiblessViewController, NavigationBarProtocol {
   
   var userData: ProductJellyResponseDto?
   func dataBind(data: ProductJellyResponseDto) {
-    self.userData = data
+    userData = data
   }
   
   @objc
@@ -107,7 +106,8 @@ class JellyProductViewController: NiblessViewController, NavigationBarProtocol {
   
   private func setText() {
     guard let userData = self.userData else {return}
-    subTitleLabel.text = userData.characters?.character
+    titleLabel.text = "\(userData.userName)님의 젤리는"
+    subTitleLabel.text = userData.Characters?.character
   }
 
   override func viewDidLoad() {
@@ -116,7 +116,8 @@ class JellyProductViewController: NiblessViewController, NavigationBarProtocol {
     setConfig()
     register()
     setLayout()
-    touchUpStackView()
+//    touchUpStackView(
+    setText()
     print(userData)
   }
 }

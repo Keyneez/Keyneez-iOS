@@ -83,6 +83,7 @@ class SimplePwdViewController: NiblessViewController, NavigationBarProtocol {
     setConfig()
     register()
     setLayout()
+    print(userData)
   }
 }
 
@@ -184,6 +185,7 @@ extension SimplePwdViewController: UICollectionViewDataSource {
       case 6:
         progressImageView.image = UIImage(named: Constant.imageArray[6])
         guard let userData = userData else {return}
+        print("비번1",userData)
         let password = selectedNumber.map { String($0) }
         let nextVC = SimplePwdCheckViewController()
         nextVC.dataBind(pwd: password.joined(), userData: userData)

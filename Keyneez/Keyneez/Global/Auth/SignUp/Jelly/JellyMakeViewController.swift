@@ -22,8 +22,7 @@ class JellyMakeViewController: NiblessViewController, NavigationBarProtocol {
    private lazy var touchUpBackButton: UIAction = .init(handler: { _ in
      self.navigationController?.popViewController(animated: true)
    })
-  
-  
+    
   // MARK: - UI Components
   
   private lazy var titleLabel: UILabel = .init().then {
