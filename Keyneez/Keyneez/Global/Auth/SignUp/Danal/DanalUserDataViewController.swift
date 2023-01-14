@@ -66,7 +66,9 @@ class DanalUserDataViewController: NiblessViewController, NavigationBarProtocol,
         // new one
         DispatchQueue.main.async {
           completion(userdata)
-          self?.pushToNextVC(VC: DanalAuthSuccessViewController())
+          let nextVC = DanalAuthSuccessViewController()
+          nextVC.dataBind(userData: userdata)
+          self?.pushToNextVC(VC: nextVC)
         }
         
       case .failure(let error):

@@ -102,14 +102,13 @@ class JellyProductViewController: NiblessViewController, NavigationBarProtocol {
     let nextVC = SimplePwdViewController()
     guard let userData = userData else {return}
     nextVC.dataBind(data: userData)
-    print(userData)
     pushToNextVC(VC: nextVC)
   }
   
-//  private func setText() {
-//    guard let userData = self.userData else {return}
-//    subTitleLabel.text = userData.characters?.character
-//  }
+  private func setText() {
+    guard let userData = self.userData else {return}
+    subTitleLabel.text = userData.characters?.character
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -118,6 +117,7 @@ class JellyProductViewController: NiblessViewController, NavigationBarProtocol {
     register()
     setLayout()
     touchUpStackView()
+    print(userData)
   }
 }
 
