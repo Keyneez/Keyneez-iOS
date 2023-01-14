@@ -123,10 +123,10 @@ extension SimplePwdCheckViewController {
       $0.height.equalTo(Constant.imageHeight.adjusted)
     }
     collectionView.snp.makeConstraints {
-      $0.top.equalTo(progressImageView.snp.bottom).offset(Constant.imageBottom.adjusted)
-      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(Constant.collectionLeading.adjusted)
+      $0.top.equalTo(progressImageView.snp.bottom).offset(100)
+      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(16)
       $0.height.equalTo(calculateCellHeight())
-      $0.bottom.equalToSuperview().inset(Constant.collectionBottom.adjusted)
+      $0.bottom.equalToSuperview().inset(48)
     }
   }
   private func calculateCellHeight() -> CGFloat {
