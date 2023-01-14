@@ -21,7 +21,7 @@ final class KeyneezTabbarController: UITabBarController {
     createTabbarItems()
   }
   
-//  let repository = KeyneezContentRepository()
+  private let idRepository = KeyneezIDRepository()
 
   private func assignTabbar() {
     let tabBar = { () -> KeyneezTabar in
@@ -39,21 +39,18 @@ final class KeyneezTabbarController: UITabBarController {
 // MARK: - Setting ViewController in TabbarViewController
 extension KeyneezTabbarController {
   fileprivate func createTabbarItems() {
-    
     let homeViewController = HomeViewController()
     homeViewController.viewWillAppear(true)
     let homeViewNavigationController = makeHomeNaviController(homeViewController: homeViewController)
-//
-//    guard let token = UserSession.shared.accessToken else { return }
-//    repository.getAllContents(token: token) {
-//      [weak self] arr in
-//      homeViewController.datasources.append(arr)
-//      DispatchQueue.main.async {
-//        homeViewController.VCs.forEach {
-//          $0.contentList = homeViewController.datasources[0]
-//        }
-//      }
-//    }
+    
+    var cardAsset = "id_card_tabbar"
+    
+    guard let token = UserSession.shared.accessToken else { return }
+    idRepository.getUserInfo(token: token) {
+      [weak self] userData in
+      guard let self else { return }
+      self.pushToContentDetailView(model: userData)
+    }
     
     let tabInfos: [TabInfo] = [
 //      TabInfo(viewController: HomeViewController.self, title: "홈", imageName: "ic_home_tabbar"),
@@ -93,5 +90,16 @@ extension KeyneezTabbarController {
     nav.isNavigationBarHidden = true
     nav.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "ic_home_tabbar"), selectedImage: nil)
     return nav
+  }
+  
+  private func setTabBarCardColor(characterInter: String) ->  {
+    switch(characterInter) {
+    case "탐험가":
+      
+    case "경제인":
+    case "문화인":
+    case "탐색러":
+    case "봉사자":
+    }
   }
 }
