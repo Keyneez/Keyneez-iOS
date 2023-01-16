@@ -45,10 +45,9 @@
 		02F262AE2965ABEE005A1CE4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F262AD2965ABEE005A1CE4 /* LoadingView.swift */; };
 		02F4D81029716A8B0089AFC3 /* LoginRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4D80F29716A8B0089AFC3 /* LoginRequestDto.swift */; };
 		02F4D81229716A960089AFC3 /* LoginResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4D81129716A960089AFC3 /* LoginResponseDto.swift */; };
-		661C784F24C11D12F0D80C35 /* Pods_KeyneezTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC36E7E1D718FBE5D5C994C /* Pods_KeyneezTests.framework */; };
-		7DB6281614F7E06418D27E55 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		9C098C55FE861F3428F093B1 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		A950C69C942A4DAE3D4201EB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		7DB6281614F7E06418D27E55 /* Pods_KeyneezTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C9F05ED8D139C19FD246C64 /* Pods_KeyneezTests.framework */; };
+		9C098C55FE861F3428F093B1 /* Pods_Keyneez_KeyneezUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C921F7A8AE80E4BDABD773 /* Pods_Keyneez_KeyneezUITests.framework */; };
+		A950C69C942A4DAE3D4201EB /* Pods_Keyneez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0671435B36F051082A61C539 /* Pods_Keyneez.framework */; };
 		B10AAD3C296967C700AB8475 /* SeparatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD38296967C600AB8475 /* SeparatedButton.swift */; };
 		B10AAD3D296967C700AB8475 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD39296967C700AB8475 /* UIView+Extension.swift */; };
 		B10AAD3E296967C700AB8475 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10AAD3A296967C700AB8475 /* ReusableView.swift */; };
@@ -151,8 +150,6 @@
 		B8FC663C296F2C5700AEE9C3 /* ContentAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC663B296F2C5700AEE9C3 /* ContentAPIProvider.swift */; };
 		B8FC663E296F2DDA00AEE9C3 /* ContentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC663D296F2DDA00AEE9C3 /* ContentRepository.swift */; };
 		B8FC6640297057A400AEE9C3 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC663F297057A400AEE9C3 /* UILabel+Extension.swift */; };
-		CD09C0D810048F1D6A72506B /* Pods_Keyneez_KeyneezUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919C3E4FDAE2774A18937211 /* Pods_Keyneez_KeyneezUITests.framework */; };
-		DEC3D49FCD2B8F56434B6C6B /* Pods_Keyneez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E00ABF65E29CB37AD1ED99C /* Pods_Keyneez.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,12 +208,13 @@
 		02F262AD2965ABEE005A1CE4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		02F4D80F29716A8B0089AFC3 /* LoginRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestDto.swift; sourceTree = "<group>"; };
 		02F4D81129716A960089AFC3 /* LoginResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseDto.swift; sourceTree = "<group>"; };
-		0730864FCA457C68591C1EA9 /* Pods-KeyneezTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyneezTests.release.xcconfig"; path = "Target Support Files/Pods-KeyneezTests/Pods-KeyneezTests.release.xcconfig"; sourceTree = "<group>"; };
-		1E00ABF65E29CB37AD1ED99C /* Pods_Keyneez.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Keyneez.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F9B56EF6F300DE9680A929F /* Pods-Keyneez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez.release.xcconfig"; path = "Target Support Files/Pods-Keyneez/Pods-Keyneez.release.xcconfig"; sourceTree = "<group>"; };
-		5FF4012CAB18BAAFE4E60AA7 /* Pods-Keyneez-KeyneezUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez-KeyneezUITests.debug.xcconfig"; path = "Target Support Files/Pods-Keyneez-KeyneezUITests/Pods-Keyneez-KeyneezUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		919C3E4FDAE2774A18937211 /* Pods_Keyneez_KeyneezUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Keyneez_KeyneezUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ADBD263CA292BADD105A50BB /* Pods-KeyneezTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyneezTests.debug.xcconfig"; path = "Target Support Files/Pods-KeyneezTests/Pods-KeyneezTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0671435B36F051082A61C539 /* Pods_Keyneez.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Keyneez.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C9F05ED8D139C19FD246C64 /* Pods_KeyneezTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyneezTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FFDCE1E9D9C2224E24C11E0 /* Pods-KeyneezTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyneezTests.release.xcconfig"; path = "Target Support Files/Pods-KeyneezTests/Pods-KeyneezTests.release.xcconfig"; sourceTree = "<group>"; };
+		3378EF98C2FF0E7FABFE5CB3 /* Pods-Keyneez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez.release.xcconfig"; path = "Target Support Files/Pods-Keyneez/Pods-Keyneez.release.xcconfig"; sourceTree = "<group>"; };
+		46C921F7A8AE80E4BDABD773 /* Pods_Keyneez_KeyneezUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Keyneez_KeyneezUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		571904CC11A5B4DBA1EEF533 /* Pods-KeyneezTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyneezTests.debug.xcconfig"; path = "Target Support Files/Pods-KeyneezTests/Pods-KeyneezTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5724B3AE16342A0985729055 /* Pods-Keyneez-KeyneezUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez-KeyneezUITests.debug.xcconfig"; path = "Target Support Files/Pods-Keyneez-KeyneezUITests/Pods-Keyneez-KeyneezUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B10AAD38296967C600AB8475 /* SeparatedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatedButton.swift; sourceTree = "<group>"; };
 		B10AAD39296967C700AB8475 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B10AAD3A296967C700AB8475 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
@@ -323,7 +321,6 @@
 		B8FC663B296F2C5700AEE9C3 /* ContentAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPIProvider.swift; sourceTree = "<group>"; };
 		B8FC663D296F2DDA00AEE9C3 /* ContentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRepository.swift; sourceTree = "<group>"; };
 		B8FC663F297057A400AEE9C3 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
-		BEC36E7E1D718FBE5D5C994C /* Pods_KeyneezTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyneezTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6C5B1E4317A6DE1579DBE0D /* Pods-Keyneez-KeyneezUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez-KeyneezUITests.release.xcconfig"; path = "Target Support Files/Pods-Keyneez-KeyneezUITests/Pods-Keyneez-KeyneezUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EF90E3D929AC960DE4EB6A0D /* Pods-Keyneez.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyneez.debug.xcconfig"; path = "Target Support Files/Pods-Keyneez/Pods-Keyneez.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -333,8 +330,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A950C69C942A4DAE3D4201EB /* BuildFile in Frameworks */,
-				DEC3D49FCD2B8F56434B6C6B /* Pods_Keyneez.framework in Frameworks */,
+				A950C69C942A4DAE3D4201EB /* Pods_Keyneez.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,8 +338,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DB6281614F7E06418D27E55 /* BuildFile in Frameworks */,
-				661C784F24C11D12F0D80C35 /* Pods_KeyneezTests.framework in Frameworks */,
+				7DB6281614F7E06418D27E55 /* Pods_KeyneezTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,8 +346,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C098C55FE861F3428F093B1 /* BuildFile in Frameworks */,
-				CD09C0D810048F1D6A72506B /* Pods_Keyneez_KeyneezUITests.framework in Frameworks */,
+				9C098C55FE861F3428F093B1 /* Pods_Keyneez_KeyneezUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,11 +479,11 @@
 			isa = PBXGroup;
 			children = (
 				EF90E3D929AC960DE4EB6A0D /* Pods-Keyneez.debug.xcconfig */,
+				3378EF98C2FF0E7FABFE5CB3 /* Pods-Keyneez.release.xcconfig */,
+				5724B3AE16342A0985729055 /* Pods-Keyneez-KeyneezUITests.debug.xcconfig */,
 				C6C5B1E4317A6DE1579DBE0D /* Pods-Keyneez-KeyneezUITests.release.xcconfig */,
-				3F9B56EF6F300DE9680A929F /* Pods-Keyneez.release.xcconfig */,
-				5FF4012CAB18BAAFE4E60AA7 /* Pods-Keyneez-KeyneezUITests.debug.xcconfig */,
-				ADBD263CA292BADD105A50BB /* Pods-KeyneezTests.debug.xcconfig */,
-				0730864FCA457C68591C1EA9 /* Pods-KeyneezTests.release.xcconfig */,
+				571904CC11A5B4DBA1EEF533 /* Pods-KeyneezTests.debug.xcconfig */,
+				1FFDCE1E9D9C2224E24C11E0 /* Pods-KeyneezTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -497,9 +491,9 @@
 		5E14F2A450C6B70B395ACD37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1E00ABF65E29CB37AD1ED99C /* Pods_Keyneez.framework */,
-				919C3E4FDAE2774A18937211 /* Pods_Keyneez_KeyneezUITests.framework */,
-				BEC36E7E1D718FBE5D5C994C /* Pods_KeyneezTests.framework */,
+				0671435B36F051082A61C539 /* Pods_Keyneez.framework */,
+				46C921F7A8AE80E4BDABD773 /* Pods_Keyneez_KeyneezUITests.framework */,
+				0C9F05ED8D139C19FD246C64 /* Pods_KeyneezTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1630,7 +1624,7 @@
 		};
 		B14D10A62959C79A0004946F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F9B56EF6F300DE9680A929F /* Pods-Keyneez.release.xcconfig */;
+			baseConfigurationReference = 3378EF98C2FF0E7FABFE5CB3 /* Pods-Keyneez.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1671,7 +1665,7 @@
 		};
 		B14D10A82959C79A0004946F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ADBD263CA292BADD105A50BB /* Pods-KeyneezTests.debug.xcconfig */;
+			baseConfigurationReference = 571904CC11A5B4DBA1EEF533 /* Pods-KeyneezTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1692,7 +1686,7 @@
 		};
 		B14D10A92959C79A0004946F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0730864FCA457C68591C1EA9 /* Pods-KeyneezTests.release.xcconfig */;
+			baseConfigurationReference = 1FFDCE1E9D9C2224E24C11E0 /* Pods-KeyneezTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1713,7 +1707,7 @@
 		};
 		B14D10AB2959C79A0004946F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5FF4012CAB18BAAFE4E60AA7 /* Pods-Keyneez-KeyneezUITests.debug.xcconfig */;
+			baseConfigurationReference = 5724B3AE16342A0985729055 /* Pods-Keyneez-KeyneezUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

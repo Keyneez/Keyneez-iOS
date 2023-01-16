@@ -76,6 +76,7 @@ class SimplePwdCheckViewController: NiblessViewController, NavigationBarProtocol
     setConfig()
     register()
     setLayout()
+    print("비번2",userData)
   }
   
   var password: String = ""
@@ -93,7 +94,7 @@ class SimplePwdCheckViewController: NiblessViewController, NavigationBarProtocol
       switch result {
       case .success(let data):
         guard let userData = self.userData else {return}
-        UserSession.shared.profile = Profile(name: userData.userName, birthday: userData.userBirth, userCharacter: userData.characters?.character, userPhoneNumber: userData.userPhone)
+        UserSession.shared.profile = Profile(name: userData.userName, birthday: userData.userBirth, userCharacter: userData.Characters?.character, userPhoneNumber: userData.userPhone)
         DispatchQueue.main.async {
           self.view.window?.rootViewController = KeyneezTabbarController()
                   }
@@ -123,10 +124,10 @@ extension SimplePwdCheckViewController {
       $0.height.equalTo(Constant.imageHeight.adjusted)
     }
     collectionView.snp.makeConstraints {
-      $0.top.equalTo(progressImageView.snp.bottom).offset(100)
-      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(16)
+      $0.top.equalTo(progressImageView.snp.bottom).offset(Constant.imageBottom.adjusted)
+      $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(Constant.collectionLeading.adjusted)
       $0.height.equalTo(calculateCellHeight())
-      $0.bottom.equalToSuperview().inset(48)
+      $0.bottom.equalToSuperview().inset(Constant.collectionBottom.adjusted)
     }
   }
   private func calculateCellHeight() -> CGFloat {
