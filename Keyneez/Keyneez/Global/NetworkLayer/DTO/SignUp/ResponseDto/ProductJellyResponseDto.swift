@@ -23,6 +23,7 @@ struct ProductJellyResponseDto: Codable {
   let ocrDir: Bool
   let userBenefit: Bool
   let Characters: Characters?
+  let Items: [Items]
 }
 
 struct Characters: Codable {
@@ -33,7 +34,6 @@ struct Characters: Codable {
   let characterImg: String
   let characterDesc: String
   let testImg: String
-  let Items: [Items]
 }
 
 struct Items: Codable {
