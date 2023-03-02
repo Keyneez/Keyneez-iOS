@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Moya
 
 enum UserAPIError: LocalizedError {
   case encodingError
@@ -23,7 +22,7 @@ enum UserAPI {
   case patchUserWithOCRTeenID(token: String, param: UserCheckYouthIDRequestDto)
 }
 
-extension UserAPI: TargetType {
+extension UserAPI {
   
   var baseURL: URL {
     return URL(string: "http://15.165.186.200:3000")!
@@ -33,71 +32,89 @@ extension UserAPI: TargetType {
     switch self {
     case .getUserInfo:
       return URLConstant.user
-    case .postUserInfo, .patchUserPickInfo:
+    case .postUserInfo,
+        .patchUserPickInfo:
       return "/user/signup"
-    case .patchUserPwdInfo, .postPwdFetch:
+    case .patchUserPwdInfo,
+        .postPwdFetch:
       return "/user/signup/pw"
     case .postUserLoginInfo:
       return "/user/signin"
-    case .patchUserWithOCRSchoolID, .patchUserWithOCRTeenID, .getUserInfo:
+    case .patchUserWithOCRSchoolID,
+        .patchUserWithOCRTeenID,
+        .getUserInfo:
       return "/user"
     default:
       return ""
     }
   }
   
-  var method: Moya.Method {
+  var method: String {
     switch self {
     case .postUserInfo:
-      return .post
-    case .patchUserPickInfo:
-      return .patch
-    case .patchUserPwdInfo, .patchUserWithOCRTeenID, .patchUserWithOCRSchoolID:
-      return .patch
-    case .postPwdFetch:
-      return .post
-    case .postUserLoginInfo:
-      return .post
+      return "POST"
+    case .patchUserPickInfo,
+        .patchUserPwdInfo,
+        .patchUserWithOCRTeenID,
+        .patchUserWithOCRSchoolID:
+      return "PATCH"
+    case .postPwdFetch,
+        .postUserLoginInfo:
+      return "POST"
     case .getUserInfo:
-      return .get
+      return "GET"
     }
-  }
-  
-  var task: Moya.Task {
-    switch self {
-    case .postUserInfo(let param):
-      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
-    case .patchUserPickInfo(_, let param):
-      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
-    case .patchUserPwdInfo(_, let param):
-      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
-    case .postPwdFetch(_, param: let param):
-      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
-    case .postUserLoginInfo(let param):
-      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
-    case .getUserInfo:
-      return .requestPlain
-    case .patchUserWithOCRSchoolID(_, let param):
-      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
-    case .patchUserWithOCRTeenID(_, let param):
-      return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
-    }
-  }
-  
-  private var vaildationType: Moya.ValidationType {
-    return .successAndRedirectCodes
   }
   
   var headers: [String: String]? {
     switch self {
-    case .postUserInfo, .postUserLoginInfo:
+    case .postUserInfo,
+        .postUserLoginInfo:
       return ["Content-Type": "application/json"]
-    case .patchUserPickInfo(let token, _), .patchUserPwdInfo(let token, _),
-        .postPwdFetch(let token, _), .getUserInfo(let token), .patchUserWithOCRTeenID(let token, _), .patchUserWithOCRSchoolID(let token, _):
+    case .patchUserPickInfo(let token, _),
+        .patchUserPwdInfo(let token, _),
+        .postPwdFetch(let token, _),
+        .getUserInfo(let token),
+        .patchUserWithOCRTeenID(let token, _),
+        .patchUserWithOCRSchoolID(let token, _):
       return ["Content-Type": "application/json", "Authorization": token]
     default:
       return nil
     }
   }
   
+  private func body() -> [String: Any]? {
+    switch self {
+    case .postUserInfo(let param):
+      return try? param.asParameter()
+    case .patchUserPickInfo(_, let param):
+      return try? param.asParameter()
+    case .patchUserPwdInfo(_, param: let param):
+      return try? param.asParameter()
+    case .postPwdFetch(_, param: let param):
+      return try? param.asParameter()
+    case .postUserLoginInfo(param: let param):
+      return try? param.asParameter()
+    case .patchUserWithOCRSchoolID(_, param: let param):
+      return try? param.asParameter()
+    case .patchUserWithOCRTeenID(token: let token, param: let param):
+      return try? param.asParameter()
+    case .getUserInfo:
+      return nil
+    }
+  }
+  
+// Url Request setting 함수
+  func asURLRequest() -> URLRequest {
+    let url = baseURL.appendingPathComponent(path)
+    var request = URLRequest(url: url)
+    request.httpMethod = method
+    request.allHTTPHeaderFields = headers
+    
+    if let param = body() {
+      let jsonData = try? JSONSerialization.data(withJSONObject: param)
+      request.httpBody = jsonData
+    }
+    return request
+  }
 }
