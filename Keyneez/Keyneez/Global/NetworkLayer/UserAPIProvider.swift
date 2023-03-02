@@ -5,7 +5,6 @@
 //  Created by Jung peter on 1/11/23.
 //
 
-import Moya
 import Foundation
 
 enum DecodeError: Error {
@@ -21,71 +20,74 @@ struct UserInfo: Codable {
 final class UserAPIProvider {
   
   static let shared: UserAPIProvider = .init()
-  let userProvider = MoyaProvider<UserAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
   
   private init() { }
   
   func postUserInfo(param: ProductDanalRequestDto, completion: @escaping (Result<ProductDanalResponseDto?, Error>) -> Void) {
-    let target = UserAPI.postUserInfo(param: param)
-    responseFrom(target, modelType: ProductDanalResponseDto.self, completion: completion)
+    makeRequest(UserAPI.postUserInfo(param: param), modelType: ProductDanalResponseDto.self, completion: completion)
   }
   
   func patchUserInfo(token: String, param: ProductJellyRequstDto, completion: @escaping (Result<ProductJellyResponseDto?, Error>) -> Void) {
-    let target = UserAPI.patchUserPickInfo(token: token, param: param)
-    responseFrom(target, modelType: ProductJellyResponseDto.self, completion: completion)
+    makeRequest(UserAPI.patchUserPickInfo(token: token, param: param), modelType: ProductJellyResponseDto.self, completion: completion)
   }
   
   func patchPwdInfo(token: String, param: ProductPwdRequestDto, completion: @escaping (Result<ProductPwdResponseDto?, Error>) -> Void) {
-    let target = UserAPI.patchUserPwdInfo(token: token, param: param)
-    responseFrom(target, modelType: ProductPwdResponseDto.self, completion: completion)
+    makeRequest(UserAPI.patchUserPwdInfo(token: token, param: param), modelType: ProductPwdResponseDto.self, completion: completion)
   }
   
   func postLoginInfo(param: LoginRequestDto, completion: @escaping (Result<LoginResponseDto?, Error>) -> Void) {
-    let target = UserAPI.postUserLoginInfo(param: param)
-    responseFrom(target, modelType: LoginResponseDto.self, completion: completion)
+    makeRequest(UserAPI.postUserLoginInfo(param: param), modelType: LoginResponseDto.self, completion: completion)
   }
   
   func patchInfoWithStudentIDOCR(token: String, param: UserCheckStudentIDRequestDto, completion: @escaping(Result<EditUserResponseDto?, Error>) -> Void) {
-    let target = UserAPI.patchUserWithOCRSchoolID(token: token, param: param)
-    responseFrom(target, modelType: EditUserResponseDto.self, completion: completion)
+    makeRequest(UserAPI.patchUserWithOCRSchoolID(token: token, param: param), modelType: EditUserResponseDto.self, completion: completion)
   }
   
   func patchInfoWithTeenIDOCR(token: String, param: UserCheckYouthIDRequestDto, completion:  @escaping(Result<EditUserResponseDto?, Error>) -> Void) {
-    let target = UserAPI.patchUserWithOCRTeenID(token: token, param: param)
-    responseFrom(target, modelType: EditUserResponseDto.self, completion: completion)
+    makeRequest(UserAPI.patchUserWithOCRTeenID(token: token, param: param), modelType: EditUserResponseDto.self, completion: completion)
   }
   
   func getUserInfo(token: String, completion: @escaping (Result<UserInquiryResponseDto?, Error>) -> Void) {
-    let target = UserAPI.getUserInfo(token: token)
-    responseFrom(target, modelType: UserInquiryResponseDto.self, completion: completion)
+    makeRequest(UserAPI.getUserInfo(token: token), modelType: UserInquiryResponseDto.self, completion: completion)
   }
 }
 
 extension UserAPIProvider {
-  
-  func responseFrom<T: Codable>(_ target: UserAPI, modelType: T.Type, completion: @escaping (Result<T?, Error>) -> Void) {
-    userProvider.request(target) { result in
-      self.process(type: modelType, result: result, completion: completion)
-    }
-  }
-  
-  func process<T: Codable>(
-    type: T.Type,
-    result: Result<Response, MoyaError>,
-    completion: @escaping (Result<T?, Error>) -> Void
-  ) { 
-    switch result {
-    case .success(let response):
-      let decoder = JSONDecoder()
-      decoder.keyDecodingStrategy = .convertFromSnakeCase
-      if let data = try? decoder.decode(GenericResponse<T>.self, from: response.data), data.status >= 200 && data.status < 400 {
-        let body = data.data
-        completion(.success(body as? T))
-      } else {
-        completion(.failure(DecodeError.decodeError))
+    
+    func makeRequest<T: Codable>(_ target: UserAPI, modelType: T.Type, completion: @escaping (Result<T?, Error>) -> Void) {
+      //세션 생성
+      let session = URLSession.shared
+      //task 지정
+      let task = session.dataTask(with: target.asURLRequest()) { data, response, error in
+        
+        //에러 처리 - Response
+        if let error = error {
+          completion(.failure(error))
+          return
+        }
+        
+        guard let httpResponse = response as? HTTPURLResponse else {
+          completion(.failure(NetworkError.invalidResponse as! Error))
+          return
+        }
+        
+        let statusCode = httpResponse.statusCode
+        guard (200..<300).contains(statusCode) else {
+          completion(.failure(NetworkError.invalidStatusCode(statusCode)))
+          return
+        }
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        if let data = data, let response = try? decoder.decode(GenericResponse<T>.self, from: data) {
+          let body = response.data
+          completion(.success(body as? T))
+        } else {
+          completion(.failure(DecodeError.decodeError))
+        }
       }
-    case .failure(let error):
-      completion(.failure(error))
+      
+      task.resume()
     }
   }
-}
